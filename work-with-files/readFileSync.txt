@@ -7,5 +7,5 @@ console.log("Buffer length: ", buffer.length);
 console.log(buffer);
 console.log("SRC: ", src);
 
-const lines = src.split('\n').filter(line => !!line);
+const lines = src.split("\n").filter(line => !!line);
 console.dir(lines);

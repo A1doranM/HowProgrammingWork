@@ -6,5 +6,5 @@ const lib = {};
    Object.assign(lib, sub);
 });
 
-console.log('All modules imported');
+console.log("All modules imported");
 console.log(Object.keys(lib).join(","));

@@ -21,14 +21,14 @@ const prepareCache = (callback) => {
         }
     });
 
-    rs.on('error', err => {
+    rs.on("error", err => {
         if (callback) {
             callback(err);
             callback = null;
         }
     })
 
-    gs.on('error', err => {
+    gs.on("error", err => {
         if (callback) {
             callback(err);
             callback = null;

@@ -6,8 +6,8 @@ const load = (path) => {
     fs.readFile(path, "utf8", (err, data) => {
         if (err) throw err;
         content = data;
-        console.log('\x1Bc');
-        console.log('Length: ' + content.length);
+        console.log("\x1Bc");
+        console.log("Length: " + content.length);
         console.log(content);
     });
 };
