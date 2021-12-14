@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // Example showing us how the framework creates an environment (sandbox) for
 // appication runtime, load an application code and passes a sandbox into app
@@ -6,20 +6,20 @@
 
 // The framework can require core libraries
 const api = {};
-api.fs = require('fs');
-api.vm = require('vm');
-api.sandboxedFs = require('sandboxed-fs');
+api.fs = require("fs");
+api.vm = require("vm");
+api.sandboxedFs = require("sandboxed-fs");
 
-const { cloneInterface, wrapFunction } = require('./wrapper');
+const { cloneInterface, wrapFunction } = require("./wrapper");
 
 const log = s => {
-  console.log('Prints something from sandbox');
+  console.log("Prints something from sandbox");
   console.log(s);
 };
 
 const safeRequire = name => {
-  if (name === 'fs') {
-    const msg = 'You dont have access to fs API';
+  if (name === "fs") {
+    const msg = "You dont have access to fs API";
     console.log(msg);
     return new Error(msg);
   } else {
@@ -28,14 +28,15 @@ const safeRequire = name => {
 };
 
 const runSandboxed = path => {
-  const fileName = path + 'main.js';
+  const fileName = path + "main.js";
   const context = {
     module: {},
     require: safeRequire,
     api: {
       console: { log },
       timers: {
-        setTimeout: wrapFunction('setTimeout', setTimeout)
+        setTimeout: wrapFunction("setTimeout", setTimeout),
+        setInterval: wrapFunction("setInterval", setInterval)
       },
       fs: cloneInterface(api.sandboxedFs.bind(path))
     }
@@ -56,5 +57,5 @@ const runSandboxed = path => {
   });
 };
 
-runSandboxed('./applications/application1/');
-runSandboxed('./applications/application2/');
+runSandboxed("./applications/application1/");
+runSandboxed("./applications/application2/");

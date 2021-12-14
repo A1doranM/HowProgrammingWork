@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const wrapFunction = (key, fn) => {
   console.log(`Wrap function: ${key}`);
@@ -7,7 +7,7 @@ const wrapFunction = (key, fn) => {
     console.dir({ args });
     if (args.length > 0) { // check if callback exists;
       let callback = args[args.length - 1]; // for this get last argument from args;
-      if (typeof callback === 'function') { // if it function;
+      if (typeof callback === "function") { // if it function;
         args[args.length - 1] = (...args) => { // replace call back with our function and then run callback;
           console.log(`Callback: ${key}`);
           callback(...args);
