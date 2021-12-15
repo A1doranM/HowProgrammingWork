@@ -1,7 +1,9 @@
 "use strict";
 
 const os = require("os");
-const cluster = require("cluster");
+const cluster = require("cluster"); // Кластер это обертка над child_process
+                                    // Кластер лучше использовать когда нам надо как-то обрабатывать запросы (например сетевые) и перераспределять их
+                                    // между дочерними потоками, например один кластер вернул результат, мы его обработали и передали в другой дочерний процесс.
 
 console.log("Started master:", process.pid);
 

@@ -2,7 +2,7 @@
 
 const cluster = require("cluster");
 
-if (cluster.isMaster) {
+if (cluster.isPrimary) {
   require("./master.js");
 } else {
   require("./worker.js");
