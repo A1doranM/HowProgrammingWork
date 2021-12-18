@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
-const dgram = require('dgram');
+const dgram = require("dgram");
 
-const server = dgram.createSocket('udp4');
+const server = dgram.createSocket("udp4");
 
-server.on('message', (msg, rinfo) => {
+server.on("message", (msg, rinfo) => {
   console.dir({ msg, rinfo });
 });
 

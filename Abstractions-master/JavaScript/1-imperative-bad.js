@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // Bad practices in imperative programming below:
 // 1. Single execution sequence, no procedural decomposition
@@ -7,11 +7,11 @@
 // 4. Unclear naming (or extra short) or no naming (array indexes)
 // 5. Long expressions
 
-const fs = require('fs');
+const fs = require("fs");
 
-const data = fs.readFileSync('./cities.csv', 'utf8');
+const data = fs.readFileSync("./cities.csv", "utf8");
 if (data) {
-  const lines = data.split('\n');
+  const lines = data.split("\n");
   lines.pop();
   const table = [];
   let first = true;
@@ -20,7 +20,7 @@ if (data) {
     if (first) {
       first = false;
     } else {
-      const cells = line.split(',');
+      const cells = line.split(",");
       const d = parseInt(cells[3]);
       if (d > max) max = d;
       table.push([cells[0], cells[1], cells[2], cells[3], cells[4]]);

@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const fs = require('fs');
+const fs = require("fs");
 
 /* fp */
 const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
@@ -25,8 +25,8 @@ const cellWidth = (index) => [18, 10, 8, 8, 18, 6][index];
 const renderCell = (cell, index) => (
   cellPad(index, toStr(cell), cellWidth(index))
 );
-const renderRow = pipe(map(renderCell), join(''));
-const renderTable = pipe(map(renderRow), join('\n'));
+const renderRow = pipe(map(renderCell), join(""));
+const renderTable = pipe(map(renderRow), join("\n"));
 
 const getDensityCell = (row) => parseInt(row[3], 10);
 const proportion = (max, val) => Math.round(parseInt(val, 10) * 100 / max);
@@ -55,15 +55,15 @@ const appendTableProportionCol = (rows) => pipe(
   appendProportionCell(rows)
 )(rows);
 
-const parseTableLines = map(split(','));
+const parseTableLines = map(split(","));
 
 const toLines = pipe(
-  split('\n'),
+  split("\n"),
   skipFirst,
   filter(hasValue)
 );
 
-const readFile = (file) => fs.readFileSync(file, 'utf8');
+const readFile = (file) => fs.readFileSync(file, "utf8");
 
 const getDataset = pipe(
   readFile,
@@ -78,4 +78,4 @@ const main = pipe(
   renderTable
 );
 
-console.log(main('./cities.csv'));
+console.log(main("./cities.csv"));

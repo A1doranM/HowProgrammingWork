@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // Bad practices in FP below:
 // 1. Global data structures
@@ -10,7 +10,7 @@
 // 7. Return hack
 // 8. Magic numbers
 
-const fs = require('fs');
+const fs = require("fs");
 
 const rpad = (s, count, char) => s.padEnd(count, char);
 const lpad = (s, count, char) => s.padStart(count, char);
@@ -21,9 +21,9 @@ const width = [18, 10, 8, 8, 18, 6];
 let maxDensity = 0;
 
 const format = (file) => (
-  fs.readFileSync(file, 'utf8').split('\n')
+  fs.readFileSync(file, "utf8").split("\n")
     .filter((s, i) => i && s)
-    .map((line) => line.split(',').map((cell, i, arr) => (
+    .map((line) => line.split(",").map((cell, i, arr) => (
       (i < 1 || i > 3) || (cell = parseInt(cell), arr[i] = cell),
       (i - 3) || (maxDensity = maxDensity > cell ? maxDensity : cell), cell
     )))
@@ -32,9 +32,9 @@ const format = (file) => (
     ))
     .sort((r1, r2) => (r2[5] - r1[5]))
     .map((row) => (
-      row.map((cell, i) => padding[i](cell + '', width[i])).join('')
+      row.map((cell, i) => padding[i](cell + "", width[i])).join("")
     ))
-    .join('\n')
+    .join("\n")
 );
 
-console.log(format('./cities.csv'));
+console.log(format("./cities.csv"));

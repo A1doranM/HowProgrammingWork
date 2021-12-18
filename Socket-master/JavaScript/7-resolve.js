@@ -1,19 +1,19 @@
-'use strict';
+"use strict";
 
-const dns = require('dns');
+const dns = require("dns");
 
-dns.resolve('how.programming.works', (err, data) => {
+dns.resolve("how.programming.works", (err, data) => {
   if (err) {
-    if (err.code === 'ECONNREFUSED') {
-      console.log('No internet connection');
+    if (err.code === "ECONNREFUSED") {
+      console.log("No internet connection");
     } else {
-      console.log('Web is dead');
+      console.log("Web is dead");
     }
   }
   console.log({ data });
 });
 
-dns.resolveAny('google.com', (err, data) => {
+dns.resolveAny("google.com", (err, data) => {
   if (err) throw err;
   console.log({ data });
 });

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // 1. Descriptive syntactic structures
 // 2. Domain specific language
@@ -9,13 +9,13 @@
 // 7. Task, result or process description
 
 const task = {
-  file: './cities.csv',
+  file: "./cities.csv",
   types: [String, Number, Number, Number, String, Number],
   width: [18, 10, 8, 8, 18, 6],
-  pad: ' ',
-  separator: ',',
-  compare: 'density',
-  order: 'density',
+  pad: " ",
+  separator: ",",
+  compare: "density",
+  order: "density",
 };
 
 console.log(task);

@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const dns = require('dns');
+const dns = require("dns");
 
 const servers = dns.getServers();
 console.log({ servers });

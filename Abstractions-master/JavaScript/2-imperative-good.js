@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // 1. Control flow
 // 2. Step by step execution
@@ -8,24 +8,24 @@
 // 6. Mutable data structures
 // 7. Model of the process
 
-const fs = require('fs');
+const fs = require("fs");
 
 const loadFile = (fileName) => {
   try {
-    const data = fs.readFileSync(fileName, 'utf8');
+    const data = fs.readFileSync(fileName, "utf8");
     return data;
   } catch (error) {
-    console.log('Can\'t read file: ' + fileName);
+    console.log("Can\"t read file: " + fileName);
   }
 };
 
 const parseFile = (data) => {
-  const lines = data.split('\n');
+  const lines = data.split("\n");
   lines.shift();
   const cities = [];
   for (const line of lines) {
     if (line) {
-      const cells = line.split(',');
+      const cells = line.split(",");
       const [name, population, area, density, country] = cells;
       cities.push({
         name,
@@ -61,7 +61,7 @@ const showTable = (cities) => {
   }
 };
 
-const data = loadFile('./cities.csv');
+const data = loadFile("./cities.csv");
 if (data) {
   const cities = parseFile(data);
   calculateDensityColumn(cities);
