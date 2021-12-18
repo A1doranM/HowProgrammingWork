@@ -1,7 +1,8 @@
 "use strict";
 
-const dns = require("dns");
+const dns = require("dns"); // Позволяет получить информацию о хосте, хострмастере и т.д.
 
+// Можно подставлять просто хостнейм вместо IP
 dns.resolve("how.programming.works", (err, data) => {
   if (err) {
     if (err.code === "ECONNREFUSED") {

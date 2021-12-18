@@ -15,4 +15,3 @@ socket.connect({
   socket.write("💋");
 });
 
-socket.unref();
