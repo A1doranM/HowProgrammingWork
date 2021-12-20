@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // Example showing us how the framework creates an environment (sandbox) for
 // appication runtime, load an application code and passes a sandbox into app
@@ -6,8 +6,8 @@
 
 // The framework can require core libraries
 global.api = {};
-api.fs = require('fs');
-api.vm = require('vm');
+api.fs = require("fs");
+api.vm = require("vm");
 
 // Create a hash and turn it into the sandboxed context which will be
 // the global context of an application
@@ -16,8 +16,8 @@ context.global = context;
 const sandbox = api.vm.createContext(context);
 
 // Read an application source code from the file
-const fileName = './application.js';
-api.fs.readFile(fileName, 'utf8', (err, src) => {
+const fileName = "./application.js";
+api.fs.readFile(fileName, "utf8", (err, src) => {
   // We need to handle errors here
 
   // Run an application in sandboxed context

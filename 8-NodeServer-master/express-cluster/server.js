@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
-const os = require('os');
-const express = require('express');
-const cluster = require('cluster');
+const os = require("os");
+const express = require("express");
+const cluster = require("cluster");
 const app = express();
 
-const user = { name: 'jura', age: 22 };
+const user = { name: "jura", age: 22 };
 
 if (cluster.isMaster) {
 
@@ -14,20 +14,20 @@ if (cluster.isMaster) {
 
 } else {
 
-  app.get('/', (req, res) => {
-    res.end('welcome to homepage');
+  app.get("/", (req, res) => {
+    res.end("welcome to homepage");
   });
 
-  app.get('/user', (req, res) => {
+  app.get("/user", (req, res) => {
     res.end(JSON.stringify(user));
   });
 
-  app.get('/user/name', (req, res) => {
+  app.get("/user/name", (req, res) => {
     res.end(user.name);
   });
 
-  app.get('/user/age', (req, res) => {
-    res.end(user.age + '');
+  app.get("/user/age", (req, res) => {
+    res.end(user.age + "");
   });
 
   app.listen(8000);

@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-const os = require('os');
-const net = require('net');
-const http = require('http');
-const cluster = require('cluster');
+const os = require("os");
+const net = require("net");
+const http = require("http");
+const cluster = require("cluster");
 const cpus = os.cpus().length;
 
 if (cluster.isMaster) {
@@ -18,14 +18,14 @@ if (cluster.isMaster) {
     workers.push(worker);
   }
 
-  const ipToInt = ip => ip.split('.')
+  const ipToInt = ip => ip.split(".")
     .reduce((res, item) => (res << 8) + (+item), 0);
 
   const balancer = socket => {
     const ip = ipToInt(socket.remoteAddress);
     const id = Math.abs(ip) % cpus;
     const worker = workers[id];
-    if (worker) worker.send({ name: 'socket' }, socket);
+    if (worker) worker.send({ name: "socket" }, socket);
   };
 
   const server = new net.Server(balancer);
@@ -37,17 +37,17 @@ if (cluster.isMaster) {
 
   const dispatcher = (req, res) => {
     console.log(req.url);
-    res.setHeader('Process-Id', process.pid);
+    res.setHeader("Process-Id", process.pid);
     res.end(`Hello from worker ${process.pid}`);
   };
 
   const server = http.createServer(dispatcher);
   server.listen(null);
 
-  process.on('message', (message, socket) => {
-    if (message.name === 'socket') {
+  process.on("message", (message, socket) => {
+    if (message.name === "socket") {
       socket.server = server;
-      server.emit('connection', socket);
+      server.emit("connection", socket);
     }
   });
 

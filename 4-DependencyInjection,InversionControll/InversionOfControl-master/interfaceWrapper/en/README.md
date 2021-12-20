@@ -31,16 +31,16 @@ This task can be divided into a few steps.
 following code:
 
 ```JavaScript
-const fileName = './README.md';
-console.log('Application going to read ' + fileName);
+const fileName = "./README.md";
+console.log("Application going to read " + fileName);
 fs.readFile(fileName, (err, src) => {
-  console.log('File ' + fileName + ' size ' + src.length);
+  console.log("File " + fileName + " size " + src.length);
 });
 ```
 
 This example contains a call to `fs.readFile`. In next steps we will change the
 behavior of the code changing `framework.js` and wrapping all `fs` functions.
-Let's run `node framework` and make sure that it reads the file and displays its
+Let"s run `node framework` and make sure that it reads the file and displays its
 length.
 3. Next step is preparing function `cloneInterface(interfaceName)` for cloning
 all keys from given library into new interface. So we can pass its result
@@ -65,7 +65,7 @@ example:
 
 ```JavaScript
 const wrapFunction = (fnName, fn) => (...args) => {
-  console.log('Call: ' + fnName);
+  console.log("Call: " + fnName);
   console.dir(args);
   return fn(...args);
 }

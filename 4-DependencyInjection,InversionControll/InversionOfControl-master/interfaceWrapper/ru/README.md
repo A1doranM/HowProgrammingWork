@@ -30,10 +30,10 @@
 2. Удаляем из `application.js` вызов таймера и оставляем там только код:
 
 ```JavaScript
-const fileName = './README.md';
-console.log('Application going to read ' + fileName);
+const fileName = "./README.md";
+console.log("Application going to read " + fileName);
 fs.readFile(fileName, (err, src) => {
-  console.log('File ' + fileName + ' size ' + src.length);
+  console.log("File " + fileName + " size " + src.length);
 });
 ```
 
@@ -59,12 +59,12 @@ const cloneInterface = (anInterface) => {
 возвращает функцию-замыкание от `wrapper`. Замыкание, это ссылка на копию
 функции `wrapper`, которая замкнута на контекст `wrapFunction`. Таким образом
 мы применяем функциональное наследование и порождаем такой вариант `wrapper`,
-который видит параметры `fnName` и 'fn' от `wrapFunction`. Мы полностью
+который видит параметры `fnName` и "fn" от `wrapFunction`. Мы полностью
 передаем все аргументы в функцию fn:
 
 ```JavaScript
 const wrapFunction = (fnName, fn) => (...args) => {
-  console.log('Call: ' + fnName);
+  console.log("Call: " + fnName);
   console.dir(args);
   return fn(...args);
 }
@@ -102,13 +102,13 @@ const wrapFunction = (fnName, fn) => (...args) => {
 const virtualFs = {
   folder: {
     subfolder: {
-      file1: 'File content',
-      file2: 'Another file content'
+      file1: "File content",
+      file2: "Another file content"
     },
   },
   notes: {
-    myToDos: 'Refactor projects, Prepare tests',
-    meetings: 'Meet thoughts at 10:00 walking along garden'
+    myToDos: "Refactor projects, Prepare tests",
+    meetings: "Meet thoughts at 10:00 walking along garden"
   }
 };
 ```

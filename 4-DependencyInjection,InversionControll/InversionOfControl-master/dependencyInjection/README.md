@@ -26,4 +26,4 @@
 ## Задания
 
 1. Все зависимости у нас смешаны в `api.`, например, `api.util` и
-'api.component1'
+"api.component1"
