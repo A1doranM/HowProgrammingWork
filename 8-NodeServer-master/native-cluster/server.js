@@ -1,5 +1,6 @@
 "use strict";
 
+// Разбиваем сервер на кластеры
 const http = require("http");
 const cluster = require("cluster");
 const os = require("os");
@@ -24,6 +25,15 @@ const types = {
   function: (fn, par, client) => JSON.stringify(fn(client, par)),
 };
 
+// Если это мастер-процесс, считаем кол-во ядер и запускаем определенное количество воркеров
+// И когда инстансы будут запускаться внутри форков то выполнится else часть данного условия
+// Внутри форков есть createServer, который на самом деле создастся в мастере где сядет на указанный порт, а все форки получат
+// емуляцию сервера, тоесть создастся экщемпляр сервера, который вместо listen будет получать
+// запросы из межпроцессового взаимодействия, и туда будут приходить данные
+// HTTP запроса и хенд сокета который приходит из мастер-процесса,
+// и дальше съэмулированный сервер будет запускать обработчик описанный внутри createServer().
+// Минус такого подхода в том что все запросы идут через мастер и уже затем распределяются по детям,
+// это ведет к тому что мастер может быть перегружен.
 if (cluster.isMaster) {
   const count = os.cpus().length;
   console.log(`Master pid: ${pid}`);
@@ -36,7 +46,7 @@ if (cluster.isMaster) {
     const data = routing[req.url];
     const type = typeof data;
     const serializer = types[type];
-    res.setHeader("Process-Id", pid);
+    res.setHeader("Process-Id", pid); // Записываем pid чтобы понять какой форк нам ответил.
     res.end(serializer(data, req, res));
   }).listen(PORT);
 }

@@ -1,5 +1,8 @@
 "use strict";
 
+// Минусы такого сервера в том что он синхронный, и если у нас на каком-то
+// роуте будет долго выполняться функция то во время ее выполнения сервер не принимает другие запросы
+
 const http = require("http");
 
 const user = { name: "jura", age: 22 };
@@ -21,6 +24,7 @@ const types = {
 };
 
 const matching = [];
+// Достаем из роутинга все пути со звездочкой и переносим их в массив matching удаляя из роутинга
 for (const key in routing) {
   if (key.includes("*")) {
     const rx = new RegExp(key.replace("*", "(.*)"));
@@ -30,6 +34,7 @@ for (const key in routing) {
   }
 }
 
+// Ищем нужный роут проходя по массиву matching если его нету в routing
 const router = client => {
   let par;
   let route = routing[client.req.url];
