@@ -6,7 +6,7 @@ const wrapFunction = (key, fn) => {
     console.log(`Called wrapper for: ${key}`);
     console.dir({ args });
     if (args.length > 0) { // check if callback exists;
-      let callback = args[args.length - 1]; // for this get last argument from args;
+      let callback = args[args.length - 1]; // get last argument from args;
       if (typeof callback === "function") { // if it function;
         args[args.length - 1] = (...args) => { // replace call back with our function and then run callback;
           console.log(`Callback: ${key}`);
