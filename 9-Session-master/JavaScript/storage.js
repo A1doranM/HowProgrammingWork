@@ -1,20 +1,20 @@
-'use strict';
+"use strict";
 
-const fs = require('fs');
-const path = require('path');
-const v8 = require('v8');
+const fs = require("fs");
+const path = require("path");
+const v8 = require("v8");
 
 const PATH = `${__dirname}/sessions`;
 
 const safePath = (fn) => (token, ...args) => {
   const callback = args[args.length - 1];
-  if (typeof token !== 'string') {
-    callback(new Error('Invalid session token'));
+  if (typeof token !== "string") {
+    callback(new Error("Invalid session token"));
     return;
   }
   const fileName = path.join(PATH, token);
   if (!fileName.startsWith(PATH)) {
-    callback(new Error('Invalid session token'));
+    callback(new Error("Invalid session token"));
     return;
   }
   fn(fileName, ...args);
@@ -54,7 +54,7 @@ class Storage extends Map {
   }
 
   delete(key) {
-    console.log('Delete: ', key);
+    console.log("Delete: ", key);
     deleteSession(key, () => {
       console.log(`Session deleted: ${key}`);
     });
