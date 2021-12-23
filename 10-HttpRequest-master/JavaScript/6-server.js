@@ -13,9 +13,9 @@ const routing = {
 };
 
 http.createServer((req, res) => {
-  const url = req.url.split("/");
-  const par = url.pop();
-  const method = routing[url.join("/")];
+  const url = req.url.split("/"); // Парсим урл
+  const par = url.pop(); // выделяем из него параметры
+  const method = routing[url.join("/")]; // и метод
   const result = method ? method(par) : { error: "not found" };
   res.end(JSON.stringify(result));
 }).listen(8000);

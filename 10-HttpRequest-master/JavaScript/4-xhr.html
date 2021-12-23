@@ -6,10 +6,11 @@
 
 const message = document.getElementById("message");
 
+// Создаем XHR
 const xhr = new XMLHttpRequest();
-xhr.onreadystatechange = () => {
-  if (xhr.readyState === XMLHttpRequest.DONE) {
-    message.innerHTML = xhr.status === 200 ?
+xhr.onreadystatechange = () => { // Вешаемся на событие.
+  if (xhr.readyState === XMLHttpRequest.DONE) { // Проверяем статус выполнения запроса, затем
+    message.innerHTML = xhr.status === 200 ? // проверяем код ответа
       xhr.responseText : `Error code: ${xhr.status}`;
   }
 };

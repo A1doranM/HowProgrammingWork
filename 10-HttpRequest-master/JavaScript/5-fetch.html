@@ -5,7 +5,7 @@
 <script>
 
 const message = document.getElementById("message");
-
+// Оборачиваем XHR в промис, чтобы он исполнялся с таким же контрактом как и фетч
 const fetch = url => new Promise((resolve, reject) => {
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = () => {

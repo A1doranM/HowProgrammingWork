@@ -3,8 +3,9 @@
 const fs = require("fs");
 const http = require("http");
 
-const index = fs.readFileSync("./4-xhr.html");
+const index = fs.readFileSync("./4-xhr.html"); // Читаем наш хтмл
 
+// Короткий сервер с двумя путями
 http.createServer((req, res) => {
   if (req.url === "/person") {
     res.end(JSON.stringify({ name: "Marcus" }));

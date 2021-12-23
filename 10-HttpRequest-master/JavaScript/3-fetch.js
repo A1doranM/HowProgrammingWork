@@ -20,6 +20,6 @@ const fetch = (url) => new Promise((resolve, reject) => {
 
 // Usage
 
-fetch("http://ietf.org/")
+fetch("https://ietf.org/")
   .then(body => console.log(body))
   .catch(err => console.error(err));
