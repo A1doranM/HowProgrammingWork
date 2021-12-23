@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="message"></div>
+<script>
+
+const message = document.getElementById('message');
+
+const xhr = new XMLHttpRequest();
+xhr.onreadystatechange = () => {
+  if (xhr.readyState === XMLHttpRequest.DONE) {
+    message.innerHTML = xhr.status === 200 ?
+      xhr.responseText : `Error code: ${xhr.status}`;
+  }
+};
+xhr.open('GET', '/person', true);
+xhr.send();
+
+</script>
+</body>
+</html>

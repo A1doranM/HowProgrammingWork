@@ -33,8 +33,8 @@ class Client {
   }
 
   parseCookie() {
-    const { req } = this;
-    const { cookie } = req.headers; // Достаем куки из хедеров
+    const {req} = this;
+    const {cookie} = req.headers; // Достаем куки из хедеров
     if (!cookie) return;
     const items = cookie.split(";");
     for (const item of items) { // Проходимся по содержимому
@@ -46,7 +46,7 @@ class Client {
   }
 
   setCookie(name, val, httpOnly = false) {
-    const { host } = this;
+    const {host} = this;
     const expires = `expires=${COOKIE_EXPIRE}`;
     let cookie = `${name}=${val}; ${expires}; Path=/; Domain=${host}`; // Если дописан путь то браузре будет отправлять только те куки которые подходят по текущий урл
     if (httpOnly) cookie += "; HttpOnly"; // http-only означает что скрипт на клиенте не получит доступа к куки с этим флагом, а вот мы на сервере получим.
@@ -58,10 +58,10 @@ class Client {
   }
 
   sendCookie() {
-    const { res, preparedCookie } = this;
+    const {res, preparedCookie} = this;
     // Как только выполняется sendHeader, res.write, res.end, ..., то хттп заголовки выставляются и
     if (preparedCookie.length && !res.headersSent) { // res.headersSent устанавливается в true тоесть свои куки мы туда прикрепить уже не сможем
-      console.dir({ preparedCookie });
+      console.dir({preparedCookie});
       res.setHeader("Set-Cookie", preparedCookie); // добавляем куки к заголовку.
     }
   }
