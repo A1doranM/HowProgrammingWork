@@ -31,7 +31,7 @@ const routing = {
   }),
   "/api/method3": async (client) => {
     if (client.session) {
-      return [...client.session.entries()]
+      return [...client.session.entries()] // Преобразование итератора в массив.
         .map(([key, value]) => `<b>${key}</b>: ${value}<br>`)
         .join();
     }

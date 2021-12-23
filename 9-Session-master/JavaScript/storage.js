@@ -17,8 +17,8 @@ const safePath = (fn) => (token, ...args) => { // по контракту вна
     return;
   }
   const fileName = path.join(PATH, token); // К пути доклеивам еще токен.
-  if (!fileName.startsWith(PATH)) { // Но если кто-то засунул в начало токена переход между папками (аля хацкер).
-    // Если путь не начинается на тот с по котрому хранятся все сессии то мы выходим из программы.
+  if (!fileName.startsWith(PATH)) { // Проверяем не засунул ли кто-то в начало токена переход между папками "../" (аля хацкер),
+    // если путь не начинается на тот с по котрому хранятся все сессии то мы выходим из программы.
     callback(new Error("Invalid session token"));
     return;
   }
@@ -31,28 +31,28 @@ const deleteSession = safePath(fs.unlink);
 
 class Storage extends Map {
   get(key, callback) {
-    const value = super.get(key);
+    const value = super.get(key); // Если ключ уже есть в памяти считываем его, а если нет
     if (value) {
       callback(null, value);
       return;
     }
-    readSession(key, (err, data) => {
+    readSession(key, (err, data) => { // то читаем сессию с диска.
       if (err) {
         callback(err);
         return;
       }
       console.log(`Session loaded: ${key}`);
-      const session = v8.deserialize(data);
-      super.set(key, session);
+      const session = v8.deserialize(data); // На выходе получаем объект Мар, но он пока что не наследник от сессии
+      super.set(key, session); // кладем его в наше хранилище.
       callback(null, session);
     });
   }
 
   save(key) {
-    const value = super.get(key);
+    const value = super.get(key); // Берем наш токен.
     if (value) {
-      const data = v8.serialize(value);
-      writeSession(key, data, () => {
+      const data = v8.serialize(value); // Сериализируем его
+      writeSession(key, data, () => { // и записываем в фаил.
         console.log(`Session saved: ${key}`);
       });
     }
