@@ -4,8 +4,8 @@ const http = require("http");
 const https = require("https");
 
 // Собственная реализация fetch метода.
-const fetch = url => new Promise((resolve, reject) => {
-  const protocol = url.startsWith("https") ? https : http;
+const fetch = (url) => new Promise((resolve, reject) => {
+  const protocol = url.startsWith("https") ? https : http; // Выбираем какой протокол использовать исходя из ссылки которую нам дали.
   protocol.get(url, res => {
     if (res.statusCode !== 200) {
       const { statusCode, statusMessage } = res;

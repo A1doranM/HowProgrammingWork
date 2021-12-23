@@ -1,9 +1,10 @@
 "use strict";
 
+// Все тоже самое что и раньше но обращаемся по https
 const https = require("https");
 const fs = require("fs");
 
-const url = "https://ietf.org/";
+const url = "https://google.com/";
 
 https.get(url, res => {
   console.log(res.req._header);
