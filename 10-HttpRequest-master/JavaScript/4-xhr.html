@@ -4,7 +4,7 @@
 <div id="message"></div>
 <script>
 
-const message = document.getElementById('message');
+const message = document.getElementById("message");
 
 const xhr = new XMLHttpRequest();
 xhr.onreadystatechange = () => {
@@ -13,7 +13,7 @@ xhr.onreadystatechange = () => {
       xhr.responseText : `Error code: ${xhr.status}`;
   }
 };
-xhr.open('GET', '/person', true);
+xhr.open("GET", "/person", true);
 xhr.send();
 
 </script>

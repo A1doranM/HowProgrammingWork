@@ -4,7 +4,7 @@
 <div id="message"></div>
 <script>
 
-const message = document.getElementById('message');
+const message = document.getElementById("message");
 
 const fetch = url => new Promise((resolve, reject) => {
   const xhr = new XMLHttpRequest();
@@ -14,13 +14,13 @@ const fetch = url => new Promise((resolve, reject) => {
       else reject(`Status Code: ${xhr.status}`);
     }
   };
-  xhr.open('GET', url, true);
+  xhr.open("GET", url, true);
   xhr.send();
 });
 
 // Usage
 
-fetch('/person')
+fetch("/person")
   .then(body => message.innerHTML = body)
   .catch(err => message.innerHTML = err);
 
