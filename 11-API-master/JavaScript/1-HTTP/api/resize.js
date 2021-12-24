@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const memory = require('../memory.js');
+const memory = require("../memory.js");
 
 const resize = (point, k) => {
   let { x, y } = point;
@@ -12,10 +12,10 @@ const resize = (point, k) => {
 
 module.exports = async (name, k) => {
   const shape = memory.get(name);
-  if (!shape) return 'Shape is not found';
+  if (!shape) return "Shape is not found";
   for (const key in shape) {
     const point = shape[key];
     resize(point, k);
   }
-  return 'Shape rotated';
+  return "Shape rotated";
 };

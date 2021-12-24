@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const memory = require('../memory.js');
+const memory = require("../memory.js");
 
 class Point {
   constructor(x, y) {
@@ -21,5 +21,5 @@ class Rect {
 module.exports = async (name, x1, y1, x2, y2) => {
   const rect = new Rect(x1, y1, x2, y2);
   memory.set(name, rect);
-  return 'ok';
+  return "ok";
 };

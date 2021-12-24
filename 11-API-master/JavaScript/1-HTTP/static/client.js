@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const buildAPI = (methods) => {
   const api = {};
@@ -7,8 +7,8 @@ const buildAPI = (methods) => {
       const url = `/api/${method}`;
       console.log(url, args);
       fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(args),
       }).then((res) => {
         const { status } = res;
@@ -23,19 +23,19 @@ const buildAPI = (methods) => {
   return api;
 };
 
-const api = buildAPI(['rect', 'move', 'rotate', 'read', 'render', 'resize']);
+const api = buildAPI(["rect", "move", "rotate", "read", "render", "resize"]);
 
 const show = async () => {
-  const svg = await api.render('Rect1');
-  const output = document.getElementById('output');
+  const svg = await api.render("Rect1");
+  const output = document.getElementById("output");
   output.innerHTML = svg;
 };
 
 const scenario = async () => {
-  await api.rect('Rect1', -10, 10, 10, -10);
-  await api.move('Rect1', 5, 5);
-  await api.rotate('Rect1', 5);
-  const data = await api.read('Rect1');
+  await api.rect("Rect1", -10, 10, 10, -10);
+  await api.move("Rect1", 5, 5);
+  await api.rotate("Rect1", 5);
+  const data = await api.read("Rect1");
   console.dir({ data });
   await show();
 };

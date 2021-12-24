@@ -1,17 +1,17 @@
-'use strict';
+"use strict";
 
-const http = require('http');
-const path = require('path');
-const fs = require('fs');
-const WebSocket = require('ws');
+const http = require("http");
+const path = require("path");
+const fs = require("fs");
+const WebSocket = require("ws");
 
 const api = new Map();
 
-const apiPath = './api/';
+const apiPath = "./api/";
 
 const cacheFile = (name) => {
   const filePath = apiPath + name;
-  const key = path.basename(filePath, '.js');
+  const key = path.basename(filePath, ".js");
   try {
     const libPath = require.resolve(filePath);
     delete require.cache[libPath];
@@ -47,37 +47,37 @@ setTimeout(() => {
 }, 1000);
 
 const server = http.createServer(async (req, res) => {
-  const url = req.url === '/' ? '/index.html' : req.url;
-  const [file] = url.substring(1).split('/');
+  const url = req.url === "/" ? "/index.html" : req.url;
+  const [file] = url.substring(1).split("/");
   const path = `./static/${file}`;
   try {
     const data = await fs.promises.readFile(path);
     res.end(data);
   } catch (err) {
     res.statusCode = 404;
-    res.end('"File is not found"');
+    res.end(""File is not found"");
   }
 }).listen(8000);
 
 const ws = new WebSocket.Server({ server });
 
-ws.on('connection', (connection, req) => {
-  console.log('Connected ' + req.socket.remoteAddress);
-  connection.on('message', async (message) => {
-    console.log('Received: ' + message);
+ws.on("connection", (connection, req) => {
+  console.log("Connected " + req.socket.remoteAddress);
+  connection.on("message", async (message) => {
+    console.log("Received: " + message);
     const obj = JSON.parse(message);
     const { method, args } = obj;
     const fn = api.get(method);
     try {
       const result = await fn(...args);
       if (!result) {
-        connection.send('"No result"');
+        connection.send(""No result"");
         return;
       }
       connection.send(JSON.stringify(result));
     } catch (err) {
       console.dir({ err });
-      connection.send('"Server error"');
+      connection.send(""Server error"");
     }
   });
 });

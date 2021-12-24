@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const socket = new WebSocket('ws://127.0.0.1:8000/');
+const socket = new WebSocket("ws://127.0.0.1:8000/");
 
 const buildAPI = (methods) => {
   const api = {};
@@ -16,19 +16,19 @@ const buildAPI = (methods) => {
   return api;
 };
 
-const api = buildAPI(['rect', 'move', 'rotate', 'read', 'render', 'resize']);
+const api = buildAPI(["rect", "move", "rotate", "read", "render", "resize"]);
 
 const show = async () => {
-  const svg = await api.render('Rect1');
-  const output = document.getElementById('output');
+  const svg = await api.render("Rect1");
+  const output = document.getElementById("output");
   output.innerHTML = svg;
 };
 
 const scenario = async () => {
-  await api.rect('Rect1', -10, 10, 10, -10);
-  await api.move('Rect1', 5, 5);
-  await api.rotate('Rect1', 5);
-  const data = await api.read('Rect1');
+  await api.rect("Rect1", -10, 10, 10, -10);
+  await api.move("Rect1", 5, 5);
+  await api.rotate("Rect1", 5);
+  const data = await api.read("Rect1");
   console.dir({ data });
   await show();
 };

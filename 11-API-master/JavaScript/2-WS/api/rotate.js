@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const memory = require('../memory.js');
+const memory = require("../memory.js");
 
 const rotate = (point, angle) => {
   const sin = Math.sin(angle);
@@ -12,10 +12,10 @@ const rotate = (point, angle) => {
 
 module.exports = async (name, angle) => {
   const shape = memory.get(name);
-  if (!shape) return 'Shape is not found';
+  if (!shape) return "Shape is not found";
   for (const key in shape) {
     const point = shape[key];
     rotate(point, angle);
   }
-  return 'Shape rotated';
+  return "Shape rotated";
 };
