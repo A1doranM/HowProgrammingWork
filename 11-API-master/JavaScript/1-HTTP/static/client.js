@@ -1,5 +1,6 @@
 "use strict";
 
+// Строим объект АПИ и складываем туда все функции из АПИ.
 const buildAPI = (methods) => {
   const api = {};
   for (const method of methods) {
