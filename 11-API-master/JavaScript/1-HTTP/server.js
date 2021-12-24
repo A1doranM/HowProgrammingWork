@@ -4,11 +4,11 @@ const http = require("http");
 const path = require("path");
 const fs = require("fs");
 
-const api = new Map();
+const api = new Map(); // Хранилище АПИ.
 
 const apiPath = "./api/";
 
-const cacheFile = (name) => {
+const cacheFile = (name) => { // загружаем определенный файл из папки АПИ и кешируем его.
   const filePath = apiPath + name;
   const key = path.basename(filePath, ".js");
   try {
@@ -19,20 +19,20 @@ const cacheFile = (name) => {
   }
   try {
     const method = require(filePath);
-    api.set(key, method);
+    api.set(key, method); //
   } catch (e) {
     api.delete(key);
   }
 };
 
 const cacheFolder = (path) => {
-  fs.readdir(path, (err, files) => {
+  fs.readdir(path, (err, files) => { // Кешируем все файлы.
     if (err) return;
     files.forEach(cacheFile);
   });
 };
 
-const watch = (path) => {
+const watch = (path) => { // Наблюдаем за файловой системой и при изменении файла заново его перекешируем.
   fs.watch(path, (event, file) => {
     cacheFile(file);
   });

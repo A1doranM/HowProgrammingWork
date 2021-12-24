@@ -43,7 +43,7 @@ cacheFolder(apiPath);
 watch(apiPath);
 
 setTimeout(() => {
-  console.dir({ api });
+  console.dir({api});
 }, 1000);
 
 const server = http.createServer(async (req, res) => {
@@ -55,29 +55,29 @@ const server = http.createServer(async (req, res) => {
     res.end(data);
   } catch (err) {
     res.statusCode = 404;
-    res.end(""File is not found"");
+    res.end('"File is not found"');
   }
 }).listen(8000);
 
-const ws = new WebSocket.Server({ server });
+const ws = new WebSocket.Server({server});
 
 ws.on("connection", (connection, req) => {
   console.log("Connected " + req.socket.remoteAddress);
   connection.on("message", async (message) => {
     console.log("Received: " + message);
     const obj = JSON.parse(message);
-    const { method, args } = obj;
+    const {method, args} = obj;
     const fn = api.get(method);
     try {
       const result = await fn(...args);
       if (!result) {
-        connection.send(""No result"");
+        connection.send('"No result"');
         return;
       }
       connection.send(JSON.stringify(result));
     } catch (err) {
-      console.dir({ err });
-      connection.send(""Server error"");
+      console.dir({err});
+      connection.send('"Server error"');
     }
   });
 });
