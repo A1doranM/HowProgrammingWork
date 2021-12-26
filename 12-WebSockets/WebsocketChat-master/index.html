@@ -11,7 +11,7 @@ input { border: 1px solid green; }
 
   const CHAR_RETURN = 13;
 
-  const socket = new WebSocket("ws://127.0.0.1:8000/chat");
+  const socket = new WebSocket("ws://127.0.0.1:8000/chat"); // ws в начале означает что мы обращаемся по вэб-сокету.
   const chat = document.getElementById("chat");
   const msg = document.getElementById("msg");
   msg.focus();

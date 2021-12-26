@@ -2,7 +2,7 @@
 
 const fs = require("fs");
 const http = require("http");
-const WebSocket = require("ws");
+const WebSocket = require("ws"); // Сторонняя библиотека, одна из лучших реализаций вэб-сокета.
 
 const index = fs.readFileSync("./index.html", "utf8");
 
