@@ -1,11 +1,16 @@
 "use strict";
 
+// Скаффолдинг - это метод программирования который
+// предусматривает задание разработчиком спецификации,
+// по которым в дальнейшем генерируется программный код для определенных операций,
+// их чтения, обновления и удаления.
 const http = require("http");
 const fs = require("fs");
 
 require("./schema.js").load("./schema/");
 const api = require("./api.js").load("./api/");
 
+// Загружаем весь запрос с клиента и склеиваем его в одно целое.
 const receiveArgs = async (req) => {
   const buffers = [];
   for await (const chunk of req) buffers.push(chunk);
@@ -18,10 +23,12 @@ const httpError = (res, status, message) => {
   res.end(`"${message}"`);
 };
 
+// Сервер по проуту АПИ берет метод, получает аргументы, и вызываем метод.
+// После чего отдаем обратно клиенту.
 http.createServer(async (req, res) => {
   const url = req.url === "/" ? "/index.html" : req.url;
   const [first, second] = url.substring(1).split("/");
-  if (first === "api") {
+  if (first === "api") { // Если в пути есть АПИ значит работаем с ним.
     const method = api.get(second);
     const args = await receiveArgs(req);
     try {
@@ -35,7 +42,7 @@ http.createServer(async (req, res) => {
       console.dir({ err });
       httpError(res, 500, "Server error");
     }
-  } else {
+  } else { // Есди нет слова api то отдаем статический файл с клиентом.
     const path = `./static/${first}`;
     try {
       const data = await fs.promises.readFile(path);

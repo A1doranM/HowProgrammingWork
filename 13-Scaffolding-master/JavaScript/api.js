@@ -3,6 +3,7 @@
 const path = require("path");
 const fs = require("fs");
 
+// Работает так же как и схема, но подгружает файлы АПИ
 const methods = new Map();
 
 const loadMethod = (apiPath, name) => {
