@@ -55,7 +55,7 @@ const server = http.createServer(async (req, res) => {
     res.end(data);
   } catch (err) {
     res.statusCode = 404;
-    res.end(""File is not found"");
+    res.end("File is not found");
   }
 }).listen(8000);
 
@@ -71,13 +71,13 @@ ws.on("connection", (connection, req) => {
     try {
       const result = await fn(...args);
       if (!result) {
-        connection.send(""No result"");
+        connection.send("No result");
         return;
       }
       connection.send(JSON.stringify(result));
     } catch (err) {
       console.dir({err});
-      connection.send(""Server error"");
+      connection.send("Server error");
     }
   });
 });
