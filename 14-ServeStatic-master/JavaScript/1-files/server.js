@@ -15,7 +15,7 @@ const MIME_TYPES = {
 
 const serveFile = (name) => {
   const filePath = path.join(STATIC_PATH, name);
-  if (!filePath.startsWith(STATIC_PATH)) {
+  if (!filePath.startsWith(STATIC_PATH)) { // Если пользователь остался в STATIC_PATH
     console.log(`Can"t be served: ${name}`);
     return null;
   }

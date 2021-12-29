@@ -29,15 +29,15 @@ const serveFile = (name) => {
 
 const folderIndex = (name) => {
   const folderPath = path.join(STATIC_PATH, name);
-  if (!folderPath.startsWith(STATIC_PATH)) {
+  if (!folderPath.startsWith(STATIC_PATH)) { // Проверка для понимания того что никто не пытается выйти из папки
     console.log(`Can"t generate index for: ${name}`);
     return null;
   }
-  const stream = new Readable({
-    read() {
+  const stream = new Readable({ // Создаем новый стрим в котором есть один метод read мы получаем стрим который унаследован от
+    read() { // Readable стрима с переопределенным методом рид.
       const files = [];
       const folders = [];
-      fs.readdir(folderPath, {withFileTypes: true}, (err, items) => {
+      fs.readdir(folderPath, {withFileTypes: true}, (err, items) => { // читаем каталог {withFileTypes: true} означает давать более полную информацию о файлах
         if (err) {
           console.log(`"Can"t read folder: ${path}`);
           return;
@@ -63,6 +63,6 @@ http.createServer((req, res) => {
   const fileExt = path.extname(url).substring(1);
   const mimeType = MIME_TYPES[fileExt] || MIME_TYPES.html;
   res.writeHead(200, {"Content-Type": mimeType});
-  const stream = url.endsWith("/") ? folderIndex(url) : serveFile(url);
+  const stream = url.endsWith("/") ? folderIndex(url) : serveFile(url); // Если путь заканчивается на слэш то ищем внутри папки, или ищем конкретный файл.
   if (stream) stream.pipe(res);
 }).listen(8000);
