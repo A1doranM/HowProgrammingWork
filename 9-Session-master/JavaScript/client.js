@@ -48,7 +48,7 @@ class Client {
   setCookie(name, val, httpOnly = false) {
     const {host} = this;
     const expires = `expires=${COOKIE_EXPIRE}`;
-    let cookie = `${name}=${val}; ${expires}; Path=/; Domain=${host}`; // Если дописан путь то браузре будет отправлять только те куки которые подходят по текущий урл
+    let cookie = `${name}=${val}; ${expires}; Path=/; Domain=${host}`; // Если дописан путь то браузер будет отправлять только те куки которые подходят по текущий урл
     if (httpOnly) cookie += "; HttpOnly"; // http-only означает что скрипт на клиенте не получит доступа к куки с этим флагом, а вот мы на сервере получим.
     this.preparedCookie.push(cookie);
   }
