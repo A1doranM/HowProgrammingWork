@@ -12,11 +12,14 @@ Transaction.start = data => {
       Object.assign(data, delta);
       delta = {};
     },
-    rollback: () => {
+    rollback: () => { // очищает дельту
       console.log("\nrollback transaction");
       delta = {};
     }
   };
+
+  // Основное отличие в том что мы проверяем наличие ключа в в методах, потом в дельте, и
+  // если ни там ни там нету то берем его из базового объекта.
 
   return new Proxy(data, {
     get(target, key) {
