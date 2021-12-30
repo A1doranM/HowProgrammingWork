@@ -16,17 +16,17 @@ Transaction.start = data => {
       console.log("\nrollback transaction");
       delta = {};
     },
-    clone: () => {
+    clone: () => { // Метод клон клонирует транзакцию создавая
       console.log("\nclone transaction");
-      const cloned = Transaction.start(data);
-      Object.assign(cloned.delta, delta);
+      const cloned = Transaction.start(data); // новую транзакцию
+      Object.assign(cloned.delta, delta); // и примешивая в ее дельту нашу дельту.
       return cloned;
     }
   };
 
   return new Proxy(data, {
     get(target, key) {
-      if (key === "delta") return delta;
+      if (key === "delta") return delta; // отдать все изменения.
       if (methods.hasOwnProperty(key)) return methods[key];
       if (delta.hasOwnProperty(key)) return delta[key];
       return target[key];

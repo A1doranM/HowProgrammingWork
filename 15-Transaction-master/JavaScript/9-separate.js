@@ -3,9 +3,11 @@
 // Interface definition
 
 class Transaction {
-  constructor() {
+  constructor(...args) {
     // this.delta
   }
+
+
 
   static start(data) {
     // place implementation here

@@ -2,13 +2,15 @@
 
 function Transaction() {}
 
+// Добавляем возможность удалять поля
+
 Transaction.start = data => {
   console.log("\nstart transaction");
   let delta = {};
-  const deleteDelta = new Set();
+  const deleteDelta = new Set(); // Список полей которые были удалены
 
   const methods = {
-    commit: () => {
+    commit: () => { //Проходимся по всему списку удаленных полей и удаляем их из дельты.
       console.log("\ncommit transaction");
       for (const key of deleteDelta) {
         delete data[key];
@@ -53,10 +55,11 @@ Transaction.start = data => {
       deleteDelta.delete(key);
       return true;
     },
+    // На самом деле ничего не удаляем, а просто записываем поле в специальный список.
     deleteProperty(target, prop) {
-      if (deleteDelta.has(prop)) return false;
-      deleteDelta.add(prop);
-      return true;
+      if (deleteDelta.has(prop)) return false; // Если поле в списке удаленных, то значит оно не удалено
+      deleteDelta.add(prop); // иначе добавляем его в список.
+      return true; // deletePropery должен возвращать true or false в зависимости от успеха операции.
     },
   });
 };

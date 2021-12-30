@@ -38,7 +38,7 @@ Transaction.start = data => {
 
   const proxy = new Proxy(data, {
     get(target, key, proxy) {
-      if (key === Symbol.iterator) return getKeys()[key]();
+      if (key === Symbol.iterator) return getKeys()[key](); // Нужен для цикла фор оф
       if (methods.hasOwnProperty(key)) return methods[key];
       if (delta.hasOwnProperty(key)) return delta[key];
       return target[key];

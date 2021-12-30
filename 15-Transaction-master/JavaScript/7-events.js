@@ -2,14 +2,16 @@
 
 function Transaction() {}
 
+// Возможность подписываться на коммит и роллбэк.
+
 Transaction.start = data => {
   console.log("\nstart transaction");
-  const events = {
+  const events = { // Список подписок на изменения, последние 2 не используются.
     commit: [], rollback: [], timeout: [], change: []
   };
   let delta = {};
 
-  const emit = name => {
+  const emit = name => { // Проходится по списку слушателей события и передаем им данные.
     const event = events[name];
     for (const listener of event) listener(data);
   };

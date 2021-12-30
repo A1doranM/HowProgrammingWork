@@ -2,6 +2,9 @@
 
 function Transaction() {}
 
+// В этом примере все поля читаются корректно и
+// наконец-то выводится поле города.
+
 Transaction.start = data => {
   console.log("\nstart transaction");
   let delta = {};
@@ -31,10 +34,11 @@ Transaction.start = data => {
     ),
 
     // Added handler
+    // Берем все ключи из дельты и все ключи их базово объекта.
     ownKeys() {
       const changes = Object.keys(delta);
-      const keys = Object.keys(data).concat(changes);
-      return keys.filter((x, i, a) => a.indexOf(x) === i);
+      const keys = Object.keys(data).concat(changes); // Объединяем ключи.
+      return keys.filter((x, i, a) => a.indexOf(x) === i); // Находим пересечение множеств.
     },
 
     set(target, key, val) {
