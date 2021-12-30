@@ -7,8 +7,6 @@ class Transaction {
     // this.delta
   }
 
-
-
   static start(data) {
     // place implementation here
     return [obj, transaction];
