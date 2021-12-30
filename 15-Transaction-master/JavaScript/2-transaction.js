@@ -6,7 +6,7 @@ Transaction.start = data => {
   console.log("\nstart transaction");
   let delta = {};
 
-  const methods = {
+  const methods = { // Коллекция методов для работы с транзакцией.
     commit: () => {
       console.log("\ncommit transaction");
       Object.assign(data, delta);

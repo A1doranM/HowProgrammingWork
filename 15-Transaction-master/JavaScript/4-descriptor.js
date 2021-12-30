@@ -29,8 +29,8 @@ Transaction.start = data => {
     // Added handler
     getOwnPropertyDescriptor: (target, key) => {
       console.log("getOwnPropertyDescriptor", key);
-      const descriptor = Object.getOwnPropertyDescriptor(
-        delta.hasOwnProperty(key) ? delta : target, key
+      const descriptor = Object.getOwnPropertyDescriptor( // В зависимости от того где хранится поле, у того объекта и вызовем
+        delta.hasOwnProperty(key) ? delta : target, key // getOwnProperyDescriptor
       );
       console.dir(descriptor);
       return descriptor;

@@ -2,6 +2,9 @@
 
 function Transaction() {}
 
+// Проблемы такого способа:
+// неверное чтение данных. Поля читаются из объекта data, а значение из дельты
+
 Transaction.start = data => {
   console.log("\nstart transaction");
   let delta = {};
