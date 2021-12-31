@@ -14,7 +14,7 @@ const where = (conditions) => {
     } else if (typeof value === "string") {
       if (value.startsWith(">=")) {
         condition = `${key} >= $${i}`;
-        value = value.substring(2);
+        value = value.substring(2); // отретрезаем из строки символы >=
       } else if (value.startsWith("<=")) {
         condition = `${key} <= $${i}`;
         value = value.substring(2);
@@ -28,7 +28,7 @@ const where = (conditions) => {
         condition = `${key} < $${i}`;
         value = value.substring(1);
       } else if (value.includes("*") || value.includes("?")) {
-        value = value.replace(/\*/g, "%").replace(/\?/g, "_");
+        value = value.replace(/\*/g, "%").replace(/\?/g, "_"); // все звездочки заменяем %, а все проценты _
         condition = `${key} LIKE $${i}`;
       } else {
         condition = `${key} = $${i}`;
@@ -36,7 +36,7 @@ const where = (conditions) => {
     }
     i++;
     args.push(value);
-    clause = clause ? `${clause} AND ${condition}` : condition;
+    clause = clause ? `${clause} AND ${condition}` : condition; // Если в клаузе что-то было то склеиваем клаузу и кондишн.
   }
   return { clause, args };
 };

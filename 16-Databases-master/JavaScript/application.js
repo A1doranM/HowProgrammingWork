@@ -1,13 +1,13 @@
 "use strict";
 
-const db = require("./db.js");
+const db = require("./db.js"); // обертка над ПГ.
 
 const pg = db.open({
   host: "127.0.0.1",
   port: 5432,
   database: "application",
   user: "postgres",
-  password: "postgres",
+  password: "1q2w3e3e2w1q4r",
 });
 
 console.dir({ pg });
