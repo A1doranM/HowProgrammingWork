@@ -11,10 +11,10 @@
   - `su - postgres`
   - `psql` попадаем в командную строку PostgreSQL
   - `\password postgres` устанавливаем паполь пользователю
-  - создаем нового пользователя `CREATE USER marcus WITH PASSWORD "marcus";`
-  - создаем базу данных `CREATE DATABASE application OWNER marcus;`
+  - создаем нового пользователя `CREATE USER postgres WITH PASSWORD "postgres";`
+  - создаем базу данных `CREATE DATABASE application OWNER postgres;`
   - `\quit` выходим
 - Исполняем файл с SQL скриптом создания базы
-  - `sudo psql -U marcus -d application -a -f example.sql`
+  - `sudo psql -U postgres -d application -a -f example.sql`
 - Установка зависимостей (включая модуль `pg`) `npm i`
 - Запуск `node application.js`

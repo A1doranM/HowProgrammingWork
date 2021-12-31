@@ -1,3 +1,4 @@
+-- Создаем таблицу с пользователем
 CREATE TABLE SystemUser (
   Id        serial,
   Login     varchar(64) NOT NULL,
@@ -9,6 +10,7 @@ ALTER TABLE SystemUser ADD CONSTRAINT pkSystemUser PRIMARY KEY (Id);
 
 CREATE UNIQUE INDEX akSystemUserLogin ON SystemUser (Login);
 
+-- создаем таблицу групп
 CREATE TABLE SystemGroup (
   Id    serial,
   Name  varchar(64) NOT NULL

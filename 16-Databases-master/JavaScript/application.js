@@ -6,14 +6,14 @@ const pg = db.open({
   host: "127.0.0.1",
   port: 5432,
   database: "application",
-  user: "marcus",
-  password: "marcus",
+  user: "postgres",
+  password: "postgres",
 });
 
 console.dir({ pg });
 
 pg.select("pg_tables")
-  .where({ tableowner: "marcus", schemaname: "public" })
+  .where({ tableowner: "postgres", schemaname: "public" })
   .fields(["schemaname", "tablename", "tableowner", "hasindexes"])
   .order("tablename")
   .then((rows) => {
