@@ -13,7 +13,7 @@ const pool = new Pool({
 const fields = ["schemaname", "tablename", "tableowner", "hasindexes"];
 const sql = "SELECT " + fields.join(", ") +
   " FROM pg_catalog.pg_tables WHERE tableowner = $1";
-pool.query(sql, ["postgres"])
+pool.query(sql, ["postgres"]) // Пример работы с асинхронностью при помощи промисов.
   .then((res) => {
     const { rows } = res;
     console.table(rows);

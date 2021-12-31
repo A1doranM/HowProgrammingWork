@@ -7,13 +7,13 @@ const pool = new Pool({
   port: 5432,
   database: "application",
   user: "postgres",
-  password: "postgres",
+  password: "1q2w3e3e2w1q4r",
 });
 
 (async () => {
   const fields = ["schemaname", "tablename", "tableowner"].join(", ");
   const sql = `SELECT ${fields} FROM pg_tables WHERE tableowner = $1`;
-  const { rows } = await pool.query(sql, ["postgres"]);
+  const { rows } = await pool.query(sql, ["postgres"]); // Асинхронная работа с базой данных.
   console.table(rows);
-  pool.end();
+  pool.end(); // Закрывам пулл.
 })();
