@@ -45,7 +45,6 @@ if (cluster.isMaster) {
   // Воркер.
   console.log(`Worker pid: ${process.pid}`);
 
-
   const dispatcher = (req, res) => {
     console.log(req.url);
     res.setHeader("Process-Id", process.pid);
