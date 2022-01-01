@@ -4,7 +4,7 @@ const net = require("net");
 
 const socket = new net.Socket();
 
-const seцnd = (message) => {
+const send = (message) => {
   console.log("Client >", message);
   socket.write(message);
 };

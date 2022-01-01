@@ -33,7 +33,9 @@ const runSandboxed = path => {
     module: {},
     require: safeRequire,
     api: {
-      console: { log },
+      console: {
+        log: log
+      },
       timers: {
         setTimeout: wrapFunction("setTimeout", setTimeout),
         setInterval: wrapFunction("setInterval", setInterval)
