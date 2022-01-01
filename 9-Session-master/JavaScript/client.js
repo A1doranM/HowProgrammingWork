@@ -54,7 +54,7 @@ class Client {
   }
 
   deleteCookie(name) {
-    this.preparedCookie.push(name + COOKIE_DELETE + this.host); // Ставим куки прошедшую дату и флаг deleted, такой куки будет удален браузером
+    this.preparedCookie.push(name + COOKIE_DELETE + this.host); // Ставим куки прошедшую дату и флаг deleted, такой куки будет удален браузером.
   }
 
   sendCookie() {

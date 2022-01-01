@@ -10,7 +10,7 @@ const PATH = `${__dirname}/sessions`;
 
 // Функция-обертка занимается резолвом токена в имя файла.
 // В возвращаемую функцию теперь вместо имени файла можно передавать токен.
-const safePath = (fn) => (token, ...args) => { // по контракту вначале идут все аргументы, а последним идет коллбэк
+const safePath = (fn) => (token, ...args) => { // по контракту вначале идут все аргументы, а последним идет коллбэк.
   const callback = args[args.length - 1];
   if (typeof token !== "string") { // Если токен не строка то завершаем программу.
     callback(new Error("Invalid session token"));
