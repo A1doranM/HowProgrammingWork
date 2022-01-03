@@ -1,5 +1,7 @@
 "use strict";
 
+// Оставляем наши анемичные объекты.
+
 class AccountCommand {
   constructor(operation, account, amount) {
     this.operation = operation;
@@ -8,7 +10,7 @@ class AccountCommand {
   }
 }
 
-class BankAccount {
+class BankAccount { // Но у банк аккаунта каждый инстанс складываем в специальную коллекцию.
   constructor(name) {
     this.name = name;
     this.balance = 0;
@@ -18,7 +20,7 @@ class BankAccount {
 
 BankAccount.collection = new Map();
 
-const operations = {
+const operations = { // Вынесли все операции в справочник. Где все операции получают на вход комманду.
   Withdraw: (command) => {
     const account = BankAccount.collection.get(command.account);
     account.balance -= command.amount;
@@ -28,7 +30,7 @@ const operations = {
     account.balance += command.amount;
   },
   Allowed: (command) => {
-    if (command.operation === "Income") return true;
+    if (command.operation === "Income") return true; // Если происходит начисление средств то операция всегда разрешена.
     const account = BankAccount.collection.get(command.account);
     return account.balance >= command.amount;
   },
@@ -41,11 +43,11 @@ class Bank {
 
   operation(account, amount) {
     const operation = amount < 0 ? "Withdraw" : "Income";
-    const execute = operations[operation];
-    const command = new AccountCommand(
+    const execute = operations[operation]; // По строке достаем операцию.
+    const command = new AccountCommand( // Создаем комманду.
       operation, account.name, Math.abs(amount)
     );
-    const allowed = operations.Allowed(command);
+    const allowed = operations.Allowed(command); // Проверяем можно ли списать деньги.
     if (!allowed) {
       const target = BankAccount.collection.get(command.account);
       throw new Error(

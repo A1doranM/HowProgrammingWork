@@ -1,5 +1,7 @@
 "use strict";
 
+// Более правильный вариант
+
 class AccountCommand {
   constructor(operation, account, amount) {
     this.operation = operation;
@@ -22,11 +24,11 @@ class Bank {
 
   operation(account, amount) {
     const operation = amount < 0 ? "Withdraw" : "Income";
-    const command = new AccountCommand(
+    const command = new AccountCommand( // В операцию сохраняем не ссылку на объект, а ее название.
       operation, account.name, Math.abs(amount)
     );
-    this.commands.push(command);
-    account.balance += amount;
+    this.commands.push(command); // Добавляем комманду в список.
+    account.balance += amount;  // Изменяем баланс.
   }
 
   showOperations() {
