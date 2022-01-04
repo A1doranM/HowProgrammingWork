@@ -1,5 +1,8 @@
 "use strict";
 
+// Command Query Responsibility Segregation - это когда мы CQS принцип поднимаем до модулей системы.
+// Одна подсистема занимается записью, другая чтением.
+
 class AccountCommand {
   constructor(account, operation, amount) {
     this.operation = operation;
