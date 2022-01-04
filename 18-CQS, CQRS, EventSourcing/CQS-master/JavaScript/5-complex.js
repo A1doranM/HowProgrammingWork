@@ -1,5 +1,7 @@
 "use strict";
 
+// Пример посложнее с банковским аккаунтом.
+// Все методы здесь это либо методы чтения, либо методы записи, но не то и то одновременно.
 class BankAccount {
   constructor(name) {
     this.name = name;
@@ -28,6 +30,7 @@ class Bank {
     this.accounts = new Map();
   }
 
+  // Позволяет перевести сумму из одного аккаунта в другой.
   transfer(from, to, amount) {
     const source = this.accounts.get(from);
     const destination = this.accounts.get(to);

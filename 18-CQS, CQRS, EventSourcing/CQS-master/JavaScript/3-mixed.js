@@ -1,5 +1,6 @@
 "use strict";
 
+// Тоже самое но с ООП, и без CQS.
 class Adder {
   constructor(x) {
     this.value = x;

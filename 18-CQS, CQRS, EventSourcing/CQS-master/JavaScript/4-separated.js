@@ -1,5 +1,6 @@
 "use strict";
 
+// А теперь с CQS.
 class Adder {
   constructor(x) {
     this.value = x;
