@@ -3,6 +3,9 @@
 const { EventEmitter } = require("events");
 const eventBus = new EventEmitter();
 
+// Правильный CQRS, коммуникация между модулями просиходит только через события.
+
+// Команда - умеет менять.
 class AccountCommand {
   constructor(account, operation, amount) {
     this.operation = operation;
@@ -11,6 +14,7 @@ class AccountCommand {
   }
 }
 
+// Запрос - умеет читать.
 class AccountQuery {
   constructor(account, operation) {
     this.account = account;
@@ -33,7 +37,7 @@ class BankAccount {
 
 BankAccount.collection = new Map();
 
-const operations = {
+const operations = { // Операции.
   Withdraw: (command) => {
     const account = BankAccount.find(command.account);
     account.balance -= command.amount;
@@ -46,7 +50,7 @@ const operations = {
 
 class BankWrite {
   constructor() {
-    this.commands = [];
+    this.commands = []; // История комманд.
   }
 
   operation(account, amount) {
@@ -55,31 +59,32 @@ class BankWrite {
     const command = new AccountCommand(
       account.name, operation, Math.abs(amount)
     );
-    this.commands.push(command);
-    eventBus.emit("command", command);
+    this.commands.push(command); // Добавляем комманду в историю.
+    eventBus.emit("command", command); // Генерируем событие.
     console.dir(command);
     execute(command);
   }
 }
 
+// Теперь мы можем создавать один банковский модуль на запись, и сколько угодно на чтение.
 class BankRead {
   constructor() {
     this.commands = [];
-    this.queries = [];
-    eventBus.on("command", (command) => {
+    this.queries = []; // История запросов которой нету у BankWrite.
+    eventBus.on("command", (command) => { // Подписываемся на шину и когда приходят команды сохраняем их себе.
       this.commands.push(command);
     });
   }
 
-  select({ account, operation }) {
+  select({ account, operation }) { // Выбирает все комманды по заданным кретериям.
     const query = new AccountQuery(account, operation);
     this.queries.push(query);
     const result = [];
     for (const command of this.commands) {
       let condition = true;
-      if (account) condition = command.account === account;
-      if (operation) condition = condition && command.operation === operation;
-      if (condition) result.push(command);
+      if (account) condition = command.account === account; // Если подошел аккаунт
+      if (operation) condition = condition && command.operation === operation; // подошло название операции
+      if (condition) result.push(command); // добавляем эту комманду в результирующий массив.
     }
     query.rows = result.length;
     console.dir(query);
@@ -89,7 +94,20 @@ class BankRead {
 
 // Usage
 
-const writeApi = new BankWrite();
+const writeApi = new BankWrite(); // Один апи для записи.
+// Создаем три разных АПИ для чтения.
+// Можно разбить их по кластерам и таким образом распаралелить.
+// Но здесь тоже не совсем все правильно так как у нас в банке есть статическая коллекция которая хранит все аккаунты.
+// По правильному, в каждом запущенном read API модуле должна быть своя коллекция банк аккаунтов.
+// А в модуле на запись мы должны сделать специальный месседж который будет отвечать за создание аккаунта.
+// Создать комманду которая будет отвечать за создание аккаунта.
+// Тогда в ивент мы будем передавать два типа ивентов, создание аккаунта, и его изменение.
+// Тоесть писать мы будем что-то вроде writeApi.createAccount();
+// И тогда при запуске операций мы должны передавать дополнительно имя аккаунта.
+// В общем суть, все вызовы которые что-то создают должны идти через write API и транслироваться через события, при этом
+// все операции записываются в историю и у них хранится их таймстамп, для того чтобы можно было восстановить их порядок.
+// А все вызовы которые что-то читают через read API.
+// У операций надо
 const readApi1 = new BankRead();
 const readApi2 = new BankRead();
 const readApi3 = new BankRead();

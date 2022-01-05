@@ -3,6 +3,7 @@
 // Command Query Responsibility Segregation - это когда мы CQS принцип поднимаем до модулей системы.
 // Одна подсистема занимается записью, другая чтением.
 
+// Паттерн Комманда - пишем три поля для изменения.
 class AccountCommand {
   constructor(account, operation, amount) {
     this.operation = operation;
@@ -11,11 +12,12 @@ class AccountCommand {
   }
 }
 
+// Паттерн QueryObject - пишем три поля для чтения.
 class AccountQuery {
   constructor(account, operation) {
-    this.account = account;
-    this.operation = operation;
-    this.rows = 0;
+    this.account = account; // Аккаунт
+    this.operation = operation; // операция
+    this.rows = 0; // количество возвращенных строк
   }
 }
 
@@ -26,14 +28,14 @@ class BankAccount {
     BankAccount.collection.set(name, this);
   }
 
-  static find(name) {
+  static find(name) { // Метод для поиска в банке.
     return BankAccount.collection.get(name);
   }
 }
 
 BankAccount.collection = new Map();
 
-const operations = {
+const operations = { // Операции.
   Withdraw: (command) => {
     const account = BankAccount.find(command.account);
     account.balance -= command.amount;
@@ -46,8 +48,8 @@ const operations = {
 
 class Bank {
   constructor() {
-    this.commands = [];
-    this.queries = [];
+    this.commands = []; // Коллекция комманд.
+    this.queries = []; // Коллекция запросов.
   }
 
   operation(account, amount) {
@@ -89,13 +91,13 @@ bank.operation(account2, -100);
 bank.operation(account2, 150);
 console.table([account1, account2]);
 
-const res1 = bank.select({ account: "Marcus Aurelius" });
+const res1 = bank.select({ account: "Marcus Aurelius" }); // Выбираем все аккаунты по этому имени.
 console.table(res1);
 
 const res2 = bank.select({ account: "Antoninus Pius", operation: "Income" });
 console.table(res2);
 
-const res3 = bank.select({ operation: "Withdraw" });
+const res3 = bank.select({ operation: "Withdraw" }); // Выбираем все операции списания средств.
 console.table(res3);
 
 console.log("Query logs:");
