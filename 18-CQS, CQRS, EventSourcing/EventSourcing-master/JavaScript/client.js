@@ -1,16 +1,21 @@
 "use strict";
 
-const { EventEmitter } = require("events");
-const eventBus = new EventEmitter();
+// Файл который запускает весь наш процесс.
 
-const { BankWrite } = require("./writer.js");
+const { EventEmitter } = require("events");
+const eventBus = new EventEmitter(); // Создаем шину которая будет каналом взаимодействия между модулями.
+
+const { BankWrite } = require("./writer.js"); // Подгружаем модули.
 const { BankRead } = require("./reader.js");
 
-const writeApi = new BankWrite(eventBus);
-const readApi1 = new BankRead(eventBus);
+// На запись создается один АПИ чтобы избежать проблем когда сразу несколько разных модулей пишут в одно место.
+const writeApi = new BankWrite(eventBus); // Один на запись.
+const readApi1 = new BankRead(eventBus); // Три на чтение.
 const readApi2 = new BankRead(eventBus);
 const readApi3 = new BankRead(eventBus);
 
+// Когда мы создаем аккаунт в бэкенде для записи, вызовы продублируются в бэкендах для записи.
+// Тогда они будут хранить всю историю и все записи у себя и можно будет распаралелить нагрузку на чтение.
 const marcus = "Marcus Aurelius";
 writeApi.createAccount(marcus);
 writeApi.operation(marcus, 1000);

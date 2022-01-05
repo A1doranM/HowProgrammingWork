@@ -10,26 +10,29 @@ class AccountQuery {
   }
 }
 
+// АПИ для чтения.
 class BankRead {
   constructor(eventBus) {
-    this.bank = new Bank();
-    this.commands = [];
-    this.queries = [];
-    eventBus.on("command", command => {
+    this.bank = new Bank(); // Экземпляр банка.
+    this.commands = []; // История команд.
+    this.queries = []; // История запросов.
+    eventBus.on("command", command => { // Подписываемся на ивент вызова команды.
       this.commands.push(command);
-      this.bank.execute(command);
+      this.bank.execute(command); // Наша копия банка исполнит команду. Таким образов все команды которые исполняются
+                                  // в АПИ для чтения будут вызываться и у нас. А значит мы будем хранить всю историю и состояния у себя.
+                                  // создав несколько таких АПИ мы сможем распаралелить нагрузку на чтение, обращаясь к разным read API.
     });
   }
 
   select({ account, operation }) {
-    const query = new AccountQuery(account, operation);
-    this.queries.push(query);
+    const query = new AccountQuery(account, operation); // Создаем экземпляр запроса.
+    this.queries.push(query); // Добавляем в историю.
     const result = [];
-    for (const command of this.commands) {
+    for (const command of this.commands) { // Проходимся по всем командам.
       let condition = true;
-      if (account) condition = command.account === account;
-      if (operation) condition = condition && command.operation === operation;
-      if (condition) result.push(command);
+      if (account) condition = command.account === account; // Если в запросе есть поле аккаунт то тогда проверям аккаунт равен, или нет.
+      if (operation) condition = condition && command.operation === operation; // Проверяем есть ли операция.
+      if (condition) result.push(command); // Добавляем команду в результат.
     }
     query.rows = result.length;
     console.dir(query);
