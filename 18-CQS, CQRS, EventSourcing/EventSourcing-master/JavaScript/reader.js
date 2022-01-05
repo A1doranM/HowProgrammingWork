@@ -2,6 +2,8 @@
 
 const { Bank } = require("./bank.js");
 
+// Анемичный класс это класс который не меет методов, а имеет только поля.
+// Такие классы удобно сериализовать и использовать для хранения данных.
 class AccountQuery {
   constructor(account, operation) {
     this.account = account;
