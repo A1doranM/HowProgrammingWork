@@ -1,7 +1,7 @@
 "use strict";
 
 const ActorSystem = require("../system");
-const nodemailer = require("nodemailer");
+const nodemailer = require("nodemailer"); // Подгружаем библиотеку. Сторонняя библиотека для отправки емейлов.
 const auth = require("../config");
 
 const FROM = "nodeua.com@gmail.com";
@@ -14,9 +14,9 @@ ActorSystem.register(class Mailer {
     });
   }
 
-  async message({ to, subject, message }) {
+  async message({ to, subject, message }) { // Принимаем сообщения.
     const mail = { from: FROM, to, subject, text: message };
-    this.transport.sendMail(mail, (error, data) => {
+    this.transport.sendMail(mail, (error, data) => { // Отсылаем емейл.
       if (error) console.log(error);
       else console.log(`Email sent: ${data.response}`);
     });

@@ -4,25 +4,28 @@ const cp = require("child_process");
 
 const actors = new Map();
 
+// Мастер хранит в себе все акторы и если какой-то актор присылает мастеру сообщение
+// то мастер найдет актора которому оно предназначено и перешлет его ему.
+
 class MasterSystem {
   static start(name, count = 1) {
-    if (!actors.has(name)) {
-      const ready = [];
-      const instances = [];
-      const queue = [];
-      actors.set(name, { ready, instances, queue });
+    if (!actors.has(name)) { // Если нет актора с таким именем.
+      const ready = []; // Создаем массив всех вободных акторов,
+      const instances = []; // массив вообще всех акторов,
+      const queue = []; // очередь задач
+      actors.set(name, { ready, instances, queue }); //
     }
     const { ready, instances } = actors.get(name);
     for (let i = 0; i < count; i++) {
-      const actor = cp.fork("./system.js");
-      MasterSystem.subscribe(actor);
+      const actor = cp.fork("./system.js"); // Форкаем процесс создавая нового актора.
+      MasterSystem.subscribe(actor); // Подписываемся.
       ready.push(actor);
       instances.push(actor);
-      actor.send({ command: "start", name });
+      actor.send({ command: "start", name }); // Отправляю процессу сообщение с командой старт и имя с которым ему надо будет взять актора из папки actors.
     }
   }
 
-  static stop(name) {
+  static stop(name) { // Останавливаем всех акторов с заданным именем.
     const record = actors.get(name);
     if (record) {
       const { instances } = record;
@@ -36,12 +39,12 @@ class MasterSystem {
     const record = actors.get(name);
     if (record) {
       const { ready, queue } = record;
-      const actor = ready.shift();
-      if (!actor) {
-        queue.push(data);
+      const actor = ready.shift(); // Забираем актора из списка свободных.
+      if (!actor) { // Если такого нету.
+        queue.push(data); // Добавляем сообщение в очередь.
         return;
       }
-      actor.send({ command: "message", data });
+      actor.send({ command: "message", data }); // Иначе отсылаем сообщение.
     }
   }
 
@@ -62,17 +65,17 @@ class MasterSystem {
         MasterSystem.stop(name);
         return;
       }
-      if (command === "ready") {
-        const { pid } = message;
-        const record = actors.get(name);
+      if (command === "ready") { // Если актор присылает сообщение что он свободен
+        const { pid } = message; // по идентификатору процесса находим актора.
+        const record = actors.get(name); // Находим всех акторов с этим именем.
         if (record) {
           const { ready, instances, queue } = record;
           for (const actor of instances) {
-            if (actor.pid === pid) ready.push(actor);
+            if (actor.pid === pid) ready.push(actor); // Находим актора с указанным пидом.
           }
-          if (queue.length > 0) {
+          if (queue.length > 0) { // Если есть задачи на актора с этим именем
             const next = queue.shift();
-            MasterSystem.send(name, next);
+            MasterSystem.send(name, next); // то топравляем задачу актору с таким именем.
           }
         }
       }
