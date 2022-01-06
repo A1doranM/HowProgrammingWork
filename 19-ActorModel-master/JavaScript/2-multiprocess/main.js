@@ -7,7 +7,7 @@ const EXIT_ABNORMAL = 5000;
 
 ActorSystem.start("Root");
 
-// Мультипоточная реализация Акторов.
+// Мультипроцессовая реализация Акторов.
 
 process.on("SIGINT", () => {
   console.log("");
