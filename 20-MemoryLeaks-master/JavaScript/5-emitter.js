@@ -11,7 +11,7 @@ const bytesToMb = bytes => Math.round(bytes / 1000, 2) / 1000;
 const ee = new EventEmitter();
 
 const timer = setInterval(() => {
-  ee.on("eventName", () => {});
+  ee.on("eventName", () => {}); // Раз в 5 секунд навещиваем обработчик на события.
 }, 5);
 
 setInterval(() => {
