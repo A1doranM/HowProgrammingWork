@@ -1,19 +1,21 @@
 "use strict";
 
+// Утечки кеша.
+
 const fs = require("fs");
 
 const memory = [];
 
 const bytesToMb = bytes => Math.round(bytes / 1000, 2) / 1000;
 
-const fileCache = new Map();
+const fileCache = new Map(); // Заводим Мар которая будет выступать нашим кешем.
 
 let k = 0;
 
 const timer = setInterval(() => {
   k++;
-  fs.readFile("4-cache.js", /*"utf8",*/ (err, data) => {
-    fileCache.set("4-cache.js" + k, data);
+  fs.readFile("4-cache.js", "utf8", (err, data) => { // Читаем собственные исходники.
+    fileCache.set("4-cache.js" + k, data); // Кешируем их.
   });
 }, 5);
 

@@ -1,5 +1,7 @@
 "use strict";
 
+// Утечка через обработчики событий.
+
 const { EventEmitter } = require("events");
 
 const memory = [];

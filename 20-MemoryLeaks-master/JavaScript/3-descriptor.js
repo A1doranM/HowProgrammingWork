@@ -1,5 +1,7 @@
 "use strict";
 
+// Утекание дескрипторов.
+
 const fs = require("fs");
 
 const memory = [];
@@ -9,9 +11,9 @@ const bytesToMb = bytes => Math.round(bytes / 1000, 2) / 1000;
 let descriptor = 0;
 
 const timer = setInterval(() => {
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i++) { // Открываем очень много файлов из-за того что мы их не закрываем дескрикторы создают утечку памяти.
     fs.open("3-descriptor.js", (err, fd) => {
-      descriptor = fd;
+      descriptor = fd; // Сохраняем их.
     });
   }
 }, 5);
