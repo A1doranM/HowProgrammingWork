@@ -14,10 +14,10 @@ process.on("SIGINT", () => {
   ActorSystem.stop("Root");
   setTimeout(() => {
     console.log("Graceful shutdown");
-    process.exit(0);
+    process.exit(0); // Если все акторы завершились за отведенное время отсылаем код нормального завершения работы.
   }, EXIT_NORMAL);
   setTimeout(() => {
     console.log("Abnormal termination");
-    process.exit(1);
+    process.exit(1); // Иначе не нормальное.
   }, EXIT_ABNORMAL);
 });
