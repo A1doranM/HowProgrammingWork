@@ -1,5 +1,7 @@
 "use strict";
 
+// Такой же пример как и до этого но теперь мы изменяем структуру данных.
+
 const threads = require("worker_threads");
 const { Worker } = threads;
 

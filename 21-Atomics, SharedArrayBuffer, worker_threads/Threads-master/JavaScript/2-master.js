@@ -1,5 +1,7 @@
 "use strict";
 
+// Тот же пример но с разбитием по файлам.
+
 const threads = require("worker_threads");
 const { Worker } = threads;
 
@@ -19,6 +21,6 @@ worker.on("exit", (code) => {
 });
 
 setTimeout(async () => {
-  await worker.terminate();
+  await worker.terminate(); // Останавливаем воркер.
   console.log("Terminated");
 }, 1000);

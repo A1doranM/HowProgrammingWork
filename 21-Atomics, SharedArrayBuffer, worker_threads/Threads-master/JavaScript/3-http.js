@@ -1,11 +1,13 @@
 "use strict";
 
+// Пример с ХТТП сервером.
+
 const threads = require("worker_threads");
 const http = require("http");
 
 const port = 8000;
 
-threads.parentPort.postMessage({ name: "started", port });
+threads.parentPort.postMessage({ name: "started", port }); // Послали мастеру сообщение о запуске.
 
 const routing = {
   "/": async (req, res) => ({ status: res.statusCode }),
