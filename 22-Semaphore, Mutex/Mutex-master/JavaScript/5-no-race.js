@@ -6,6 +6,8 @@ const { Worker, isMainThread } = threads;
 const LOCKED = 0;
 const UNLOCKED = 1;
 
+// Избегаем race-condition. Добавляя мьютекс.
+
 class Mutex {
   constructor(shared, offset = 0, initial = false) {
     this.lock = new Int32Array(shared, offset, 1);
@@ -59,13 +61,13 @@ class Point {
 
 // Usage
 
-if (isMainThread) {
-  const buffer = new SharedArrayBuffer(12);
-  const mutex = new Mutex(buffer, 0, true);
-  const array = new Int32Array(buffer, 4, 2);
+if (isMainThread) { // В главном потоке
+  const buffer = new SharedArrayBuffer(12); // создаем буфер на 12 байт в котором будет размещаться буфер
+  const mutex = new Mutex(buffer, 0, true); // по смещению 0
+  const array = new Int32Array(buffer, 4, 2); // массив и помещаем его по смещению 4.
   const point = new Point(array, 0, 0);
   console.dir({ mutex, point });
-  new Worker(__filename, { workerData: buffer });
+  new Worker(__filename, { workerData: buffer }); // Создаем воркеров.
   new Worker(__filename, { workerData: buffer });
 } else {
   const { threadId, workerData } = threads;
@@ -73,16 +75,16 @@ if (isMainThread) {
   const array = new Int32Array(workerData, 4, 2);
   const point = new Point(array);
   if (threadId === 1) {
-    for (let i = 0; i < 1000000; i++) {
-      mutex.enter();
-      point.move(1, 1);
-      mutex.leave();
+    for (let i = 0; i < 1000000; i++) { // В отличии от предидущего примера мы
+      mutex.enter(); // вначале входим в критическую секцию
+      point.move(1, 1);  // делаем что надо
+      mutex.leave(); // выходим из критической секции.
     }
-    mutex.enter();
+    mutex.enter(); // Внутри консоль дир может кто-то влезть и отобразятся некорректные данные, поэтому помещаем его в критическую секцию.
     console.dir({ point });
     mutex.leave();
   } else {
-    for (let i = 0; i < 1000000; i++) {
+    for (let i = 0; i < 1000000; i++) { // Тоже самое но в другом потоке.
       mutex.enter();
       point.move(-1, -1);
       mutex.leave();

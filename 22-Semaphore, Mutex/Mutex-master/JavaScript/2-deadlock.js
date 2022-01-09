@@ -1,5 +1,7 @@
 "use strict";
 
+// Ситуация взаимной блокировки. Когда один тред захватил мьютекс, а другой ждет его освобождения.
+
 const threads = require("worker_threads");
 const { Worker, isMainThread } = threads;
 
@@ -39,14 +41,14 @@ if (isMainThread) {
   new Worker(__filename, { workerData: buffer });
 } else {
   const { threadId, workerData } = threads;
-  const mutex1 = new Mutex(workerData);
-  const mutex2 = new Mutex(workerData, 4);
+  const mutex1 = new Mutex(workerData); // Два мьютекса один со смещением 0,
+  const mutex2 = new Mutex(workerData, 4); // а другой со смещением в 4 байта.
 
   if (threadId === 1) {
-    mutex1.enter(() => {
+    mutex1.enter(() => { // Заходим в первый мьютекс.
       console.log("Entered mutex1 from worker1");
       setTimeout(() => {
-        mutex2.enter(() => {
+        mutex2.enter(() => { // Заходим во второй мьютекс.
           console.log("Entered mutex2 from worker1");
           if (mutex1.leave()) console.log("Left mutex1 from worker1");
           if (mutex2.leave()) console.log("Left mutex2 from worker1");
@@ -54,11 +56,11 @@ if (isMainThread) {
       }, 100);
     });
   } else {
-    mutex2.enter(() => {
+    mutex2.enter(() => { // Пытаемся зайти во второй мьютекс.
       console.log("Entered mutex2 from worker2");
       // Uncomment to fix deadlock
       // if (mutex2.leave()) console.log("Left mutex2 from worker2");
-      setTimeout(() => {
+      setTimeout(() => { // Пытаемся зайти в первый мьютекс.
         mutex1.enter(() => {
           console.log("Entered mutex1 from worker2");
           if (mutex2.leave()) console.log("Left mutex2 from worker2");
