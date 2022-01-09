@@ -7,11 +7,11 @@ const matrix = [
   [-6, 4, 8, 2, 0],
 ];
 
-const max = (a, b) => (a > b ? a : b);
+const max = (a, b) => (a > b ? a : b); // Поиск максимального элемента в массиве.
 
 const res = matrix
-  .map((row) => row.reduce(max))
-  .reduce((acc, rowMax) => acc + rowMax);
+  .map((row) => row.reduce(max)) // Находим максимальный элемент.
+  .reduce((acc, rowMax) => acc + rowMax); // Складываем максимальные элементы вместе.
 
 console.log(res);
 

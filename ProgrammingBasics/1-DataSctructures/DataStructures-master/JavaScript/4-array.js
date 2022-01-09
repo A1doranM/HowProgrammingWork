@@ -3,9 +3,9 @@
 const letters = [];
 letters.push("B");
 console.dir({ letters });
-letters.unshift("A");
+letters.unshift("A"); // Добавляет элемент в начало.
 console.dir({ letters });
-letters.push("C");
+letters.push("C"); // Пуш добавляет в конец.
 console.dir({ letters });
 
 const numbers = [1, 2, 3];

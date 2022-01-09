@@ -1,8 +1,8 @@
 "use strict";
 
 const numbers = [7, 10, 1, 5, 2];
-numbers.field2 = "Value2";
-numbers[-10] = "Value3";
+numbers.field2 = "Value2"; // Примешиваем к массиву дополнительные ключи, они будут видимы при проходе
+numbers[-10] = "Value3"; // с помощью for in.
 numbers.field1 = "Value1";
 numbers[5] = 20;
 
