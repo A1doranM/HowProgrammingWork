@@ -1,5 +1,8 @@
 "use strict";
 
+// Семафор со счетчиком. Позволяет запускать несколько потоков, но не больше чем
+// определенное число, для работы с ресурсом. Реализация не совсем правильная но в
+// целом дает понимание как его делать.
 const fs = require("fs");
 const threads = require("worker_threads");
 const { Worker, isMainThread } = threads;
@@ -8,13 +11,13 @@ class CountingSemaphore {
   constructor(shared, offset = 0, initial) {
     this.counter = new Int32Array(shared, offset, 1);
     if (typeof initial === "number") {
-      this.counter[0] = initial;
+      this.counter[0] = initial;  // Инициализируем счетчик.
     }
   }
 
   enter() {
-    while (this.counter[0] === 0);
-    this.counter[0]--;
+    while (this.counter[0] === 0); // Дожидаемся что счетчик не 0.
+    this.counter[0]--; //
   }
 
   leave() {

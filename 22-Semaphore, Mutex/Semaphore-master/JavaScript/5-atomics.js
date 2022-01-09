@@ -4,23 +4,28 @@ const fs = require("fs");
 const threads = require("worker_threads");
 const { Worker, isMainThread } = threads;
 
+// Улучшим семафор при помощи Атомиков.
+
 class CountingSemaphore {
   constructor(shared, offset = 0, initial) {
     this.counter = new Int32Array(shared, offset, 1);
     if (typeof initial === "number") {
-      Atomics.store(this.counter, 0, initial);
+      Atomics.store(this.counter, 0, initial); // Теперь мы не работаем с массивом напрямую.
     }
   }
 
   enter(callback) {
-    Atomics.wait(this.counter, 0, 0);
-    Atomics.sub(this.counter, 0, 1);
-    setTimeout(callback, 0);
+    Atomics.wait(this.counter, 0, 0); // Ждем пока значение по индексу 0 не станет равно 0. Если оно не 0 то wait сразу завершится.
+    Atomics.sub(this.counter, 0, 1); // Вычитаем из счетчика 1.
+    setTimeout(callback, 0); // Вызываем коллбек. Теперь нам не нужна очередь так как есть Atomics.wait, который полностью замораживает поток.
+                             // Это проблема такого подходя так как в таком случае теряется асинхронность внутри потока, но при этом такой вариант очень стабилен.
+                             // Но все равно не полностью. Так как между операциями  Atomics.wait и Atomics.sub можно влезть в середину.
+                             // Это может произойти потому что  Atomics.wait уже закончился, а Atomics.sub еще не начался.
   }
 
   leave() {
-    Atomics.add(this.counter, 0, 1);
-    Atomics.notify(this.counter, 0, 1);
+    Atomics.add(this.counter, 0, 1); // Увеличиваем счетчик на 1.
+    Atomics.notify(this.counter, 0, 1); // Уведомляем один тред который проснется, если уведомить больше то тогда проснутся все кого уведомим.
   }
 }
 

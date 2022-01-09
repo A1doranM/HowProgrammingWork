@@ -1,5 +1,8 @@
 "use strict";
 
+// Мьютекс в отличии от семафора имеет поле owner и
+// только тот поток который заблочил мьютекс может его разблочить.
+
 const threads = require("worker_threads");
 const { Worker, isMainThread } = threads;
 

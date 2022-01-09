@@ -1,5 +1,7 @@
 "use strict";
 
+// Надежная реализация для бинарного семафора.
+
 const threads = require("worker_threads");
 const { Worker, isMainThread } = threads;
 
@@ -13,10 +15,12 @@ class BinarySemaphore {
   }
 
   enter() {
-    let prev = Atomics.exchange(this.lock, 0, LOCKED);
-    while (prev !== UNLOCKED) {
-      Atomics.wait(this.lock, 0, LOCKED);
-      prev = Atomics.exchange(this.lock, 0, LOCKED);
+    let prev = Atomics.exchange(this.lock, 0, LOCKED); // Он проще мы первой строчкой делаем Atomics.compareExchange и если он прошел,
+                                                             // тоесть мы смогли переключить семафор.
+    while (prev !== UNLOCKED) { // То можно не ждать, иначе ждем.
+      Atomics.wait(this.lock, 0, LOCKED); // Ждем нотификацию.
+      prev = Atomics.exchange(this.lock, 0, LOCKED); // Опять делаем Atomics.compareExchange дальше выполнится while.
+                                                           // Проверит получилось, или кто-то влез. И либо пойдет дальше, либо будем ждать.
     }
   }
 

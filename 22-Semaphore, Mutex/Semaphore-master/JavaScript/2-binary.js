@@ -1,27 +1,32 @@
 "use strict";
 
+// Бинарный семафор. Но не совсем рабочий.
+
 const threads = require("worker_threads");
 const { Worker, isMainThread } = threads;
 
+// Константы обозначающие заблокирован ресурс, или нет.
 const LOCKED = 0;
 const UNLOCKED = 1;
 
+// Класс семафора. В конструктор передаем буфер, смещение в буфере, и чем семафор инициализировать.
 class BinarySemaphore {
   constructor(shared, offset = 0, init = false) {
-    this.lock = new Int8Array(shared, offset, 1);
-    if (init) this.lock[0] = UNLOCKED;
+    this.lock = new Int8Array(shared, offset, 1); // В свойство лок добавляем массив из одного байта
+    if (init) this.lock[0] = UNLOCKED; // к которому мы вот таким образом обращаемся.
   }
 
-  enter() {
-    while (this.lock[0] !== UNLOCKED);
-    this.lock[0] = LOCKED;
+  enter() { // При сходе в критическую секцию.
+    while (this.lock[0] !== UNLOCKED); // Ждем пока ресурс не разблокируется,
+    this.lock[0] = LOCKED; // и после этого сразу его блокируем. Но это тоже не оптимальный вариант так как межу циклом и инструкцией
+                           // может кто-то влезть.
   }
 
   leave() {
-    if (this.lock[0] === UNLOCKED) {
+    if (this.lock[0] === UNLOCKED) { // Освобожден ли семафор.
       throw new Error("Cannot leave unlocked BinarySemaphore");
     }
-    this.lock[0] = UNLOCKED;
+    this.lock[0] = UNLOCKED; // Освобождаем семафор. При этом таким образом мы можем освободить семафор который заблочил другой тред.
   }
 }
 

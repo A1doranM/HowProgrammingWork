@@ -1,5 +1,7 @@
 "use strict";
 
+// Асинхронный со счетчиком.
+
 class CountingSemaphore {
   constructor(concurrency) {
     this.counter = concurrency;

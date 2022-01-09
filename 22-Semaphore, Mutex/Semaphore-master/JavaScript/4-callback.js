@@ -4,30 +4,32 @@ const fs = require("fs");
 const threads = require("worker_threads");
 const { Worker, isMainThread } = threads;
 
+// Добавляем взоход в критическую секцию через коллбек.
+
 class CountingSemaphore {
   constructor(shared, offset = 0, initial) {
     this.counter = new Int32Array(shared, offset, 1);
     if (typeof initial === "number") {
       this.counter[0] = initial;
     }
-    this.queue = [];
+    this.queue = []; // Очередь коллбеков.
   }
 
   enter(callback) {
-    if (this.counter[0] > 0) {
-      this.counter[0]--;
-      setTimeout(callback, 0);
+    if (this.counter[0] > 0) { // Если счетчик больше 0
+      this.counter[0]--; // декрементируем
+      setTimeout(callback, 0); // выполняем асинхронно коллбэк.
     } else {
-      this.queue.push(callback);
+      this.queue.push(callback); // Иначе кладем его в очередь.
     }
   }
 
   leave() {
-    this.counter[0]++;
-    if (this.queue.length > 0) {
-      const callback = this.queue.shift();
-      this.counter[0]--;
-      setTimeout(callback, 0);
+    this.counter[0]++; // Увеличиваем счетчик.
+    if (this.queue.length > 0) { // Если кто-то в очереди
+      const callback = this.queue.shift(); // забираем первого кто в нее вошел.
+      this.counter[0]--; // уменьшаем счетчик
+      setTimeout(callback, 0); // вызываем коллбэк.
     }
   }
 }
@@ -49,7 +51,7 @@ if (isMainThread) {
   const REPEAT_COUNT = 1000000;
   const file = `file-${threadId}.dat`;
 
-  semaphore.enter(() => {
+  semaphore.enter(() => { // Входим в критическую секцию.
     const data = `Data from ${threadId}`.repeat(REPEAT_COUNT);
     fs.writeFile(file, data, () => {
       fs.unlink(file, () => {
