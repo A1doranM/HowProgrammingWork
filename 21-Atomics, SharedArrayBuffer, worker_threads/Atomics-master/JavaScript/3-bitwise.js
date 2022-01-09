@@ -1,5 +1,7 @@
 "use strict";
 
+// Все тоже самое что и в примерах выше но с другими операциями.
+
 const buffer = new SharedArrayBuffer(40);
 
 const array = new Uint32Array(buffer);
