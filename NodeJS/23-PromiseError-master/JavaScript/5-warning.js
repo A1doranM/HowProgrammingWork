@@ -8,7 +8,7 @@ const sum = (a, b) => new Promise((resolve, reject) => {
   }
 });
 
-process.on("warning", warning => {
+process.on("warning", warning => { // Все варнинги сваливаются вот сюда.
   console.log({ warning });
 });
 
