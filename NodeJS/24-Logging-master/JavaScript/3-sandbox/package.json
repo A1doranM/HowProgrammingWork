@@ -7,6 +7,6 @@
   },
   "main": "./main.js",
   "dependencies": {
-    "metalog": "^3.0.0"
+    "metalog": "^3.1.6"
   }
 }
