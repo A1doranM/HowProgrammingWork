@@ -1,0 +1,12 @@
+{
+  "name": "metalog-example",
+  "version": "2.0.0",
+  "requires": true,
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "main": "./main.js",
+  "dependencies": {
+    "metalog": "^3.0.0"
+  }
+}
