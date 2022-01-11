@@ -1,5 +1,7 @@
 "use strict";
 
+// Другой пример.
+
 const { log: ln } = Math;
 const log = (base, n) => ln(n) / ln(base);
 
