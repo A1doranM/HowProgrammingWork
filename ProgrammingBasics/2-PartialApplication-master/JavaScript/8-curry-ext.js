@@ -1,5 +1,8 @@
 "use strict";
 
+// Модифицированный вариент, при котором можно передать аргументы в саму функцию каррирования.
+// Например не const f = curry(sum4); а const f = curry(sum4, 1, 2, 3);
+
 const curry = (fn, ...par) => {
   const curried = (...args) => (
     fn.length > args.length ?
