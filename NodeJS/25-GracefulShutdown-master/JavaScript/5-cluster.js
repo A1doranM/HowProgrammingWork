@@ -23,9 +23,9 @@ const start = () => {
   console.log("Fork process");
   child = cluster.fork("./5-worker.js");
   child.on("message", message => {
-    if (message.status === "restarted") {
+    if (message.status === "restarted") { // Если воркер прислал уведомление о том что он перезапускается.
       console.log("Restart worker");
-      start();
+      start(); // перезапускаем его.
     }
   });
 };
@@ -52,7 +52,7 @@ const freeResources = async () => {
 };
 
 const gracefulShutdown = async () => {
-  process.send({ status: "restarted" });
+  process.send({ status: "restarted" }); // Уведомим мастера о том что он должен запустить новый процесс.
   server.close(error => {
     console.log("Detach from HTTP listener");
     if (error) {
