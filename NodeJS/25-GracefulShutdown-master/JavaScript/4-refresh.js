@@ -1,14 +1,16 @@
 "use strict";
 
+// Работа со случаем когда сервер упал и потом переподнялся.
+
 const http = require("http");
 const connections = new Map();
 
 const SERVER_PORT = 8000;
 const LONG_RESPONSE = 60000;
 const SHUTDOWN_TIMEOUT = 5000;
-const HTTP_REFRESH = {
+const HTTP_REFRESH = { // Добавляем хттп заголовки.
   "Content-Type": "text/html",
-  "Refresh": "5",
+  "Refresh": "5", // Данный заголовок заставит страницу перезагрузиться через 5 секунд.
 };
 
 const timeout = msec => new Promise(resolve => {
@@ -41,6 +43,7 @@ const showConnections = () => {
   }
 };
 
+// Все как и раньше но теперь мы дополнительно отсылаем заголовок на перезагрузку страницы.
 const closeConnections = async () => {
   for (const [connection, res] of connections.entries()) {
     connections.delete(connection);

@@ -1,5 +1,7 @@
 "use strict";
 
+// Вариант с асинхронностью.
+
 const http = require("http");
 const connections = new Map();
 

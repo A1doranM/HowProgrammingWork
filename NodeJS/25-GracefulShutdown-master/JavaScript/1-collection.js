@@ -18,30 +18,32 @@
 
 
 const http = require("http");
-const connections = new Map();
+const connections = new Map(); // Помещаем все конекшины в коллекцию чтобы потом отдавать им команду о том что сервер стопнулся.
+                               // Ключ это сокет, а значение это респонс который нам нужен для того чтобы можно было работать с респонсом от конкретного сокета.
 
 const SERVER_PORT = 8000;
-const LONG_RESPONSE = 60000; //
+const LONG_RESPONSE = 60000; // Константа для длинных запросов.
 
 const server = http.createServer((req, res) => {
   console.log("New request");
-  connections.set(res.connection, res);
+  connections.set(res.connection, res); // Сохраняем сокет в коллекцию.
   setTimeout(() => {
     res.end("Example output");
-  }, LONG_RESPONSE);
+  }, LONG_RESPONSE); // Ждем минуту и после этого отдаем строку в браузер. Это на до просто для демонстрации.
+                     // Это надо для того чтобы потом при демонстрации во всех долгообрабатываемых запросах получить 503 ошибку.
 });
 
-server.on("connection", connection => {
+server.on("connection", connection => { // connection ссылается на сокет.
   console.log("New connection");
-  connection.on("close", () => {
+  connection.on("close", () => { // Навешиваем событие на окончание связи.
     console.log("Close");
-    connections.delete(connection);
+    connections.delete(connection); // Удаляем текущее соединение.
   });
 });
 
 server.listen(SERVER_PORT);
 
-const showConnections = () => {
+const showConnections = () => { // Показывет что содержится в коллекции конекшинс.
   console.log("Connection:", [...connections.values()].length);
   for (const connection of connections.keys()) {
     const { remoteAddress, remotePort } = connection;
@@ -49,28 +51,31 @@ const showConnections = () => {
   }
 };
 
-const closeConnections = () => {
-  for (const [connection, res] of connections.entries()) {
-    connections.delete(connection);
+const closeConnections = () => { // Закрываем соединение
+  for (const [connection, res] of connections.entries()) { // проходя по всем конекшинам и
+    connections.delete(connection); // удаляя их из коннекции.
     res.end("Server stopped");
-    connection.destroy();
+    connection.destroy(); // Закрываем сокет в конце.
   }
 };
 
-const freeResources = callback => {
+// Тут мы как будто освобождаем ресурсы которые заняты в конекшинах
+const freeResources = callback => { // например разные соединения к БД и т.д.
   console.log("Free resources");
-  callback();
+  callback(); // И вызываем коллбэк.
 };
 
 const gracefulShutdown = callback => {
-  server.close(error => {
-    if (error) {
+  server.close(error => { // Для начала закрываем сервер.
+                                  // Но он не закрывается, а просто перестает принимать конекшины
+                                  // и ждет пока все остальные конекшины не закроются.
+    if (error) { // Если произошла ошибка
       console.log(error);
-      process.exit(1);
+      process.exit(1); // аварийно прерываем работу.
     }
-    freeResources(callback);
+    freeResources(callback); // Коллбек который вополнится когда все конекшины закроются.
   });
-  closeConnections();
+  closeConnections(); // Вот эта функция выполнится сразу после вызова server.close().
 };
 
 process.on("SIGINT", () => {

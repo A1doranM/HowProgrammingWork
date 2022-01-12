@@ -1,5 +1,7 @@
 "use strict";
 
+// Добавляем возможность ожидать в течении некоторого времени пока все не закроется.
+
 const http = require("http");
 const connections = new Map();
 
@@ -53,9 +55,9 @@ const gracefulShutdown = callback => {
       process.exit(1);
     }
   });
-  setTimeout(() => {
-    freeResources(() => {
-      closeConnections();
+  setTimeout(() => { // Добавляем таймаут в 5 секунд.
+    freeResources(() => { // После чего типа позабирали ресурсы у конекшинов
+      closeConnections(); // и закрыли соединения.
       callback();
     });
   }, SHUTDOWN_TIMEOUT);
