@@ -7,6 +7,7 @@ const fs = require("fs");
 const http = require("http");
 const path = require("path");
 
+// ФИКС
 const STATIC_PATH = path.join(process.cwd(), "./static");
 
 const MIME_TYPES = {
