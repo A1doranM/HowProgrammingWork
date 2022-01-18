@@ -1,6 +1,12 @@
 "use strict";
 
-const wrap = (before, after, f) => (...args) => after(f(...before(...args)));
+// Переписанный вариант где само оборачивание мы выносим за наверх, а два параметра
+// определяют что сделать до выполнения функции и что сделать после.
+const wrap = (before, after, f) =>  {
+  return (...args) => {
+    return after(f(...before(...args)));
+  };
+}
 
 // Usage
 
