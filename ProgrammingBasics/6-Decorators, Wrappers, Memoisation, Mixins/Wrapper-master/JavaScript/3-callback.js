@@ -1,5 +1,7 @@
 "use strict";
 
+const os = require("os");
+
 // const wrap = (before, after, f) => (...args) => after(f(...before(...args)));
 
 // const wrapAsync = (before, after, beforeCb, afterCb, f) =>
@@ -11,6 +13,8 @@
 //     }
 //     return after(f(...before(...args)));
 //   };
+
+// Пример с оберткой примененной для целого интерфейса
 
 const wrapFunction = (f) => {
   console.log("Wrap function:", f.name);
@@ -39,12 +43,12 @@ const wrapFunction = (f) => {
 
 const cloneInterface = (anInterface) => {
   const clone = {};
-  const keys = Object.keys(anInterface);
-  for (const key of keys) {
-    const fn = anInterface[key];
-    clone[key] = wrapFunction(fn);
+  const keys = Object.keys(anInterface); // Забираем список ключей для текущего интерфейса.
+  for (const key of keys) { // Идем по списку ключей.
+    const fn = anInterface[key]; // забираем функцию хранящуюся по ключу
+    clone[key] = wrapFunction(fn); // оборачивам ее и сохраняем.
   }
-  return clone;
+  return clone; // Возвращаем обернутый интерфейс.
 };
 
 // Usage

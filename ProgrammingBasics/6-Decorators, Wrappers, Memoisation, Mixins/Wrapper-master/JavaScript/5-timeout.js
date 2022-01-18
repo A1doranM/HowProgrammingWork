@@ -2,16 +2,19 @@
 
 // Wrapper will prevent call after timeout
 
+// Обертки добавляющие поведение. В данном случае таймаут на выполнение.
+// Это можно использовать когда мы хотим дать какой-то функции какое-то время
+// на выполнение которое не будет превышать определенное значение.
 const timeout = (msec, f) => {
-  let timer = setTimeout(() => {
-    if (timer) console.log("Function timed out");
-    timer = null;
+  let timer = setTimeout(() => { // Ставим таймер на установленное время и получаем ссылку на него.
+    if (timer) console.log("Function timed out"); // если при срабатывании таймер
+    timer = null; // Когда таймер сработает очищаем ссылку на него чтобы сборщик мусора мог его собрать.
   }, msec);
-  return (...args) => {
-    if (!timer) return;
-    clearTimeout(timer);
-    timer = null;
-    return f(...args);
+  return (...args) => { // Возвращаем функцию
+    if (!timer) return; // если таймер уже щакончился
+    clearTimeout(timer); // очищаем его,
+    timer = null; // очищаем ссылку.
+    return f(...args); // Возвращаем результат выполнения функции.
   };
 };
 

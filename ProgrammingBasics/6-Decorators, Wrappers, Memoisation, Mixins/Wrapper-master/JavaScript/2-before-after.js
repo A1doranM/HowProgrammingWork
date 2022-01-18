@@ -15,12 +15,12 @@ const func = (par1, par2) => {
   return [par1, par2];
 };
 
-const before = (...args) => {
+const before = (...args) => { // Делает что-то до вызова функции и должна вернуть аргументы функции.
   console.log("before");
   return args;
 };
 
-const after = (res) => {
+const after = (res) => { // Делает что-то после вызова функции и должна вернуть ее результат.
   console.log("after");
   return res;
 };

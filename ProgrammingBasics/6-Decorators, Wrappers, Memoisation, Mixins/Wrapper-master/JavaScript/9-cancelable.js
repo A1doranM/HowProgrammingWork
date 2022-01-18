@@ -1,10 +1,11 @@
 "use strict";
 
+// Делаем функцию отменяемой.
 const cancelable = (f) => {
   const wrapper = (...args) => {
     if (f) return f(...args);
   };
-  wrapper.cancel = () => f = null;
+  wrapper.cancel = () => f = null; // После этого функцию больше не вызвать.
   return wrapper;
 };
 

@@ -13,6 +13,7 @@ const Rect = class {
   }
 };
 
+// Обертка которая превращает квадрат в равносторонний треугольник.
 const equilateral = Category => class extends Category {
   constructor(x, y, side) {
     super(x, y, side, side);

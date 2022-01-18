@@ -1,17 +1,19 @@
 "use strict";
 
+// Мемоизация это тоже обертка но которая умеет кешировать результаты функции которую она обернула.
 const argKey = x => x.toString() + ":" + typeof x;
-const generateKey = args => args.map(argKey).join("|");
+const generateKey = args => args.map(argKey).join("|"); // Функция для создания ключа по аргументам, например
+                                                              // пришло (1, 2, а), получим "1|2|a".
 
 const memoize = fn => {
-  const cache = Object.create(null);
-  return (...args) => {
-    const key = generateKey(args);
-    const val = cache[key];
-    if (val) return val;
-    const res = fn(...args);
-    cache[key] = res;
-    return res;
+  const cache = Object.create(null); // Создаем пустой объект который будет нашим кешем.
+  return (...args) => { // Возвращаем функцию.
+    const key = generateKey(args); // Генерируем ключ.
+    const val = cache[key];  // Забираем значения по ключу.
+    if (val) return val; // Если есть значение то возвращаем его.
+    const res = fn(...args); // Иначе исполняем функцию.
+    cache[key] = res; // Кешируем результат.
+    return res; // Отдаем его.
   };
 };
 

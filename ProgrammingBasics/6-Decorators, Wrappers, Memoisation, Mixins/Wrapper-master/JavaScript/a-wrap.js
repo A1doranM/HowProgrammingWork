@@ -1,5 +1,5 @@
 "use strict";
-
+// Объединяем все функции в одну примешивая их к враперу.
 const wrap = (f) => {
   let limit = 0;
   let counter = 0;

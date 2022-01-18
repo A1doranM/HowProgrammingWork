@@ -2,6 +2,7 @@
 
 // Function throttling, executed once per interval
 
+// Ограничиваем колличество вызовов по времени. Тоесть не более одного вызова за указанный таймаут.
 const throttle = (timeout, f, ...args) => {
   let timer;
   let wait = false;

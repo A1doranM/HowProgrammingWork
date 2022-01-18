@@ -1,7 +1,7 @@
 "use strict";
 
 // Wrapper will prevent call after timeout
-
+// Добавим асинхронность.
 const timeout = (msec, f) => {
   let timer = setTimeout(() => {
     if (timer) console.log("Function timedout");

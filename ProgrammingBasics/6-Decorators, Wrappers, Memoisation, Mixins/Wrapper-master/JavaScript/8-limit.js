@@ -1,7 +1,7 @@
 "use strict";
 
 // Wrapper will prevent calls > n
-
+// Ограничиваем количество вызовов определенным значением.
 const limit = (count, f) => {
   let counter = 0;
   return (...args) => {
