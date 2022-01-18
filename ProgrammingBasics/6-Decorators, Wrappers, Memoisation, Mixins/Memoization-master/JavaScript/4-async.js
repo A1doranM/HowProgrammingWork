@@ -4,6 +4,7 @@ const fs = require("fs");
 
 // args[0] - key
 // args[args.length-1] - callback
+// Мемоизация для асинхронных функций работающих с файлами.
 const memoizeAsync = (lib, fnName) => {
   const fn = lib[fnName];
   const cache = {};

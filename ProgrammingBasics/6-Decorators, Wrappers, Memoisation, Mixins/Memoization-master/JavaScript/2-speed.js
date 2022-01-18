@@ -1,5 +1,6 @@
 "use strict";
 
+// Бенчмарк для проверки выигрыша скорости от мемоизации при вычислении лямбды.
 const argKey = x => x.toString() + ":" + typeof x;
 const generateKey = args => args.map(argKey).join("|");
 

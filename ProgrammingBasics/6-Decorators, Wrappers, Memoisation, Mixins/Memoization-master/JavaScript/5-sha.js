@@ -1,5 +1,6 @@
 "use strict";
 
+// Генерируем ключи используя криптографические функции.
 const crypto = require("crypto");
 
 const argKey = x => x.toString() + ":" + typeof x;
