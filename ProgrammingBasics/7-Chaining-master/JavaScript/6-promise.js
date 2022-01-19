@@ -2,9 +2,10 @@
 
 const metasync = require("metasync");
 
+// Массив с возможностью чейнинга
 class ArrayChain {
   constructor(array) {
-    this._promise = Promise.resolve(array);
+    this._promise = Promise.resolve(array); // Сохраняем зарезолваный промис.
   }
 
   then(fn) {

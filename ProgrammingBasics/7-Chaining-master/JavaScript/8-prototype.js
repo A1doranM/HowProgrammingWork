@@ -13,9 +13,13 @@ const async = (op) => {
   }
 };
 
+// Смысл в том что все методы кроме execute добавляют
+// некую операцию в цепочку. А при вызове, execute
+// проходится по цепочке с начала и выполняет их.
+
 function ArrayChain(array) {
   this.array = array;
-  this.chain = [];
+  this.chain = []; // Цепочка операций.
 }
 
 ArrayChain.prototype.execute = function(err) {
