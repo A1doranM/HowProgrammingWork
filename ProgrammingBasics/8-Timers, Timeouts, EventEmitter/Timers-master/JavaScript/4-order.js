@@ -18,7 +18,7 @@ setTimeout(() => {
   console.log("callback #4 setTimeout 1");
 }, 1);
 
-setImmediate(() => {
+setImmediate(() => { // Выполнить коллбек сразу после всего синхронного кода.
   console.log("callback #5 setImmediate");
 });
 
@@ -36,7 +36,7 @@ const t8 = setInterval(() => {
   console.log("callback #8 setInterval 0");
 }, 0);
 
-process.nextTick(() => {
+process.nextTick(() => { // Выполнить коллбек при следующем запуске eventloop перед всеми остальными таймерами.
   console.log("callback #9 process.nextTick");
 });
 
