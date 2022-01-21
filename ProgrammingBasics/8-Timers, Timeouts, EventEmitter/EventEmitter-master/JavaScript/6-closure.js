@@ -1,5 +1,7 @@
 "use strict";
 
+// EventEmitter на замыканиях.
+
 const emitter = () => {
   const events = {};
   return {

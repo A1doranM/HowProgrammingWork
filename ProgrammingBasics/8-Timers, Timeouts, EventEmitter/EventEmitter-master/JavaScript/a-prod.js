@@ -1,8 +1,8 @@
 "use strict";
 
 const emitter = () => {
-  const events = new Map();
-  const wrapped = new Map();
+  const events = new Map(); // Коллекция ивентов.
+  const wrapped = new Map(); // Коллекция
   const ee = {
     on: (name, f, timeout = 0) => {
       const event = events.get(name);

@@ -1,5 +1,6 @@
 "use strict";
 
+// Немного поменяли предыдущий пример.
 const events = require("events");
 
 const emitter = () => {

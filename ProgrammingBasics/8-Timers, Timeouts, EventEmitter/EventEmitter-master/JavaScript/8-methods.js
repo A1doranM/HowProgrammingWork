@@ -15,20 +15,21 @@ const emitter = () => {
       const event = events[name];
       if (event) event.forEach((f) => f(...data));
     },
-    once: (name, f) => {
+    once: (name, f) => { // Метод once заставляет обработчик сработать на событие лишь один раз.
       const g = (...a) => {
         ee.remove(name, g);
         f(...a);
       };
       ee.on(name, g);
     },
-    remove: (name, f) => {
+    remove: (name, f) => { // Удаляем функцию из коллекции массива.
       const event = events[name];
       if (!event) return;
-      const i = event.indexOf(f);
-      if (i !== -1) event.splice(i, 1);
+      const i = event.indexOf(f); // Ищем позицию функции в массиве.
+      if (i !== -1) event.splice(i, 1); // Если не нашлась то ничего не делаем, если нашли то вырезаем из массива один
+                                        // элемент начиная с позиции функции.
     },
-    clear: (name) => {
+    clear: (name) => { // Очищаем все обработчики на конкретном массиве.
       if (name) delete events[name];
       else events = {};
     },
