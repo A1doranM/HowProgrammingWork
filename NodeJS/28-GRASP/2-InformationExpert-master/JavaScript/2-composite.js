@@ -1,5 +1,8 @@
 "use strict";
 
+// Более приближенная к реальности задача, принцип эксперта не нарушен.
+
+// Класс описывающий продукт
 class Product {
   constructor(name, price) {
     this.name = name;
@@ -11,10 +14,11 @@ class Product {
   }
 }
 
+// Класс описывающий покупку.
 class Purchase {
-  constructor(name, ...collection) {
+  constructor(name, ...collection) { // Складываем все аргументы после имени в коллекцию.
     this.name = name;
-    this.collection = collection;
+    this.collection = collection; // Коллекция чего-либо.
   }
 
   get price() {
