@@ -2,6 +2,7 @@
 
 const delay = require("./delay.js");
 
+// Теперь таймаут ничего не знает про запросы и ответы.
 const timeout = async (msec) => {
   const start = Date.now();
   await delay(msec);
