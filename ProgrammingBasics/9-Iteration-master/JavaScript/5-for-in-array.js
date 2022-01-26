@@ -1,7 +1,7 @@
 "use strict";
 
 const numbers = [7, 10, 1, 5, 2];
-numbers.field2 = "Value2";
+numbers.field2 = "Value2"; // Примешиваем массиву парочку свойств.
 numbers[-10] = "Value3";
 numbers.field1 = "Value1";
 numbers[5] = 20;

@@ -11,7 +11,7 @@ for (const value of numbers) {
 }
 
 const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-arr[Symbol.iterator] = function() {
+arr[Symbol.iterator] = function() { // Переопределяем символ интератор для массива заставляя цикл проходит по каждому второму элементу.
   let index = 0;
   const step = 2;
   return {

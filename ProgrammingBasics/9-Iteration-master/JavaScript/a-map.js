@@ -1,14 +1,14 @@
 "use strict";
 
-const log = (s, i) => {
+const log = (s, i) => { // Заготовили логгер который печатает индекс и элемент из массива.
   console.log(i, s);
   return s;
 };
 
-const f1 = (x) => x * 2;
-const f2 = (x) => ++x;
+const f1 = (x) => x * 2; // Функция умножения на 2.
+const f2 = (x) => ++x; // Функция увеличения на 1.
 
-const compose = (...funcs) => (x) => funcs.reduce((v, f) => f(v), x);
+const compose = (...funcs) => (x) => funcs.reduce((v, f) => f(v), x); // Сделаем функция для композиции функций.
 
 const f3 = compose(f1, f2);
 
