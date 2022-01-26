@@ -6,9 +6,9 @@ const range = {
   [Symbol.asyncIterator]() {
     let value = this.start;
     return {
-      next: () => new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve({
+      next: () => new Promise((resolve, reject) => { // Пример с реально асинхронным итератором в котором мы
+        setTimeout(() => { // резолваем промис внутри таймаута что позволяет отдавать кванты времени процессору и
+          resolve({ // не блокировать основной поток.
             value,
             done: value++ === this.end + 1
           });

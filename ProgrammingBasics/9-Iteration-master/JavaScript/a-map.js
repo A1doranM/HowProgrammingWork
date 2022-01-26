@@ -8,7 +8,11 @@ const log = (s, i) => { // Заготовили логгер который пе
 const f1 = (x) => x * 2; // Функция умножения на 2.
 const f2 = (x) => ++x; // Функция увеличения на 1.
 
-const compose = (...funcs) => (x) => funcs.reduce((v, f) => f(v), x); // Сделаем функция для композиции функций.
+const compose = (...funcs) => { // Сделаем функция для композиции функций.
+  return (x) => {
+    return funcs.reduce((v, f) => f(v), x);
+  }
+};
 
 const f3 = compose(f1, f2);
 

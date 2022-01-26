@@ -3,10 +3,12 @@
 const range = {
   start: 1,
   end: 1000,
-  [Symbol.asyncIterator]() {
+  [Symbol.asyncIterator]() { // Асинхронный итератор делает все что и обычный но он используется внутри цикла
+                             // for await
     let value = this.start;
     return {
-      next: () => Promise.resolve({
+      next: () => Promise.resolve({ // он должен возвращать зарезолваный промис с такими же данными как и обычный
+                                          // итератор. Но такое итерированние все еще блокирующее.
         value,
         done: value++ === this.end + 1
       })
