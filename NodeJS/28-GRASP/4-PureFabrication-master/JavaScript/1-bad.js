@@ -1,5 +1,8 @@
 "use strict";
 
+// Чистая выдумка это такая штука которой нету в предметной области, но которая нам помогает писать красивый и
+// слабо зацепленный код. Примеры: аrray, promise, EventEmitter, timeouts.
+
 const v8 = require("v8");
 const fs = require("fs").promises;
 
