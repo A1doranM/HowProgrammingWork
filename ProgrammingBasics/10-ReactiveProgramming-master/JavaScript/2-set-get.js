@@ -1,16 +1,20 @@
 "use strict";
 
+// Пример реализации реактивного программирования в императивном стиле.
+// На задаче вычисления усеченного конуса.
+
 const { PI, sqrt } = Math;
 const square = (x) => x * x;
 
 // Reactive Truncated cone
 
+// Засунем все в класс.
 class Cone {
-  constructor(r1, r2, h) {
+  constructor(r1, r2, h) { // Конструктор принимает все данные, внешний и внутренний радиус и высоту.
     this.cone = { r1, r2, h };
-    this.calculate();
+    this.calculate(); // Вызываем вычисление.
   }
-  calculate() {
+  calculate() { // Функция которая все вычисляет, и фактически является реакцией.
     const { r1, r2, h } = this.cone;
     const sr1 = square(r1);
     const sr2 = square(r2);
@@ -18,6 +22,7 @@ class Cone {
     this.cone.v = PI * h * (sr1 + r1 * r2 + sr2) / 3;
     this.cone.s = PI * (sr1 + sr2 + l * (r1 + r2));
   }
+  // В сеттерах после установки переменных вызываем реакцию.
   set r1(x) {
     this.cone.r1 = x;
     this.calculate();

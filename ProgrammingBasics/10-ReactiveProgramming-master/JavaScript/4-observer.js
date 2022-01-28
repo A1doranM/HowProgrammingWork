@@ -1,5 +1,6 @@
 "use strict";
 
+// Реализация при помощи шины событий.
 const { EventEmitter } = require("events");
 const { max } = Math;
 
@@ -12,10 +13,10 @@ const variables = {
   count: 0,
 };
 
-ee.on("city", (city) => {
-  variables.count++;
-  variables.maxDensity = max(variables.maxDensity, city.density);
-  cities.push(city);
+ee.on("city", (city) => { // Подвесились на событие city
+  variables.count++; // увеличиваем количество городов
+  variables.maxDensity = max(variables.maxDensity, city.density); // выбираем город с наибольшей плотностью населения.
+  cities.push(city); // Добавляем его в массив городов.
   cities.forEach((city) => {
     city.relative = Math.round(city.density * 100 / variables.maxDensity);
   });

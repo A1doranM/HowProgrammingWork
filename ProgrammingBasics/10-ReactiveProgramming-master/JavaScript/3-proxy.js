@@ -1,26 +1,28 @@
 "use strict";
 
-const ROWS = 5;
-const columns = ["A", "B", "C", "D", "E", "F"];
-const data = {};
+// Реактивная таблица. Вариант с прокси.
 
-const table = new Proxy(data, {
+const ROWS = 5; // Строки электронной таблицы.
+const columns = ["A", "B", "C", "D", "E", "F"]; // Колонки.
+const data = {}; // Таблица.
+
+const table = new Proxy(data, {  // Все запросы и установки свойств проходят через прокси.
   get(obj, key) {
     console.log("get", key);
-    const cell = obj[key];
+    const cell = obj[key]; // Берем запрошенное свойство.
     return cell ? cell.value : "";
   },
   set(obj, key, value) {
     console.log("set", key, value);
-    const type = typeof value;
-    if (type === "function") {
-      const expression = value;
-      value = expression();
-      obj[key] = { value, expression };
-    } else {
-      obj[key] = { value };
+    const type = typeof value; // Берем тип устанавливаемого значения.
+    if (type === "function") { // Если функция
+      const expression = value; // переложим в константу,
+      value = expression(); // подсчитаем,
+      obj[key] = { value, expression }; // сохраним значение и функцию которая его подсчитала.
+    } else { // Если не функция
+      obj[key] = { value }; // сохраняем значение.
     }
-    return true;
+    return true; // На выходи из set в прокси надо вернуть флаг успешна ли операция true / false.
   }
 });
 
