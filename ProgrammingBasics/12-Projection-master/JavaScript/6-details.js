@@ -2,11 +2,13 @@
 
 // Projection
 
+// Пример с вложенными проекциями.
+
 const projection = meta => {
   const keys = Object.keys(meta);
   const mapper = obj => {
     const hash = {};
-    for (const key of keys) {
+    for (const key of keys) { // Чуть более правильный проход по объектам вместо foreach
       const def = meta[key];
       const [name, fn] = def;
       let val = obj[name];
@@ -17,9 +19,11 @@ const projection = meta => {
     }
     return hash;
   };
-  mapper.join = (key, projection) => {
-    keys.push(key);
-    meta[key] = [key, val => val.map(projection)];
+  mapper.join = (key, projection) => { // Добавили маппер с методом join принимающий ключ и проекцию.
+    keys.push(key); // Добавляем ключ в коллекцию.
+    meta[key] = [key, val => val.map(projection)]; // Создаем массив где первым объектом будет ключ, а вторым функция
+                                                  // преобразования которая вторую проекцию засовывает в эту лямбду.
+
     return mapper;
   };
   return mapper;
@@ -70,6 +74,6 @@ const md2 = {
 
 const p1 = projection(md1);
 const p2 = projection(md2);
-const p3 = p1.join("places", p2);
+const p3 = p1.join("places", p2); // Внутри places будет лежать проекция от md2
 const data = persons.map(p3);
 console.dir(data, { depth: 10 });

@@ -1,8 +1,16 @@
 "use strict";
 
+// Более правильный пример. Отображение через функцию.
+
 const partial = (fn, ...args) => (...rest) => fn(...args, ...rest);
 
 // Projection
+
+// 1. Берем ключи из переданного нам объекта.
+// 2. Два вложенных редьюса, наружный перекладывает поля, но
+// 3. каждое поле проходит через второй редьюс который берет поле, берет функцию,
+// и если будет лежать следующая функция то ее тоже выполнить.
+// Он проходит по ключам meta[key]. Пиздец код конечно, читать невозможно.
 
 const projection = (meta, obj) => Object.keys(meta)
   .reduce((hash, key) => (hash[key] = meta[key]
@@ -21,9 +29,9 @@ const persons = [
 // Metadata
 
 const md = {
-  name: ["name"],
-  place: ["city", s => "<" + s.toUpperCase() + ">"],
-  age: ["born", year => (
+  name: ["name"], // Ключ которое надо сгенерировать в записях нового датасета.
+  place: ["city", s => "<" + s.toUpperCase() + ">"], // Как генерировать поле place из city.
+  age: ["born", year => ( // Как генерировать поле age из age.
     new Date().getFullYear() - new Date(year.toString()).getFullYear()
   )]
 };

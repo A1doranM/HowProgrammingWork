@@ -2,20 +2,25 @@
 
 // Projection
 
+// Расширенный пример. Теперь проекцию можно вкладывать внутри проекции декларативно.
+
 const projection = meta => {
-  const keys = Object.keys(meta);
+  const keys = Object.keys(meta); // Кешируем ключи.
   return obj => {
     const hash = {};
-    for (const key of keys) {
+    for (const key of keys) { // Идем по ним.
       const def = meta[key];
-      const [name, transform] = def;
-      let val = obj[name];
-      if (val) {
-        if (transform) {
-          val = typeof transform === "function" ?
-            transform(val) : val.map(projection(transform));
+      const [name, transform] = def; // Забираем имя проекции и функцию которая ее формирует.
+                                    // Например для "place: ["city", s => `<${s.toUpperCase()}>`],"
+                                    // заберем "city" и "s => `<${s.toUpperCase()}>`"
+      let val = obj[name]; // Забираем значение поля из оригинального объекта по имени.
+      if (val) { // Если есть значение
+        if (transform) { // проверяем есть ли формирующая функция, или там сразу идет значение для записи
+          val = typeof transform === "function"  // если это функция
+              ? transform(val) // выполняем функцию, либо если там идет вложенная проекция
+              : val.map(projection(transform)); // запускаем для каждого ее поля функцию проекции.
         }
-        hash[key] = val;
+        hash[key] = val; // Запишем значение.
       }
     }
     return hash;
@@ -56,7 +61,7 @@ const md = {
     new Date().getFullYear() -
     new Date(year.toString()).getFullYear()
   )],
-  places: ["places", {
+  places: ["places", { // Вкладываем еще одну проекцию внутрь.
     address: ["name", s => s.toUpperCase()],
     population: ["population"]
   }]

@@ -2,8 +2,10 @@
 
 // Projection
 
+// Добавляем кеширование.
+
 const projection = meta => {
-  const keys = Object.keys(meta);
+  const keys = Object.keys(meta); // Кеширование. Для того чтобы постоянно не вызывать Object.keys();
   return obj => keys.reduce((hash, key) => (
     hash[key] = meta[key]
       .reduce((val, fn, i) => (i ? fn(val) : obj[fn]), null),

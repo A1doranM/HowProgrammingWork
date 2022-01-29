@@ -2,15 +2,17 @@
 
 // Projection
 
+// Императивный пример с более читаемым кодом.
+
 const projection = meta => {
   const keys = Object.keys(meta);
   return obj => {
     const hash = {};
-    keys.forEach(key => {
-      const def = meta[key];
-      const [field, fn] = def;
-      const val = obj[field];
-      hash[key] = fn ? fn(val) : val;
+    keys.forEach(key => { // Перебираем поля.
+      const def = meta[key]; // Забираем определитель поля из переданных данных.
+      const [field, fn] = def; // Забираем из него имя поля и функцию его преобразования.
+      const val = obj[field]; // Забираем из изначально объекта это поле.
+      hash[key] = fn ? fn(val) : val; // Если была функция то запускаем ее, иначе сразу записываем значение.
     });
     return hash;
   };

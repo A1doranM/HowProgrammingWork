@@ -2,6 +2,8 @@
 
 // Lens
 
+// Линза - это из функционального программирования что-то вроде геттеров и сеттеров.
+
 const view = (lens, obj) => lens.get(obj);
 
 const lens = (source, destination = source) => ({
@@ -11,7 +13,7 @@ const lens = (source, destination = source) => ({
 
 const id = x => x;
 
-const field = (name, map = id) => obj => map(view(lens(name), obj));
+const field = (name, map = id) => obj => map(view(lens(name), obj)); // Возвращает преобразователь поля.
 
 // Projection
 

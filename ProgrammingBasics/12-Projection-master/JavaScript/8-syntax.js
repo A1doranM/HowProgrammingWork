@@ -2,13 +2,15 @@
 
 // Projection
 
+// Немного другой пример.
+
 const projection = metadata => {
   const meta = {};
   let key;
   for (const item of metadata) {
     const type = typeof item;
-    let cast = projection[type];
-    if (type === "string") key = item;
+    let cast = projection[type]; // Забираем обработчик проекции для текущего типа данных.
+    if (type === "string") key = item; // Строку запишем сразу.
     if (type === "object") cast = cast(key);
     meta[key] = cast(item);
   }
@@ -25,6 +27,7 @@ const projection = metadata => {
   return mapper;
 };
 
+// Функции для обработки различных типов данных для проекции.
 projection.string = name => d => d[name];
 projection.function = fn => d => fn(d);
 projection.object = name => proj => d => {
