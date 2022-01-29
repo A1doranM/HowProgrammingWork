@@ -29,8 +29,8 @@ const server = http.createServer((req, res) => {
   connections.set(res.connection, res); // Сохраняем сокет в коллекцию.
   setTimeout(() => {
     res.end("Example output");
-  }, LONG_RESPONSE); // Ждем минуту и после этого отдаем строку в браузер. Это на до просто для демонстрации.
-                     // Это надо для того чтобы потом при демонстрации во всех долгообрабатываемых запросах получить 503 ошибку.
+  }, LONG_RESPONSE); // Ждем минуту и после этого отдаем строку в браузер. Это надо просто для демонстрации.
+                     // Это надо для того чтобы потом при демонстрации во всех долго обрабатываемых запросах получить 503 ошибку.
 });
 
 server.on("connection", connection => { // connection ссылается на сокет.
@@ -43,7 +43,7 @@ server.on("connection", connection => { // connection ссылается на с
 
 server.listen(SERVER_PORT);
 
-const showConnections = () => { // Показывет что содержится в коллекции конекшинс.
+const showConnections = () => { // Показывает что содержится в коллекции конекшинс.
   console.log("Connection:", [...connections.values()].length);
   for (const connection of connections.keys()) {
     const { remoteAddress, remotePort } = connection;
