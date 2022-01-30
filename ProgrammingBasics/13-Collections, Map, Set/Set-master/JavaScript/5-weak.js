@@ -1,5 +1,7 @@
 "use strict";
 
+// WeakSet работает так же как WeakMap, но класть в него можно только объекты.
+
 const cities = new Set([
   { name: "Beijing" },
   { name: "Kiev" },

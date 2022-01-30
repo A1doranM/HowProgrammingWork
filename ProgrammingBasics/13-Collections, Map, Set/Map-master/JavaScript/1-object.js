@@ -1,9 +1,10 @@
 "use strict";
-
+// Создаем свой собственный Мар.
 class Dictionary {
   constructor() {
-    this.map = Object.create(null);
+    this.map = Object.create(null);// Создаем класс таким образом что у него нету предков.
   }
+  // Реализуем обычные методы для Мар.
   set(key, value) {
     this.map[key] = value;
     return this;
@@ -27,6 +28,7 @@ class Dictionary {
   clear() {
     this.map = Object.create(null);
   }
+  // Метод для создания Мар из переданного объекта.
   static from(hash) {
     const instance = new Dictionary();
     for (const key in hash) {
