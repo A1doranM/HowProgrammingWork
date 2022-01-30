@@ -3,7 +3,7 @@
 // Command Query Responsibility Segregation - это когда мы CQS принцип поднимаем до модулей системы.
 // Одна подсистема занимается записью, другая чтением.
 
-// Паттерн Комманда - пишем три поля для изменения.
+// Паттерн команда - пишем три поля для изменения.
 class AccountCommand {
   constructor(account, operation, amount) {
     this.operation = operation;
@@ -48,7 +48,7 @@ const operations = { // Операции.
 
 class Bank {
   constructor() {
-    this.commands = []; // Коллекция комманд.
+    this.commands = []; // Коллекция команд.
     this.queries = []; // Коллекция запросов.
   }
 

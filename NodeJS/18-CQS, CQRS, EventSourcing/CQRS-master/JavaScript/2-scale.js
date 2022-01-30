@@ -50,7 +50,7 @@ const operations = { // Операции.
 
 class BankWrite {
   constructor() {
-    this.commands = []; // История комманд.
+    this.commands = []; // История команд.
   }
 
   operation(account, amount) {
@@ -59,7 +59,7 @@ class BankWrite {
     const command = new AccountCommand(
       account.name, operation, Math.abs(amount)
     );
-    this.commands.push(command); // Добавляем комманду в историю.
+    this.commands.push(command); // Добавляем команду в историю.
     eventBus.emit("command", command); // Генерируем событие.
     console.dir(command);
     execute(command);
@@ -76,7 +76,7 @@ class BankRead {
     });
   }
 
-  select({ account, operation }) { // Выбирает все комманды по заданным кретериям.
+  select({ account, operation }) { // Выбирает все команды по заданным кретериям.
     const query = new AccountQuery(account, operation);
     this.queries.push(query);
     const result = [];
@@ -84,7 +84,7 @@ class BankRead {
       let condition = true;
       if (account) condition = command.account === account; // Если подошел аккаунт
       if (operation) condition = condition && command.operation === operation; // подошло название операции
-      if (condition) result.push(command); // добавляем эту комманду в результирующий массив.
+      if (condition) result.push(command); // добавляем эту команду в результирующий массив.
     }
     query.rows = result.length;
     console.dir(query);
@@ -100,7 +100,7 @@ const writeApi = new BankWrite(); // Один апи для записи.
 // Но здесь тоже не совсем все правильно так как у нас в банке есть статическая коллекция которая хранит все аккаунты.
 // По правильному, в каждом запущенном read API модуле должна быть своя коллекция банк аккаунтов.
 // А в модуле на запись мы должны сделать специальный месседж который будет отвечать за создание аккаунта.
-// Создать комманду которая будет отвечать за создание аккаунта.
+// Создать команду которая будет отвечать за создание аккаунта.
 // Тогда в ивент мы будем передавать два типа ивентов, создание аккаунта, и его изменение.
 // Тоесть писать мы будем что-то вроде writeApi.createAccount();
 // И тогда при запуске операций мы должны передавать дополнительно имя аккаунта.
