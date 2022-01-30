@@ -1,6 +1,6 @@
 "use strict";
 
-// Все как в примере выше но с возможнотью отката операции.
+// Все как в примере выше но с возможностью отката операции.
 
 class AccountCommand {
   constructor(operation, account, amount) {

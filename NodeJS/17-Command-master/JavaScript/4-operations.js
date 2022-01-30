@@ -20,7 +20,7 @@ class BankAccount { // Но у банк аккаунта каждый инста
 
 BankAccount.collection = new Map();
 
-const operations = { // Вынесли все операции в справочник. Где все операции получают на вход комманду.
+const operations = { // Вынесли все операции в справочник. Где все операции получают на вход команду.
   Withdraw: (command) => {
     const account = BankAccount.collection.get(command.account);
     account.balance -= command.amount;
@@ -44,7 +44,7 @@ class Bank {
   operation(account, amount) {
     const operation = amount < 0 ? "Withdraw" : "Income";
     const execute = operations[operation]; // По строке достаем операцию.
-    const command = new AccountCommand( // Создаем комманду.
+    const command = new AccountCommand( // Создаем команду.
       operation, account.name, Math.abs(amount)
     );
     const allowed = operations.Allowed(command); // Проверяем можно ли списать деньги.

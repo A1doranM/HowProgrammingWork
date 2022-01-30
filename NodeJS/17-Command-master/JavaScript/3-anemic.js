@@ -27,7 +27,7 @@ class Bank {
     const command = new AccountCommand( // В операцию сохраняем не ссылку на объект, а ее название.
       operation, account.name, Math.abs(amount)
     );
-    this.commands.push(command); // Добавляем комманду в список.
+    this.commands.push(command); // Добавляем команду в список.
     account.balance += amount;  // Изменяем баланс.
   }
 

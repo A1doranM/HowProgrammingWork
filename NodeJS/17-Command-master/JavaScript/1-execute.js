@@ -37,13 +37,13 @@ class BankAccount { // Receiver or Target
 // Банк.
 class Bank { // Invoker
   constructor() {
-    this.commands = []; // Массив комманд. Благодаря ему в дальнейшем можно реализовать откат операций.
+    this.commands = []; // Массив команд. Благодаря ему в дальнейшем можно реализовать откат операций.
   }
 
   operation(account, amount) { // Передаем имя аккаунта и сумму.
-    const Command = amount < 0 ? Withdraw : Income; // Выбираем комманду исходя из количества денего которое нам передали.
-    const command = new Command(account, Math.abs(amount)); // Создаем новую комманду.
-    command.execute(); // Выполняем комманду.
+    const Command = amount < 0 ? Withdraw : Income; // Выбираем команду исходя из количества денег которое нам передали.
+    const command = new Command(account, Math.abs(amount)); // Создаем новую команду.
+    command.execute(); // Выполняем команду.
     this.commands.push(command); // Сохраняем ее.
   }
 

@@ -1,6 +1,6 @@
 "use strict";
 
-// Отличие примера в том что мы можем откатывать комманды.
+// Отличие примера в том что мы можем откатывать команды.
 
 class AccountCommand {
   constructor(account, amount) {
