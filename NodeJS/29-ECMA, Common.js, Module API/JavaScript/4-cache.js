@@ -1,5 +1,7 @@
 "use strict";
 
+// Работа с кешем модулей.
+
 const ex1 = require("./1-export.js");
 const modulePath = require.resolve("./1-export.js");
 console.log({ required: modulePath });

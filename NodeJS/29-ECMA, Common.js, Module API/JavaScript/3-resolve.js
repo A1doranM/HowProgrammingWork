@@ -1,7 +1,7 @@
 "use strict";
 
 const exp = require("./1-export.js");
-const expPath = require.resolve("./1-export.js");
+const expPath = require.resolve("./1-export.js"); // Возвращает путь до указанного файла.
 const expModule = require.cache[expPath];
 console.log({ exp, expPath, expModule });
 

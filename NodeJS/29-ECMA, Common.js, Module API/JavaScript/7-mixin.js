@@ -1,5 +1,7 @@
 "use strict";
 
+// Пример к синглтону которая примешивает что-то в файл.
+
 const fs = require("fs");
 const { readFile } = fs;
 
