@@ -1,13 +1,15 @@
 "use strict";
 
+// Не блокирующий for await.
+
 const range = {
   start: 1,
   end: 1000,
   [Symbol.asyncIterator]() {
     let value = this.start;
     return {
-      next: () => new Promise(resolve => {
-        setTimeout(() => {
+      next: () => new Promise(resolve => { // Не сразу резолваем промис
+        setTimeout(() => { // а через таймаут.
           resolve({
             value,
             done: value++ === this.end + 1

@@ -1,5 +1,8 @@
 "use strict";
 
+// Создаем кастомный массив, наследуясь от встроенного JS Array
+// и для него определяем символ-итератор почти такой же как и для for await.
+
 const INTERVAL = 10;
 
 class AsyncArray extends Array {

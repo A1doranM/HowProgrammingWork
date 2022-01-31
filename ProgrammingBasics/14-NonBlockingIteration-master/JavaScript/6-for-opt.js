@@ -1,5 +1,7 @@
 "use strict";
 
+// Оптимизированный for await отдающий время в ивентлуп каждые 10 мсек.
+
 const INTERVAL = 10;
 
 const range = {
@@ -12,20 +14,20 @@ const range = {
       next: () => {
         const now = Date.now();
         const diff = now - time;
-        if (diff > INTERVAL) {
-          time = now;
+        if (diff > INTERVAL) { // Проверяем не случился ли интервал
+          time = now; // сбрасываем время
           return new Promise(resolve => {
-            setTimeout(() => {
+            setTimeout(() => { // Резолваем промис через таймаут
               resolve({
-                value,
-                done: value++ === this.end + 1
+                value, // значение
+                done: value++ === this.end + 1 // флаг завершения итерации.
               });
             }, 0);
           });
         }
-        return Promise.resolve({
-          value,
-          done: value++ === this.end + 1
+        return Promise.resolve({ // Если не случился резолваем промис сразу
+          value, // со значением
+          done: value++ === this.end + 1 // и переменной, говорящей о том завершена ли итерация.
         });
       }
     };

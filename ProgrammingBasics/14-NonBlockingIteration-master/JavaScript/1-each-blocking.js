@@ -1,5 +1,7 @@
 "use strict";
 
+// Пример с блокирующим итерированием.
+
 const numbers = new Array(1000).fill(1);
 
 setTimeout(() => {

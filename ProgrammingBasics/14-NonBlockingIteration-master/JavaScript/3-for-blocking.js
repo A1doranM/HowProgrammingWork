@@ -1,12 +1,16 @@
 "use strict";
 
+
+// Несмотря на for await это блокирующий код так как внутри
+// for await промисы резолваются сразу.
+
 const range = {
   start: 1,
   end: 1000,
   [Symbol.asyncIterator]() {
     let value = this.start;
     return {
-      next: () => Promise.resolve({
+      next: () => Promise.resolve({ // Cходу резолваем промис.
         value,
         done: value++ === this.end + 1
       })
