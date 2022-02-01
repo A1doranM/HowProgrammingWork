@@ -8,6 +8,7 @@ const m2 = import("Package3/main.mjs");
 //const u1 = import("Package3/utils");
 const u2 = import("Package3/utils.mjs");
 
+// Вот это надо для того чтобы дождаться завершения импортирования файлов.
 Promise.all([p1, m2, u2]).then((result) => {
   console.log(result);
 });

@@ -1,5 +1,8 @@
 "use strict";
 
+// При загрузке файла без передачи конкретного пути, Node сама начнет искать файл.
+// И будет перебирать
+
 const p1 = require("Package2");
 const p2 = require("Package2/");
 const p3 = require("Package2/.");
