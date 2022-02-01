@@ -1,5 +1,6 @@
 "use strict";
 
+// Тоже самое но более краткая запись.
 const node = (prev, data) => ({ prev, data });
 
 // Usage

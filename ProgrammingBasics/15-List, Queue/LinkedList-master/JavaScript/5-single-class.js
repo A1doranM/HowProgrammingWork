@@ -1,5 +1,7 @@
 "use strict";
 
+// Список на классах.
+
 class List {
   constructor() {
     this.last = null;

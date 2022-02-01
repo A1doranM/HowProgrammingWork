@@ -1,12 +1,14 @@
 "use strict";
 
+// Пример списка на замыканиях + каррирование.
+
 const node = data => {
-  const element = data => {
-    const next = node(data);
-    next.prev = element;
-    return next;
+  const element = data => { // Возвращаем функцию element,
+    const next = node(data); // рекурсивно вызываем ноду и отправляем ей данные, где опять вернется функция element
+    next.prev = element; // текущую функцию сохранили в предыдущий элемент
+    return next; // возвратили новый element.
   };
-  element.data = data;
+  element.data = data; // Сохранили данные.
   return element;
 };
 

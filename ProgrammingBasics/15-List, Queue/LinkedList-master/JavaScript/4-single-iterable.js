@@ -1,26 +1,28 @@
 "use strict";
 
+// Итеративный подход.
 const list = () => {
   let element;
-  return {
-    push(data) {
-      element = {
-        prev: element, data,
+  return { // Возвращаем объект с методами
+    push(data) { // для добавления в список
+      element = { // при добавлении в element сохраняем текущий добавленный элемент.
+        prev: element,
+        data: data,
       };
       return element;
     },
 
-    last: () => element,
+    last: () => element, // Получения последнего элемента.
 
-    [Symbol.iterator]: () => ({
-      current: element,
+    [Symbol.iterator]: () => ({ // Определяем для него итератор.
+      current: element, // Вначале текущий элемент указывает на последний добавленный элемент.
       next() {
-        const element = this.current;
+        const element = this.current; // Берем текущий элемент.
         if (!element) return {
           done: true,
           value: null
         };
-        this.current = element.prev;
+        this.current = element.prev; // Сохраняем в текущий список предок последнего элемента.
         return {
           done: false,
           value: element.data

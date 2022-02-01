@@ -1,5 +1,7 @@
 "use strict";
 
+// Эта часть основана на LinkedList.
+// Стек реализуется на основе Списка, в данном случае односвязного.
 class Stack {
   constructor() {
     this.last = null;
