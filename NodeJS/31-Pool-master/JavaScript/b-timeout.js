@@ -17,10 +17,10 @@ class Pool {
   async next() {
     if (this.size === 0) return null;
     if (this.available === 0) {
-      return new Promise((resolve, reject) => { // Теперь промис иногда реджектается
+      return new Promise((resolve, reject) => { // Теперь промис иногда реджектается.
         const waiting = { resolve, timer: null }; // Структура которая сохранится в очередь.
-        waiting.timer = setTimeout(() => { // Создаем таймер
-          waiting.resolve = null; // Когда он сработает, обнуляем резолв
+        waiting.timer = setTimeout(() => { // Создаем таймер.
+          waiting.resolve = null; // Когда он сработает, обнуляем резолв,
           this.queue.shift(); // удаляем наш обработчик из пула
           reject(new Error("Pool next item timeout")); // посылаем реджект.
         }, this.timeout);
