@@ -1,5 +1,7 @@
 "use strict";
 
+// Пример где мы прячем символы.
+
 const hideSymbol = (obj, symbol) => {
   obj = {
     realObj: Object.assign(obj),
