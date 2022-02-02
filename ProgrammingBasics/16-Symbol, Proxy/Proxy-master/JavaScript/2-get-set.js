@@ -1,5 +1,7 @@
 "use strict";
 
+// Просто пример с get, set без прокси.
+
 const obj = {
   get x() {
     return 100;

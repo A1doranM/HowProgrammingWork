@@ -2,8 +2,8 @@
 
 const max = (a, b) => (a > b ? a : b);
 
-const amax = new Proxy(max, {
-  apply(target, context, args) {
+const amax = new Proxy(max, { // Прокси может оборачивать так же функции
+  apply(target, context, args) { // для них мы например можем перехватывать вызов apply.
     console.log("apply", target.name, args);
     return args.reduce(target);
   }
