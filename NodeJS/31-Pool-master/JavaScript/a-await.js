@@ -1,23 +1,25 @@
 "use strict";
 
+// Более продвинутый пример с ожиданием в next.
+
 class Pool {
   constructor() {
     this.items = [];
     this.free = [];
-    this.queue = [];
+    this.queue = []; // Очередь в которой будут лежать ожидающие.
     this.current = 0;
     this.size = 0;
     this.available = 0;
   }
 
   async next() {
-    if (this.size === 0) return null;
-    if (this.available === 0) {
-      return new Promise((resolve) => {
+    if (this.size === 0) return null; // Проверяем есть ли вообще элементы.
+    if (this.available === 0) { // Если нету доступных
+      return new Promise((resolve) => { // возвращаем промис который сохранит свой резолв в очередь.
         this.queue.push(resolve);
       });
     }
-    let item = null;
+    let item = null; // Такой же код что и раньше.
     let free = false;
     do {
       item = this.items[this.current];
@@ -28,7 +30,7 @@ class Pool {
     return item;
   }
 
-  add(item) {
+  add(item) { // Ничего не менялось.
     if (this.items.includes(item)) throw new Error("Pool: add duplicates");
     this.size++;
     this.available++;
@@ -37,9 +39,10 @@ class Pool {
   }
 
   async capture() {
-    const item = await this.next();
-    if (!item) return null;
-    const index = this.items.indexOf(item);
+    const item = await this.next(); // Забираем первый свободный.
+    if (!item) return null; // если его нету.
+    const index = this.items.indexOf(item); // Берем индекс элемента, а не просто current потому что пока мы
+                                            // ждали await сверху кто-то мог втиснуться и сдвинуть current дальше.
     this.free[index] = false;
     this.available--;
     return item;
@@ -51,9 +54,9 @@ class Pool {
     if (this.free[index]) throw new Error("Pool: release not captured");
     this.free[index] = true;
     this.available++;
-    if (this.queue.length > 0) {
-      const resolve = this.queue.shift();
-      if (resolve) setTimeout(resolve, 0, item);
+    if (this.queue.length > 0) { // Теперь проверяет если кто-то ожидает
+      const resolve = this.queue.shift(); // берем последний ожидающий resolve
+      if (resolve) setTimeout(resolve, 0, item); // отдаем этому резолву item, при этом отдавая квант времени.
     }
   }
 }

@@ -1,19 +1,20 @@
 "use strict";
 
+// Пул на классах.
 class Pool {
   constructor() {
-    this.items = [];
-    this.current = 0;
+    this.items = []; // Элементы пула.
+    this.current = 0; // Текущий элемент.
   }
 
-  next() {
+  next() { // Достает текущий элемент.
     const item = this.items[this.current];
     this.current++;
     if (this.current === this.items.length) this.current = 0;
     return item;
   }
 
-  add(item) {
+  add(item) { // Добавляет элемент.
     if (this.items.includes(item)) throw new Error("Pool: add duplicates");
     this.items.push(item);
   }

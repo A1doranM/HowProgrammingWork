@@ -2,49 +2,49 @@
 
 class Pool {
   constructor() {
-    this.items = [];
-    this.free = [];
-    this.current = 0;
-    this.size = 0;
-    this.available = 0;
+    this.items = []; // Массив всех элементов.
+    this.free = []; // Массив не занятых элементов.
+    this.current = 0; // Текущий элемент.
+    this.size = 0; // Размер.
+    this.available = 0; // Количество доступных элементов.
   }
 
-  next() {
-    if (this.available === 0) return null;
-    let item = null;
+  next() { // Возвращает первый свободный элемент.
+    if (this.available === 0) return null; // Если нет свободных элементов, вернуть null.
+    let item = null; //
     let free = false;
-    do {
-      item = this.items[this.current];
+    do { // Проходим до элемента который одновременно существует и при этом он свободен.
+      item = this.items[this.current]; // Забираем элемент.
       free = this.free[this.current];
-      this.current++;
-      if (this.current === this.size) this.current = 0;
+      this.current++; // Увеличиваем текущий элемент.
+      if (this.current === this.size) this.current = 0; // Если дошли до конца.
     } while (!item || !free);
-    return item;
+    return item; // Возвращаем найденный элемент.
   }
 
-  add(item) {
+  add(item) { // Добавляем элементы в коллекцию.
     if (this.items.includes(item)) throw new Error("Pool: add duplicates");
     this.size++;
     this.available++;
     this.items.push(item);
-    this.free.push(true);
+    this.free.push(true); // Ставим флаг о том что добавленный элемент доступен.
   }
 
-  capture() {
-    const item = this.next();
-    if (!item) return null;
-    const index = this.items.indexOf(item);
-    this.free[index] = false;
-    this.available--;
-    return item;
+  capture() { // Маркирует элемент занятым. То есть мы захватываем элемент.
+    const item = this.next(); // Берем элемент.
+    if (!item) return null; // Если не нашли.
+    const index = this.items.indexOf(item); // Берем индекс элемента
+    this.free[index] = false; // меняем для него флаг в массиве занятых элементов
+    this.available--; // уменьшаем количество свободных элементов
+    return item; // возвращаем элемент.
   }
 
-  release(item) {
-    const index = this.items.indexOf(item);
-    if (index < 0) throw new Error("Pool: release unexpected item");
-    if (this.free[index]) throw new Error("Pool: release not captured");
-    this.free[index] = true;
-    this.available++;
+  release(item) { // Маркирует элемент свободным. То есть мы освобождаем элемент.
+    const index = this.items.indexOf(item); // забираем индекс элемента
+    if (index < 0) throw new Error("Pool: release unexpected item"); // если его в пуле не было то ошибка
+    if (this.free[index]) throw new Error("Pool: release not captured"); // если он был, но не был захвачен, ошибка.
+    this.free[index] = true; // Освобождаем элемент
+    this.available++; // увеличиваем количество доступных.
   }
 }
 

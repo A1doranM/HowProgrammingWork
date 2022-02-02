@@ -1,7 +1,10 @@
 "use strict";
 
+// Модификация с таймаутом.
+
 class Pool {
-  constructor(options = {}) {
+  constructor(options = {}) { // В конструктор передаем количество мсек, сколько нам ждать
+                                  // пока не освободится элемент из пула.
     this.items = [];
     this.free = [];
     this.queue = [];
@@ -14,14 +17,14 @@ class Pool {
   async next() {
     if (this.size === 0) return null;
     if (this.available === 0) {
-      return new Promise((resolve, reject) => {
-        const waiting = { resolve, timer: null };
-        waiting.timer = setTimeout(() => {
-          waiting.resolve = null;
-          this.queue.shift();
-          reject(new Error("Pool next item timeout"));
+      return new Promise((resolve, reject) => { // Теперь промис иногда реджектается
+        const waiting = { resolve, timer: null }; // Структура которая сохранится в очередь.
+        waiting.timer = setTimeout(() => { // Создаем таймер
+          waiting.resolve = null; // Когда он сработает, обнуляем резолв
+          this.queue.shift(); // удаляем наш обработчик из пула
+          reject(new Error("Pool next item timeout")); // посылаем реджект.
         }, this.timeout);
-        this.queue.push(waiting);
+        this.queue.push(waiting); // В очередь теперь пишем резолв и таймер.
       });
     }
     let item = null;
@@ -59,9 +62,9 @@ class Pool {
     this.free[index] = true;
     this.available++;
     if (this.queue.length > 0) {
-      const { resolve, timer } = this.queue.shift();
-      clearTimeout(timer);
-      if (resolve) setTimeout(resolve, 0, item);
+      const { resolve, timer } = this.queue.shift(); // Забираем из очереди resolve, timer.
+      clearTimeout(timer); // Очищаем его таймер,
+      if (resolve) setTimeout(resolve, 0, item); // вызываем розолв.
     }
   }
 }
@@ -69,7 +72,7 @@ class Pool {
 // Usage
 
 (async () => {
-  const pool = new Pool({ timeout: 5000 });
+  const pool = new Pool({ timeout: 5000 }); // Делаем пул с ожиданием не больше 5 сек.
   pool.add({ item: 1 });
   pool.add({ item: 2 });
   const last = { item: 3 };
