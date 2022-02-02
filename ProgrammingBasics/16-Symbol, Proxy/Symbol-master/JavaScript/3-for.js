@@ -11,8 +11,8 @@ if (symbol1 === symbol2) {
 }
 
 console.log("symbol1:", symbol1);
-console.log("Symbol('name'):", Symbol("name"));
-console.log("Symbol.for('name'):", Symbol.for("name"));
+console.log("Symbol("name"):", Symbol("name"));
+console.log("Symbol.for("name"):", Symbol.for("name"));
 
 console.log(Symbol("name") === Symbol.for("name")); // false.
 console.log(Symbol.for("name") === Symbol.for("name")); // true.

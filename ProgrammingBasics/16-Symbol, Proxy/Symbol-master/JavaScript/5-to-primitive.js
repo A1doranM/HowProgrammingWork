@@ -4,7 +4,7 @@
 // переделывает объект в один из примитивных типов.
 // При вызове с арифметическими операторами, или при склейке строк, или в шаблонных строках.
 
-console.log("'toPrimitive' in Symbol", "toPrimitive" in Symbol);
+console.log(""toPrimitive" in Symbol", "toPrimitive" in Symbol);
 
 const person = { name: "Gena", age: 19 };
 
