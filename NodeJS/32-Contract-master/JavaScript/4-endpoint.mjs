@@ -1,17 +1,18 @@
 // server
 
+// Пример описания контракта. Такой контракт проверяется в рантайме.
 ({
-  parameters: {
+  parameters: { // Описания входящих параметров для метода.
     a: "number",
     b: "number",
   },
 
-  method: async ({ a, b }) => {
+  method: async ({ a, b }) => { // Есть ключ - метод.
     const result = a > b;
     return result;
   },
 
-  returns: "boolean",
+  returns: "boolean", // Описание возвращаемого результата.
 });
 
 // front
