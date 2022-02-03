@@ -10,7 +10,7 @@ const persons = [
   { name: "Rene Descartes", city: "La Haye en Touraine", born: 1596 }
 ];
 
-const v8Data = v8.serialize(persons);
+const v8Data = v8.serialize(persons); // Встроенный сериализатор V8 сериализует объекты в бинарный формат.
 const obj = v8.deserialize(v8Data);
 console.dir(obj);
 console.log("\n" + v8Data.toString("hex").toUpperCase());

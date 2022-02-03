@@ -1,5 +1,7 @@
 "use strict";
 
+// Хотим преобразовать массив к строке.
+
 const arr = [
   [ 7, 10, 12,  5],
   [ 3,  1,  2,  3],
@@ -7,6 +9,6 @@ const arr = [
   [ 5, 18,  6, 26]
 ];
 
-const s = arr.join("\n");
+const s = arr.join("\n"); // Преобразуем к строке.
 
 console.log(s);

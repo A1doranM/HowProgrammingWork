@@ -1,10 +1,12 @@
 "use strict";
 
+// Еще один сериализатор, но теперь для каждого типа мы возвращаем специальную функцию.
+
 let serializers = null;
 
-const serialize = (obj) => {
+const serialize = (obj) => { // Функция сериализации берущая сериализатор из коллекции.
   const type = typeof obj;
-  const serializer = serializers[type];
+  const serializer = serializers[type]; // Забираем сериализатор в зависимости от типа.
   return serializer(obj);
 };
 
@@ -20,7 +22,14 @@ serializers = {
     for (const key in o) {
       const value = o[key];
       if (s.length > 1) s += ",";
-      s += key + ":" + serialize(value);
+      s += key + ":" + serialize(value); // Используется непрямая рекурсия, когда из коллекции вызываем сериализатор.
+    }
+    // Сериализация символов.
+    const symbols = Object.getOwnPropertySymbols(o); // Заберем символы из сериализуемого объекта
+    for(const symbol of symbols) {
+      const value = o[symbol]; // заберем значения для каждого символа
+      if(s.length > 1) s += ','; // разделим значения ","
+      s += symbol.toString() + ": " + serialize(value); // сериализованный символ в итоговый результат.
     }
     return s + "}";
   }
@@ -33,7 +42,8 @@ const obj1 = {
   subObject: {
     arr: [7, 10, 2, 5],
     fn: (x) => x / 2
-  }
+  },
+  [Symbol('Aldoran')]: 123
 };
 
 console.log(serialize(obj1));

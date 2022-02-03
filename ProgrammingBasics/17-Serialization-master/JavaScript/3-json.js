@@ -1,5 +1,7 @@
 "use strict";
 
+// Встроенный в JS сериализатор.
+
 const obj1 = {
   field: "Value",
   subObject: {

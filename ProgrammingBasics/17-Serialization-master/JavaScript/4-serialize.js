@@ -1,5 +1,7 @@
 "use strict";
 
+// Свой собственный сериализатор.
+
 const serialize = (obj) => {
   const type = typeof obj;
   if (obj === null) return "null";
@@ -9,12 +11,12 @@ const serialize = (obj) => {
   else if (type !== "object") return obj.toString();
   else if (Array.isArray(obj)) {
     return `[${obj}]`;
-  } else {
+  } else { // Если есть вложенная структура
     let s = "{";
-    for (const key in obj) {
-      const value = obj[key];
-      if (s.length > 1) s += ",";
-      s += key + ":" + serialize(value);
+    for (const key in obj) { // проходим по полям
+      const value = obj[key]; // забираем значение из поля
+      if (s.length > 1) s += ","; // разделяем значения запятыми
+      s += key + ":" + serialize(value); // рекурсивно вызываем сериалайз для значения по ключу.
     }
     return s + "}";
   }
