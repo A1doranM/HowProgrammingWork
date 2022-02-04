@@ -1,19 +1,21 @@
 "use strict";
 
+// Улучшенная версия где мы контролируем кол-во элементов. Пул не может стать больше чем максимальное кол-во.
+             // фабрика, минимальное, нормальное, максимальное кол-во элементов.
 const poolify = (factory, min, norm, max) => {
   const duplicate = (n) => new Array(n).fill().map(() => factory());
-  const items = duplicate(norm);
+  const items = duplicate(norm); // Создаем нормальное количество элементов.
 
   return (item) => {
     if (item) {
-      if (items.length < max) {
-        items.push(item);
+      if (items.length < max) { // Пока меньше максимума
+        items.push(item); // помещаем в пул.
       }
       console.log("Recycle item, count =", items.length);
-      return;
+      return; // Иначе ничего не делаем.
     }
-    if (items.length < min) {
-      const instances = duplicate(norm - items.length);
+    if (items.length < min) { // Если меньше минимума,
+      const instances = duplicate(norm - items.length); // создаем столько чтобы дойти до нормального значения.
       items.push(...instances);
     }
     const res = items.pop();

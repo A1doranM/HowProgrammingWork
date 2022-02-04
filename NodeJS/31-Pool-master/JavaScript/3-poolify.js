@@ -1,7 +1,9 @@
 "use strict";
 
+// Функция которая пулифицирует любую фабрику.
+
 const poolify = (factory, size) => {
-  const items = new Array(size).fill(null).map(() => factory());
+  const items = new Array(size).fill(null).map(() => factory()); // Вызываем переданную фабрику заданное кол-во раз.
 
   return (item) => {
     if (item) {

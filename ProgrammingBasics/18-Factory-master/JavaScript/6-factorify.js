@@ -1,5 +1,7 @@
 "use strict";
 
+// Метод который создает фабрику классов.
+
 class Person {
   constructor(name) {
     this.name = name;

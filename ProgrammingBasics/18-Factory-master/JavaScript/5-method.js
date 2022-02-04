@@ -1,11 +1,13 @@
 "use strict";
 
+// Фабрика объектов.
+
 class Person {
   constructor(name) {
     this.name = name;
   }
 
-  static factory(name) {
+  static factory(name) { // Статичный метод возвращающий новый экземпляр Person.
     return new Person(name);
   }
 }

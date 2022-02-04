@@ -1,5 +1,7 @@
 "use strict";
 
+// Тоже самое.
+
 const pool = (item) => {
   pool.items = pool.items || new Array(10).fill(new Array(1000).fill(0));
 

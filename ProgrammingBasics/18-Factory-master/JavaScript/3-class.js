@@ -1,9 +1,11 @@
 "use strict";
 
-const logable = fields => class Logable {
-  constructor(data) {
+// Фабрика классов.
+
+const logable = fields => class Logable { // Теперь на выход отдаем класс Logable.
+  constructor(data) { // Конструктор.
     this.values = data;
-    for (const key in fields) {
+    for (const key in fields) { // Здесь все так же.
       Object.defineProperty(Logable.prototype, key, {
         get() {
           console.log("Reading key:", key);
@@ -23,7 +25,7 @@ const logable = fields => class Logable {
     }
   }
 
-  toString() {
+  toString() { // Сериализатор.
     let result = this.constructor.name + "\t";
     for (const key in fields) {
       result += this.values[key] + "\t";

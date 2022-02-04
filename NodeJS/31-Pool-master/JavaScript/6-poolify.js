@@ -1,17 +1,19 @@
 "use strict";
 
-const poolified = Symbol("poolified");
+// Пул с проверкой того чтобы в него отдавали те классы которые он хранит. А не какие-то левые.
 
-const mixFlag = { [poolified]: true };
+const poolified = Symbol("poolified"); // Символ который помечает элементы пула.
+
+const mixFlag = { [poolified]: true }; // Записываем значение символу.
 
 const duplicate = (factory, n) => (
   new Array(n).fill().map(() => {
     const instance = factory();
-    return Object.assign(instance, mixFlag);
+    return Object.assign(instance, mixFlag); // Элементам пула добавляем наш символ.
   })
 );
 
-const provide = (callback) => (item) => {
+const provide = (callback) => (item) => { // Возвращаем функцию которая асинхронно вызывает коллбэк.
   setImmediate(() => {
     callback(item);
   });
