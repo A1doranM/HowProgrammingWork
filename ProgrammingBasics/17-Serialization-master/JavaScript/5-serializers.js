@@ -28,7 +28,7 @@ serializers = {
     const symbols = Object.getOwnPropertySymbols(o); // Заберем символы из сериализуемого объекта
     for(const symbol of symbols) {
       const value = o[symbol]; // заберем значения для каждого символа
-      if(s.length > 1) s += ','; // разделим значения ","
+      if(s.length > 1) s += ","; // разделим значения ","
       s += symbol.toString() + ": " + serialize(value); // сериализованный символ в итоговый результат.
     }
     return s + "}";
@@ -43,7 +43,7 @@ const obj1 = {
     arr: [7, 10, 2, 5],
     fn: (x) => x / 2
   },
-  [Symbol('Aldoran')]: 123
+  [Symbol("Aldoran")]: 123
 };
 
 console.log(serialize(obj1));
