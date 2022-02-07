@@ -1,6 +1,7 @@
 "use strict";
 
 // Типизированный массив в отличии от обычного массива хранит данные только одного типа.
+// Преимущества типизированных массивов https://stackoverflow.com/questions/13328658/are-the-advantages-of-typed-arrays-in-javascript-is-that-they-work-the-same-or-s
 
 // Выделяем массив на 10 байт.
 const arrayBuffer = new ArrayBuffer(10);
