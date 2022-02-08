@@ -44,11 +44,18 @@ interface HttpClient {
 
 
 class Axios implements HttpClient {
+  delete(): void {
+  }
+
+  get(url: string): void {
+  }
+
+  post(): void {
+  }
+
+  put(): void {
+  }
   request() {
-    fetch
-    XMLHttpRequest()
-    node-fetch
-    node http module
   }
 }
 

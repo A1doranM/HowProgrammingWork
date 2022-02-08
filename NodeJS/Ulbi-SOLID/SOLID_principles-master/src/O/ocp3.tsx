@@ -39,9 +39,9 @@ const ForeignRequisites = (props: RequisitesProps) => {
             <input type="text" placeholder="KPP"/>
             <input type="text" placeholder=""/>
             <Requisites
-                onSave={}
-                onReset={}
-                title={}
+                onSave={onSave}
+                onReset={onReset}
+                title={title}
             />
         </div>
     )
