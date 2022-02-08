@@ -2,11 +2,14 @@
 // Принцип единственной ответственности
 import React from "react";
 
+// Пример на Реакте. Все четко и красиво, и нормально разбито по компонентам.
 interface RequisitesProps {
   onSave: (obj) => void;
   onReset: () => void;
   title: string;
 }
+
+// Форма реквизитов.
 const Requisites = (props: RequisitesProps) => {
   const {
     onSave,
@@ -27,6 +30,7 @@ const Requisites = (props: RequisitesProps) => {
   );
 };
 
+// Обработка иностранных реквизитов.
 const ForeignRequisites = (props: RequisitesProps) => {
   const validateForeignFORM = () => {
     // правила валидации
@@ -38,6 +42,7 @@ const ForeignRequisites = (props: RequisitesProps) => {
   return <Requisites onSave={saveHandler} onReset={props.onReset} title={props.title}/>
 }
 
+// Обработка российских реквизитов.
 const RussianRequisites = (props: RequisitesProps) => {
   const validateRussianFORM = () => {
     // правила валидации
@@ -49,6 +54,7 @@ const RussianRequisites = (props: RequisitesProps) => {
   return <Requisites onSave={saveHandler} onReset={props.onReset} title={props.title}/>
 }
 
+// Отрисовка формы реквизитов в зависимости от входящих пропсов.
 const CreateRequisitesForm = ({isForeign}) => {
   const createRequisites = () => {}
   const resetRequisites = () => {}
@@ -64,23 +70,5 @@ const CreateRequisitesForm = ({isForeign}) => {
     onSave={createRequisites}
     onReset={resetRequisites}
     title={"Сохранение реквизитов"}
-  />
-}
-
-const updateRequisitesForm = ({isForeign}) => {
-  const updateRequisites = () => {}
-  const resetRequisites = () => {}
-
-  if(isForeign) {
-    return <ForeignRequisites
-      onSave={updateRequisites}
-      onReset={resetRequisites}
-      title={"Обновление реквизитов"}
-    />
-  }
-  return <RussianRequisites
-    onSave={updateRequisites}
-    onReset={resetRequisites}
-    title={"Обновление реквизитов"}
   />
 }
