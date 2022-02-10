@@ -1,5 +1,7 @@
 "use strict";
 
+// Еще один простенький пример.
+
 const singleton = (() => {
   const instance = {};
   return () => instance;

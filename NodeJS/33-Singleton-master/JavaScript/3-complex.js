@@ -1,12 +1,14 @@
 "use strict";
 
-const Singleton = (() => {
-  let instance;
+// Пример с классами.
 
-  class Singleton {
+const Singleton = (() => { // Создаем замыкание.
+  let instance; // Создаем инстанс.
+
+  class Singleton { // Создаем класс синглтон который вернется из функции.
     constructor() {
-      if (instance) return instance;
-      instance = this;
+      if (instance) return instance; // Если инстанс уже существует возвращаем его
+      instance = this; // иначе присваиваем this.
     }
   }
 
