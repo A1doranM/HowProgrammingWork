@@ -1,14 +1,18 @@
 "use strict";
 
-function Maybe(x) {
+// Функторы - это такие себе функциональные объекты.
+// Функтор может быть сделан, из типа, из класса и из прототипа.
+
+// Функтор на прототипах
+function Maybe(x) { // Конструктор прототипа Maybe
   this.x = x;
 }
 
-Maybe.prototype.map = function(fn) {
-  if (this.x && fn) {
-    return new Maybe(fn(this.x));
+Maybe.prototype.map = function(fn) { // у него есть метод map который
+  if (this.x && fn) { // принимает функцию и проверяет если есть X и есть функция
+    return new Maybe(fn(this.x)); // создаем новый экземпляр Maybe передав ему результат исполнения функции.
   } else {
-    return new Maybe(null);
+    return new Maybe(null); // Иначе просто создаем Maybe с аргументом null.
   }
 };
 

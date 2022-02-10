@@ -1,10 +1,13 @@
 "use strict";
 
-const maybe = (x) => {
-  const map = (fn) => maybe(x ? fn(x) : null);
-  const ap = (functor) => functor.map((f) => (x && f ? f(x) : null));
-  const chain = (f) => f(x);
-  return Object.assign(map, { map, ap, chain });
+// Почти тоже самое но на замыканиях.
+// Такой функтор с функцией chain называется уже монадой.
+
+const maybe = (x) => { // Замыкаем X
+  const map = (fn) => maybe(x ? fn(x) : null); // Создаем map
+  const ap = (functor) => functor.map((f) => (x && f ? f(x) : null)); // apply
+  const chain = (f) => f(x); // chain
+  return Object.assign(map, { map, ap, chain }); // К map примешиваем две другие функции.
 };
 
 // Usage

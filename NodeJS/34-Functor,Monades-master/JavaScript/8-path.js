@@ -1,19 +1,24 @@
 "use strict";
 
+// Пример когда у нас есть конфиг из которого нам надо прочитать сильно вложенный файл.
+
 const fp = {};
 
-fp.path = (data) => (
-  (path) => (
-    fp.maybe(path)((path) => (
-      path.split(".").reduce(
-        (prev, key) => (prev[key] || {}),
-        (data || {})
+fp.path = (data) => ( // Замыкаем данные из которых будем читать.
+  (path) => ( // Возвращаем лямбду замыкающую путь.
+    fp.maybe(path)((path) => ( // Возвращаем maybe в который кладем путь. И вызываем функцию которую возвращает maybe
+      path.split(".").reduce( // Разделяем элементы пути через точку и проходим редьюсом по результату.
+        (prev, key) => (prev[key] || {}), // На каждой итерации считываем следующий элемент пути, или отдаем пустой объект если элемента нету.
+        (data || {}) // Начальное значение редьюса, мы либо начнем с переданных нам данных, либо если их нету то начнем с пустого объекта.
       )
     ))
   )
 );
 
-fp.maybe = (x) => (fn) => fp.maybe(x && fn ? fn(x) : null);
+fp.maybe = (x) => (fn) => {
+  console.log("Call maybe: ", x, fn);
+  return fp.maybe(x && fn ? fn(x) : null)
+};
 
 // Usage
 
@@ -27,7 +32,7 @@ const config = {
     },
     ssl: {
       key: {
-        filename: "./7-path.js"
+        filename: "./8-path.js"
       }
     }
   }
@@ -35,7 +40,7 @@ const config = {
 
 // Imperative style
 
-if (
+if ( // В императивном стиле надо написать кучу проверок на все случаи жизни.
   config &&
   config.server &&
   config.server.ssl &&
@@ -50,8 +55,11 @@ if (
 
 // Functional style
 
-fp.path(config)("server.ssl.key.filename")(
-  (file) => fs.readFile(file, "utf8", (err, data) => {
-    fp.maybe(data)(console.log);
-  })
+fp.path(config)("server.ssl.key.filename")( // А вот при помощи функтора path.
+  (file) => {
+    console.log("FILE: ", file);
+    fs.readFile(file, "utf8", (err, data) => {
+      fp.maybe(data)(console.log);
+    })
+  }
 );

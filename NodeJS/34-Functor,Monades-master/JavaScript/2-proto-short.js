@@ -1,5 +1,7 @@
 "use strict";
 
+// Тоже самое но покороче. 
+
 function Maybe(x) {
   this.x = x;
 }

@@ -1,7 +1,9 @@
 "use strict";
 
+// Функтор на замыканиях.
+
 function maybe(x) {
-  return function(fn) {
+  return function(fn) { // Возвращаем функцию которая замыкает в себе fn и делает тоже самое что и Map до этого.
     if (x && fn) {
       return maybe(fn(x));
     } else {

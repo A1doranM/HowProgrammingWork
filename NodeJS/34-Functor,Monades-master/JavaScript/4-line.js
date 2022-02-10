@@ -1,5 +1,7 @@
 "use strict";
 
+// Тоже самое но на лямбдах.
+
 const maybe = (x) => (fn) => maybe(x && fn ? fn(x) : null);
 
 // Usage
