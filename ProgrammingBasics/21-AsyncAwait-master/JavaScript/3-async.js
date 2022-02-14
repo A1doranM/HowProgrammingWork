@@ -1,5 +1,7 @@
 "use strict";
 
+// Превращаем их в асинхронные.
+
 async function inc(a) {
   return a + 1;
 }
@@ -27,7 +29,7 @@ class Person {
     this.name = name;
   }
 
-  static async of(name) {
+  static async of(name) { // Статический асинхронный метод.
     return await new Person(name);
   }
 

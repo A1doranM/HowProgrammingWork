@@ -1,5 +1,7 @@
 "use strict";
 
+// Набор синхронных фукнций.
+
 function inc(a) {
   return a + 1;
 }
