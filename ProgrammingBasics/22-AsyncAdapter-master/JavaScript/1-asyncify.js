@@ -2,13 +2,14 @@
 
 // Synchronous function to callback-last
 
+// Делаем функцию асинхронной, асинхронность на коллбэках.
 const asyncify = (fn) => (...args) => {
-  const callback = args.pop();
+  const callback = args.pop(); // Забираем коллбэк из переданным нам аргументам. По контракту коллбэк идет последним.
   setTimeout(() => {
     try {
       const result = fn(...args);
-      if (result instanceof Error) callback(result);
-      else callback(null, result);
+      if (result instanceof Error) callback(result); // Если произошла ошибка отдаем ее.
+      else callback(null, result); // Иначе отдадим результат, а первым аргументом null.
     } catch (error) {
       callback(error);
     }

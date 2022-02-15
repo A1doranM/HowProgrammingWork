@@ -1,7 +1,7 @@
 "use strict";
 
 // Promise-returning function callback-last / error-first
-
+// Превращаем промисы в коллбэки.
 const callbackify = (fn) => (...args) => {
   const callback = args.pop();
   fn(...args)
@@ -27,7 +27,7 @@ twicePromise(100)
     console.dir({ promise: result });
   });
 
-twiceCallback(100, (e, value) => {
+twiceCallback(100, (e, value) => { // Теперь вместо then передаем коллбэк.
   halfCallback(value, (e, result) => {
     console.dir({ callbackLast: result });
   });

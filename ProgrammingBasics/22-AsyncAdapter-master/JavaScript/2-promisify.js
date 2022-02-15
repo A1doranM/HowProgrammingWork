@@ -1,7 +1,7 @@
 "use strict";
 
 // Callback-last function to Promise-returning
-
+// Тоже самое но с промисами.
 const promisify = (fn) => (...args) => new Promise(
   (resolve, reject) => {
     fn(...args, (err, data) => {
@@ -23,7 +23,7 @@ const halfCallback = (x, callback) => {
 };
 const halfPromise = promisify(halfCallback);
 
-twiceCallback(100, (e, value) => {
+twiceCallback(100, (e, value) => { // Ко
   halfCallback(value, (e, result) => {
     console.dir({ callbackLast: result });
   });
