@@ -1,5 +1,7 @@
 "use strict";
 
+// Дженерик лист.
+
 class ListItem {
   constructor(data) {
     this.data = data;

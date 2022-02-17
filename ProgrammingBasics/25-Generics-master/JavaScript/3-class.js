@@ -1,10 +1,12 @@
 "use strict";
 
+// Класс который является контейнером для значения.
+
 const containerValue = Symbol("containerValue");
 
 class Container {
   constructor(value) {
-    Object.defineProperty(this, containerValue, {
+    Object.defineProperty(this, containerValue, { // Сохраняем свойство внутрь класса. И в него запишем то что нам передадут.
       configurable: false,
       enumerable: false,
       writable: false,
