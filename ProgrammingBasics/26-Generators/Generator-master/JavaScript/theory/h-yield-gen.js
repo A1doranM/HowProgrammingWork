@@ -1,5 +1,6 @@
 "use strict";
 
+// Возвращаем генераторы из генератора
 function* gen1() {
   yield 10;
   yield 20;

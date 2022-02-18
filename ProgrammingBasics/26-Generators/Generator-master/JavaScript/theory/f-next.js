@@ -1,5 +1,6 @@
 "use strict";
 
+// Пример с передачей значения через next().
 function* counter(begin, end, delta) {
   let value = begin;
   while (end > value) {
