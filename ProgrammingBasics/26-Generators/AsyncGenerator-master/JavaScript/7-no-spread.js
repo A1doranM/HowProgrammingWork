@@ -1,5 +1,7 @@
 "use strict";
 
+// Можно получить все значения генератора при помощи
+// Promise.all().
 async function* ids(...args) {
   let i = 0;
   while (args.length > i) {

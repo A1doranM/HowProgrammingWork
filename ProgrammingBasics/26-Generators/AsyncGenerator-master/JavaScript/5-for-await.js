@@ -1,5 +1,6 @@
 "use strict";
 
+// По асинхронному генератору мы проходимся с помощью for await.
 async function* ids(...args) {
   let i = 0;
   while (args.length > i) {

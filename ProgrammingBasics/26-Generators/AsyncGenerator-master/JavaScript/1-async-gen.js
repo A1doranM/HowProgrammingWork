@@ -1,7 +1,8 @@
 "use strict";
 
 // Generator function
-
+// Асинхронные генераторы
+// Файлы 2, 3, 4. Я удалил так как они повторяют код синхронного генератора.
 function* genFn(x) {
   yield x * 2;
   return x * 3;

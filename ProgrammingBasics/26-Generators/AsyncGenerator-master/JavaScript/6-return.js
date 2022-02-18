@@ -1,5 +1,7 @@
 "use strict";
 
+// Проходимся через while получая значения не через then, а через
+// await.
 async function* ids(...args) {
   let i = 0;
   while (args.length > i) {
