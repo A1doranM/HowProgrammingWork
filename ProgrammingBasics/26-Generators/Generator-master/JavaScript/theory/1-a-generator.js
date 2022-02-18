@@ -2,12 +2,14 @@
 
 // Generator function
 
+// Объявление функции генератора. Генератор по ходу роботы может несколько раз вернуть значение,
+// обычные он возвращает через yield, а последнее через return.
 function* genFn(x) {
   yield x * 2;
   return x * 3;
 }
 
-console.log("genFn =", [genFn]);
+console.log("genFn =", [genFn]); //
 console.log("genFn.toString() =", [genFn.toString()]);
 console.log("typeof genFn =", typeof genFn);
 const fnProto = Object.getPrototypeOf(genFn);
@@ -30,8 +32,7 @@ class Multiplier {
     this.value = k;
   }
 
-  * genMethod(a) {
-    yield this.value;
+  * genMethod(a) { // Создаем метод - генератор у класса.
     this.value = this.value * a;
     return this.value;
   }
@@ -42,7 +43,7 @@ console.log("m1.genMethod(5).next() =", m1.genMethod(5).next());
 
 // Generator object field
 
-const m2 = {
+const m2 = { // Создаем объект у которого будт
   value: 2,
 
   * genMethod(a) {
