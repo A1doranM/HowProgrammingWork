@@ -87,6 +87,8 @@ class Task extends EventEmitter {
   }
 }
 
+// Scheduler будет фасадом для Таски и Логера. Скедулер умеет выполнять таски в определенное время.
+
 class Scheduler extends EventEmitter {
   constructor() {
     super();
@@ -94,7 +96,8 @@ class Scheduler extends EventEmitter {
     this.logger = new Logger();
   }
 
-  task(name, time, exec) {
+  task(name, time, exec) { // Функция таск которая по имени таска устанавливает время когда она должна будет выполниться
+                           // и функцию которую надо выполнить.
     this.stop(name);
     const task = new Task(name, time, exec);
     this.tasks.set(name, task);
