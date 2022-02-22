@@ -6,8 +6,8 @@ const { Worker } = threads;
 // Atomics.notify(typedArray, index, count)
 
 if (threads.isMainThread) {
-  const buffer = new SharedArrayBuffer(40); // В мастер-процессе сделаем шаред буффер на 40 байтов.
-  new Worker(__filename, { workerData: buffer }); // Передаем воркерам буффер.
+  const buffer = new SharedArrayBuffer(40); // В мастер-процессе сделаем шаред буфер на 40 байтов.
+  new Worker(__filename, { workerData: buffer }); // Передаем воркерам буфер.
   new Worker(__filename, { workerData: buffer });
   new Worker(__filename, { workerData: buffer });
 } else { // Выполняется внутри треда.
