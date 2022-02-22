@@ -1,11 +1,14 @@
 "use strict";
 
+// Пример адаптера для EventEmitter который трансформирует один ивент в другой.
+// Ниже мы посылая события timer будем отлавливать его в обработчике timeout.
+
 const { EventEmitter } = require("events");
 
 class AdaptiveEmitter extends EventEmitter {
   constructor() {
     super();
-    this.transformations = {};
+    this.transformations = {}; // Структура данных для трансформации.
   }
 
   transform(from, to, fn) {
@@ -24,7 +27,7 @@ class AdaptiveEmitter extends EventEmitter {
 // Usage
 
 const ae = new AdaptiveEmitter();
-ae.transform("timer", "timeout", (date) => [date.toLocaleString()]);
+ae.transform("timer", "timeout", (date) => [date.toLocaleString()]); // Трансформируем таймер в таймаут.
 
 ae.on("timeout", (date) => {
   console.dir({ date });

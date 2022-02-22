@@ -1,5 +1,7 @@
 "use strict";
 
+// Тоже самое на классах.
+
 class ArrayToQueueAdapter extends Array {
   enqueue(data) {
     this.push(data);

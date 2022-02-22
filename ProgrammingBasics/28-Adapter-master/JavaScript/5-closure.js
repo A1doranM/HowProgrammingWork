@@ -1,5 +1,7 @@
 "use strict";
 
+// А теперь на замыканиях.
+
 const arrayToQueueAdapter = (arr) => ({
   enqueue(data) {
     arr.push(data);

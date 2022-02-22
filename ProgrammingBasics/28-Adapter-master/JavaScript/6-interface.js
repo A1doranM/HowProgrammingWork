@@ -1,7 +1,8 @@
 "use strict";
 
 // Interface adapter: fs to Map
-
+// Пример с адаптером для fs. На основе которого мы создаем Map.
+// Но который для хранения использует файлы.
 class HashMap {
   constructor(fs, path) {
     this.fs = fs;

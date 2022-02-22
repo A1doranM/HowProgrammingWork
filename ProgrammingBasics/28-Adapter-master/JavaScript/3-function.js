@@ -1,5 +1,7 @@
 "use strict";
 
+// Тоже самое на функциональном программировании.
+
 const arrayToQueueAdapter = () => {
   const arr = [];
   arr.enqueue = (data) => arr.push(data);
