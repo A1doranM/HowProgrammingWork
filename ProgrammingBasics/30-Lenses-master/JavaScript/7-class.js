@@ -1,11 +1,14 @@
 "use strict";
 
+// Линзы через ООП
+// Они все сгруппированы в один типо неймспейс Lens откуда используются.
+
 const Lens = class {
   constructor(source, destination = source) {
     this.source = source;
     this.destination = destination;
   }
-  static from(source, destination) {
+  static from(source, destination) { // Фабрика которая создает экземпляр линзы.
     return new Lens(source, destination);
   }
   get(obj) {

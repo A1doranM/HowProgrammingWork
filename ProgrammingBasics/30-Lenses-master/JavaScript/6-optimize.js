@@ -1,14 +1,19 @@
 "use strict";
 
+// Пример с использованием нескольких линз.
+// Применяя разные линзы к объекту, или набору данных мы можем получать разные его отображения, или
+// выполнять над ним разные операции.
+
 const view = (lens, obj) => lens.get(obj);
 const set = (lens, val, obj) => lens.set(val, obj);
 const over = (lens, map, obj) => lens.set(map(lens.get(obj)), obj);
 const remove = (lens, obj) => lens.delete(obj);
 
+// Линза которая имеет разные методы и на вход принимает свойство и ожидаемое значение если его передали.
 const lens = (source, destination = source) => ({
   get: (obj) => obj[source],
   set: (val, obj) => ({ ...obj, [destination]: val }),
-  delete: (obj) => {
+  delete: (obj) => { // Линза для удаления свойства
     const { [destination]: forgot, ...other } = obj;
     return other;
   },
