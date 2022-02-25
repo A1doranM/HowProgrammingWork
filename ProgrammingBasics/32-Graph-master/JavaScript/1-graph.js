@@ -1,78 +1,85 @@
 "use strict";
 
+// Обязательно смотреть сначала README.md.
+
+// Класс вершины графа.
 class Vertex {
-  constructor(graph, data) {
-    this.graph = graph;
-    this.data = data;
-    this.links = new Map();
+  constructor(graph, data) { // Вершина имеет ссылку на граф которому она принадлежит (может и не иметь).
+    this.graph = graph; // Ссылка на граф.
+    this.data = data; // Ссылка на данные.
+    this.links = new Map(); // Коллекция вершин на которые она ссылается.
   }
 
-  link(...args) {
-    const distinct = new Set(args);
-    const { links } = this;
-    const { keyField } = this.graph;
-    for (const item of distinct) {
-      const value = item.data[keyField];
-      links.set(value, item);
+  link(...args) { // Метод для связывания вершины с другими.
+    const distinct = new Set(args); // Для того чтобы ссылки были уникальными, все что нам прислали кладем в Set().
+    const { links } = this; // Берем ссылки которые сейчас хранятся внутри вершины
+    const { keyField } = this.graph; // Берем ключевое поле это у нас у самого графа есть одно из полей по которому мы
+                                     // будем идентифицировать вершины. И это поле будет браться из объектов и при
+                                     // помощи этого поля мы будем обращаться к вершинам.
+    for (const item of distinct) { // Проходимся по вершинам которые нам передали
+      const value = item.data[keyField]; // берем из них значение при помощи keyField
+      links.set(value, item); // в свою коллекцию связей устанавливаем значение и вершину к которой оно привязано.
     }
     return this;
   }
 }
 
+// Курсор который выполняет обход и запросы к графовой структуре.
 class Cursor {
   constructor(vertices) {
     this.vertices = vertices;
   }
 
-  linked(...names) {
-    const { vertices } = this;
-    const result = new Set();
-    for (const vertex of vertices) {
+  linked(...names) { // Метод для прохода по вершинам
+    const { vertices } = this; // берем вершины
+    const result = new Set(); // результат
+    for (const vertex of vertices) { // идем по вершинам
       let condition = true;
-      for (const name of names) {
-        condition = condition && vertex.links.has(name);
+      for (const name of names) { // по именам
+        condition = condition && vertex.links.has(name); // если есть такое имя
       }
-      if (condition) result.add(vertex);
+      if (condition) result.add(vertex); // добавляем вершину в результат.
     }
-    return new Cursor(result);
+    return new Cursor(result); // Возвращаем курсор по результату.
   }
 }
 
+// Сам граф.
 class Graph {
-  constructor(keyField) {
+  constructor(keyField) { // Устанавливаем ключевое поле по которому граф будет индексироваться
     this.keyField = keyField;
-    this.vertices = new Map();
+    this.vertices = new Map(); // Список вершин графа.
   }
 
-  add(data) {
-    const vertex = new Vertex(this, data);
-    const key = data[this.keyField];
-    if (this.vertices.get(key) === undefined) {
-      this.vertices.set(key, vertex);
+  add(data) { // Добавляет вершины.
+    const vertex = new Vertex(this, data); // Создаем экземпляр вершины
+    const key = data[this.keyField]; // забираем ключ
+    if (this.vertices.get(key) === undefined) { // если такой вершины еще нет
+      this.vertices.set(key, vertex); // устанавливаем ее в граф по ключу.
     }
-    return vertex;
+    return vertex; // Возвращаем вершину.
   }
 
-  select(query) {
-    const vertices = new Set();
-    for (const vertex of this.vertices.values()) {
-      let condition = true;
-      const { data } = vertex;
-      if (data) {
-        for (const field in query) {
-          condition = condition && data[field] === query[field];
+  select(query) { // Забирает данные из графа.
+    const vertices = new Set(); // Множество где мы будем хранить результаты.
+    for (const vertex of this.vertices.values()) { // Проходимся по всем вершинам
+      let condition = true; //
+      const { data } = vertex; // Забираем данные.
+      if (data) { // Если есть
+        for (const field in query) { // для каждого поля
+          condition = condition && data[field] === query[field]; // проверяем если в query нету неподходящих полей
         }
-        if (condition) vertices.add(vertex);
+        if (condition) vertices.add(vertex); // если нету то сохраняем в результат.
       }
     }
-    return new Cursor(vertices);
+    return new Cursor(vertices); // Возвращаем новый Курсор для вершин.
   }
 }
 
 // Usage
 
-const graph = new Graph("name");
-
+const graph = new Graph("name"); // Будем индексироваться по имени.
+                                         // Значит вершины будут идентифицироваться по имени.
 const marcus = graph.add({
   name: "Marcus Aurelius",
   city: "Rome",
@@ -108,9 +115,9 @@ const trajan = graph.add({
   dynasty: "Nerva–Trajan",
 });
 
-marcus.link(lucius);
-lucius.link(trajan, marcus, marcus, marcus);
-pius.link(marcus, lucius);
+marcus.link(lucius); // Сцепливаем вершину Маркус с вершиной Луций.
+lucius.link(trajan, marcus, marcus, marcus); // Люция сцепливаем с Трояном и Марком аж 3 раза, но будет добавлен только 1.
+pius.link(marcus, lucius); // Пия с Марком и Люцием.
 hadrian.link(trajan);
 trajan.link(lucius, marcus);
 

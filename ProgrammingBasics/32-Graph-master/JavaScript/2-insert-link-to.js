@@ -1,5 +1,8 @@
 "use strict";
 
+// Пример с немного измененным синтексом для добавления вершин.
+// Теперь будем связывать не по ссылкам на объекты, а по именам.
+
 class Vertex {
   constructor(graph, data) {
     this.graph = graph;
@@ -69,21 +72,21 @@ class Graph {
   }
 
   link(source) {
-    const { vertices } = this;
-    const from = vertices.get(source);
-    return {
-      to(...destinations) {
+    const { vertices } = this; // Забираем ссылку на все вершины
+    const from = vertices.get(source); // забираем линку от которой хотим привязаться.
+    return { // Возвращаем объект у которого есть метод to
+      to(...destinations) { // для привязки к другим линкам.
         if (from) {
           destinations.forEach(destination => {
-            const target = vertices.get(destination);
-            if (target) from.link(target);
+            const target = vertices.get(destination); // Находим куда пристыковаться
+            if (target) from.link(target); // линуемся к ней.
           });
         }
       }
     };
   }
 
-  insert(records) {
+  insert(records) { // Сохраняем список вершин в графе.
     for (const record of records) {
       this.add(record);
     }

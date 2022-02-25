@@ -1,5 +1,7 @@
 "use strict";
 
+// Добавляем индексирование.
+
 const intersection = (s1, s2) => new Set([...s1].filter(v => s2.has(v)));
 
 class Vertex {
@@ -44,7 +46,7 @@ class Graph {
   constructor(keyField) {
     this.keyField = keyField;
     this.vertices = new Map();
-    this.indices = new Map();
+    this.indices = new Map(); // Коллекция индексов.
   }
 
   add(data) {
@@ -58,14 +60,14 @@ class Graph {
 
   select(query) {
     let vertices;
-    const keys = Object.keys(query);
-    for (const field of keys) {
+    const keys = Object.keys(query); // Все ключи из запроса
+    for (const field of keys) { // идем по ключам
       const idx = this.indices.get(field);
-      if (idx) {
-        const value = query[field];
-        const records = idx.get(value);
-        vertices = vertices ? intersection(vertices, records) : records;
-      } else {
+      if (idx) { // Если есть индекс для данного ключа
+        const value = query[field]; // читаем
+        const records = idx.get(value); // читаем множество которое хранится внутри индекса
+        vertices = vertices ? intersection(vertices, records) : records; // ищем пересечение из отобранных вершин и тех что у нас есть и возвращаем результат.
+      } else {  // Иначе действуем по старому.
         vertices = vertices || new Set(this.vertices.values());
         for (const vertex of vertices) {
           const { data } = vertex;
@@ -94,13 +96,13 @@ class Graph {
       const vertex = this.add(record);
       vertices.push(vertex);
       const keys = Object.keys(record);
-      for (const [key, idx] of this.indices) {
-        if (keys.includes(key)) {
-          const value = record[key];
-          let records = idx.get(value);
-          if (!records) {
-            records = new Set();
-            idx.set(value, records);
+      for (const [key, idx] of this.indices) { // Проходимся по индексам
+        if (keys.includes(key)) { // Если у нас ключ который мы ищем в тех ключах которые есть в объекте, то есть по нему надо строить индекс.
+          const value = record[key]; // Читаем значение
+          let records = idx.get(value); // ищем внутри индекса множество вершин у которых такое же значение как и у нашей
+          if (!records) { // если нету
+            records = new Set(); // создадим пустое множество
+            idx.set(value, records); // добавляем нашу вершину в это множество.
           }
           records.add(vertex);
         }
@@ -109,20 +111,20 @@ class Graph {
     return vertices;
   }
 
-  index(key) {
+  index(key) { // Говорим по какому ключу строим индекс
     let idx = this.indices.get(key);
-    if (!idx) {
-      idx = new Map();
+    if (!idx) { // Если такого индекса еще нету
+      idx = new Map(); // создаем новую коллекцию и добавляем в индекс
       this.indices.set(key, idx);
     }
-    for (const vertex of this.vertices.values()) {
-      const value = vertex.data[key];
-      let records = idx.get(value);
-      if (!records) {
-        records = new Set();
-        idx.set(value, records);
+    for (const vertex of this.vertices.values()) { // Проходимся по всем вершинам
+      const value = vertex.data[key]; // забираем значение
+      let records = idx.get(value); // берем запись с таким значением из индекса
+      if (!records) { // если нету
+        records = new Set(); // создаем новый Set
+        idx.set(value, records); // сохраняем в него по значению запись.
       }
-      records.add(vertex);
+      records.add(vertex); // Или добавляем новую вершину.
     }
     return this;
   }
@@ -140,7 +142,7 @@ const [marcus, lucius, pius, hadrian, trajan] = graph.insert([
   { name: "Trajan", city: "Sevilla", born: 98, dynasty: "Nerva–Trajan" },
 ]);
 
-graph.index("dynasty");
+graph.index("dynasty"); // Будем индексировать династию.
 
 graph.link(marcus).to(lucius);
 graph.link(lucius).to(trajan, marcus, marcus);
