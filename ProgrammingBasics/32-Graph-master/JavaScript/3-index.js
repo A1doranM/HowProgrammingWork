@@ -93,9 +93,9 @@ class Graph {
   insert(rows) {
     const vertices = [];
     for (const record of rows) {
-      const vertex = this.add(record);
+      const vertex = this.add(record); // Забираем нужный объект и добавляем его в граф.
       vertices.push(vertex);
-      const keys = Object.keys(record);
+      const keys = Object.keys(record); // Забираем ключи из объекта.
       for (const [key, idx] of this.indices) { // Проходимся по индексам
         if (keys.includes(key)) { // Если у нас ключ который мы ищем в тех ключах которые есть в объекте, то есть по нему надо строить индекс.
           const value = record[key]; // Читаем значение
@@ -112,7 +112,8 @@ class Graph {
   }
 
   index(key) { // Говорим по какому ключу строим индекс
-    let idx = this.indices.get(key);
+    let idx = this.indices.get(key); // Внутри indices по ключу хранится еще один Map()
+                                     // и внутри нее по значению хранится Set().
     if (!idx) { // Если такого индекса еще нету
       idx = new Map(); // создаем новую коллекцию и добавляем в индекс
       this.indices.set(key, idx);
@@ -124,7 +125,7 @@ class Graph {
         records = new Set(); // создаем новый Set
         idx.set(value, records); // сохраняем в него по значению запись.
       }
-      records.add(vertex); // Или добавляем новую вершину.
+      records.add(vertex); // И добавляем новую вершину.
     }
     return this;
   }
