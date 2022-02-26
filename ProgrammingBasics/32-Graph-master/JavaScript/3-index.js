@@ -133,7 +133,7 @@ class Graph {
 
 // Usage
 
-const graph = new Graph("name").index("city");
+const graph = new Graph("name").index("city"); // Можем индексировать по мере добавления вершин.
 
 const [marcus, lucius, pius, hadrian, trajan] = graph.insert([
   { name: "Marcus Aurelius", city: "Rome", born: 121, dynasty: "Antonine" },
@@ -143,7 +143,7 @@ const [marcus, lucius, pius, hadrian, trajan] = graph.insert([
   { name: "Trajan", city: "Sevilla", born: 98, dynasty: "Nerva–Trajan" },
 ]);
 
-graph.index("dynasty"); // Будем индексировать династию.
+graph.index("dynasty"); // Можем проиндексировать весь граф после добавления всех вершин в него.
 
 graph.link(marcus).to(lucius);
 graph.link(lucius).to(trajan, marcus, marcus);
