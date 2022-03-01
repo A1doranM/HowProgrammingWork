@@ -3,7 +3,7 @@
 function Transaction() {}
 
 // Проблемы такого способа:
-// неверное чтение данных. Поля читаются из объекта data, а значение из дельты
+// Неверное чтение данных. Поля читаются из объекта data, а значение из дельты.
 
 Transaction.start = data => {
   console.log("\nstart transaction");
@@ -53,10 +53,10 @@ console.log("data", JSON.stringify(data));
 console.log("transaction", JSON.stringify(transaction));
 
 console.log("\noutput with console.dir:");
-console.dir({ transaction });
+console.dir({ transaction }); // Неверный вывод.
 
 console.log("\noutput with for-in:");
-for (const key in transaction) {
+for (const key in transaction) { // Неверный вывод.
   console.log(key, transaction[key]);
 }
 

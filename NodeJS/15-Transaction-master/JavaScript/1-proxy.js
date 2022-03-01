@@ -3,6 +3,8 @@
 // Прокси некоторая функция которая принимает данные для записи,
 // и внутри себя осуществляет запись в хранилище данных.
 
+// Это первое что понадобится для создания транзакций.
+
 const start = data => {
   console.log("\nstart transaction");
   let delta = {}; // Разница базового и транзакционного объекта.
@@ -12,16 +14,16 @@ const start = data => {
     delta = {};
   };
   return new Proxy(data, { // Возвращаем проксированный объект дельта у которого есть два перехватчика гет и сет.
-    get(target, key) {
-      if (key === "commit") return commit;
+    get(target, key) { // target это наш базовый обеъект data.
+      if (key === "commit") return commit; // Если обращаемся к полю commit отдаем нащу функцию commit.
       if (delta.hasOwnProperty(key)) return delta[key]; // Проверяем у дельты есть ли поле которое запросили, если есть читаем его, а если нету то читаем из таргета, это наш объект дата.
       return target[key];
     },
     set(target, key, val) {
       console.log("set", key, val);
-      if (target[key] === val) delete delta[key]; // Если значение которое мы хотим установить уже установленно удаляем его их дельты так как нечего менять
-      else delta[key] = val; // иначе, присваиваем значение в дельту и возвращаем true, при таком возврате перехватчик считает что все установленно.
-      return true;
+      if (target[key] === val) delete delta[key]; // Если значение которое мы хотим установить уже установленно удаляем его из дельты так как нечего менять
+      else delta[key] = val; // иначе, присваиваем значение в дельту
+      return true; // и возвращаем true, при таком возврате перехватчик считает что все установленно.
     }
   });
 };
@@ -33,7 +35,7 @@ const data = { name: "Marcus Aurelius", born: 121 };
 console.log("data.name", data.name);
 console.log("data.born", data.born);
 
-const transaction = start(data);
+const transaction = start(data); // Стартуем транзакцию.
 
 transaction.name = "Mao Zedong"; // Данные изменяются только в объекте транзации но не в самом хранилище
 transaction.born = 1893;

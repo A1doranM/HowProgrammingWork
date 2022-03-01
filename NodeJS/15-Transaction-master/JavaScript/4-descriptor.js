@@ -1,5 +1,8 @@
 "use strict";
 
+// Фиксим частично проблему для тех случаев где происходит вызов
+// getOwnPropertyDescriptor.
+
 function Transaction() {}
 
 Transaction.start = data => {

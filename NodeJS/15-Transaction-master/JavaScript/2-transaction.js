@@ -24,8 +24,8 @@ Transaction.start = data => {
   return new Proxy(data, {
     get(target, key) {
       console.log("get", key);
-      if (methods.hasOwnProperty(key)) return methods[key];
-      if (delta.hasOwnProperty(key)) return delta[key];
+      if (methods.hasOwnProperty(key)) return methods[key]; // Проверяем есть ли ключ в методах
+      if (delta.hasOwnProperty(key)) return delta[key]; // если там нету то смотрим в дельту
       return target[key];
     },
     set(target, key, val) {
