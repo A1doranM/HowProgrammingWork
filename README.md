@@ -1,1 +1,1 @@
-# My conspect about HowProgrammingWorks repository by Timur Shemsedinov
+# My conspect of HowProgrammingWorks lessons created by Timur Shemsedinov
