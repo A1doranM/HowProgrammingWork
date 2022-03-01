@@ -1,17 +1,23 @@
 "use strict";
 
+// Проверяем с какой скоростью происходит инстанциирование функций.
+// Читаем README.md для того чтобы понять все нужные для тестов условия.
 const benchmark = require("./2-benchmark.js");
 
 const makeClosure = (hello, size, flag) => () => (
   { hello, size, flag }
 );
 
+// Инстанциирование через замыкание.
 const closureInstance = () => makeClosure("world", 100500, true);
 
+// Инстанциирование через массив.
 const defineArray = () => ["world", 100500, true];
 
+// Инстанциирование массива строк.
 const defineArrayOfString = () => ["world", "world", "world"];
 
+// Массива чисел.
 const defineArrayOfNumber = () => [100500, 100500, 100500];
 
 const defineObject = () => ({
@@ -34,6 +40,7 @@ function ProtoItem(hello, size, flag) {
   this.flag = flag;
 }
 
+// Инстанциирование прототипа
 const newPrototype = () => new ProtoItem("world", 100500, true);
 
 const ClassItem = class {

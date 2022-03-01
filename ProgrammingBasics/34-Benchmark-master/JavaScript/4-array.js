@@ -30,6 +30,7 @@ const data2 = [
   ["Rene Descartes", "1596-03-31", "La Haye en Touraine"]
 ];
 
+// Задаем типы массивов и способ каким замерять возраст.
 const metadata = {
   name: "string",
   birth: "Date",
