@@ -1,5 +1,7 @@
 "use strict";
 
+// Останавливает задачи.
+
 module.exports = async (name) => {
   const res = scheduler.stop(name);
   if (res) {

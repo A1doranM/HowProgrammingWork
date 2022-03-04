@@ -1,9 +1,13 @@
 "use strict";
 
+// Клиент для обращения к серверу и запуску задач. Подобный код тоже описан
+// в одной из лекций где мы на клиенте генерируем методы для запроса на сервер
+// исходя из некоего списка.
+
 const http = require("http");
 
 const api = {};
-const methods = ["startCounter", "stopCounter"];
+const methods = ["startCounter", "stopCounter"]; // Список методов.
 
 const createMethod = (name) => (...args) => new Promise((resolve, reject) => {
   const req = http.request({
@@ -18,12 +22,12 @@ const createMethod = (name) => (...args) => new Promise((resolve, reject) => {
       return;
     }
     res.setEncoding("utf8");
-    const buffers = [];
+    const buffers = []; // Массив для данных.
     res.on("data", (chunk) => {
       buffers.push(chunk);
     }).on("end", () => {
-      const data = Buffer.concat(buffers).toString();
-      resolve(JSON.parse(data));
+      const data = Buffer.concat(buffers).toString(); // Делаем из буфера строку.
+      resolve(JSON.parse(data)); // Завершаем промис.
     }).on("error", reject);
   });
   req.end(JSON.stringify(args));

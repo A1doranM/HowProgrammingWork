@@ -1,5 +1,7 @@
 "use strict";
 
+// Сервер который мы будем тестировать, этот код взят из урока про создание АПИ на Ноде.
+
 const http = require("http");
 const path = require("path");
 const fs = require("fs").promises;

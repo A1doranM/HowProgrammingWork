@@ -1,6 +1,5 @@
 "use strict";
 
-
 const assert = require("assert");
 const { api } = require("./client.js");
 const runner = require("./runner.js");
@@ -8,7 +7,7 @@ const server = require("./server.js");
 
 // Tests
 
-const testStart = (next) => {
+const testStart = (next) => { // Тестируем запуск счетчика.
   const timer = setTimeout(() => {
     const err = new Error("Can not start counter");
     assert.fail(err);
@@ -24,7 +23,7 @@ const testStart = (next) => {
   });
 };
 
-const testStop = (next) => {
+const testStop = (next) => { // Тестируем остановку счетчика.
   const timer = setTimeout(() => {
     const err = new Error("Can not stop counter");
     assert.fail(err);
@@ -40,7 +39,7 @@ const testStop = (next) => {
   });
 };
 
-const testStopUnknown = async (next) => {
+const testStopUnknown = async (next) => { // Тестирование остановки несуществующего счетчика
   const timer = setTimeout(() => {
     const err = new Error("Can not stop counter");
     assert.fail(err);

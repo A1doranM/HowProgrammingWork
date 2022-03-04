@@ -1,5 +1,7 @@
 "use strict";
 
+// Запускает задачи.
+
 module.exports = async (name, timeout) => {
   let counter = 0;
   scheduler.task(name, timeout, (done) => {
