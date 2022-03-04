@@ -1,5 +1,7 @@
 "use strict";
 
+// Вот это будем тестировать.
+
 const { EventEmitter } = require("events");
 const { Logger } = require("./logger.js");
 

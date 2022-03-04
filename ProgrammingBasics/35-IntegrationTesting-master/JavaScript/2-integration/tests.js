@@ -1,5 +1,6 @@
 "use strict";
 
+
 const assert = require("assert");
 const { api } = require("./client.js");
 const runner = require("./runner.js");
@@ -53,7 +54,7 @@ const testStopUnknown = async (next) => {
 };
 
 // Execute tests
-
+// Собираем тесты в массив.
 const tests = [
   testStart,
   testStop,

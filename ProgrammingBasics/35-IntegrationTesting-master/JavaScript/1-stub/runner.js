@@ -1,5 +1,7 @@
 "use strict";
 
+// Ранер для запуска тестов. При этом он умеет выполнять асинхронные тесты.
+
 const start = (tests) => {
   let failed = 0;
   const count = tests.length;
