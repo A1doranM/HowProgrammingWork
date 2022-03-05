@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="message"></div>
+<script>
+
+class Cancelable extends Promise {
+  constructor(executor) {
+    super((resolve, reject) => {
+      let onCancel = null;
+      const wrapCancel = callback => val => {
+        if (this.canceled) {
+          if (onCancel) {
+            onCancel();
+            onCancel = null;
+          }
+          return;
+        }
+        callback(val);
+      };
+      executor(
+        wrapCancel(resolve),
+        wrapCancel(reject),
+        callback => {
+          onCancel = callback;
+        }
+      );
+    });
+    this.canceled = false;
+  }
+
+  cancel() {
+    this.canceled = true;
+  }
+}
+
+// Usage
+
+const message = document.getElementById("message");
+
+const fetch = url => new Cancelable((resolve, reject, onCancel) => {
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) resolve(xhr.responseText);
+      else reject(`Status Code: ${xhr.status}`);
+    }
+  };
+  xhr.open("GET", url, true);
+  xhr.send();
+  onCancel(() => {
+    xhr.abort();
+  });
+});
+
+// Usage
+
+const req = fetch("/person");
+
+req.then(
+  body => message.innerHTML = body,
+  err => message.innerHTML = err
+);
+
+req.cancel();
+console.dir({ req });
+
+</script>
+</body>
+</html>
