@@ -1,20 +1,24 @@
 "use strict";
 
+// Более продвинутый пример в котором мы даем промису возможность отменять
+// его.
+
 class Cancelable extends Promise {
-  constructor(executor) {
-    super((resolve, reject) => {
-      executor((val) => {
-        if (this.canceled) {
-          reject(new Error("Cancelled"));
+  constructor(executor) { // Реализуем контракт промиса который в конструктор принимает функцию с двумя
+                          // аргументами resolve, reject.
+    super((resolve, reject) => { // Вызываем конструктор промиса.
+      executor((val) => { // В экзекьюторе проверяем
+        if (this.canceled) { // не отменина ли опирация.
+          reject(new Error("Cancelled")); // Если отменили вызываем reject.
           return;
         }
-        resolve(val);
+        resolve(val); // Иначе resolve.
       }, reject);
     });
-    this.canceled = false;
+    this.canceled = false; // Флаг отмены.
   }
 
-  cancel() {
+  cancel() { // Метод для отмены промисов.
     this.canceled = true;
   }
 }

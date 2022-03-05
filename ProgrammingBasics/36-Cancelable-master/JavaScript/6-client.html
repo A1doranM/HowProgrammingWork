@@ -4,22 +4,24 @@
 <div id="message"></div>
 <script>
 
-class Cancelable extends Promise {
+
+class Cancelable extends Promise { // Чуток другой cancellable который принимает коллбэк на отмену промиса.
   constructor(executor) {
     super((resolve, reject) => {
       let onCancel = null;
-      const wrapCancel = callback => val => {
+      const wrapCancel = callback => val => { // Мы оборачиваем при помощи этой функции и resolve и reject.
         if (this.canceled) {
-          if (onCancel) {
-            onCancel();
-            onCancel = null;
+          if (onCancel) { // Если есть коллбэк на отмену
+            onCancel(); // вызываем его
+            onCancel = null; // и обнуляем чтобы он не сработал несколько раз так как
+                             // cancel могут вызывать несколько раз из разных мест.
           }
           return;
         }
-        callback(val);
+        callback(val); // Иначе выполняем resolve, или reject смотря что нам передали.
       };
       executor(
-        wrapCancel(resolve),
+        wrapCancel(resolve), //
         wrapCancel(reject),
         callback => {
           onCancel = callback;
@@ -48,8 +50,8 @@ const fetch = url => new Cancelable((resolve, reject, onCancel) => {
   };
   xhr.open("GET", url, true);
   xhr.send();
-  onCancel(() => {
-    xhr.abort();
+  onCancel(() => { // Если снаружи кто-то захочет отменить опирацию.
+    xhr.abort(); // Абортим запрос.
   });
 });
 

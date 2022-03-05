@@ -1,5 +1,7 @@
 "use strict";
 
+// Похожий вариант но вместо примешивания мы отдаем объект с методом cancel.
+
 const cancelable = (promise) => {
   let cancelled = false;
   return {

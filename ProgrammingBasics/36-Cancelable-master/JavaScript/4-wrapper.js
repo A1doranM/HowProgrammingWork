@@ -1,12 +1,14 @@
 "use strict";
 
-const cancelable = (promise) => {
-  let cancelled = false;
-  const next = promise.then((val) => {
-    if (cancelled) return Promise.reject(new Error("Canceled"));
+// Пример с функцией. Такой подход в целом хуже, и дан больше для общего понимания.
+
+const cancelable = (promise) => { // Принимаем на вход промис.
+  let cancelled = false; // Флаг отмены.
+  const next = promise.then((val) => { // Подписываемся на promise.then. Тоесть здесь создастся еще один промис.
+    if (cancelled) return Promise.reject(new Error("Canceled")); // Отдаем reject.
     return val;
   });
-  next.cancel = () => {
+  next.cancel = () => { // Примешиваем промису метод cancel.
     cancelled = true;
   };
   return next;

@@ -1,5 +1,7 @@
 "use strict";
 
+// Отменяем асинхронную функцию.
+
 const cancelable = (fn) => {
   const wrapper = (...args) => {
     if (fn) return fn(...args);
@@ -21,4 +23,4 @@ setTimeout(() => {
   f.cancel();
 }, 10);
 
-setTimeout(f, 20, "second");
+setTimeout(f, 20, "second"); // Этот уже не произойдет.
