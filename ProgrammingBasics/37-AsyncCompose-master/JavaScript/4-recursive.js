@@ -1,18 +1,20 @@
 "use strict";
 
+// Композиция любого числа функций при помощи рекурсии.
+
 const compose = (...fns) => (x, callback) => {
   const fn = fns.shift();
-  if (fns.length === 0) {
-    fn(x, callback);
-    return;
+  if (fns.length === 0) { // Заканчиваем когда вызвали все функции.
+    fn(x, callback); // Вызывае последднюю функцию отдавая ей аргумент и коллбэк.
+    return; // Завершаем выполнение.
   }
   fn(x, (err, res) => {
-    if (err) {
+    if (err) { // Если ошибка.
       callback(err);
-      return;
+      return; // Тоже заканчиваем.
     }
-    const f = compose(...fns);
-    f(res, callback);
+    const f = compose(...fns); // Иначе опять вызываем композицию для всех оставшихся функций.
+    f(res, callback); // Вызываем функцию.
   });
 };
 

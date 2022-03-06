@@ -1,12 +1,14 @@
 "use strict";
 
+// Композиция с коллбэком.
+
 const compose = (f1, f2) => (x, callback) => {
   f1(x, (err, res) => {
-    if (err) {
-      callback(err);
-      return;
+    if (err) { // Если случилась ошибка
+      callback(err); // отдаем ее в коллбэк
+      return; // и заканчиваем на этом
     }
-    f2(res, callback);
+    f2(res, callback); // если все хорошо то вызываем следующую функцию.
   });
 };
 

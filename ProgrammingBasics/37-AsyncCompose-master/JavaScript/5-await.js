@@ -1,5 +1,7 @@
 "use strict";
 
+// Тоже самое но для асинхронных функций и в императивном стиле.
+
 const compose = (...fns) => async (x) => {
   let res = x;
   for (const fn of fns) {

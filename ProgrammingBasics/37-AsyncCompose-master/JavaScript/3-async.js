@@ -1,5 +1,6 @@
 "use strict";
 
+// Пример с композицией асинхронных функций.
 const compose = (f1, f2) => async (x) => await f2(await f1(x));
 
 // Usage

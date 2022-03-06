@@ -1,5 +1,7 @@
 "use strict";
 
+// Все так же но теперь с рекурсией и Промисами.
+
 const compose = (...fns) => (x) => {
   const fn = fns.shift();
   if (fns.length === 0) return fn(x);
