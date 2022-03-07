@@ -20,15 +20,15 @@ class Thenable {
 
   resolve(value) {
     const onSuccess = this.onSuccess;
-    if (onSuccess) {
-      const next = onSuccess(value);
-      if (next) {
-        if (next.then) {
-          next.then((value) => {
-            this.next.resolve(value);
+    if (onSuccess) { // Если есть обработчик
+      const next = onSuccess(value); // забираем из него его thenable
+      if (next) { // Если есть
+        if (next.then) { // и если есть метод then
+          next.then((value) => { // подписываемся на его then
+            this.next.resolve(value); // вызываем резолв на нем
           });
-        } else {
-          this.next.resolve(next);
+        } else { // иначе
+          this.next.resolve(next); // сразу вызываем резолв.
         }
       }
     }
