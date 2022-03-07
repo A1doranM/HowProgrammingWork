@@ -1,5 +1,7 @@
 "use strict";
 
+// Возвращаем this что позволяет объединять вызовы then в цепочку.
+
 const getNumbers = () => ({
   numbers: [1, 2, 3],
   then(onFulfilled, onRejected) {

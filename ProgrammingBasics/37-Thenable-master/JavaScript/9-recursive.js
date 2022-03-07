@@ -1,5 +1,7 @@
 "use strict";
 
+// Пример с рекурсивным Thenable классом.
+// Здесь мы реализовали практически самый простой Promise.
 const fs = require("fs");
 
 class Thenable {
@@ -7,9 +9,11 @@ class Thenable {
     this.next = null;
   }
 
-  then(onSuccess) {
+  then(onSuccess) { // Каждый раз когда кто-то вызывает then создается новый
     this.onSuccess = onSuccess;
-    const next = new Thenable();
+    const next = new Thenable(); // Thenable и он уже возвращается из функции.
+                                // так что в него можно будет засунуть новую асинхронную операцию
+                                // и потом вызывать then у нее.
     this.next = next;
     return next;
   }

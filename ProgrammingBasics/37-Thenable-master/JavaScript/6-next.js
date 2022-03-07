@@ -1,5 +1,7 @@
 "use strict";
 
+// Еще один такой же пример.
+
 const getNumbers = () => {
   const numbers = [1, 2, 3];
   return () => new Promise((resolve, reject) => {

@@ -1,13 +1,14 @@
 "use strict";
 
+// Более полный пример
 const getNumbers = () => ({
   numbers: [1, 2, 3],
-  then(onFulfilled, onRejected) {
-    const num = this.numbers.shift();
-    if (num) {
+  then(onFulfilled, onRejected) { // добавлен второй аргумент который должен быть у then, onRejected.
+    const num = this.numbers.shift(); // Суть. Каждый раз забираем что-то из массива
+    if (num) { // если получилось, ок.
       onFulfilled(num);
-    } else {
-      onRejected(new Error("I heve no numbers for you"));
+    } else { // Если нет то rejected.
+      onRejected(new Error("I have no numbers for you"));
     }
   }
 });

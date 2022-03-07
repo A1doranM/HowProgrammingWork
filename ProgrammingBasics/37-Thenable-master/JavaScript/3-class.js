@@ -1,15 +1,17 @@
 "use strict";
 
+// Пример на классах.
 class Result {
   then(onFulfilled) {
     this.onFulfilled = onFulfilled;
   }
 
-  ready(data) {
+  ready(data) { // Метод похожий на then, добавлен просто для примера.
     if (this.onFulfilled) this.onFulfilled(data);
   }
 }
 
+//
 class Security {
   static getPerson(id) {
     const res = new Result();

@@ -1,5 +1,6 @@
 "use strict";
 
+// Чуть более продвинутый вариант. Асинхронная фабрика объектов person.
 const getPerson = (id) => {
   const thenable = {
     then(onFulfilled) {

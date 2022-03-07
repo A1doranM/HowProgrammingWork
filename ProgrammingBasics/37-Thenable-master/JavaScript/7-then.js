@@ -13,7 +13,7 @@ const getNumbers = () => {
 };
 
 // Usage
-
+// Вместо async await используем then.
 const getNext = getNumbers();
 for (let i = 0; i < 5; i++) {
   getNext().then(

@@ -2,8 +2,9 @@
 
 const PAUSE = 1000;
 
+// Простейшая реализация thenable
 const thenable = {
-  then(onFulfilled) {
+  then(onFulfilled) { // должна иметь метод then и принимать коллбэк.
     setTimeout(onFulfilled, PAUSE);
   }
 };
