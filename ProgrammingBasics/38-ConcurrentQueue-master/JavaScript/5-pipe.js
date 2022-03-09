@@ -1,5 +1,15 @@
 "use strict";
 
+// Добавляем возможность пайпить очередь.
+// Тогда можно будет делать очередь приемник, и очередь источник.
+// Еще, на будущее в очередь по хорошему надо добавить фактор, это нужно для того чтобы
+// не перегрузить очередь, и система не захлебнулась.
+// Плюс хорошим вариантом будет ограничение запросов на конкретный источник,
+// чтобы для конкретного пользователя заводилась отдельная очередь, и он не мог задудосить
+// очередь большим количеством запросов со своей стороны. Пользователю назначается специальный идентификатор
+// и все запросы которые приходят с таким идентификатором идут в свою очередь, те кто с другим, в другую.
+// В качестве идентификатора например отлично подходит ИД пользователя, или процесса.
+
 class Queue {
   constructor(concurrency) {
     this.paused = false;
@@ -92,7 +102,8 @@ class Queue {
       if (onFailure) onFailure(err, res);
     } else {
       if (onSuccess) onSuccess(res);
-      if (this.destination) this.destination.add(res);
+      if (this.destination) this.destination.add(res); // Теперь если у нас задана очередь куда мы пайпим, вызываем у нее
+                                                       // метод add отдавая результат работы.
     }
     if (onDone) onDone(err, res);
     if (this.count === 0 && onDrain) onDrain();
@@ -152,12 +163,12 @@ class Queue {
 
 // Usage
 
-const destination = Queue.channels(2)
+const destination = Queue.channels(2) // Очередь приемник данных.
   .wait(5000)
   .process((task, next) => next(null, { ...task, processed: true }))
   .done((err, task) => console.log({ task }));
 
-const source = Queue.channels(3)
+const source = Queue.channels(3) // Очередь источник данных
   .timeout(4000)
   .process((task, next) => setTimeout(next, task.interval, null, task))
   .pipe(destination);

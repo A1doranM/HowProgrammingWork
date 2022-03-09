@@ -1,5 +1,8 @@
 "use strict";
 
+// Более продвинутая очередь с возможность
+// приоретизации задач.
+
 class Queue {
   constructor(concurrency) {
     this.paused = false;
@@ -38,8 +41,8 @@ class Queue {
         return;
       }
     }
-    this.waiting.push({ task, start: Date.now(), priority });
-    if (this.priorityMode) {
+    this.waiting.push({ task, start: Date.now(), priority }); // Теперь вместе с таской храним приоритет.
+    if (this.priorityMode) { // Если работаем в режиме приоритета то перетасовываем очередь в порядке приоритетности задач.
       this.waiting.sort((a, b) => b.priority - a.priority);
     }
   }
@@ -151,10 +154,10 @@ const job = (task, next) => {
 
 const queue = Queue.channels(3)
   .process(job)
-  .priority()
+  .priority() // Переключаем очередь в режим работы с приоритетами.
   .done((err, task) => console.log(`Done: ${task.name}`))
   .drain(() => console.log("Queue drain"));
 
 for (let i = 0; i < 10; i++) {
-  queue.add({ name: `Task${i}`, interval: 1000 }, i);
+  queue.add({ name: `Task${i}`, interval: 1000 }, i); // Второй аргумент это приоритет.
 }

@@ -1,5 +1,7 @@
 "use strict";
 
+// Добавляем опцию паузы очереди.
+
 class Queue {
   constructor(concurrency) {
     this.paused = false;
@@ -30,14 +32,14 @@ class Queue {
   }
 
   add(task) {
-    if (!this.paused) {
+    if (!this.paused) { // Если на паузе
       const hasChannel = this.count < this.concurrency;
       if (hasChannel) {
         this.next(task);
         return;
       }
     }
-    this.waiting.push({ task, start: Date.now() });
+    this.waiting.push({ task, start: Date.now() }); // просто добавляем в ожидание.
   }
 
   next(task) {
@@ -51,7 +53,7 @@ class Queue {
       if (timer) clearTimeout(timer);
       this.count--;
       this.finish(err, res);
-      if (!this.paused && this.waiting.length > 0) this.takeNext();
+      if (!this.paused && this.waiting.length > 0) this.takeNext(); // Если не на паузе то тогда вызываем takeNext().
     };
     if (processTimeout !== Infinity) {
       const err = new Error("Process timed out");
@@ -69,8 +71,10 @@ class Queue {
         const err = new Error("Waiting timed out");
         this.finish(err, task);
         if (waiting.length > 0) {
-          setTimeout(() => {
-            if (!this.paused && waiting.length > 0) this.takeNext();
+          setTimeout(() => { // Вот этот setTimeout добавляется потому что по правильному
+                                    // надо внутри асинхронного кода, рекурсивный вызов разорвать на одну прокрутку
+                                    // Event Loop, и затем мы смотрим если за это время никто не поставил
+            if (!this.paused && waiting.length > 0) this.takeNext(); // очередь на паузу то тогда вызываем следующую задачу.
           }, 0);
         }
         return;
@@ -117,19 +121,19 @@ class Queue {
     return this;
   }
 
-  pause() {
+  pause() { // Поставить на паузу.
     this.paused = true;
     return this;
   }
 
-  resume() {
-    if (this.waiting.length > 0) {
-      const channels = this.concurrency - this.count;
+  resume() { // Продолжить исполнение задач.
+    if (this.waiting.length > 0) { // Если кто-то еще ждет
+      const channels = this.concurrency - this.count; // проверяем есть ли каналы
       for (let i = 0; i < channels; i++) {
-        this.takeNext();
+        this.takeNext(); // вызываем следующую задачу.
       }
     }
-    this.paused = false;
+    this.paused = false; // Меняем флаг паузы.
     return this;
   }
 }
