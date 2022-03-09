@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 class Queue {
   constructor(concurrency) {
@@ -88,7 +88,7 @@ const queue = Queue.channels(3)
   })
   .success(res => console.log(`Success: ${res.name}`))
   .failure(err => console.log(`Failure: ${err}`))
-  .drain(() => console.log('Queue drain'));
+  .drain(() => console.log("Queue drain"));
 
 for (let i = 0; i < 10; i++) {
   queue.add({ name: `Task${i}`, interval: i * 1000 });

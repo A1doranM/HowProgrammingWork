@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 class Queue {
   constructor(concurrency) {
@@ -53,7 +53,7 @@ class Queue {
     if (processTimeout !== Infinity) {
       timer = setTimeout(() => {
         timer = null;
-        const err = new Error('Process timed out');
+        const err = new Error("Process timed out");
         finish(err, task);
       }, processTimeout);
     }
@@ -66,7 +66,7 @@ class Queue {
     if (waitTimeout !== Infinity) {
       const delay = Date.now() - start;
       if (delay > waitTimeout) {
-        const err = new Error('Waiting timed out');
+        const err = new Error("Waiting timed out");
         this.finish(err, task);
         if (waiting.length > 0) this.takeNext();
         return;
@@ -125,7 +125,7 @@ const queue = Queue.channels(3)
   .process(job)
   .success(task => console.log(`Success: ${task.name}`))
   .failure((err, task) => console.log(`Failure: ${err} ${task.name}`))
-  .drain(() => console.log('Queue drain'));
+  .drain(() => console.log("Queue drain"));
 
 for (let i = 0; i < 10; i++) {
   queue.add({ name: `Task${i}`, interval: i * 1000 });

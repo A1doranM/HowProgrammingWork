@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 class Queue {
   constructor(concurrency) {
@@ -54,7 +54,7 @@ class Queue {
       if (!this.paused && this.waiting.length > 0) this.takeNext();
     };
     if (processTimeout !== Infinity) {
-      const err = new Error('Process timed out');
+      const err = new Error("Process timed out");
       timer = setTimeout(finish, processTimeout, err, task);
     }
     onProcess(task, finish);
@@ -66,7 +66,7 @@ class Queue {
     if (waitTimeout !== Infinity) {
       const delay = Date.now() - start;
       if (delay > waitTimeout) {
-        const err = new Error('Waiting timed out');
+        const err = new Error("Waiting timed out");
         this.finish(err, task);
         if (waiting.length > 0) {
           setTimeout(() => {
@@ -152,19 +152,19 @@ for (let i = 0; i < 10; i++) {
   queue.add({ name: `Task${i}`, interval: i * 1000 });
 }
 
-console.log('Start paused');
+console.log("Start paused");
 
 setTimeout(() => {
-  console.log('Resume');
+  console.log("Resume");
   queue.resume();
 }, 3000);
 
 setTimeout(() => {
-  console.log('Pause');
+  console.log("Pause");
   queue.pause();
 }, 4000);
 
 setTimeout(() => {
-  console.log('Resume');
+  console.log("Resume");
   queue.resume();
 }, 5000);
