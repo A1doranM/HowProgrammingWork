@@ -1,5 +1,9 @@
 "use strict";
 
+// Очередь с максимальным инетрвалом ожидания и максимальным
+// интервалом обработки.
+// Все остальное почти так же.
+
 class Queue {
   constructor(concurrency) {
     this.concurrency = concurrency;
@@ -10,7 +14,7 @@ class Queue {
     this.onSuccess = null;
     this.onFailure = null;
     this.onDrain = null;
-    this.waitTimeout = Infinity;
+    this.waitTimeout = Infinity; // По умолчанию ждем бесконечно.
     this.processTimeout = Infinity;
   }
 
@@ -34,7 +38,7 @@ class Queue {
       this.next(task);
       return;
     }
-    this.waiting.push({ task, start: Date.now() });
+    this.waiting.push({ task, start: Date.now() }); // Теперь добавляем еще поле когда элемент пришел.
   }
 
   next(task) {
@@ -42,41 +46,41 @@ class Queue {
     let timer = null;
     let finished = false;
     const { processTimeout, onProcess } = this;
-    const finish = (err, res) => {
-      if (finished) return;
-      finished = true;
-      if (timer) clearTimeout(timer);
+    const finish = (err, res) => { // Функция которая вызывается на таймере, или на коллбэке.
+      if (finished) return; // Если флаг завершения задачи уже стоит значит сразу выходим.
+      finished = true; // Иначе ставим влаг в true.
+      if (timer) clearTimeout(timer); // Очищаем таймер на всякий случай.
       this.count--;
-      this.finish(err, res);
-      if (this.waiting.length > 0) this.takeNext();
+      this.finish(err, res); // Вызываем финиш, но не этот а у самого класса.
+      if (this.waiting.length > 0) this.takeNext(); // Если кто-то еще ждет, вызываем следующую задачу.
     };
-    if (processTimeout !== Infinity) {
-      timer = setTimeout(() => {
-        timer = null;
+    if (processTimeout !== Infinity) { // Если таймаут задан
+      timer = setTimeout(() => { // Дополнительно ставим таймаут
+        timer = null; // При срабатываении обнуляем таймер
         const err = new Error("Process timed out");
-        finish(err, task);
+        finish(err, task); // в финиш отдаем ошибку и задачу.
       }, processTimeout);
     }
-    onProcess(task, finish);
+    onProcess(task, finish); // Запускаем выполнение задачи.
   }
 
-  takeNext() {
-    const { waiting, waitTimeout } = this;
-    const { task, start } = waiting.shift();
-    if (waitTimeout !== Infinity) {
-      const delay = Date.now() - start;
-      if (delay > waitTimeout) {
+  takeNext() { // Берет следующую задачу.
+    const { waiting, waitTimeout } = this; // Берем всех ожидающих и таймаут.
+    const { task, start } = waiting.shift(); // Берем следующую задачу.
+    if (waitTimeout !== Infinity) { // Если есть таймаут ожидания
+      const delay = Date.now() - start; // смотрим не протухли ли они.
+      if (delay > waitTimeout) { // Если протухли.
         const err = new Error("Waiting timed out");
-        this.finish(err, task);
-        if (waiting.length > 0) this.takeNext();
+        this.finish(err, task); // Завершаем с ошибкой.
+        if (waiting.length > 0) this.takeNext(); // И если кто-то еще ждет то вызываем следующую задачу.
         return;
       }
     }
-    this.next(task);
+    this.next(task); // Если нету таймаута просто вызываем следующую задачу.
     return;
   }
 
-  finish(err, res) {
+  finish(err, res) { // Проверяет события и вызывает их.
     const { onFailure, onSuccess, onDone, onDrain } = this;
     if (err) {
       if (onFailure) onFailure(err, res);
@@ -120,8 +124,8 @@ const job = (task, next) => {
 };
 
 const queue = Queue.channels(3)
-  .wait(4000)
-  .timeout(5000)
+  .wait(4000) // Сколько ожидать.
+  .timeout(5000) // Сколько максимум выполнять.
   .process(job)
   .success(task => console.log(`Success: ${task.name}`))
   .failure((err, task) => console.log(`Failure: ${err} ${task.name}`))
