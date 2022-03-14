@@ -1,8 +1,14 @@
 "use strict";
 
-const scalarConstant = 5;
-const functionConstant = () => 6;
-const callbackConstant = (f) => f(7);
+// Открытый конструктор позволяет переопределять функциональность
+// объекта при помощи передачи этой самой функциональности
+// в конструктор.
+
+// Здесь мы передаем константы разными способами в функцию.
+
+const scalarConstant = 5; // Как число.
+const functionConstant = () => 6; // Как функцию.
+const callbackConstant = (f) => f(7); // Как коллбэк.
 
 const fn = (x, f, g) => {
   console.dir({ x });

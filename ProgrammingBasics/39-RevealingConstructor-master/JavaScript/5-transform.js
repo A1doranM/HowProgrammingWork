@@ -3,6 +3,8 @@
 const fs = require("fs");
 const { Transform } = require("stream");
 
+// Переопределение трансформ потока без открытого конструктора.
+
 class UpperStream extends Transform {
   _transform(chunk, encoding, callback) {
     callback(null, chunk.toString().toUpperCase());

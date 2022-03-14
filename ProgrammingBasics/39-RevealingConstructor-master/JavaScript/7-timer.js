@@ -1,5 +1,8 @@
 "use strict";
 
+// Строим свой собственный Таймер которому в конструктор передается
+// интервал через который его надо вызвать и слушатель.
+
 class Timer {
   constructor(interval, listener) {
     this.interval = interval;
