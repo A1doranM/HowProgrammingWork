@@ -1,5 +1,7 @@
 "use strict";
 
+// Разные способы создания функций.
+
 const types = [
   Function,
   (async () => {}).constructor,

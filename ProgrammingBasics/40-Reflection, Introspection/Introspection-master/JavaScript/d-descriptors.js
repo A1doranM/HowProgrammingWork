@@ -1,5 +1,8 @@
 "use strict";
 
+// Чуть более сложные вещи, попробуем вынимать дескрипторы элементов
+// которые там лежат.
+
 const object = {
   a: 1,
   b: 2,
@@ -11,11 +14,11 @@ const object = {
 const array = [1, 2, 3];
 
 const objectProperties = Object
-  .getOwnPropertyNames(object)
+  .getOwnPropertyNames(object) // Забираем имена свойств, кроме символов.
   .map(key => ({ key, ...Object.getOwnPropertyDescriptor(object, key) }));
 
 const objectSymbolProperties = Object
-  .getOwnPropertySymbols(object)
+  .getOwnPropertySymbols(object) // А вот так заберем символы.
   .map(key => ({ key, ...Object.getOwnPropertyDescriptor(object, key) }));
 
 const arrayProperties = Object

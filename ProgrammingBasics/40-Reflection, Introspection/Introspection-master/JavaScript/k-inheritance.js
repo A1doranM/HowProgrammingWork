@@ -1,9 +1,13 @@
 "use strict";
 
+// Итерируемся по цепочке наследования на примере Cancellable промиса.
+
+// Функция на вход принимает инстанс который надо развернуть в цепочку
+// второй аргумент нужен для рекурсии там будет хранится цепочка наследования.
 const inheritance = (instance, parents = []) => {
-  const parent = Object.getPrototypeOf(instance);
-  parents.push(parent.constructor.name);
-  if (Object.getPrototypeOf(parent)) return inheritance(parent, parents);
+  const parent = Object.getPrototypeOf(instance); // Берем предка.
+  parents.push(parent.constructor.name); // И добавляем имя его конструктора в массив.
+  if (Object.getPrototypeOf(parent)) return inheritance(parent, parents); // И опять вызываем функцию пока есть родитель.
   return parents;
 };
 

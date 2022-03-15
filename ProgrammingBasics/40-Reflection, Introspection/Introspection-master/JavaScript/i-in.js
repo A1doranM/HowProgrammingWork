@@ -1,5 +1,8 @@
 "use strict";
 
+// in выдаст Тру для всех собственных и примешанных значений, но Фолсе,
+// для всех унаследованных.
+
 const cSymbol = Symbol("c");
 
 const object = {
@@ -13,10 +16,10 @@ for (const key in object) {
 }
 
 console.table({
-  a: "a" in object,
-  b: "b" in object,
-  cSymbol: cSymbol in object,
-  toString: toString in object,
+  a: "a" in object, // Тру.
+  b: "b" in object, // Тру.
+  cSymbol: cSymbol in object, // Тру.
+  toString: toString in object, // Фолсе.
 });
 
 console.log();

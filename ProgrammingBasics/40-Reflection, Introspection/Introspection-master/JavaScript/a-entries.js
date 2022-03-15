@@ -1,5 +1,7 @@
 "use strict";
 
+// Итерируемся по этим коллекциям.
+
 const object = { a: 1, b: 2, c: 3 };
 
 const array = [1, 2, 3];
@@ -15,8 +17,8 @@ set.add("b");
 set.add("c");
 
 console.table({
-  objectEntries: Object.entries(object),
-  arrayEntries: Object.entries(array),
-  mapEntries: [...map.entries()],
+  objectEntries: Object.entries(object), // Позволяет из объекта вытащить ключи и значения.
+  arrayEntries: Object.entries(array), // Из массива тоже.
+  mapEntries: [...map.entries()], // А вот для карт и сетов такой метод возвращает итератор.
   setEntries: [...set.entries()],
 });

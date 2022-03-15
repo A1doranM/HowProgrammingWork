@@ -1,5 +1,7 @@
 "use strict";
 
+// Смотрим что в разных ситуациях вернет typeof.
+
 const cSymbol = Symbol("c");
 
 const object = {

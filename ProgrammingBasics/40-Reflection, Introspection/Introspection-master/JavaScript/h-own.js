@@ -4,8 +4,8 @@ const cSymbol = Symbol("c");
 
 const object = {
   a: 1,
-  [cSymbol]: 2,
-  [Symbol("d")]: 3,
+  [cSymbol]: 2, // Символ через константу.
+  [Symbol("d")]: 3, // Символ через конструктор символа.
 };
 
 console.table({
@@ -22,12 +22,14 @@ array[cSymbol] = 4;
 array.key = 5;
 
 console.table({
-  0: array.hasOwnProperty(0),
-  1: array.hasOwnProperty(1),
-  10: array.hasOwnProperty(10),
-  cSymbol: array.hasOwnProperty(cSymbol),
-  "Symbol(\"d\")": array.hasOwnProperty(Symbol("d")),
-  toString: array.hasOwnProperty("toString"),
-  map: array.hasOwnProperty("map"),
-  length: array.hasOwnProperty("length"),
+  0: array.hasOwnProperty(0), // Тру.
+  1: array.hasOwnProperty(1), // Фолсе.
+  10: array.hasOwnProperty(10), // Фолсе.
+  cSymbol: array.hasOwnProperty(cSymbol), // Тру.
+  "Symbol(\"d\")": array.hasOwnProperty(Symbol("d")), // Фолсе
+                              // Символ котрый передаем не равен символу который в объекте,
+                              // потому что символы всегда уникальны хоть и могут иметь одинаковые значения.
+  toString: array.hasOwnProperty("toString"), // Фолсе потому что взят из прототипа.
+  map: array.hasOwnProperty("map"), // Фолсе, тоже самое.
+  length: array.hasOwnProperty("length"), // Тру.
 });

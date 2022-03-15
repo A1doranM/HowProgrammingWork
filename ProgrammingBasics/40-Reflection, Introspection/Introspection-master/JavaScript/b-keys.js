@@ -15,8 +15,8 @@ set.add("b");
 set.add("c");
 
 console.table({
-  objectKeys: Object.keys(object),
+  objectKeys: Object.keys(object), // Забираем только ключи.
   arrayKeys: Object.keys(array),
-  mapKeys: [...map.keys()],
+  mapKeys: [...map.keys()], // Здесь тоже вернется итератор.
   setKeys: [...set.keys()],
 });

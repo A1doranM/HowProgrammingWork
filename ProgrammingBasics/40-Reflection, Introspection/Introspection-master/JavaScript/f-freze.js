@@ -5,12 +5,12 @@ const object = {
   [Symbol("d")]: 4,
 };
 object.b = 2;
+console.log(Object.isFrozen(object)); // Проверяем заморожен ли объект.
+Object.freeze(object); // Так же не дает ничего нового добавить.
 console.log(Object.isFrozen(object));
-Object.freeze(object);
-console.log(Object.isFrozen(object));
-//object.c = 3;
+//object.c = 3; // При этом нельзя добавить новые поля добавить.
 //object[Symbol("e")] = 5;
-//object.a = 0;
+//object.a = 0; // И старые тоже нельзя менять.
 console.dir({ object });
 
 console.log();

@@ -1,12 +1,14 @@
 "use strict";
 
+// Создаем числа, строки и булеановские значения разными способами.
+
 {
   const values = [5, Number(5), new Number(5)];
   const output = values.map(value => ({
-    type: typeof value,
-    ctr: value.constructor.name,
+    type: typeof value, // Берем тип.
+    ctr: value.constructor.name, // Имя конструктора.
     value,
-    instance: value instanceof Number,
+    instance: value instanceof Number, // Проверям число ли.
     primitive: value.valueOf(),
     five: value === 5,
   }));

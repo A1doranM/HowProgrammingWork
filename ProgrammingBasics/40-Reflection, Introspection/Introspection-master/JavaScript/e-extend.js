@@ -5,12 +5,12 @@ const object = {
   [Symbol("d")]: 4,
 };
 object.b = 2;
+console.log(Object.isExtensible(object)); // Проверяем можно ли этот объект менять.
+Object.preventExtensions(object); // Запрещаем менять.
 console.log(Object.isExtensible(object));
-Object.preventExtensions(object);
-console.log(Object.isExtensible(object));
-//object.c = 3;
+//object.c = 3; // Теперь новые свойства не добавить.
 //object[Symbol("e")] = 5;
-object.a = 0;
+object.a = 0; // Но старые можно менять.
 console.dir({ object });
 
 console.log();

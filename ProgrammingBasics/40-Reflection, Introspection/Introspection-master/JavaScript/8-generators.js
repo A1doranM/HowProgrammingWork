@@ -1,5 +1,7 @@
 "use strict";
 
+// Смотрим что закопано в генераторах.
+
 const types = [
   (function * () {}),
   (function * () {})(),
