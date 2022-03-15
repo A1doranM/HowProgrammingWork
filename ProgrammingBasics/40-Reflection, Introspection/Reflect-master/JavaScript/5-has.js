@@ -8,7 +8,7 @@ class Point {
 }
 
 const obj1 = new Point(10, 20);
-
+// has идентичен конструкции x in object.
 console.log({
   has: {
     x: Reflect.has(obj1, "x"),

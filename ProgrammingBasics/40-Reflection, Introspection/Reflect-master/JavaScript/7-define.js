@@ -2,6 +2,9 @@
 
 const person = { name: "Marcus Aurelius" };
 
+// Задаем свойство для объекта. Аналогично тому что есть
+// Object.defineProperty.
+
 Reflect.defineProperty(person, "born", {
   value: 121,
   writable: true,

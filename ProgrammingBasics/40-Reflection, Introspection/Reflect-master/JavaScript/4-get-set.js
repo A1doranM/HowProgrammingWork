@@ -8,7 +8,7 @@ class Point {
 }
 
 const obj1 = new Point(10, 20);
-
+// Методы для считывания и записи свойств из объекта.
 const x = Reflect.get(obj1, "x");
 Reflect.set(obj1, "y", 30);
 

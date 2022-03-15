@@ -5,6 +5,7 @@ const person2 = { name: "Marcus Aurelius" };
 
 class Person {}
 
+// Аналогичные вызовы.
 const success1 = Reflect.setPrototypeOf(person1, Person.prototype);
 const success2 = Object.setPrototypeOf(person2, Person.prototype);
 
