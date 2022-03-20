@@ -38,7 +38,7 @@ console.log(getX({ y: 20, x: 10 })); // { y: number, x: number } 3-форма.
 class Point {
   constructor(x, y) { // {}
     this.x = x;       // { x: number }
-    this.y = y;       // { x: number, y: number } в итоге будет 2-форма.
+    this.y = y;       // { x: number, y: number } Итог. Будет 2-форма.
   }
 }
 
