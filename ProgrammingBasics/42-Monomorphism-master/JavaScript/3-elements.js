@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 { // PACKED_SMI_ELEMENTS
   const array = [1, 2, 3]; // number[] smi[]
@@ -18,15 +18,15 @@
 }
 
 { // PACKED_ELEMENTS
-  const array = [1, 2, 3, 'hello']; // object[]
-  // [Number(1), Number(2), Number(3), String('hello')]
+  const array = [1, 2, 3, "hello"]; // object[]
+  // [Number(1), Number(2), Number(3), String("hello")]
   console.log(array);
 }
 
 { // PACKED_ELEMENTS
   const array = [1, 2, 3]; // smi[]
-  array.push('hello'); // smi[] -> object[]
-  // [Number(1), Number(2), Number(3), String('hello')]
+  array.push("hello"); // smi[] -> object[]
+  // [Number(1), Number(2), Number(3), String("hello")]
   console.log(array);
 }
 
@@ -53,14 +53,14 @@
 }
 
 { // HOLEY_ELEMENTS
-  const array = [1, 2, 3,,, 'hello']; // object[]
-  // [Number(1), Number(2), Number(3), <2 empty items>, String('hello')]
+  const array = [1, 2, 3,,, "hello"]; // object[]
+  // [Number(1), Number(2), Number(3), <2 empty items>, String("hello")]
   console.log(array);
 }
 
 { // HOLEY_ELEMENTS
   const array = [1, 2, 3]; // smi[]
-  array[100] = 'hello'; // smi[] -> holey object[]
-  // [Number(1), Number(2), Number(3), <97 empty items>, String('hello')]
+  array[100] = "hello"; // smi[] -> holey object[]
+  // [Number(1), Number(2), Number(3), <97 empty items>, String("hello")]
   console.log(array);
 }

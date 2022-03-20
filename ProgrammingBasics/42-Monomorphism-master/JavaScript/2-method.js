@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
 const stringify = obj => obj.toString();
 
 console.log(stringify(10));
-console.log(stringify('ten'));
+console.log(stringify("ten"));
 console.log(stringify(false));
 
 {

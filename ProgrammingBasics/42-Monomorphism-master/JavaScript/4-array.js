@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const avg = array => {
   let sum = 0;
