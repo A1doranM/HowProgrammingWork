@@ -1,5 +1,7 @@
 "use strict";
 
+// Пример с логгером для которого мы стрим передаем в конструктор.
+
 class Logger {
   constructor(stream) {
     this.stream = stream;
@@ -15,5 +17,5 @@ class Logger {
 // Usage
 
 const stream = process.stdout;
-const logger = new Logger(stream);
+const logger = new Logger(stream); // Агрегируем стрим для логгера.
 logger.log("Here we are");
