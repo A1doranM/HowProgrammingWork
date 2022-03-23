@@ -1,5 +1,7 @@
 "use strict";
 
+// Тоже самое но через рекурсию.
+
 const compose = (...fns) => x => {
   if (fns.length === 0) return x;
   const fn = fns.pop();
@@ -38,3 +40,11 @@ console.log(`upperCapital("${s}") = "${upperCapital(s)}"`);
   const capitalize = pipe(trim, lower, upperCapital);
   console.log(`capitalize("${s}") = "${capitalize(s)}"`);
 }
+
+
+
+
+
+
+
+

@@ -1,5 +1,7 @@
 "use strict";
 
+// Все тоже самое но без редьюса, редьюс заменен циклом.
+
 const compose = (...fns) => x => {
   const last = fns.length - 1;
   let res = x;
