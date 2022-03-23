@@ -1,5 +1,7 @@
 "use strict";
 
+// Делаем все тоже сомое но при помощи Object.assign().
+
 const obj1 = {
   name: "Marcus Aurelius",
   city: "Rome",

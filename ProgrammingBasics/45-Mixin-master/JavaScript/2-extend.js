@@ -1,5 +1,9 @@
 "use strict";
 
+// Функция которая берет все ключи из второго объекта и которые
+// являются его own property (Object.keys). И добавляем эти ключи
+// в первый объект.
+
 const extend = (obj, mixin) => {
   const keys = Object.keys(mixin);
   for (const key of keys) {

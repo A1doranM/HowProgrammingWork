@@ -1,5 +1,8 @@
 "use strict";
 
+// Пример с отображением одного класса на другой. Этот код был
+// в лекции про рефлексию.
+
 const Rect = class {
   constructor(x, y, width, height) {
     this.x = x;

@@ -1,5 +1,7 @@
 "use strict";
 
+// Примешиваем возможность реагировать и генерировать события.
+
 const emitable = (obj, events = {}) => Object.assign(obj, {
   on(name, fn) {
     const event = events[name] || [];
@@ -16,6 +18,7 @@ const emitable = (obj, events = {}) => Object.assign(obj, {
   }
 });
 
+// Еще одна примесь, которая умеет подписываться на движения.
 const movable = obj => {
   obj.on("move", (x, y) => {
     console.log("move", x, y);
