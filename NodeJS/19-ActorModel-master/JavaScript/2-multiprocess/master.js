@@ -10,7 +10,7 @@ const actors = new Map();
 class MasterSystem {
   static start(name, count = 1) {
     if (!actors.has(name)) { // Если нет актора с таким именем.
-      const ready = []; // Создаем массив всех вободных акторов,
+      const ready = []; // Создаем массив всех свободных акторов,
       const instances = []; // массив вообще всех акторов,
       const queue = []; // очередь задач
       actors.set(name, { ready, instances, queue }); //
