@@ -64,12 +64,12 @@ class Graph {
     const vertices = new Set(); // Множество где мы будем хранить результаты.
     for (const vertex of this.vertices.values()) { // Проходимся по всем вершинам
       let condition = true; //
-      const { data } = vertex; // Забираем данные.
-      if (data) { // Если есть
-        for (const field in query) { // для каждого поля
-          condition = condition && data[field] === query[field]; // проверяем если в query нету неподходящих полей
+      const { data } = vertex; // Забираем данные из каждой вершины.
+      if (data) { // Если данные есть
+        for (const field in query) { // для каждого поля в запросе
+          condition = condition && data[field] === query[field]; // проверяем есть ли в нем подходящее поле
         }
-        if (condition) vertices.add(vertex); // если нету то сохраняем в результат.
+        if (condition) vertices.add(vertex); // если есть то сохраняем в результат.
       }
     }
     return new Cursor(vertices); // Возвращаем новый Курсор для вершин.
@@ -115,8 +115,8 @@ const trajan = graph.add({
   dynasty: "Nerva–Trajan",
 });
 
-marcus.link(lucius); // Сцепливаем вершину Маркус с вершиной Луций.
-lucius.link(trajan, marcus, marcus, marcus); // Люция сцепливаем с Трояном и Марком аж 3 раза, но будет добавлен только 1.
+marcus.link(lucius); // Сцепляем вершину Маркус с вершиной Луций.
+lucius.link(trajan, marcus, marcus, marcus); // Люция сцепляем с Трояном и Марком аж 3 раза, но будет добавлен только 1.
 pius.link(marcus, lucius); // Пия с Марком и Люцием.
 hadrian.link(trajan);
 trajan.link(lucius, marcus);

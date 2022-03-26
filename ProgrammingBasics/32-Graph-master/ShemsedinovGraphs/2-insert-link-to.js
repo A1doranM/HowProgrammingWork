@@ -78,7 +78,7 @@ class Graph {
       to(...destinations) { // для привязки к другим линкам.
         if (from) {
           destinations.forEach(destination => {
-            const target = vertices.get(destination); // Находим куда пристыковаться
+            const target = vertices.get(destination); // Находим куда при стыковаться
             if (target) from.link(target); // линуемся к ней.
           });
         }

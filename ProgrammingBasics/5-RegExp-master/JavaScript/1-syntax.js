@@ -1,7 +1,7 @@
 "use strict";
 
 // Docs: https://developer.mozilla.org/en-US/docs/Web
-//       /JavaScript/Reference/Global_Objects/RegExp
+//       /ShemsedinovGraphs/Reference/Global_Objects/RegExp
 
 /*
     .  - single char // Маскирует любой один символ.

@@ -12,7 +12,7 @@ const numbers = [1, 2, 3];
 numbers.push(4);
 console.dir({ numbers });
 
-const languages = ["C++", "JavaScript", "Python", "Haskell", "Swift"];
+const languages = ["C++", "ShemsedinovGraphs", "Python", "Haskell", "Swift"];
 
 console.dir({
   length: languages.length,

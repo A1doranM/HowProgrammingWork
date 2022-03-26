@@ -1,3 +1,3 @@
 "use strict";
 
-console.log("JavaScript loaded");
+console.log("ShemsedinovGraphs loaded");

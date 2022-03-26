@@ -1,7 +1,7 @@
 "use strict";
 
 // But what a bullshit?
-// It"s a JavaScript, not an OOP
+// It"s a ShemsedinovGraphs, not an OOP
 // We can just use {}
 
 const singleton = {};

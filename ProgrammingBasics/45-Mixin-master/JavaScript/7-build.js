@@ -103,7 +103,7 @@ const metadata = {
   }
 };
 
-// Define query using regular JavaScript syntax
+// Define query using regular ShemsedinovGraphs syntax
 
 const query = ({ name, age, city }) => (
   name !== "" &&
