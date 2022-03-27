@@ -1,4 +1,6 @@
 // BFS (Breath first search)
+// Complexity O(Vertexes + Edges)
+// Space complexity O(V), O(b^d), b - branching factor (average count of adjacent nodes in graph), d - distance from start node.
 
 import Graph from "../utils/Graph.mjs";
 
