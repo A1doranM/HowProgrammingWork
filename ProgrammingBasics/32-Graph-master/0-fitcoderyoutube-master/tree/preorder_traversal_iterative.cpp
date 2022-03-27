@@ -47,14 +47,14 @@ void preorder_traversal(TreeNode *root)
 
 int main()
 {
-    TreeNode* root = new TreeNode('A');
-    root->left = new TreeNode('D');
-    root->left->left = new TreeNode('H');
-    root->left->right = new TreeNode('L');
-    root->left->right->left = new TreeNode('P');
-    root->right = new TreeNode('Z');
-    root->right->right = new TreeNode('C');
-    root->right->right->right = new TreeNode('E');
+    TreeNode* root = new TreeNode("A");
+    root->left = new TreeNode("D");
+    root->left->left = new TreeNode("H");
+    root->left->right = new TreeNode("L");
+    root->left->right->left = new TreeNode("P");
+    root->right = new TreeNode("Z");
+    root->right->right = new TreeNode("C");
+    root->right->right->right = new TreeNode("E");
 
     cout << "Preorder Traversal: ";
     preorder_traversal(root);

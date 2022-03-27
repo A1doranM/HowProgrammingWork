@@ -132,22 +132,22 @@ void printList(ListNode *head)
 int main()
 {
     ListNode *head = NULL;
-    insertAtBeginning(head, 'A');
+    insertAtBeginning(head, "A");
     printList(head); // A
 
-    insertAtEnd(head, 'B');
+    insertAtEnd(head, "B");
     printList(head); // A->B
     
-    insertAtEnd(head, 'C');
+    insertAtEnd(head, "C");
     printList(head); // A->B->C
     
-    insertAtBeginning(head, 'D');
+    insertAtBeginning(head, "D");
     printList(head); // D->A->B->C
     
-    insertAtBeginning(head, 'E');
+    insertAtBeginning(head, "E");
     printList(head); // E->D->A->B->C
     
-    insertAtIndex(head, 2, 'F');
+    insertAtIndex(head, 2, "F");
     printList(head); // E->D->F->A->B->C
     
     deleteFromBeginning(head);

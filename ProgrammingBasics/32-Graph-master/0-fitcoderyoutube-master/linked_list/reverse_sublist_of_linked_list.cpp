@@ -88,14 +88,14 @@ ListNode* reverseBetween(ListNode* head, int left, int right)
 int main()
 {
     ListNode *head = NULL;
-    insertAtBeginning(head, 'H'); // H
-    insertAtBeginning(head, 'G'); // G->H
-    insertAtBeginning(head, 'F'); // F->G->H
-    insertAtBeginning(head, 'E'); // E->F->G->H
-    insertAtBeginning(head, 'D'); // D->E->F->G->H
-    insertAtBeginning(head, 'C'); // C->D->E->F->G->H
-    insertAtBeginning(head, 'B'); // B->C->D->E->F->G->H
-    insertAtBeginning(head, 'A'); // A->B->C->D->E->F->G->H
+    insertAtBeginning(head, "H"); // H
+    insertAtBeginning(head, "G"); // G->H
+    insertAtBeginning(head, "F"); // F->G->H
+    insertAtBeginning(head, "E"); // E->F->G->H
+    insertAtBeginning(head, "D"); // D->E->F->G->H
+    insertAtBeginning(head, "C"); // C->D->E->F->G->H
+    insertAtBeginning(head, "B"); // B->C->D->E->F->G->H
+    insertAtBeginning(head, "A"); // A->B->C->D->E->F->G->H
 
     cout << "List :";
     printList(head); // A->B->C->D->E->F->G->H

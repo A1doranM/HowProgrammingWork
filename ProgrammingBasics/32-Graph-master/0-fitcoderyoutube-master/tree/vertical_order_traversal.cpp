@@ -65,15 +65,15 @@ void vertical_order_traversal(TreeNode *root)
 
 int main()
 {
-    TreeNode* root = new TreeNode('A');
-    root->left = new TreeNode('D');
-    root->left->left = new TreeNode('H');
-    root->left->left->right = new TreeNode('K');
-    root->left->right = new TreeNode('L');
-    root->right = new TreeNode('Z');
-    root->right->left = new TreeNode('M');
-    root->right->right = new TreeNode('C');
-    root->right->right->left = new TreeNode('P');
+    TreeNode* root = new TreeNode("A");
+    root->left = new TreeNode("D");
+    root->left->left = new TreeNode("H");
+    root->left->left->right = new TreeNode("K");
+    root->left->right = new TreeNode("L");
+    root->right = new TreeNode("Z");
+    root->right->left = new TreeNode("M");
+    root->right->right = new TreeNode("C");
+    root->right->right->left = new TreeNode("P");
 
     cout << "Vertical order Traversal of the tree: ";
     vertical_order_traversal(root);

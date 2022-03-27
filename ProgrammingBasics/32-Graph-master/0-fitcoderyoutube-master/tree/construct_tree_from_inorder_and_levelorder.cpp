@@ -85,8 +85,8 @@ TreeNode* construct_tree(vector<char>& inorder,
 
 int main()
 {
-    vector<char> inorder = {'H','D','P','L','A','Z','C','E'};
-    vector<char> levelorder = {'A','D','Z','H','L','C','P','E'};
+    vector<char> inorder = {"H","D","P","L","A","Z","C","E"};
+    vector<char> levelorder = {"A","D","Z","H","L","C","P","E"};
 
     // construct a value-to-index map for levelorder traversal
     unordered_map<char,int> levelorderMap;

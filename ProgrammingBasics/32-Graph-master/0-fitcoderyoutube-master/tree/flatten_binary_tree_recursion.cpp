@@ -63,13 +63,13 @@ void flatten_recursive(TreeNode* root)
 
 int main()
 {
-    TreeNode* root = new TreeNode('A');
-    root->left = new TreeNode('B');
-    root->left->left = new TreeNode('C');
-    root->left->right = new TreeNode('D');
-    root->right = new TreeNode('E');
-    root->right->right = new TreeNode('F');
-    root->right->right->left = new TreeNode('G');
+    TreeNode* root = new TreeNode("A");
+    root->left = new TreeNode("B");
+    root->left->left = new TreeNode("C");
+    root->left->right = new TreeNode("D");
+    root->right = new TreeNode("E");
+    root->right->right = new TreeNode("F");
+    root->right->right->left = new TreeNode("G");
 
     TreeNode *prev = NULL;
     cout << "Method 1: Flatten binary tree using recursion" << endl;

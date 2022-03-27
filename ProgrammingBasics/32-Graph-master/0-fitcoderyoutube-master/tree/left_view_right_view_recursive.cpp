@@ -55,15 +55,15 @@ void right_view(TreeNode *node, int& max_level, int level)
 
 int main()
 {
-    TreeNode* root = new TreeNode('A');
-    root->left = new TreeNode('D');
-    root->left->left = new TreeNode('H');
-    root->left->right = new TreeNode('L');
-    root->left->right->right = new TreeNode('P');
-    root->right = new TreeNode('Z');
-    root->right->left = new TreeNode('C');
-    root->right->left->left = new TreeNode('B');
-    root->right->left->left->right = new TreeNode('G');
+    TreeNode* root = new TreeNode("A");
+    root->left = new TreeNode("D");
+    root->left->left = new TreeNode("H");
+    root->left->right = new TreeNode("L");
+    root->left->right->right = new TreeNode("P");
+    root->right = new TreeNode("Z");
+    root->right->left = new TreeNode("C");
+    root->right->left->left = new TreeNode("B");
+    root->right->left->left->right = new TreeNode("G");
 
     int max_level = -1;
     cout << "Left View of the tree (Recursive method): ";

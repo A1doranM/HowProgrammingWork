@@ -47,30 +47,30 @@ TreeNode* lca(TreeNode *node, char n1, char n2)
 
 int main()
 {
-    TreeNode* root = new TreeNode('A');
-    root->left = new TreeNode('D');
-    root->left->left = new TreeNode('H');
-    root->left->right = new TreeNode('L');
-    root->left->right->right = new TreeNode('P');
-    root->right = new TreeNode('Z');
-    root->right->left = new TreeNode('C');
-    root->right->left->left = new TreeNode('B');
-    root->right->left->right = new TreeNode('G');
+    TreeNode* root = new TreeNode("A");
+    root->left = new TreeNode("D");
+    root->left->left = new TreeNode("H");
+    root->left->right = new TreeNode("L");
+    root->left->right->right = new TreeNode("P");
+    root->right = new TreeNode("Z");
+    root->right->left = new TreeNode("C");
+    root->right->left->left = new TreeNode("B");
+    root->right->left->right = new TreeNode("G");
 
     cout << "Lowest Common Ancestor of D and P: ";
-    TreeNode* node = lca(root, 'D', 'P');
+    TreeNode* node = lca(root, "D", "P");
     cout << node->val << endl;
     
     cout << "Lowest Common Ancestor of H and P: ";
-    node = lca(root, 'H', 'P');
+    node = lca(root, "H", "P");
     cout << node->val << endl;
 
     cout << "Lowest Common Ancestor of Z and B: ";
-    node = lca(root, 'Z', 'B');
+    node = lca(root, "Z", "B");
     cout << node->val << endl;
 
     cout << "Lowest Common Ancestor of L and B: ";
-    node = lca(root, 'L', 'B');
+    node = lca(root, "L", "B");
     cout << node->val << endl;
 
     return 0;

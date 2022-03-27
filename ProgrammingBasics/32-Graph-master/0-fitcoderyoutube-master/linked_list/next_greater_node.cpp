@@ -29,7 +29,7 @@ struct ListNode
     ListNode *next;
     ListNode()
     {
-        val = ' ';
+        val = " ";
         next = NULL;
     }
     ListNode(int v)

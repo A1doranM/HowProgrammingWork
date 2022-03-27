@@ -52,15 +52,15 @@ void bottom_view(TreeNode *node, map<int, pair<char,int>>& m, int dist, int leve
 
 int main()
 {
-    TreeNode* root = new TreeNode('A');
-    root->left = new TreeNode('D');
-    root->left->left = new TreeNode('H');
-    root->left->right = new TreeNode('L');
-    root->left->right->left = new TreeNode('K');
-    root->left->right->right = new TreeNode('P');
-    root->right = new TreeNode('Z');
-    root->right->right = new TreeNode('C');
-    root->right->right->right = new TreeNode('B');
+    TreeNode* root = new TreeNode("A");
+    root->left = new TreeNode("D");
+    root->left->left = new TreeNode("H");
+    root->left->right = new TreeNode("L");
+    root->left->right->left = new TreeNode("K");
+    root->left->right->right = new TreeNode("P");
+    root->right = new TreeNode("Z");
+    root->right->right = new TreeNode("C");
+    root->right->right->right = new TreeNode("B");
 
     map<int, pair<char,int>> m;
     cout << "Top View of the tree (Recursive method): ";

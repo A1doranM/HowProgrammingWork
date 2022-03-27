@@ -83,17 +83,17 @@ ListNode* startNodeCycle2(ListNode* head)
 int main()
 {
     ListNode *head1 = NULL;
-    insertAtBeginning(head1, 'I'); // I
+    insertAtBeginning(head1, "I"); // I
     ListNode* nodeI = head1;
-    insertAtBeginning(head1, 'H'); // H->I
-    insertAtBeginning(head1, 'G'); // G->H->I
-    insertAtBeginning(head1, 'F'); // F->G->H->I
-    insertAtBeginning(head1, 'E'); // E->F->G->H->I
-    insertAtBeginning(head1, 'D'); // D->E->F->G->H->I
+    insertAtBeginning(head1, "H"); // H->I
+    insertAtBeginning(head1, "G"); // G->H->I
+    insertAtBeginning(head1, "F"); // F->G->H->I
+    insertAtBeginning(head1, "E"); // E->F->G->H->I
+    insertAtBeginning(head1, "D"); // D->E->F->G->H->I
     ListNode* nodeD = head1;
-    insertAtBeginning(head1, 'C'); // C->D->E->F->G->H->I
-    insertAtBeginning(head1, 'B'); // B->C->D->E->F->G->H->I
-    insertAtBeginning(head1, 'A'); // A->B->C->D->E->F->G->H->I
+    insertAtBeginning(head1, "C"); // C->D->E->F->G->H->I
+    insertAtBeginning(head1, "B"); // B->C->D->E->F->G->H->I
+    insertAtBeginning(head1, "A"); // A->B->C->D->E->F->G->H->I
     // Create cycle by connecting nodeI to nodeD   A->B->C->D->E->F->G->H->I
     //                                                      |..............|
     nodeI->next = nodeD; 
@@ -111,10 +111,10 @@ int main()
 
     // Linked List example 2
     ListNode* head2 = NULL;
-    insertAtBeginning(head2, 'D'); // D
-    insertAtBeginning(head2, 'C'); // C->D
-    insertAtBeginning(head2, 'B'); // B->C->D
-    insertAtBeginning(head2, 'A'); // A->B->C->D
+    insertAtBeginning(head2, "D"); // D
+    insertAtBeginning(head2, "C"); // C->D
+    insertAtBeginning(head2, "B"); // B->C->D
+    insertAtBeginning(head2, "A"); // A->B->C->D
     ListNode *res2 = startNodeCycle1(head2); 
     if (res2 == NULL)
         cout << "No cycle in Linked List2 using method1" << endl;

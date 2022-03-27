@@ -1,7 +1,7 @@
 /*
 ** @Author: Sandeep Thapar
 **
-** Bellman ford's algorithm for shortest path distance
+** Bellman ford"s algorithm for shortest path distance
 **
 ** For video explanation, please refer to my Youtube channel in the link below:
 ** Channel: youtube.com/fitcoder

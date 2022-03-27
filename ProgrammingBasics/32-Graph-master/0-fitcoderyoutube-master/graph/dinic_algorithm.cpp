@@ -1,7 +1,7 @@
 /*
 ** @Author: Sandeep Thapar
 **
-** Dinic's algorithm for maximum flow problem
+** Dinic"s algorithm for maximum flow problem
 **
 ** For video explanation, please refer to my Youtube channel in the link below:
 ** Channel: youtube.com/fitcoder

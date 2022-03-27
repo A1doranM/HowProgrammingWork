@@ -1,7 +1,7 @@
 /*
 ** @Author: Sandeep Thapar
 **
-** Articulation point using Tarjan's algo
+** Articulation point using Tarjan"s algo
 **
 ** For video explanation, please refer to my Youtube channel in the link below:
 ** Channel: youtube.com/fitcoder

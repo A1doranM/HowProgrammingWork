@@ -98,23 +98,23 @@ int burnTree(TreeNode* root, int start)
 
 int main()
 {
-    TreeNode* root = new TreeNode('A');
-    root->left = new TreeNode('D');
-    root->left->left = new TreeNode('H');
-    root->left->right = new TreeNode('L');
-    root->left->left->left = new TreeNode('K');
-    root->left->left->right = new TreeNode('P');
-    root->right = new TreeNode('Z');
-    root->right->left = new TreeNode('B');
-    root->right->left->right = new TreeNode('C');
+    TreeNode* root = new TreeNode("A");
+    root->left = new TreeNode("D");
+    root->left->left = new TreeNode("H");
+    root->left->right = new TreeNode("L");
+    root->left->left->left = new TreeNode("K");
+    root->left->left->right = new TreeNode("P");
+    root->right = new TreeNode("Z");
+    root->right->left = new TreeNode("B");
+    root->right->left->right = new TreeNode("C");
 
-    int treeBurnTime = burnTree(root, 'A');
+    int treeBurnTime = burnTree(root, "A");
     cout << "Time taken to burn the tree starting from A: " << treeBurnTime << endl;
 
-    treeBurnTime = burnTree(root, 'D');
+    treeBurnTime = burnTree(root, "D");
     cout << "Time taken to burn the tree starting from D: " << treeBurnTime << endl;
  
-    treeBurnTime = burnTree(root, 'C');
+    treeBurnTime = burnTree(root, "C");
     cout << "Time taken to burn the tree starting from C: " << treeBurnTime << endl;
 
     return 0;

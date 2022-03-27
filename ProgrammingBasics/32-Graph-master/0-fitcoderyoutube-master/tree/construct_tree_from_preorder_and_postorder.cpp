@@ -65,8 +65,8 @@ TreeNode* construct_tree(vector<char>& preorder,
 
 int main()
 {
-    vector<char> preorder = {'A','D','H','L','Z','P','C'};
-    vector<char> postorder = {'H','L','D','P','C','Z','A'};
+    vector<char> preorder = {"A","D","H","L","Z","P","C"};
+    vector<char> postorder = {"H","L","D","P","C","Z","A"};
 
     unordered_map<char,int> postorderMap;
     for (int i=0; i < postorder.size(); i++)

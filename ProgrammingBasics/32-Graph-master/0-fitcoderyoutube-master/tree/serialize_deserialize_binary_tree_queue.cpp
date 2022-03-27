@@ -79,7 +79,7 @@ TreeNode* deserialize(string data)
         return NULL;
     stringstream ss(data);
     string val;
-    getline(ss, val, ',');
+    getline(ss, val, ",");
     TreeNode* root = new TreeNode(stoi(val));
     queue<TreeNode*> q;
     q.push(root);
@@ -87,14 +87,14 @@ TreeNode* deserialize(string data)
     {
         auto node = q.front();
         q.pop();
-        getline(ss, val, ',');
+        getline(ss, val, ",");
         if (val != "#")
         {
             node->left = new TreeNode(stoi(val));
             q.push(node->left);
         }
 
-        getline(ss, val, ',');
+        getline(ss, val, ",");
         if (val != "#")
         {
             node->right = new TreeNode(stoi(val));

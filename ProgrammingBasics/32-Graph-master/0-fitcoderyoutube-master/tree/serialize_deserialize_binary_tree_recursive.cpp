@@ -66,7 +66,7 @@ string serialize(TreeNode* root)
 TreeNode* deserial(stringstream& ss)
 {
     string val;
-    getline(ss, val, ',');
+    getline(ss, val, ",");
     if (val == "#")
         return NULL;
     TreeNode* root = new TreeNode(stoi(val));

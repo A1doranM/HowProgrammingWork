@@ -89,8 +89,8 @@ TreeNode* construct_tree(vector<char>& inorder, vector<char>& preorder)
 
 int main()
 {
-    vector<char> inorder = {'H','D','P','L','A','Z','C','E'};
-    vector<char> preorder = {'A','D','H','L','P','Z','C','E'};
+    vector<char> inorder = {"H","D","P","L","A","Z","C","E"};
+    vector<char> preorder = {"A","D","H","L","P","Z","C","E"};
 
     TreeNode* root = construct_tree(inorder, preorder);
     

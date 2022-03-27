@@ -2,7 +2,7 @@
 ** @Author: Sandeep Thapar
 **
 ** Given a linked list, swap every two adjacent nodes and return its head.
-** You must solve the problem without modifying the values in the list's nodes (i.e., only nodes
+** You must solve the problem without modifying the values in the list"s nodes (i.e., only nodes
 ** themselves may be changed.)
 **
 ** e.g Input: A->B->C->D->E->F
@@ -29,7 +29,7 @@ struct ListNode
     ListNode *next;
     ListNode()
     {
-        val = ' ';
+        val = " ";
         next = NULL;
     }
     ListNode(char v)
@@ -88,13 +88,13 @@ ListNode* swapPairs_iterative(ListNode* head)
 ListNode* createLinkedList()
 {
     ListNode *head = NULL;
-    insertAtBeginning(head, 'G'); // G
-    insertAtBeginning(head, 'F'); // F->G
-    insertAtBeginning(head, 'E'); // E->F->G
-    insertAtBeginning(head, 'D'); // D->E->F->G
-    insertAtBeginning(head, 'C'); // C->D->E->F->G
-    insertAtBeginning(head, 'B'); // B->C->D->E->F->G
-    insertAtBeginning(head, 'A'); // A->B->C->D->E->F->G
+    insertAtBeginning(head, "G"); // G
+    insertAtBeginning(head, "F"); // F->G
+    insertAtBeginning(head, "E"); // E->F->G
+    insertAtBeginning(head, "D"); // D->E->F->G
+    insertAtBeginning(head, "C"); // C->D->E->F->G
+    insertAtBeginning(head, "B"); // B->C->D->E->F->G
+    insertAtBeginning(head, "A"); // A->B->C->D->E->F->G
     return head;
 }
 

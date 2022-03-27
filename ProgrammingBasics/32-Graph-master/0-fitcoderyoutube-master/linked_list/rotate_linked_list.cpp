@@ -89,13 +89,13 @@ ListNode* rotateLinkedList(ListNode* head, int k)
 ListNode* createLinkedList()
 {
     ListNode *head = NULL;
-    insertAtBeginning(head, 'G'); // G
-    insertAtBeginning(head, 'F'); // F->G
-    insertAtBeginning(head, 'E'); // E->F->G
-    insertAtBeginning(head, 'D'); // D->E->F->G
-    insertAtBeginning(head, 'C'); // C->D->E->F->G
-    insertAtBeginning(head, 'B'); // B->C->D->E->F->G
-    insertAtBeginning(head, 'A'); // A->B->C->D->E->F->G
+    insertAtBeginning(head, "G"); // G
+    insertAtBeginning(head, "F"); // F->G
+    insertAtBeginning(head, "E"); // E->F->G
+    insertAtBeginning(head, "D"); // D->E->F->G
+    insertAtBeginning(head, "C"); // C->D->E->F->G
+    insertAtBeginning(head, "B"); // B->C->D->E->F->G
+    insertAtBeginning(head, "A"); // A->B->C->D->E->F->G
     return head;
 }
 

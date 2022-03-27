@@ -65,16 +65,16 @@ int height_recursive(TreeNode *node)
 
 int main()
 {
-    TreeNode* root = new TreeNode('A');
-    root->left = new TreeNode('D');
-    root->left->left = new TreeNode('H');
-    root->left->left->left = new TreeNode('K');
-    root->left->right = new TreeNode('L');
-    root->left->right->right = new TreeNode('P');
-    root->left->right->right->right = new TreeNode('E');
-    root->right = new TreeNode('Z');
-    root->right->left = new TreeNode('B');
-    root->right->right = new TreeNode('C');
+    TreeNode* root = new TreeNode("A");
+    root->left = new TreeNode("D");
+    root->left->left = new TreeNode("H");
+    root->left->left->left = new TreeNode("K");
+    root->left->right = new TreeNode("L");
+    root->left->right->right = new TreeNode("P");
+    root->left->right->right->right = new TreeNode("E");
+    root->right = new TreeNode("Z");
+    root->right->left = new TreeNode("B");
+    root->right->right = new TreeNode("C");
 
     cout << "Height of the tree (recursive method): ";
     cout << height_recursive(root) << endl;

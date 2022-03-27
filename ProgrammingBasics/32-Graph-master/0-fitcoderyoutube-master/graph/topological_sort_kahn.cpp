@@ -66,7 +66,7 @@ int main() {
        cout << "Topological sort not possible" << endl;
     else
     {
-        cout << "Topological sort using Kahn's algorithm: " << endl;
+        cout << "Topological sort using Kahn"s algorithm: " << endl;
         for (int i : result)
             cout << i << " ";
         cout << endl;

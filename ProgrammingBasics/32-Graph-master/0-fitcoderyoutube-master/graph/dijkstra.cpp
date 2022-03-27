@@ -2,7 +2,7 @@
 /*
 ** @Author: Sandeep Thapar
 **
-** Dijkstra's algorithm for a undirected unweighted graph
+** Dijkstra"s algorithm for a undirected unweighted graph
 ** 
 ** For video explanation, please refer to my Youtube channel in the link below:
 ** Channel: youtube.com/fitcoder

@@ -82,15 +82,15 @@ void bottom_view(TreeNode *root)
 
 int main()
 {
-    TreeNode* root = new TreeNode('A');
-    root->left = new TreeNode('D');
-    root->left->left = new TreeNode('H');
-    root->left->right = new TreeNode('L');
-    root->left->right->left = new TreeNode('K');
-    root->left->right->right = new TreeNode('P');
-    root->right = new TreeNode('Z');
-    root->right->right = new TreeNode('C');
-    root->right->right->right = new TreeNode('B');
+    TreeNode* root = new TreeNode("A");
+    root->left = new TreeNode("D");
+    root->left->left = new TreeNode("H");
+    root->left->right = new TreeNode("L");
+    root->left->right->left = new TreeNode("K");
+    root->left->right->right = new TreeNode("P");
+    root->right = new TreeNode("Z");
+    root->right->right = new TreeNode("C");
+    root->right->right->right = new TreeNode("B");
 
     cout << "Top View of the tree (Iterative method): ";
     top_view(root);

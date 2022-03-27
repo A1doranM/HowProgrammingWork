@@ -96,12 +96,12 @@ ListNode* findMiddle3(ListNode* head)
 int main()
 {
     ListNode *head = NULL;
-    insertAtBeginning(head, 'F'); // F
-    insertAtBeginning(head, 'E'); // E->F
-    insertAtBeginning(head, 'D'); // D->E->F
-    insertAtBeginning(head, 'C'); // C->D->E->F
-    insertAtBeginning(head, 'B'); // B->C->D->E->F
-    insertAtBeginning(head, 'A'); // A->B->C->D->E->F
+    insertAtBeginning(head, "F"); // F
+    insertAtBeginning(head, "E"); // E->F
+    insertAtBeginning(head, "D"); // D->E->F
+    insertAtBeginning(head, "C"); // C->D->E->F
+    insertAtBeginning(head, "B"); // B->C->D->E->F
+    insertAtBeginning(head, "A"); // A->B->C->D->E->F
 
     cout << "List :";
     printList(head); // A->B->C->D->E->F

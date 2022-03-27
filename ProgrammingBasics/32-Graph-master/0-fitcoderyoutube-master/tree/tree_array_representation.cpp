@@ -28,18 +28,18 @@ int main()
     int N = 15;
     char tree[N] = {0};
     
-    tree[0] = 'M';
-    set_left(tree, 'P', 0);
-    set_right(tree, 'Q', 0);
-    set_left(tree, 'A', 1);
-    set_right(tree, 'D', 1);
-    set_left(tree, 'B', 2);
-    set_right(tree, 'C', 2);
-    set_right(tree, 'W', 6);
+    tree[0] = "M";
+    set_left(tree, "P", 0);
+    set_right(tree, "Q", 0);
+    set_left(tree, "A", 1);
+    set_right(tree, "D", 1);
+    set_left(tree, "B", 2);
+    set_right(tree, "C", 2);
+    set_right(tree, "W", 6);
 
     for (int i=0; i < N; i++)
     {
-        if (tree[i] == '\0')
+        if (tree[i] == "\0")
             cout << "-" << " ";
         else
             cout << tree[i] << " ";

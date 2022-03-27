@@ -94,25 +94,25 @@ void printList(ListNode *head)
 int main()
 {
     ListNode *head1 = NULL;
-    insertAtBeginning(head1, 'Z'); // Z
-    insertAtBeginning(head1, 'Y'); // Y->Z
-    insertAtBeginning(head1, 'X'); // X->Y->Z
-    insertAtBeginning(head1, 'W'); // W->X->Y->Z
+    insertAtBeginning(head1, "Z"); // Z
+    insertAtBeginning(head1, "Y"); // Y->Z
+    insertAtBeginning(head1, "X"); // X->Y->Z
+    insertAtBeginning(head1, "W"); // W->X->Y->Z
     ListNode *nodeW = head1;
-    insertAtBeginning(head1, 'D'); // D->W->X->Y->Z
-    insertAtBeginning(head1, 'C'); // C->D->W->X->Y->Z
-    insertAtBeginning(head1, 'B'); // B->C->D->W->X->Y->Z
-    insertAtBeginning(head1, 'A'); // A->B->C->D->W->X->Y->Z
+    insertAtBeginning(head1, "D"); // D->W->X->Y->Z
+    insertAtBeginning(head1, "C"); // C->D->W->X->Y->Z
+    insertAtBeginning(head1, "B"); // B->C->D->W->X->Y->Z
+    insertAtBeginning(head1, "A"); // A->B->C->D->W->X->Y->Z
 
     ListNode *head2 = NULL;
-    insertAtBeginning(head2, 'S'); // S
+    insertAtBeginning(head2, "S"); // S
     head2->next = nodeW;  // S->W->X->Y->Z
-    insertAtBeginning(head2, 'R'); // R->S->W->X->Y->Z
-    insertAtBeginning(head2, 'Q'); // Q->R->S->W->X->Y->Z
-    insertAtBeginning(head2, 'P'); // P->Q->R->S->W->X->Y->Z
-    insertAtBeginning(head2, 'O'); // O->P->Q->R->S->W->X->Y->Z
-    insertAtBeginning(head2, 'N'); // N->O->P->Q->R->S->W->X->Y->Z
-    insertAtBeginning(head2, 'M'); // M->N->O->P->Q->R->S->W->X->Y->Z
+    insertAtBeginning(head2, "R"); // R->S->W->X->Y->Z
+    insertAtBeginning(head2, "Q"); // Q->R->S->W->X->Y->Z
+    insertAtBeginning(head2, "P"); // P->Q->R->S->W->X->Y->Z
+    insertAtBeginning(head2, "O"); // O->P->Q->R->S->W->X->Y->Z
+    insertAtBeginning(head2, "N"); // N->O->P->Q->R->S->W->X->Y->Z
+    insertAtBeginning(head2, "M"); // M->N->O->P->Q->R->S->W->X->Y->Z
 
     cout << "Linked List1 :";
     printList(head1);
@@ -121,7 +121,7 @@ int main()
 
     ListNode *res = getIntersectionNode(head1, head2);
     if (res == NULL)
-        cout << "Linked Lists don't intersect" << endl;
+        cout << "Linked Lists don"t intersect" << endl;
     else
         cout << "Intersection node: " << res->val << endl;
     return 0;

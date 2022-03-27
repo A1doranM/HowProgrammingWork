@@ -72,11 +72,11 @@ ListNode* reverseListRecursive(ListNode* head)
 int main()
 {
     ListNode *head1 = NULL;
-    insertAtBeginning(head1, 'E'); // E
-    insertAtBeginning(head1, 'D'); // D->E
-    insertAtBeginning(head1, 'C'); // C->D->E
-    insertAtBeginning(head1, 'B'); // B->C->D->E
-    insertAtBeginning(head1, 'A'); // A->B->C->D->E
+    insertAtBeginning(head1, "E"); // E
+    insertAtBeginning(head1, "D"); // D->E
+    insertAtBeginning(head1, "C"); // C->D->E
+    insertAtBeginning(head1, "B"); // B->C->D->E
+    insertAtBeginning(head1, "A"); // A->B->C->D->E
 
     cout << "List :";
     printList(head1); // A->B->C->D->E
@@ -86,11 +86,11 @@ int main()
     cout << endl;
 
     ListNode *head2 = NULL;
-    insertAtBeginning(head2, 'E'); // E
-    insertAtBeginning(head2, 'D'); // D->E
-    insertAtBeginning(head2, 'C'); // C->D->E
-    insertAtBeginning(head2, 'B'); // B->C->D->E
-    insertAtBeginning(head2, 'A'); // A->B->C->D->E
+    insertAtBeginning(head2, "E"); // E
+    insertAtBeginning(head2, "D"); // D->E
+    insertAtBeginning(head2, "C"); // C->D->E
+    insertAtBeginning(head2, "B"); // B->C->D->E
+    insertAtBeginning(head2, "A"); // A->B->C->D->E
 
     cout << "List :";
     printList(head2); // A->B->C->D->E

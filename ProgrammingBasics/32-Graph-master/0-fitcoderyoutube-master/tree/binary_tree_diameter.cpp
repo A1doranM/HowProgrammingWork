@@ -40,16 +40,16 @@ int height(TreeNode *node, int& d)
 
 int main()
 {
-    TreeNode* root = new TreeNode('A');
-    root->left = new TreeNode('D');
-    root->left->left = new TreeNode('H');
-    root->left->right = new TreeNode('L');
-    root->left->right->right = new TreeNode('P');
-    root->right = new TreeNode('Z');
-    root->right->right = new TreeNode('C');
-    root->right->right->right = new TreeNode('G');
-    root->right->right->left = new TreeNode('B');
-    root->right->right->left->right = new TreeNode('E');
+    TreeNode* root = new TreeNode("A");
+    root->left = new TreeNode("D");
+    root->left->left = new TreeNode("H");
+    root->left->right = new TreeNode("L");
+    root->left->right->right = new TreeNode("P");
+    root->right = new TreeNode("Z");
+    root->right->right = new TreeNode("C");
+    root->right->right->right = new TreeNode("G");
+    root->right->right->left = new TreeNode("B");
+    root->right->right->left->right = new TreeNode("E");
 
     cout << "Diameter of the tree: ";
     int d = 0;

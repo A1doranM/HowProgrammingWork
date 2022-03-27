@@ -29,13 +29,13 @@ struct TreeNode
 
 int main()
 {
-    TreeNode* root = new TreeNode('M');
-    root->left = new TreeNode('P');
-    root->right = new TreeNode('Q');
-    root->left->left = new TreeNode('A');
-    root->left->right = new TreeNode('D');
-    root->right->left = new TreeNode('B');
-    root->right->right = new TreeNode('C');
-    root->right->right->right = new TreeNode('W');
+    TreeNode* root = new TreeNode("M");
+    root->left = new TreeNode("P");
+    root->right = new TreeNode("Q");
+    root->left->left = new TreeNode("A");
+    root->left->right = new TreeNode("D");
+    root->right->left = new TreeNode("B");
+    root->right->right = new TreeNode("C");
+    root->right->right->right = new TreeNode("W");
     return 0;
 }

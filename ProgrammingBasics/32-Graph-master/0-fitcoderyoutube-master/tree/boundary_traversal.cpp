@@ -83,18 +83,18 @@ void boundary_traversal(TreeNode *root)
 
 int main()
 {
-    TreeNode* root = new TreeNode('A');
-    root->left = new TreeNode('D');
-    root->left->left = new TreeNode('H');
-    root->left->left->right = new TreeNode('K');
-    root->left->left->right->left = new TreeNode('N');
-    root->left->right = new TreeNode('L');
-    root->left->right->right = new TreeNode('P');
-    root->right = new TreeNode('Z');
-    root->right->left = new TreeNode('M');
-    root->right->right = new TreeNode('C');
-    root->right->right->left = new TreeNode('B');
-    root->right->right->left->left = new TreeNode('R');
+    TreeNode* root = new TreeNode("A");
+    root->left = new TreeNode("D");
+    root->left->left = new TreeNode("H");
+    root->left->left->right = new TreeNode("K");
+    root->left->left->right->left = new TreeNode("N");
+    root->left->right = new TreeNode("L");
+    root->left->right->right = new TreeNode("P");
+    root->right = new TreeNode("Z");
+    root->right->left = new TreeNode("M");
+    root->right->right = new TreeNode("C");
+    root->right->right->left = new TreeNode("B");
+    root->right->right->left->left = new TreeNode("R");
 
     cout << "Boundary Traversal of the tree: ";
     boundary_traversal(root);

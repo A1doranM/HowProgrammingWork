@@ -78,15 +78,15 @@ void right_view(TreeNode *node)
 
 int main()
 {
-    TreeNode* root = new TreeNode('A');
-    root->left = new TreeNode('D');
-    root->left->left = new TreeNode('H');
-    root->left->right = new TreeNode('L');
-    root->left->right->right = new TreeNode('P');
-    root->right = new TreeNode('Z');
-    root->right->left = new TreeNode('C');
-    root->right->left->left = new TreeNode('B');
-    root->right->left->left->right = new TreeNode('G');
+    TreeNode* root = new TreeNode("A");
+    root->left = new TreeNode("D");
+    root->left->left = new TreeNode("H");
+    root->left->right = new TreeNode("L");
+    root->left->right->right = new TreeNode("P");
+    root->right = new TreeNode("Z");
+    root->right->left = new TreeNode("C");
+    root->right->left->left = new TreeNode("B");
+    root->right->left->left->right = new TreeNode("G");
 
     cout << "Left View of the tree (Iterative method): ";
     left_view(root);

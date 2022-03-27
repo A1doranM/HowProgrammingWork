@@ -91,27 +91,27 @@ bool isPalindrome(ListNode* head) // A->B->C->D->B->A
 vector<ListNode*> createLinkedLists()
 {
     ListNode *head1 = NULL;
-    insertAtBeginning(head1, 'A'); // A
-    insertAtBeginning(head1, 'B'); // B->A
-    insertAtBeginning(head1, 'C'); // C->B->A
-    insertAtBeginning(head1, 'C'); // C->C->B->A
-    insertAtBeginning(head1, 'B'); // B->C->C->B->A
-    insertAtBeginning(head1, 'A'); // A->B->C->C->B->A
+    insertAtBeginning(head1, "A"); // A
+    insertAtBeginning(head1, "B"); // B->A
+    insertAtBeginning(head1, "C"); // C->B->A
+    insertAtBeginning(head1, "C"); // C->C->B->A
+    insertAtBeginning(head1, "B"); // B->C->C->B->A
+    insertAtBeginning(head1, "A"); // A->B->C->C->B->A
 
     ListNode *head2 = NULL;
-    insertAtBeginning(head2, 'A'); // A
-    insertAtBeginning(head2, 'B'); // B->A
-    insertAtBeginning(head2, 'C'); // C->B->A
-    insertAtBeginning(head2, 'B'); // B->C->B->A
-    insertAtBeginning(head2, 'A'); // A->B->C->B->A
+    insertAtBeginning(head2, "A"); // A
+    insertAtBeginning(head2, "B"); // B->A
+    insertAtBeginning(head2, "C"); // C->B->A
+    insertAtBeginning(head2, "B"); // B->C->B->A
+    insertAtBeginning(head2, "A"); // A->B->C->B->A
 
     ListNode *head3 = NULL;
-    insertAtBeginning(head3, 'A'); // A
-    insertAtBeginning(head3, 'B'); // B->A
-    insertAtBeginning(head3, 'D'); // D->B->A
-    insertAtBeginning(head3, 'C'); // C->D->B->A
-    insertAtBeginning(head3, 'B'); // B->C->D->B->A
-    insertAtBeginning(head3, 'A'); // A->B->C->D->B->A
+    insertAtBeginning(head3, "A"); // A
+    insertAtBeginning(head3, "B"); // B->A
+    insertAtBeginning(head3, "D"); // D->B->A
+    insertAtBeginning(head3, "C"); // C->D->B->A
+    insertAtBeginning(head3, "B"); // B->C->D->B->A
+    insertAtBeginning(head3, "A"); // A->B->C->D->B->A
     return {head1, head2, head3};
 }
 

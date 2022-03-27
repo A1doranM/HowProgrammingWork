@@ -1,7 +1,7 @@
 /*
 ** @Author: Sandeep Thapar
 **
-** Prim's algorithm for minimum spanning tree
+** Prim"s algorithm for minimum spanning tree
 **
 ** For video explanation, please refer to my Youtube channel in the link below:
 ** Channel: youtube.com/fitcoder

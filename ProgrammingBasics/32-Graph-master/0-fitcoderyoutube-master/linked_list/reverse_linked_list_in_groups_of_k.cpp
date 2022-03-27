@@ -3,7 +3,7 @@
 **
 ** Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
 ** k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is.
-** You may not alter the values in the list's nodes, only nodes themselves may be changed.
+** You may not alter the values in the list"s nodes, only nodes themselves may be changed.
 **
 ** e.g  Input: A->B->C->D->E->F->G->H, K = 3
 ** Output: C->B->A->F->E->D->G->H
@@ -100,14 +100,14 @@ ListNode *reverseKGroup(ListNode *head, int k)
 int main()
 {
     ListNode *head = NULL;
-    insertAtBeginning(head, 'H'); // H
-    insertAtBeginning(head, 'G'); // G->H
-    insertAtBeginning(head, 'F'); // F->G->H
-    insertAtBeginning(head, 'E'); // E->F->G->H
-    insertAtBeginning(head, 'D'); // D->E->F->G->H
-    insertAtBeginning(head, 'C'); // C->D->E->F->G->H
-    insertAtBeginning(head, 'B'); // B->C->D->E->F->G->H
-    insertAtBeginning(head, 'A'); // A->B->C->D->E->F->G->H
+    insertAtBeginning(head, "H"); // H
+    insertAtBeginning(head, "G"); // G->H
+    insertAtBeginning(head, "F"); // F->G->H
+    insertAtBeginning(head, "E"); // E->F->G->H
+    insertAtBeginning(head, "D"); // D->E->F->G->H
+    insertAtBeginning(head, "C"); // C->D->E->F->G->H
+    insertAtBeginning(head, "B"); // B->C->D->E->F->G->H
+    insertAtBeginning(head, "A"); // A->B->C->D->E->F->G->H
 
     cout << "List :";
     printList(head); // A->B->C->D->E->F->G->H
