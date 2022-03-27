@@ -20,7 +20,7 @@ class Vertex { // Вершина графа.
         return this;
     }
 
-    getAdjacentVertices() {
+    getAdjacentVertices() { // Возвращает коллекцию вершин на которые ссылается текущая вершина.
         return this.links;
     }
 }
@@ -67,7 +67,7 @@ class Graph {
         }
     }
 
-    size() {
+    size() { // Возвращает размер графа.
         return this.vertices.size;
     }
 }
