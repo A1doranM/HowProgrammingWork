@@ -10,7 +10,7 @@ function BFS(graph, startVertexName) {
     const startVertex = graph.select(startVertexName);
 
     if (!startVertex) {
-        throw new Error("This start vertex does not exist!");
+        throw new Error("Vertex with such name does not exist!");
     }
 
     const visited = new Map();

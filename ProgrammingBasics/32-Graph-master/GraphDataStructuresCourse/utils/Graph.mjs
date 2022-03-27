@@ -5,6 +5,7 @@ class Vertex { // Вершина графа.
         this.graph = graph; // Ссылка на граф.
         this.data = data; // Ссылка на данные.
         this.links = new Map(); // Коллекция вершин на которые она ссылается.
+        this.weight = 0;
     }
 
     link(...args) {
@@ -69,6 +70,10 @@ class Graph {
 
     size() { // Возвращает размер графа.
         return this.vertices.size;
+    }
+
+    getVerticesList() {
+        return this.vertices;
     }
 }
 
