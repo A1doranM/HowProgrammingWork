@@ -2,7 +2,7 @@
 
 import Graph from "../utils/Graph.mjs";
 
-function BFS(graph, startVertexName) {
+function DFS(graph, startVertexName) {
     if(!graph || !startVertexName) throw new Error("Missing graph or start vertex!");
 
     const startVertex = graph.select(startVertexName);
@@ -12,18 +12,18 @@ function BFS(graph, startVertexName) {
     }
 
     const visited = new Map();
-    const bfsQueue = [];
+    const dfsStack = [];
     const result = [];
 
-    bfsQueue.push(startVertex);
+    dfsStack.push(startVertex);
     visited.set(startVertex, true);
 
-    while (bfsQueue.length !== 0) {
-        const vertex = bfsQueue.shift();
+    while (dfsStack.length !== 0) {
+        const vertex = dfsStack.pop();
         result.push(vertex);
         for (const adjacentVertex of vertex.getAdjacentVertices().values()) {
             if (!visited.has(adjacentVertex)) {
-                bfsQueue.push(adjacentVertex);
+                dfsStack.push(adjacentVertex);
                 visited.set(adjacentVertex, true);
             }
         }
@@ -32,7 +32,7 @@ function BFS(graph, startVertexName) {
     return result;
 }
 
-export default BFS;
+export default DFS;
 
 // Example of usage.
 

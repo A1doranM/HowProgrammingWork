@@ -15,6 +15,7 @@
 #include <stack>
 
 using namespace std;
+
 int V = 7; // vertices
 
 void addEdge(vector<int> graph[], int u, int v) {
