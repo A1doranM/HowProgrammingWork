@@ -1,5 +1,7 @@
 "use strict";
 
+// Наследуем Square от Rect.
+
 function Rect(x, y, width, height) {
   this.x = x;
   this.y = y;
@@ -15,9 +17,12 @@ function Square(x, y, side) {
   Rect.call(this, x, y, side, side);
 }
 
+// Пять разных способов наследования.
+
 // #1 New-based inheritance
-Square.prototype = new Rect();
-Square.prototype.constructor = Square;
+Square.prototype = new Rect(); // В прототип присваиваем экземпляр Rect.
+Square.prototype.constructor = Square; // А вот в конструктор ставим конструктор Square, потому что
+                                       // после предыдущего вызова там будем Rect.
 
 // #2 Object.create
 // Square.prototype = Object.create(Rect.prototype);

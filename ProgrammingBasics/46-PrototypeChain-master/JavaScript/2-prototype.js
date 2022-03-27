@@ -5,11 +5,12 @@ function Point(x, y) {
   this.y = y;
 }
 
-Point.from = function (obj) {
+Point.from = function (obj) { // Вот так делаем статическое поле from.
   const { x, y } = obj;
   return new Point(x, y);
 };
 
+// В прототип добавляем парочку методов.
 Point.prototype.move = function (x, y) {
   this.x += x;
   this.y += y;

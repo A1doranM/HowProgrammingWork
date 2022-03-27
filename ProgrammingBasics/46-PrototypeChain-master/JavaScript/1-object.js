@@ -1,5 +1,7 @@
 "use strict";
 
+// Прототипное наследование.
+
 const pointMethods = {
   move(x, y) {
     this.x += x;
