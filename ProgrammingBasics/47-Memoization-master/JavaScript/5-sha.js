@@ -1,5 +1,7 @@
 "use strict";
 
+// Более продвинутый вариант генерации ключа для кэша.
+
 const crypto = require("crypto");
 
 const argKey = x => x.toString() + ":" + typeof x;

@@ -1,5 +1,7 @@
 "use strict";
 
+// Посмотрим на размер кэша.
+
 const argKey = x => x.toString() + ":" + typeof x;
 const generateKey = args => args.map(argKey).join("|");
 

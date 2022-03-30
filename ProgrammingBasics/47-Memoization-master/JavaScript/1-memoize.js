@@ -3,14 +3,17 @@
 const argKey = x => x.toString() + ":" + typeof x;
 const generateKey = args => args.map(argKey).join("|");
 
-const memoize = fn => {
-  const cache = Object.create(null);
-  return (...args) => {
-    const key = generateKey(args);
-    const val = cache[key];
-    if (val) return val;
-    const res = fn(...args);
-    cache[key] = res;
+// Функция мемоизации.
+
+const memoize = fn => { // На вход принимаем функцию
+  const cache = Object.create(null); // в замыкании храним кэш, создав его таким
+                                     // образом мы получим пустой объект без предков.
+  return (...args) => { // возвращаем нашу функцию
+    const key = generateKey(args); // генерируем ключ для кэша по аргументам
+    const val = cache[key]; // пытаемся забирать значение по ключу
+    if (val) return val; // если получилось то возвращаем его.
+    const res = fn(...args); // Иначе вызываем функцию и ее результат
+    cache[key] = res; // записываем в кэш по ключу.
     return res;
   };
 };
