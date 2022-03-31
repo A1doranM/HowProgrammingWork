@@ -1,6 +1,10 @@
 import Graph from "../graph/Graph.mjs";
 
 class TopologicalSort {
+
+    // Time Сomplexity O(V+E)
+    // Auxiliary Space: O(V).
+
     static KahnSort(graph, startVertexName) {
         if(!graph || !startVertexName) throw new Error("Missing graph or start vertex!");
 
@@ -26,16 +30,39 @@ class TopologicalSort {
         while (queue.length !== 0) {
 
         }
+
+        return result;
     }
 
-    static mDFSSort(graph, startVertexName) {
-        if(!graph || !startVertexName) throw new Error("Missing graph or start vertex!");
+    static mDFSSort(graph) {
+        const visited = new Map();
+        const sortedNodes = [];
 
-        const startVertex = graph.select(startVertexName);
+        function DFS(graph, startNode, visited, sortedNodes){
+            const startVertex = graph.select(startNode);
+            const dfsStack = [];
 
-        if (!startVertex) {
-            throw new Error("Vertex with such name does not exist!");
+            dfsStack.push(startVertex);
+            visited.set(startVertex, true);
+            while (dfsStack.length !== 0) {
+                const vertex = dfsStack.pop();
+                for (const adjacentVertex of vertex.getAdjacentVertices().values()) {
+                    if (!visited.has(adjacentVertex)) {
+                        dfsStack.push(adjacentVertex);
+                        visited.set(adjacentVertex, true);
+                    }
+                }
+            }
+            sortedNodes.unshift(startNode);
         }
+
+        for (const vertex of graph.getVerticesList().keys()) {
+            if (!visited.has(vertex)) {
+                DFS(graph, vertex[graph.keyField], visited, sortedNodes);
+            }
+        }
+
+        return sortedNodes;
     }
 }
 
@@ -56,7 +83,7 @@ class TopologicalSort {
 // graph.link("Hadrian").to("Trajan");
 // graph.link("Trajan").to("Lucius Verus", "Marcus Aurelius", "Hadrian");
 
-const bfs = TopologicalSort.KahnSort(graph, "Marcus Aurelius");
+const bfs = TopologicalSort.mDFSSort(graph, "Marcus Aurelius");
 
 export default TopologicalSort;
 
