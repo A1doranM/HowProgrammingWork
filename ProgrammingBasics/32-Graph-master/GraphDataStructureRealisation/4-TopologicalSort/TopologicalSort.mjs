@@ -9,6 +9,23 @@ class TopologicalSort {
         if (!startVertex) {
             throw new Error("Vertex with such name does not exist!");
         }
+
+        const result = [];
+        const indegree = new Map();
+        const queue = new Array(graph.size());
+
+        function findIndegree () {
+            let indegree = 0;
+            for(let i = 0; i < graph.size(); i++) {
+
+            }
+
+            return indegree;
+        }
+
+        while (queue.length !== 0) {
+
+        }
     }
 
     static mDFSSort(graph, startVertexName) {

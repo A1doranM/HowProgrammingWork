@@ -54,5 +54,5 @@ graph.link("Antoninus Pius").to("Marcus Aurelius", "Lucius Verus");
 graph.link("Hadrian").to("Trajan");
 graph.link("Trajan").to("Lucius Verus", "Marcus Aurelius", "Hadrian");
 
-const bfs = BFS(graph, "Marcus Aurelius");
+const bfs = DFS(graph, "Marcus Aurelius");
 console.log(bfs);
