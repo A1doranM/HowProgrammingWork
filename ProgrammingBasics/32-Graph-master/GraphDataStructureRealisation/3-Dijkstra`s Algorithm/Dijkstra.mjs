@@ -1,4 +1,4 @@
-import Graph from "../utils/Graph.mjs";
+import Graph from "../graph/Graph.mjs";
 
 function Dijkstra(graph, startVertexName) {
     if(!graph || !startVertexName) throw new Error("Missing graph or start vertex!");

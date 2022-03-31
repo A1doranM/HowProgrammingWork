@@ -1,10 +1,10 @@
-// DFS (Depth first search)
+// BFS (Breath first search)
 // Complexity O(Vertexes + Edges)
-// Space Complexity O(V), O(bd), b - branching factor (average count of adjacent nodes in graph), d - distance from start node.
+// Space complexity O(V), O(b^d), b - branching factor (average count of adjacent nodes in graph), d - distance from start node.
 
-import Graph from "../utils/Graph.mjs";
+import Graph from "../graph/Graph.mjs";
 
-function DFS(graph, startVertexName) {
+function BFS(graph, startVertexName) {
     if(!graph || !startVertexName) throw new Error("Missing graph or start vertex!");
 
     const startVertex = graph.select(startVertexName);
@@ -14,18 +14,18 @@ function DFS(graph, startVertexName) {
     }
 
     const visited = new Map();
-    const dfsStack = [];
+    const bfsQueue = [];
     const result = [];
 
-    dfsStack.push(startVertex);
+    bfsQueue.push(startVertex);
     visited.set(startVertex, true);
 
-    while (dfsStack.length !== 0) {
-        const vertex = dfsStack.pop();
+    while (bfsQueue.length !== 0) {
+        const vertex = bfsQueue.shift();
         result.push(vertex);
         for (const adjacentVertex of vertex.getAdjacentVertices().values()) {
             if (!visited.has(adjacentVertex)) {
-                dfsStack.push(adjacentVertex);
+                bfsQueue.push(adjacentVertex);
                 visited.set(adjacentVertex, true);
             }
         }
@@ -34,7 +34,7 @@ function DFS(graph, startVertexName) {
     return result;
 }
 
-export default DFS;
+export default BFS;
 
 // Example of usage.
 

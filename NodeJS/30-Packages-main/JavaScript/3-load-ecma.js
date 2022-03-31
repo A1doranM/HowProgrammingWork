@@ -5,7 +5,7 @@ const p1 = import("Package3");
 //const p3 = import("Package3/.");
 //const m1 = import("Package3/main");
 const m2 = import("Package3/main.mjs");
-//const u1 = import("Package3/utils");
+//const u1 = import("Package3/graph");
 const u2 = import("Package3/utils.mjs");
 
 // Вот это надо для того чтобы дождаться завершения импортирования файлов.

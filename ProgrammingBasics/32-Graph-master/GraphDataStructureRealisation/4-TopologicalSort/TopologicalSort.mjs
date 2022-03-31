@@ -1,4 +1,4 @@
-import Graph from "../utils/Graph.mjs";
+import Graph from "../graph/Graph.mjs";
 
 class TopologicalSort {
     static KahnSort(graph, startVertexName) {
