@@ -15,7 +15,8 @@ const memoizeAsync = (lib, fnName) => {
   lib[fnName] = (...args) => { // Саму функцию в библиотеке заменим на нашу реализацию.
     console.dir({ call: fnName, args, cache });
     const cb = args.pop(); // Заберем коллбэк из последнего аргумента.
-    const key = args[0]; // Заберем из первого аргумента функции.
+    const key = args[0]; // Заберем первый аргумент функции. Наивная реализация, мы будем считать что если
+                         // он уже был, то и другие аргументы так же не менялись.
     const record = cache[key]; // Смотрим есть ли такое значение в кэше.
     console.log("key:", key);
     console.log("cached:", record);
