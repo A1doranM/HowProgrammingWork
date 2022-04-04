@@ -7,6 +7,7 @@ class StateMachine {
         this.state = Object.keys(meta)[0];
         this.meta = meta;
         this.buffer = "";
+
         console.log("StateMachine: ",
             "State: ", this.state,
             "Meta: ", this.meta,
