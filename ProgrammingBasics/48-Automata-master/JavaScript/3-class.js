@@ -1,5 +1,7 @@
 "use strict";
 
+// Все тоже самое но в классе.
+
 const TIME_STEP = 500;
 
 class StateMachine {

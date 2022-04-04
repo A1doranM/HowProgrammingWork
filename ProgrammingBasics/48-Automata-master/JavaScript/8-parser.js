@@ -1,5 +1,7 @@
 "use strict";
 
+// Парсер и стейт машина разнесены по разным абстракциям.
+
 class StateMachine {
   constructor(meta) {
     this.state = Object.keys(meta)[0];
@@ -29,7 +31,7 @@ class StateMachine {
 
 class ArrayLiteralParser {
   constructor() {
-    this.machine = new StateMachine({
+    this.machine = new StateMachine({ // Описываем стейт машину и куда переходить встречая различные символы.
       start: { "[": "array" },
       array: { " ": "", ",": "next", "]": "end", "": "number" },
       next: { "": "array" },

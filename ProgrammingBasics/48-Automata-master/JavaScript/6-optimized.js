@@ -1,5 +1,7 @@
 "use strict";
 
+// Еще более декларативный вариант.
+
 class LiteralParser {
   constructor(meta) {
     this.state = "start";
@@ -28,11 +30,12 @@ class LiteralParser {
 // Usage
 
 const parser = new LiteralParser({
-  start: {
-    "[": () => ({
+  start: { // Если старт
+    "[": () => ({ // и приходит открывающая скобка то переходим в новое состояние. Функция всегда должна вернуть
+                  // результат и значение
       result: [],
-      value: "",
-      state: "value",
+      value: "", // значение
+      state: "value", // состояние.
     }),
     "": "Unexpected character before array",
   },
