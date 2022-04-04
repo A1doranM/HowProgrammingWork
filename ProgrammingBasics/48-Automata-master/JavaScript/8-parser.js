@@ -9,9 +9,9 @@ class StateMachine {
         this.buffer = "";
 
         console.log("StateMachine: ",
-            "State: ", this.state,
-            "Meta: ", this.meta,
-            "Buffer: ", this.buffer
+            "\nState: ", this.state,
+            "\nMeta: ", this.meta,
+            "\nBuffer: ", this.buffer
         );
     }
 
