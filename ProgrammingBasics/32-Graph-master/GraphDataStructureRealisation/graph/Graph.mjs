@@ -77,7 +77,7 @@ class Graph {
     }
 }
 
-export default Graph ;
+export default Graph;
 
 // Example of usage.
 //
