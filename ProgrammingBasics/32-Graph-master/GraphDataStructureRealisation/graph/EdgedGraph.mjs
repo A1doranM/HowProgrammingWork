@@ -28,8 +28,8 @@ class Vertex { // Вершина графа.
 }
 
 class Edge { // Вершина графа.
-    constructor(firstVertex, secondVertex, weight) {
-        this.weight = weight; // Ссылка на данные ребра.
+    constructor(firstVertex, secondVertex, edgeData) {
+        this.edgeData = edgeData; // Ссылка на данные ребра.
         this.firstVertex = firstVertex;
         this.secondVertex = secondVertex;
     }
@@ -62,24 +62,23 @@ class Graph {
     }
 
     link(source) {
-        const {vertices, edges} = this; // Забираем ссылку на все вершины и ребра.
+        const {vertices} = this; // Забираем ссылку на все вершины и ребра.
         const from = vertices.get(source); // забираем линку от которой хотим привязаться.
         return { // Возвращаем объект у которого есть метод to
-            to(verticesToConnect, weights = []) { // для привязки к другим линкам.
+            to(verticesToConnect, edgeData = []) { // для привязки к другим линкам.
                 const destinations = new Set(verticesToConnect);
 
-                if(weights.length && weights.length !== destinations.size) {
-                    throw new Error("Unequal number of vertices and weights! Weights should be the same length as vertices, or null");
+                if (edgeData.length && edgeData.length !== destinations.size) {
+                    throw new Error("Unequal number of vertices and Edge data! Edge data must be the same length as vertices, or null");
                 }
 
                 if (from) {
                     for (let i = 0; i < destinations.length; i++) {
                         const target = vertices.get(destinations[i]); // Находим куда пристыковаться
-                        const weight = weights.length ? weights[i] : 0;
+                        const edgeData = edgeData.length ? edgeData[i] : null;
                         if (target) {
                             from.link(target); // линкуемся к ней.
-                            edges.set(`${from[this.keyField]}|${target[this.keyField]}`, new Edge(from, target, weight)); // Сохраняем ребро с весами если они переданы.
-                            // Итоговое ребро выглядит примерно так { "Marcus Aurelius"|"Antoninus Pius", первое ребро, второе ребро }
+                            this.setEdge(from, target, edgeData); // Сохраняем ребро с данными если они переданы.
                         }
                     }
                 }
@@ -101,8 +100,20 @@ class Graph {
         return this.vertices;
     }
 
-    getEdges() {
+    getAllEdges() {
         return this.edges;
+    }
+
+    setEdge(from, to, edgeData = null) {
+        if (this.getEdge(from, to)) {
+            // Итоговое ребро выглядит примерно так { "Marcus Aurelius"|"Antoninus Pius", первое ребро, второе ребро }.
+            this.edges.set(`${from[this.keyField]}|${to[this.keyField]}`, new Edge(from, to, edgeData));
+        }
+        return this;
+    }
+
+    getEdge(from, to) {
+        return this.edges.get(`${from[this.keyField]}|${to[this.keyField]}`);
     }
 }
 
