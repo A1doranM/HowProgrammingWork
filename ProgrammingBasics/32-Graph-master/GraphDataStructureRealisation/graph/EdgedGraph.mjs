@@ -28,18 +28,15 @@ class Vertex { // Вершина графа.
 }
 
 class Edge { // Вершина графа.
-    constructor(firstVertex, secondVertex, edgeData) {
-        this.edgeData = edgeData; // Ссылка на данные ребра.
-        this.firstVertex = firstVertex;
-        this.secondVertex = secondVertex;
-    }
-
-    getEdge() { // Возвращает ребро.
-        return this;
+    constructor(fromVertex, toVertex, edgeData) {
+        // Ссылка на данные ребра.
+        this.fromVertex = fromVertex;
+        this.toVertex = toVertex;
+        this.edgeData = edgeData;
     }
 }
 
-class Graph {
+class EdgedGraph {
     constructor(keyField) { // Устанавливаем ключевое поле по которому граф будет индексироваться
         this.keyField = keyField;
         this.vertices = new Map(); // Список вершин графа.
@@ -64,21 +61,22 @@ class Graph {
     link(source) {
         const {vertices} = this; // Забираем ссылку на все вершины и ребра.
         const from = vertices.get(source); // забираем линку от которой хотим привязаться.
+        const setEdge = this.setEdge.bind(this);
         return { // Возвращаем объект у которого есть метод to
-            to(verticesToConnect, edgeData = []) { // для привязки к другим линкам.
-                const destinations = new Set(verticesToConnect);
+            to(verticesToConnect, edgesData = []) { // для привязки к другим линкам.
+                const destinations = [...new Set(verticesToConnect)];
 
-                if (edgeData.length && edgeData.length !== destinations.size) {
+                if (edgesData.length && (edgesData.length !== destinations.size)) {
                     throw new Error("Unequal number of vertices and Edge data! Edge data must be the same length as vertices, or null");
                 }
 
                 if (from) {
                     for (let i = 0; i < destinations.length; i++) {
                         const target = vertices.get(destinations[i]); // Находим куда пристыковаться
-                        const edgeData = edgeData.length ? edgeData[i] : null;
+                        const edgeData = edgesData.length ? edgesData[i] : null;
                         if (target) {
                             from.link(target); // линкуемся к ней.
-                            this.setEdge(from, target, edgeData); // Сохраняем ребро с данными если они переданы.
+                            setEdge(from, target, edgeData); // Сохраняем ребро с данными если они переданы.
                         }
                     }
                 }
@@ -105,34 +103,38 @@ class Graph {
     }
 
     setEdge(from, to, edgeData = null) {
-        if (this.getEdge(from, to)) {
+        const vertexX = from.data[this.keyField];
+        const vertexY = to.data[this.keyField];
+        if (!this.getEdge(from, to)) {
             // Итоговое ребро выглядит примерно так { "Marcus Aurelius"|"Antoninus Pius", первое ребро, второе ребро }.
-            this.edges.set(`${from[this.keyField]}|${to[this.keyField]}`, new Edge(from, to, edgeData));
+            this.edges.set(`${vertexX}|${vertexY}`, new Edge(from, to, edgeData));
         }
         return this;
     }
 
     getEdge(from, to) {
-        return this.edges.get(`${from[this.keyField]}|${to[this.keyField]}`);
+        const vertexX = from.data[this.keyField];
+        const vertexY = to.data[this.keyField];
+        return this.edges.get(`${vertexX}|${vertexY}`);
     }
 }
 
-export default Graph;
+export default EdgedGraph;
 
 // Example of usage.
 
-const graph = new Graph("name");
-
-graph.insert([
-    {name: "Marcus Aurelius", city: "Rome", born: 121, dynasty: "Antonine"},
-    {name: "Lucius Verus", city: "Rome", born: 130, dynasty: "Antonine"},
-    {name: "Antoninus Pius", city: "Lanuvium", born: 86, dynasty: "Antonine"},
-    {name: "Hadrian", city: "Santiponce", born: 76, dynasty: "Nerva–Trajan"},
-    {name: "Trajan", city: "Sevilla", born: 98, dynasty: "Nerva–Trajan"},
-]);
-
-graph.link("Marcus Aurelius").to(["Lucius Verus"], [3]);
-graph.link("Lucius Verus").to(["Trajan", "Marcus Aurelius", "Marcus Aurelius"], [213, 22]);
-graph.link("Antoninus Pius").to(["Marcus Aurelius", "Lucius Verus"]);
-graph.link("Hadrian").to(["Trajan"], [344]);
-graph.link("Trajan").to(["Lucius Verus", "Marcus Aurelius"]);
+// const graph = new EdgedGraph("name");
+//
+// graph.insert([
+//     {name: "Marcus Aurelius", city: "Rome", born: 121, dynasty: "Antonine"},
+//     {name: "Lucius Verus", city: "Rome", born: 130, dynasty: "Antonine"},
+//     {name: "Antoninus Pius", city: "Lanuvium", born: 86, dynasty: "Antonine"},
+//     {name: "Hadrian", city: "Santiponce", born: 76, dynasty: "Nerva–Trajan"},
+//     {name: "Trajan", city: "Sevilla", born: 98, dynasty: "Nerva–Trajan"},
+// ]);
+//
+// graph.link("Marcus Aurelius").to(["Lucius Verus"], [3]);
+// graph.link("Lucius Verus").to(["Trajan", "Marcus Aurelius", "Marcus Aurelius"], [213, 22]);
+// graph.link("Antoninus Pius").to(["Marcus Aurelius", "Lucius Verus"]);
+// graph.link("Hadrian").to(["Trajan"], [344]);
+// graph.link("Trajan").to(["Lucius Verus", "Marcus Aurelius"]);
