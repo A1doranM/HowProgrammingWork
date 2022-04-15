@@ -60,8 +60,8 @@ class EdgedGraph {
 
     link(source) {
         const {vertices} = this; // Забираем ссылку на все вершины и ребра.
-        const from = vertices.get(source); // забираем линку от которой хотим привязаться.
-        const setEdge = this.setEdge.bind(this);
+        const from = vertices.get(source); // забираем линку от которой хотим привязаться
+        const setEdge = this.setEdge.bind(this); // привяжем контекс чтобы отдать метод в объект с методом to.
         return { // Возвращаем объект у которого есть метод to
             to(verticesToConnect, edgesData = []) { // для привязки к другим линкам.
                 const destinations = [...new Set(verticesToConnect)];
