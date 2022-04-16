@@ -107,7 +107,7 @@ class EdgedGraph {
         const vertexY = to.data[this.keyField];
         if (!this.getEdge(from, to)) {
             // Итоговое ребро выглядит примерно так { "Marcus Aurelius"|"Antoninus Pius", первое ребро, второе ребро }.
-            this.edges.set(`${vertexX}|${vertexY}`, new Edge(from, to, edgeData));
+            this.edges.set(`${vertexX}|${vertexY}`, new Edge(vertexX, vertexY, edgeData));
         }
         return this;
     }

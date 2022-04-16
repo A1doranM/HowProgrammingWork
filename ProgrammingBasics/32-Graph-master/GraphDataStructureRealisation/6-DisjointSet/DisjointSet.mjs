@@ -11,7 +11,7 @@ function isCyclePresent(graph) {
     let result = false;
 
     function _setParentsAndRanks() {
-        for (const vertex of graph.getVerticesList().values()) {
+        for (const vertex of graph.getVerticesList().keys()) {
             parents.set(vertex, vertex);
             ranks.set(vertex, 0);
         }
