@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rxjs examples</title>
+</head>
+<style>
+th { text-align: left; }
+td { padding: 0 1em 0 0; border-top: 1px #ddd dotted; }
+td:nth-child(odd) { border-right: 1px #ddd dotted; }
+</style>
+<body>
+<table id="table"></table>
+<script src="./node_modules/rxjs/bundles/rxjs.umd.js"></script>
+<script>
+
+const { operators, fromEvent } = rxjs;
+const { map, filter, take, reduce } = operators;
+const { debounceTime, throttleTime } = operators;
+
+// Prepare output
+
+const table = document.getElementById("table");
+const tr = document.createElement("tr");
+tr.innerHTML = "<th>Stream</th><th>Data</th>";
+table.appendChild(tr);
+
+const print = (stream, data) => {
+  const tr = document.createElement("tr");
+  const json = JSON.stringify(data);
+  tr.innerHTML = `<td>${stream}</td><td>${json}</td>`;
+  table.appendChild(tr);
+};
+
+// Keyboard stream
+
+const keyboard = fromEvent(document, "keydown");
+
+keyboard.subscribe(data => {
+  const { key, keyCode, altKey, metaKey, shiftKey, ctrlKey } = data;
+  print("keyboard", { key, keyCode, altKey, metaKey, shiftKey, ctrlKey });
+});
+
+// Cursors
+
+const arrows = {
+  37: "🡄",
+  38: "🡅",
+  39: "🡆",
+  40: "🡇",
+};
+
+const arrowCodes = Object.keys(arrows).map(key => parseInt(key));
+
+const cursors = keyboard.pipe(
+  filter(event => arrowCodes.includes(event.keyCode)),
+  map(event => event.keyCode),
+  map(key => arrows[key]),
+  //throttleTime(1000),
+  debounceTime(2000),
+);
+
+cursors.subscribe(cursor => {
+  print("cursor", cursor);
+});
+
+// Keypress
+
+const keypress = keyboard.pipe(
+  map(event => event.key),
+  filter(key => key.length === 1),
+);
+
+keypress.subscribe(key => {
+  print("keypress", key);
+});
+
+// Take first 5 chars
+
+const take5 = keypress.pipe(
+  take(5),
+  reduce((acc, char) => acc + char)
+);
+
+take5.subscribe(s => {
+  print("take5", s);
+});
+
+</script>
+</body>
+</html>
