@@ -1,5 +1,7 @@
 "use strict";
 
+// Еще немного улучшаем наблюдаемый объект давая ему возможность фильтровать и мапить информацию.
+
 class Observable {
   constructor() {
     this.observers = [];
@@ -13,7 +15,7 @@ class Observable {
 
   notify(data) {
     if (this.observers.length === 0) return;
-    for (const operator of this.operators) {
+    for (const operator of this.operators) { // Применяем операторы.
       if (operator.name === "filter") {
         if (!operator.fn(data)) return;
       }
@@ -26,6 +28,7 @@ class Observable {
     }
   }
 
+  // Прописываем операторы.
   filter(predicate) {
     this.operators.push({ name: "filter", fn: predicate });
     return this;
@@ -43,7 +46,7 @@ const randomChar = () => String
   .fromCharCode(Math.floor((Math.random() * 25) + 97));
 
 const observable = new Observable()
-  .filter(char => !"aeiou".includes(char))
+  .filter(char => !"aeiou".includes(char)) // Проверяем фильтром чтобы вот такие буквы не входили в отданные данные.
   .map(char => char.toUpperCase());
 
 const timer = setInterval(() => {

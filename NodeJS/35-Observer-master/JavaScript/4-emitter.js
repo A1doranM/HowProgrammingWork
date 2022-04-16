@@ -1,5 +1,7 @@
 "use strict";
 
+// Используем встроенный EventEmitter.
+
 const { EventEmitter } = require("events");
 
 // Usage
@@ -8,10 +10,10 @@ const randomChar = () => String
   .fromCharCode(Math.floor((Math.random() * 25) + 97));
 
 class CharStream { // Observable
-  constructor(ee) {
+  constructor(ee) { // В конструктор принимаем EventEmitter.
     this.timer = setInterval(() => {
       const char = randomChar();
-      ee.emit("char", char);
+      ee.emit("char", char); // Генерируем события.
     }, 200);
   }
 
@@ -34,6 +36,6 @@ const observer = char => {
   }
 };
 
-ee.on("char", observer);
+ee.on("char", observer); // Подписываемся на события.
 
 console.dir({ observer, observable });

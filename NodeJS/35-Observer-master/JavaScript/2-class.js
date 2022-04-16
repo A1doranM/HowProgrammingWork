@@ -1,5 +1,7 @@
 "use strict";
 
+// Тоже самое но в виде класса.
+
 const randomChar = () => String
   .fromCharCode(Math.floor((Math.random() * 25) + 97));
 

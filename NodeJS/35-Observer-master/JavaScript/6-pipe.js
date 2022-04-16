@@ -1,5 +1,7 @@
 "use strict";
 
+// Даем возможность передавать события из одного Observable в другой.
+
 class Observable {
   constructor() {
     this.observers = [];
@@ -11,11 +13,12 @@ class Observable {
     return this;
   }
 
-  pipe(...args) {
+  // Пайп принимает в себя операторы которые будут преобразовывать передаваемые события.
+  pipe(...args) { // Принимаем все аргументы.
     this.operators.push(...args);
-    const destination = new Observable();
-    this.subscribe(data => destination.notify(data));
-    return destination;
+    const destination = new Observable(); // Точка назначения это еще один Observable.
+    this.subscribe(data => destination.notify(data)); // Подписываем его на события нашего Observable
+    return destination; // и отдаем.
   }
 
   notify(data) {
@@ -34,6 +37,7 @@ class Observable {
   }
 }
 
+// Прописываем операторы.
 const filter = predicate => ({ name: "filter", fn: predicate });
 const map = callback => ({ name: "map", fn: callback });
 
@@ -42,6 +46,7 @@ const map = callback => ({ name: "map", fn: callback });
 const randomChar = () => String
   .fromCharCode(Math.floor((Math.random() * 25) + 97));
 
+// Destination будет принимать отфильтрованные и отмапленные данные.
 const source = new Observable();
 
 const destination = source.pipe(
@@ -60,7 +65,7 @@ const observer = char => {
   }
 };
 
-destination.subscribe(observer);
+destination.subscribe(observer); // Подписываемся на destination.
 
 setInterval(() => {
   const char = randomChar();

@@ -1,5 +1,7 @@
 "use strict";
 
+// Теперь subscribe принимаем в конструктор, а не как отдельный метод.
+
 class Observable {
   constructor(subscribe) {
     this.observers = [];
