@@ -1,5 +1,7 @@
 "use strict";
 
+// Пример с операторами и пайпом.
+
 const { Observable } = require("rxjs");
 const { filter, map } = require("rxjs/operators");
 
@@ -13,6 +15,9 @@ const source = new Observable((subscriber) => {
   }, 200);
 });
 
+// Здесь под капотом будет на каждый переданный оператор создаваться новый поток
+// в который будут пайпиться результаты предыдущего оператора. Тоесть создается поток
+// для surce.pipe(filter()).pipe(map()) и т.д.
 const destination = source.pipe(
   filter((char) => !"aeiou".includes(char)),
   map((char) => char.toUpperCase())

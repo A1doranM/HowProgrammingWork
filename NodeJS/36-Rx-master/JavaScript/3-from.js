@@ -1,5 +1,8 @@
 "use strict";
 
+// Используем еще один оператор max(). Плюс теперь мы создаем поток из массива
+// а не при помощи Observable.
+
 const { from } = require("rxjs");
 const { map, filter, max } = require("rxjs/operators");
 
