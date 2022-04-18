@@ -13,6 +13,8 @@ td:nth-child(odd) { border-right: 1px #ddd dotted; }
 <script src="./node_modules/rxjs/bundles/rxjs.umd.js"></script>
 <script>
 
+// Тоже самое что и до этого но теперь выведем это во фронт.
+// fromEvent преобразует DOM события в события для ноды.
 const { operators, fromEvent } = rxjs;
 const { map, filter, take, reduce } = operators;
 const { debounceTime, throttleTime } = operators;
