@@ -1,11 +1,63 @@
-// Detect Cycles in graph using DisjointSet.
+// Find Minimum Spanning Tree using Kruskal Algorithm.
+// O(E logE)
 
 import EdgedGraph from "../graph/EdgedGraph.mjs";
 
 function findMST(graph) {
     if (!graph) throw new Error("Missing graph!");
 
+    const parents = new Map();
+    const ranks = new Map();
 
+    const result = new EdgedGraph(graph.keyField);
+
+    for(const vertex of graph.getVerticesList().values()) {
+        result.add(vertex.getVertexData());
+    }
+
+    function _setParentsAndRanks() {
+        for (const vertex of graph.getVerticesList().keys()) {
+            parents.set(vertex, vertex);
+            ranks.set(vertex, 0);
+        }
+    }
+
+    function _find(vertex, parents) {
+        if (vertex !== parents.get(vertex)) {
+            parents.set(vertex, _find(parents.get(vertex), parents));
+        }
+
+        return parents.get(vertex);
+    }
+
+    // Complexity of unionFind O(E logV)
+    function _unionSet(firstVertex, secondVertex) {
+        const vertexX = _find(firstVertex, parents);
+        const vertexY = _find(secondVertex, parents);
+        const vertexXrank = ranks.get(vertexX);
+        const vertexYrank = ranks.get(vertexY);
+        if (vertexX === vertexY) {
+            return;
+        }
+        if (vertexXrank > vertexYrank) {
+            parents.set(vertexY, vertexX);
+        } else {
+            parents.set(vertexX, vertexY);
+            if (vertexXrank === vertexYrank) {
+                ranks.set(vertexY, vertexYrank + 1);
+            }
+        }
+    }
+
+    function _kruskalAlg() {
+        _setParentsAndRanks();
+
+        for (const edge of graph.getAllEdges().values()) {
+            if (_find(edge.fromVertex, parents) !== _find(edge.toVertex, parents)) {
+
+            }
+        }
+    }
 
     return result;
 }
@@ -24,12 +76,13 @@ graph.insert([
     {name: "Trajan", city: "Sevilla", born: 98, dynasty: "Nerva–Trajan"},
 ]);
 
-graph.link("Marcus Aurelius").to(["Lucius Verus"]);
-graph.link("Lucius Verus").to(["Antoninus Pius"]);
-graph.link("Antoninus Pius").to(["Marcus Aurelius", "Hadrian"]);
-graph.link("Hadrian").to(["Trajan"]);
+graph.link("Marcus Aurelius").to(["Lucius Verus"], [1]);
+graph.link("Lucius Verus").to(["Antoninus Pius", "Trajan"], [2, 2]);
+graph.link("Antoninus Pius").to(["Hadrian"], [3]);
+graph.link("Hadrian").to(["Trajan"], [4]);
 
 console.log()
 
-const isCycledGraph = findMST(graph, "Marcus Aurelius");
-console.log(isCycledGraph);
+const minimumSpaningTree = findMST(graph, "Marcus Aurelius");
+console.log(graph);
+console.log(minimumSpaningTree);

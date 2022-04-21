@@ -25,6 +25,7 @@ function isCyclePresent(graph) {
         return parents.get(vertex);
     }
 
+    // Complexity of unionFind O(E logV)
     function _unionSet(firstVertex, secondVertex) {
         const vertexX = _find(firstVertex, parents);
         const vertexY = _find(secondVertex, parents);
@@ -49,7 +50,6 @@ function isCyclePresent(graph) {
         for (const edge of graph.getAllEdges().values()) {
             const vertexX = _find(edge.fromVertex, parents);
             const vertexY = _find(edge.toVertex, parents);
-            console.log("Cur Vertices: ", vertexX, vertexY);
             if (vertexX === vertexY) {
                 result = true;
             } else {

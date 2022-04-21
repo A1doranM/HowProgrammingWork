@@ -3,20 +3,19 @@
 
 class Vertex { // Вершина графа.
     constructor(graph, data) {
-        this.graph = graph; // Ссылка на граф.
-        this.data = data; // Ссылка на данные.
         this.links = new Map(); // Коллекция вершин на которые она ссылается.
-        this.weight = 0;
+        this._graph = graph; // Ссылка на граф.
+        this._data = data; // Ссылка на данные.
     }
 
     link(...args) {
         const distinct = new Set(args); // Для того чтобы ссылки были уникальными, все что нам прислали кладем в Set().
         const {links} = this; // Берем ссылки которые сейчас хранятся внутри вершины
-        const {keyField} = this.graph; // Берем ключевое поле это у нас у самого графа есть одно из полей по которому мы
+        const {keyField} = this._graph; // Берем ключевое поле это у нас у самого графа есть одно из полей по которому мы
                                        // будем идентифицировать вершины. И это поле будет браться из объектов и при
                                        // помощи этого поля мы будем обращаться к вершинам.
         for (const item of distinct) { // Проходимся по вершинам которые нам передали
-            const value = item.data[keyField]; // берем из них значение при помощи keyField
+            const value = item._data[keyField]; // берем из них значение при помощи keyField
             links.set(value, item); // в свою коллекцию связей устанавливаем значение и вершину к которой оно привязано.
         }
         return this;
@@ -24,6 +23,10 @@ class Vertex { // Вершина графа.
 
     getAdjacentVertices() { // Возвращает коллекцию вершин на которые ссылается текущая вершина.
         return this.links;
+    }
+
+    getVertexData() {
+        return this._data;
     }
 }
 
@@ -38,14 +41,14 @@ class Edge { // Вершина графа.
 
 class EdgedGraph {
     constructor(keyField) { // Устанавливаем ключевое поле по которому граф будет индексироваться
-        this.keyField = keyField;
         this.vertices = new Map(); // Список вершин графа.
         this.edges = new Map();
+        this._keyField = keyField;
     }
 
     add(data) {
         const vertex = new Vertex(this, data);
-        const key = data[this.keyField];
+        const key = data[this._keyField];
         if (this.vertices.get(key) === undefined) {
             this.vertices.set(key, vertex);
         }
@@ -66,8 +69,12 @@ class EdgedGraph {
             to(verticesToConnect, edgesData = []) { // для привязки к другим линкам.
                 const destinations = [...new Set(verticesToConnect)];
 
-                if (edgesData.length && (edgesData.length !== destinations.size)) {
-                    throw new Error("Unequal number of vertices and Edge data! Edge data must be the same length as vertices, or null");
+                if (!destinations.length) {
+                    throw new Error("Destinations array can not be null!");
+                }
+
+                if (edgesData.length && (edgesData.length !== destinations.length)) {
+                    throw new Error("Unequal number of vertices and Edge data! Edge data must be the same length as vertices, or null.");
                 }
 
                 if (from) {
@@ -90,6 +97,10 @@ class EdgedGraph {
         }
     }
 
+    get keyField() {
+        return this._keyField;
+    }
+
     size() { // Возвращает размер графа.
         return this.vertices.size;
     }
@@ -103,8 +114,8 @@ class EdgedGraph {
     }
 
     setEdge(from, to, edgeData = null) {
-        const vertexX = from.data[this.keyField];
-        const vertexY = to.data[this.keyField];
+        const vertexX = from.getVertexData()[this._keyField];
+        const vertexY = to.getVertexData()[this._keyField];
         if (!this.getEdge(from, to)) {
             // Итоговое ребро выглядит примерно так { "Marcus Aurelius"|"Antoninus Pius", первое ребро, второе ребро }.
             this.edges.set(`${vertexX}|${vertexY}`, new Edge(vertexX, vertexY, edgeData));
@@ -113,8 +124,8 @@ class EdgedGraph {
     }
 
     getEdge(from, to) {
-        const vertexX = from.data[this.keyField];
-        const vertexY = to.data[this.keyField];
+        const vertexX = from.getVertexData()[this._keyField];
+        const vertexY = to.getVertexData()[this._keyField];
         return this.edges.get(`${vertexX}|${vertexY}`);
     }
 }
