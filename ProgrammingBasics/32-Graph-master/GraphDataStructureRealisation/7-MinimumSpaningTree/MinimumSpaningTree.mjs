@@ -1,5 +1,5 @@
 // Find Minimum Spanning Tree using Kruskal Algorithm.
-// O(E logE)
+// Complexity: O(E logE);
 
 import EdgedGraph from "../graph/EdgedGraph.mjs";
 
@@ -11,7 +11,7 @@ function findMST(graph) {
 
     const result = new EdgedGraph(graph.keyField);
 
-    for(const vertex of graph.getVerticesList().values()) {
+    for (const vertex of graph.getVerticesList().values()) {
         result.add(vertex.getVertexData());
     }
 
@@ -54,10 +54,14 @@ function findMST(graph) {
 
         for (const edge of graph.getAllEdges().values()) {
             if (_find(edge.fromVertex, parents) !== _find(edge.toVertex, parents)) {
-
+                console.log(edge.toVertex, [edge.edgeData]);
+                result.link(edge.fromVertex).to([edge.toVertex], [edge.edgeData]);
+                _unionSet(edge.fromVertex, edge.toVertex);
             }
         }
     }
+
+    _kruskalAlg();
 
     return result;
 }
@@ -76,13 +80,13 @@ graph.insert([
     {name: "Trajan", city: "Sevilla", born: 98, dynasty: "Nerva–Trajan"},
 ]);
 
-graph.link("Marcus Aurelius").to(["Lucius Verus"], [1]);
-graph.link("Lucius Verus").to(["Antoninus Pius", "Trajan"], [2, 2]);
-graph.link("Antoninus Pius").to(["Hadrian"], [3]);
-graph.link("Hadrian").to(["Trajan"], [4]);
+graph.link("Marcus Aurelius").to(["Lucius Verus", "Antoninus Pius", "Hadrian", "Trajan"], [1, 2, 3, 4]);
+graph.link("Lucius Verus").to(["Antoninus Pius", "Hadrian"], [5, 6]);
+graph.link("Antoninus Pius").to(["Hadrian", "Trajan"], [7, 7]);
+graph.link("Hadrian").to(["Trajan"], [1]);
 
 console.log()
 
-const minimumSpaningTree = findMST(graph, "Marcus Aurelius");
+const minimumSpanningTree = findMST(graph);
 console.log(graph);
-console.log(minimumSpaningTree);
+console.log(minimumSpanningTree);

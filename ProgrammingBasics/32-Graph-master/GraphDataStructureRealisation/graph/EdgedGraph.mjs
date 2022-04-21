@@ -31,11 +31,35 @@ class Vertex { // Вершина графа.
 }
 
 class Edge { // Вершина графа.
-    constructor(fromVertex, toVertex, edgeData) {
+    constructor(fromVertex, toVertex, edgeData = null) {
         // Ссылка на данные ребра.
-        this.fromVertex = fromVertex;
-        this.toVertex = toVertex;
-        this.edgeData = edgeData;
+        this._fromVertex = fromVertex;
+        this._toVertex = toVertex;
+        this._edgeData = edgeData;
+    }
+
+    get fromVertex() {
+        return this._fromVertex;
+    }
+
+    set fromVertex(value) {
+        this._fromVertex = value;
+    }
+
+    get toVertex() {
+        return this._toVertex;
+    }
+
+    set toVertex(value) {
+        this._toVertex = value;
+    }
+
+    get edgeData() {
+        return this._edgeData;
+    }
+
+    set edgeData(value) {
+        this._edgeData = value;
     }
 }
 
@@ -69,12 +93,17 @@ class EdgedGraph {
             to(verticesToConnect, edgesData = []) { // для привязки к другим линкам.
                 const destinations = [...new Set(verticesToConnect)];
 
-                if (!destinations.length) {
-                    throw new Error("Destinations array can not be null!");
+                if(!Array.isArray(destinations) || !Array.isArray(edgesData)) {
+                    throw new Error("Vertices to connect and edges data must be arrays!");
+                }
+
+                if (destinations.isArray && !destinations.length) {
+                    throw new Error("Vertices to connect array can not be null!");
                 }
 
                 if (edgesData.length && (edgesData.length !== destinations.length)) {
-                    throw new Error("Unequal number of vertices and Edge data! Edge data must be the same length as vertices, or null.");
+                    console.log(edgesData.length, destinations.length);
+                    throw new Error("Unequal number of vertices and edges data! Edges data must be the same length as vertices, or null.");
                 }
 
                 if (from) {
