@@ -153,8 +153,8 @@ class EdgedGraph {
     }
 
     getEdge(from, to) {
-        const vertexX = from.getVertexData()[this._keyField];
-        const vertexY = to.getVertexData()[this._keyField];
+        const vertexX = typeof from === "string" ? from : from.getVertexData()[this._keyField];
+        const vertexY = typeof to === "string" ? to : to.getVertexData()[this._keyField];
         return this.edges.get(`${vertexX}|${vertexY}`);
     }
 }

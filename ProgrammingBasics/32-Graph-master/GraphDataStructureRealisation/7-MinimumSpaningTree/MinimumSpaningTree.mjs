@@ -1,72 +1,149 @@
-// Find Minimum Spanning Tree using Kruskal Algorithm.
-// Complexity: O(E logE);
+// Find Minimum Spanning Tree using Kruskal Algorithm and Prims Algorithm.
 
 import EdgedGraph from "../graph/EdgedGraph.mjs";
 
-function findMST(graph) {
-    if (!graph) throw new Error("Missing graph!");
+class FindMinimumSpanningTree {
+    // Complexity: O(E logE);
+    static KruskalAlg(graph) {
+        if (!graph) throw new Error("Missing graph!");
 
-    const parents = new Map();
-    const ranks = new Map();
+        const parents = new Map();
+        const ranks = new Map();
 
-    const result = new EdgedGraph(graph.keyField);
+        const result = new EdgedGraph(graph.keyField);
 
-    for (const vertex of graph.getVerticesList().values()) {
-        result.add(vertex.getVertexData());
-    }
-
-    function _setParentsAndRanks() {
-        for (const vertex of graph.getVerticesList().keys()) {
-            parents.set(vertex, vertex);
-            ranks.set(vertex, 0);
-        }
-    }
-
-    function _find(vertex, parents) {
-        if (vertex !== parents.get(vertex)) {
-            parents.set(vertex, _find(parents.get(vertex), parents));
+        for (const vertex of graph.getVerticesList().values()) {
+            result.add(vertex.getVertexData());
         }
 
-        return parents.get(vertex);
+        function _setParentsAndRanks() {
+            for (const vertex of graph.getVerticesList().keys()) {
+                parents.set(vertex, vertex);
+                ranks.set(vertex, 0);
+            }
+        }
+
+        function _find(vertex, parents) {
+            if (vertex !== parents.get(vertex)) {
+                parents.set(vertex, _find(parents.get(vertex), parents));
+            }
+
+            return parents.get(vertex);
+        }
+
+        // Complexity of unionFind O(E logV)
+        function _unionSet(firstVertex, secondVertex) {
+            const vertexX = _find(firstVertex, parents);
+            const vertexY = _find(secondVertex, parents);
+            const vertexXrank = ranks.get(vertexX);
+            const vertexYrank = ranks.get(vertexY);
+            if (vertexX === vertexY) {
+                return;
+            }
+            if (vertexXrank > vertexYrank) {
+                parents.set(vertexY, vertexX);
+            } else {
+                parents.set(vertexX, vertexY);
+                if (vertexXrank === vertexYrank) {
+                    ranks.set(vertexY, vertexYrank + 1);
+                }
+            }
+        }
+
+        function _kruskalAlg() {
+            _setParentsAndRanks();
+
+            for (const edge of graph.getAllEdges().values()) {
+                if (_find(edge.fromVertex, parents) !== _find(edge.toVertex, parents)) {
+                    console.log(edge.toVertex, [edge.edgeData]);
+                    result.link(edge.fromVertex).to([edge.toVertex], [edge.edgeData]);
+                    _unionSet(edge.fromVertex, edge.toVertex);
+                }
+            }
+        }
+
+        _kruskalAlg();
+
+        return result;
     }
 
-    // Complexity of unionFind O(E logV)
-    function _unionSet(firstVertex, secondVertex) {
-        const vertexX = _find(firstVertex, parents);
-        const vertexY = _find(secondVertex, parents);
-        const vertexXrank = ranks.get(vertexX);
-        const vertexYrank = ranks.get(vertexY);
-        if (vertexX === vertexY) {
-            return;
+    // Time complexity O(E logV)
+    static PrimAlg(graph, startVertexName) {
+        if (!graph || !startVertexName) throw new Error("Missing graph or start vertex!");
+
+        const startVertex = graph.select(startVertexName);
+
+        if (!startVertex) {
+            throw new Error("Vertex with such name does not exist!");
         }
-        if (vertexXrank > vertexYrank) {
-            parents.set(vertexY, vertexX);
-        } else {
-            parents.set(vertexX, vertexY);
-            if (vertexXrank === vertexYrank) {
-                ranks.set(vertexY, vertexYrank + 1);
+
+        const parent = new Map();
+        const key = new Map();
+        const inMST = new Map();
+        const priorityQueue = [];
+
+        const result = new EdgedGraph(graph.keyField);
+
+        const addToPriorityQueue = (elem) => {
+            priorityQueue.push({
+                weight: 0,
+                vertexName: elem
+            });
+            priorityQueue.sort((a, b) => {
+                return (a.weight > b.weight);
+            });
+        }
+        startVertex.getVertexData()[graph.keyField]
+        key.set(startVertex.getVertexData()[graph.keyField], 0);
+
+        while (priorityQueue.length) {
+            const current = priorityQueue.shift();
+
+            console.log(current);
+
+            if (parent.get(current) && (inMST.get(current) === false)) {
+                const from = parent.get(current);
+                const to = key.get(current);
+                const edgeData = graph.getEdge(from, to).edgeData;
+                result.add(from);
+                result.add(to);
+                result.link(from).to(to, [edgeData]);
+            }
+
+            inMST.set(current, true);
+
+            for (const adjacentVertex of graph.select(current.vertexName).getAdjacentVertices().keys()) {
+                const edge = graph.getEdge(
+                    current.vertexName,
+                    adjacentVertex
+                );
+
+                console.log("EDGE: ", current.vertexName, adjacentVertex);
+
+                const av = edge.fromVertex;
+                const weight = edge.edgeData;
+                if ((!!inMST.get(av) === false) && (key.get(av) > weight)) {
+                    console.log("INSIDE IF: ",)
+                    parent.set(av, current);
+                    key.set(av, weight);
+                    priorityQueue.push({
+                        weight: weight,
+                        vertexName: av
+                    });
+                }
+                console.log(
+                    "\nAV: ", av,
+                    "\nW: ", weight,
+                    "\nIN MST: ", !!inMST.get(av),
+                    "\nKEY: ", key.get(av)
+                );
             }
         }
     }
 
-    function _kruskalAlg() {
-        _setParentsAndRanks();
-
-        for (const edge of graph.getAllEdges().values()) {
-            if (_find(edge.fromVertex, parents) !== _find(edge.toVertex, parents)) {
-                console.log(edge.toVertex, [edge.edgeData]);
-                result.link(edge.fromVertex).to([edge.toVertex], [edge.edgeData]);
-                _unionSet(edge.fromVertex, edge.toVertex);
-            }
-        }
-    }
-
-    _kruskalAlg();
-
-    return result;
 }
 
-export default findMST;
+export default FindMinimumSpanningTree;
 
 // Example of usage.
 
@@ -87,6 +164,7 @@ graph.link("Hadrian").to(["Trajan"], [1]);
 
 console.log()
 
-const minimumSpanningTree = findMST(graph);
-console.log(graph);
+// const minimumSpanningTree = FindMinimumSpanningTree.KruskalAlg(graph);
+const minimumSpanningTree = FindMinimumSpanningTree.PrimAlg(graph, "Marcus Aurelius");
+// console.log(graph);
 console.log(minimumSpanningTree);
