@@ -12,12 +12,12 @@ class FindMinimumSpanningTree {
 
         const result = new EdgedGraph(graph.keyField);
 
-        for (const vertex of graph.getVerticesList().values()) {
+        for (const vertex of graph.getAllVertices().values()) {
             result.add(vertex.getVertexData());
         }
 
         function _setParentsAndRanks() {
-            for (const vertex of graph.getVerticesList().keys()) {
+            for (const vertex of graph.getAllVertices().keys()) {
                 parents.set(vertex, vertex);
                 ranks.set(vertex, 0);
             }
@@ -81,64 +81,60 @@ class FindMinimumSpanningTree {
         const key = new Map();
         const inMST = new Map();
         const priorityQueue = [];
-
         const result = new EdgedGraph(graph.keyField);
 
-        const addToPriorityQueue = (elem) => {
+        const addToPriorityQueue = (weight, elem) => {
             priorityQueue.push({
-                weight: 0,
+                weight: weight,
                 vertexName: elem
             });
             priorityQueue.sort((a, b) => {
                 return (a.weight > b.weight);
             });
         }
-        startVertex.getVertexData()[graph.keyField]
+
+        addToPriorityQueue(0, startVertex.getVertexData()[graph.keyField]);
+
+        for (const edge of graph.getAllEdges().values()) {
+            inMST.set(edge.fromVertex, false);
+            inMST.set(edge.toVertex, false);
+            key.set(edge.fromVertex, Number.MAX_SAFE_INTEGER);
+            key.set(edge.toVertex, Number.MAX_SAFE_INTEGER);
+        }
+
         key.set(startVertex.getVertexData()[graph.keyField], 0);
 
         while (priorityQueue.length) {
-            const current = priorityQueue.shift();
+            const currVertex = priorityQueue.shift().vertexName;
 
-            console.log(current);
-
-            if (parent.get(current) && (inMST.get(current) === false)) {
-                const from = parent.get(current);
-                const to = key.get(current);
+            if (parent.get(currVertex) && (inMST.get(currVertex) === false)) {
+                const from = graph.select(parent.get(currVertex));
+                const to = graph.select(currVertex);
+                const fromData = from.getVertexData();
+                const toData = to.getVertexData();
                 const edgeData = graph.getEdge(from, to).edgeData;
-                result.add(from);
-                result.add(to);
-                result.link(from).to(to, [edgeData]);
+
+                result.add(fromData);
+                result.add(toData);
+                result.link(fromData[result.keyField]).to([toData[result.keyField]], [edgeData]);
             }
 
-            inMST.set(current, true);
+            inMST.set(currVertex, true);
 
-            for (const adjacentVertex of graph.select(current.vertexName).getAdjacentVertices().keys()) {
-                const edge = graph.getEdge(
-                    current.vertexName,
-                    adjacentVertex
-                );
-
-                console.log("EDGE: ", current.vertexName, adjacentVertex);
-
-                const av = edge.fromVertex;
+            for (const adjacentVertex of graph.select(currVertex).getAdjacentVertices().keys()) {
+                const edge = graph.getEdge(currVertex, adjacentVertex);
+                const av = edge.toVertex;
                 const weight = edge.edgeData;
-                if ((!!inMST.get(av) === false) && (key.get(av) > weight)) {
-                    console.log("INSIDE IF: ",)
-                    parent.set(av, current);
+
+                if ((inMST.get(av) === false) && (key.get(av) > weight)) {
+                    parent.set(av, currVertex);
                     key.set(av, weight);
-                    priorityQueue.push({
-                        weight: weight,
-                        vertexName: av
-                    });
+                    addToPriorityQueue(weight, av);
                 }
-                console.log(
-                    "\nAV: ", av,
-                    "\nW: ", weight,
-                    "\nIN MST: ", !!inMST.get(av),
-                    "\nKEY: ", key.get(av)
-                );
             }
         }
+
+        return result;
     }
 
 }
@@ -164,7 +160,7 @@ graph.link("Hadrian").to(["Trajan"], [1]);
 
 console.log()
 
-// const minimumSpanningTree = FindMinimumSpanningTree.KruskalAlg(graph);
-const minimumSpanningTree = FindMinimumSpanningTree.PrimAlg(graph, "Marcus Aurelius");
+const minimumSpanningTreeKruskal = FindMinimumSpanningTree.KruskalAlg(graph);
+const minimumSpanningTreePrim = FindMinimumSpanningTree.PrimAlg(graph, "Marcus Aurelius");
 // console.log(graph);
-console.log(minimumSpanningTree);
+console.log(minimumSpanningTreeKruskal, minimumSpanningTreePrim);
