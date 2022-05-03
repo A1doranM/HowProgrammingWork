@@ -12,7 +12,7 @@ function Dijkstra(graph, startVertexName) {
     const weightToVertex = [];
     const result = new Map();
 
-    for(const vertex of graph.getVerticesList().values()) {
+    for(const vertex of graph.getAllVertices().values()) {
         result.set(vertex, Number.MAX_SAFE_INTEGER);
     }
 

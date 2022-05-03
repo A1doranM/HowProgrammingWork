@@ -56,7 +56,7 @@ class TopologicalSort {
             sortedNodes.unshift(startNode);
         }
 
-        for (const vertex of graph.getVerticesList().keys()) {
+        for (const vertex of graph.getAllVertices().keys()) {
             if (!visited.has(vertex)) {
                 DFS(graph, vertex[graph.keyField], visited, sortedNodes);
             }

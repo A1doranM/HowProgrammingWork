@@ -36,6 +36,8 @@ class Queue {
   }
 }
 
+module.exports = Queue;
+
 // Usage
 
 const obj1 = { name: "first" };

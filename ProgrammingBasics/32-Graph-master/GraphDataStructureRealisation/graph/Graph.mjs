@@ -72,7 +72,7 @@ class Graph {
         return this.vertices.size;
     }
 
-    getVerticesList() {
+    getAllVertices() {
         return this.vertices;
     }
 }
