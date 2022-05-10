@@ -21,17 +21,27 @@ export class SingleSourceShortestPath {
             distances.set(edge.toVertex, Number.MAX_SAFE_INTEGER);
         }
 
+        distances.set(startVertexName, 0);
+
         for (let i = 0; i < distances.size - 1; i++) {
             for (const edge of graph.getAllEdges().values()) {
-                const distanceFrom = distances.get(edge.fromVertex);
-                const distanceTo = distances.get(edge.toVertex) + edge.edgeData;
-                if (distanceFrom > distanceTo) {
-                    distances.set(edge.fromVertex, distanceTo);
+                const distanceTo = distances.get(edge.toVertex);
+                const distanceFrom = distances.get(edge.fromVertex) + edge.edgeData;
+                if (distanceTo > distanceFrom) {
+                    distances.set(edge.toVertex, distanceFrom);
                 }
             }
         }
 
-        return result;
+        for(const edge in graph.getAllEdges().values()) {
+            const distanceTo = distances.get(edge.toVertex);
+            const distanceFrom = distances.get(edge.fromVertex) + edge.edgeData;
+            if(distanceTo > distanceFrom) {
+                return throw new Error("Negative cycle exist!");
+            }
+        }
+
+        return distances;
     }
 
     static Dijkstra(graph, startVertexName) {
