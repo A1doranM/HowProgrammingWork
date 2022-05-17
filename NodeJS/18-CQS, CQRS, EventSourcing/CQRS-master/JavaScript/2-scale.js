@@ -3,7 +3,7 @@
 const { EventEmitter } = require("events");
 const eventBus = new EventEmitter();
 
-// Правильный CQRS, коммуникация между модулями просиходит только через события.
+// Правильный CQRS, коммуникация между модулями происходит только через события.
 
 // Команда - умеет менять.
 class AccountCommand {
