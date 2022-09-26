@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-const fs = require('node:fs').promises;
-const vm = require('node:vm');
+const fs = require("node:fs").promises;
+const vm = require("node:vm");
 
 const RUN_OPTIONS = { timeout: 5000, displayErrors: false };
 
@@ -10,7 +10,7 @@ const pseudoRequire = (name) => {
 };
 
 const load = async (filePath, sandbox) => {
-  const src = await fs.readFile(filePath, 'utf8');
+  const src = await fs.readFile(filePath, "utf8");
   const code = `(require, module, __filename, __dirname) => {\n${src}\n}`;
   const script = new vm.Script(code);
   const context = vm.createContext(Object.freeze({ ...sandbox }));
@@ -22,7 +22,7 @@ const load = async (filePath, sandbox) => {
 
 const main = async () => {
   const sandbox = { Map: class PseudoMap {} };
-  const exported = await load('./1-export.js', sandbox);
+  const exported = await load("./1-export.js", sandbox);
   console.log(exported);
 };
 

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 module.exports = (api, application) => {
   const FILE_SCOPE_CONSTANT = 100;

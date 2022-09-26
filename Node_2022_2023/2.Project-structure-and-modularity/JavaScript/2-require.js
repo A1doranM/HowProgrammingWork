@@ -1,11 +1,13 @@
-'use strict';
+"use strict";
 
-const fs = require('node:fs');
-const events = require('node:events');
-const timers1 = require('node:timers');
-const timers2 = require('node:timers/promises');
-const ws = require('ws');
-const exp = require('./1-export.js');
+// Чтобы загрузить модуль мы используем require.
+// Двоеточие показывает что мы загружаем встроенный в ноду модуль.
+const fs = require("node:fs");
+const events = require("node:events");
+const timers1 = require("node:timers");
+const timers2 = require("node:timers/promises");
+const ws = require("ws");
+const exp = require("./1-export.js");
 
 console.log(Object.keys(fs));
 console.log(Object.keys(events));
