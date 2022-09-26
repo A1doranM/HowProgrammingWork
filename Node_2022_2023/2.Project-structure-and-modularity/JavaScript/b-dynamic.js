@@ -1,5 +1,6 @@
 "use strict";
 
+// Еще пример с динамическим импортом.
 const promise = import("node:events");
 console.log({ promise });
 

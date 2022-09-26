@@ -1,3 +1,5 @@
+// ECMA модули имеют расширение mjs.
+
 class Entity {}
 
 const fn = x => x;

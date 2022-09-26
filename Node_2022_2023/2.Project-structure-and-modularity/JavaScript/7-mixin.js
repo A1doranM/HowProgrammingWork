@@ -1,8 +1,11 @@
 "use strict";
 
+// Пример с примешиванием в модуль.
+
 const fs = require("node:fs");
 const { readFile } = fs;
 
+// Подменяем родное чтение файлов на свое.
 fs.readFile = (...args) => {
   const path = args.shift();
   const callback = args.pop();
