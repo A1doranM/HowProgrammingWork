@@ -6,14 +6,14 @@ const fs = require("node:fs");
 
 module.exports = (root, port) => {
   http.createServer(async (req, res) => {
-    const url = req.url === "/" ? "/index.html" : req.url;
-    const filePath = path.join(root, url);
+    const url = req.url === "/" ? "/index.html" : req.url; // если обращаются к корню то ищем индекс файл.
+    const filePath = path.join(root, url); // конструируем путь.
     try {
-      const data = await fs.promises.readFile(filePath);
-      res.end(data);
+      const data = await fs.promises.readFile(filePath); // Читайем файл
+      res.end(data); // отдаем.
     } catch (err) {
       res.statusCode = 404;
-      res.end(""File is not found"");
+      res.end("File is not found");
     }
   }).listen(port);
 

@@ -13,7 +13,7 @@ module.exports = (root, port) => {
       res.end(data);
     } catch (err) {
       res.statusCode = 404;
-      res.end(""File is not found"");
+      res.end("File is not found");
     }
   }).listen(port);
 

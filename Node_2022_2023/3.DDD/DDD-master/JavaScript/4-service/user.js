@@ -5,6 +5,8 @@ const hash = require("./hash.js");
 
 const users = db("users");
 
+// Переопределим поведение методов для юзера, например пароль пишем с хэшем
+
 module.exports = {
   read(id) {
     return users.read(id, ["id", "login"]);

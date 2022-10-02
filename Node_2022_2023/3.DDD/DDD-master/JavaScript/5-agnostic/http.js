@@ -1,5 +1,7 @@
 "use strict";
 
+// Здесь все по старому.
+
 const http = require("node:http");
 
 const receiveArgs = async (req) => {

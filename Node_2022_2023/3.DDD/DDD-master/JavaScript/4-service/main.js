@@ -1,5 +1,8 @@
 "use strict";
 
+// Пример с возможностью переопределения поведения крудов.
+// Смотреть файл юзерс
+
 const http = require("node:http");
 const db = require("./db.js");
 

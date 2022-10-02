@@ -1,6 +1,10 @@
 "use strict";
 
-const server = require("./ws.js");
+// Пример со сменой протокола, например здесь добавляем вэбсокеты.
+// Плюс добавили небольшой сервер для отдачи статики.
+// Все файлы кроме вэб сокетов без изменений.
+
+const server = require("./ws.js"); // Здесь можем теперь переключить все на require("./http.js")
 const staticServer = require("./static.js");
 const db = require("./db.js");
 

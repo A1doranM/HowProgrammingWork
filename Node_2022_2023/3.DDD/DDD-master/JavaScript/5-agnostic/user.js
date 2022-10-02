@@ -1,5 +1,7 @@
 "use strict";
 
+// Здесь все по старому.
+
 const db = require("./db.js");
 const hash = require("./hash.js");
 

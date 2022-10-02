@@ -4,6 +4,7 @@ const fs = require("node:fs");
 const util = require("node:util");
 const path = require("node:path");
 
+// Эскейп последовательность для цветов консоли.
 const COLORS = {
   info: "\x1b[1;37m",
   debug: "\x1b[1;33m",
@@ -20,12 +21,15 @@ class Logger {
     const date = new Date().toISOString().substring(0, 10);
     const filePath = path.join(logPath, `${date}.log`);
     this.stream = fs.createWriteStream(filePath, { flags: "a" });
-    this.regexp = new RegExp(path.dirname(this.path), "g");
+    this.regexp = new RegExp(path.dirname(this.path), "g"); // Регулярка для оптимизации стэктрейсов.
   }
 
   close() {
     return new Promise((resolve) => this.stream.end(resolve));
   }
+
+
+  // Методы логера.
 
   write(level = "info", s) {
     const now = new Date().toISOString();
@@ -33,7 +37,7 @@ class Logger {
     const color = COLORS[level];
     const line = date + "\t" + s;
     console.log(color + line + "\x1b[0m");
-    const out = line.replace(/[\n\r]\s*/g, "; ") + "\n";
+    const out = line.replace(/[\n\r]\s*/g, "; ") + "\n"; // Заменяем все переводы строки на ";"
     this.stream.write(out);
   }
 

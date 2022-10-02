@@ -1,5 +1,7 @@
 "use strict";
 
+// Функция для хэширование паролей.
+
 const crypto = require("node:crypto");
 
 const hash = (password) => new Promise((resolve, reject) => {

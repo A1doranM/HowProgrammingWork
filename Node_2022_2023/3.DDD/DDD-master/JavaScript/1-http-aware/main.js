@@ -1,5 +1,7 @@
 "use strict";
 
+// Пример типичного экспресс приложения.
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const pg = require("pg");
@@ -21,27 +23,27 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/user", (req, res) => {
+app.get("/user", (req, res) => { // Обработчик гет запроса
   console.log(`${req.socket.remoteAddress} GET /user`);
-  pool.query("SELECT * FROM users", (err, data) => {
+  pool.query("SELECT * FROM users", (err, data) => { // забираем всех пользователей.
     if (err) throw err;
     res.status(200).json(data.rows);
   });
 });
 
-app.post("/user", async (req, res) => {
+app.post("/user", async (req, res) => { // Пост запрос со вставкой в БД
   const { login, password } = req.body;
   const user = JSON.stringify({ login, password });
   console.log(`${req.socket.remoteAddress} POST /user ${user}`);
-  const sql = "INSERT INTO users (login, password) VALUES ($1, $2)";
+  const sql = "INSERT INTO users (login, password) VALUES ($1, $2)"; // запрос в БД
   const passwordHash = await hash(password);
-  pool.query(sql, [login, passwordHash], (err, data) => {
+  pool.query(sql, [login, passwordHash], (err, data) => { // выполняем его.
     if (err) throw err;
     res.status(201).json({ created: data.insertId });
   });
 });
 
-app.get("/user/:id", (req, res) => {
+app.get("/user/:id", (req, res) => { // Эндпоинт на получение одного пользователя.
   const id = parseInt(req.params.id, 10);
   console.log(`${req.socket.remoteAddress} GET /user/${id}`);
   pool.query("SELECT * FROM users WHERE id = $1", [id], (err, data) => {
@@ -50,7 +52,7 @@ app.get("/user/:id", (req, res) => {
   });
 });
 
-app.put("/user/:id", async (req, res) => {
+app.put("/user/:id", async (req, res) => { // Вставка одного пользователя.
   const id = parseInt(req.params.id);
   const { login, password } = req.body;
   const user = JSON.stringify({ login, password });
@@ -63,7 +65,7 @@ app.put("/user/:id", async (req, res) => {
   });
 });
 
-app.delete("/user/:id", (req, res) => {
+app.delete("/user/:id", (req, res) => { // Удаление.
   const id = parseInt(req.params.id);
   console.log(`${req.socket.remoteAddress} DELETE /user/${id}`);
   pool.query("DELETE FROM users WHERE id = $1", [id], (err, data) => {

@@ -1,5 +1,7 @@
 "use strict";
 
+// И в конце добавляем еще логер. Все файлы кроме логера неизменны.
+
 const fsp = require("node:fs").promises;
 const path = require("node:path");
 const server = require("./ws.js");
@@ -7,10 +9,10 @@ const staticServer = require("./static.js");
 const load = require("./load.js");
 const db = require("./db.js");
 const hash = require("./hash.js");
-const logger = require("./logger.js");
+const logger = require("./logger.js"); // Логгер.
 
 const sandbox = {
-  console: Object.freeze(logger),
+  console: Object.freeze(logger), // Вместо вывода в консоль теперь в модулях используется наш логер.
   db: Object.freeze(db),
   common: { hash },
 };

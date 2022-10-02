@@ -1,5 +1,7 @@
 "use strict";
 
+// Продолжение предыдущего примерна но теперь с генерацией Крудов.
+
 const http = require("node:http");
 const db = require("./db.js");
 
@@ -8,6 +10,8 @@ const PORT = 8000;
 const routing = {
   user: db("users"),
 };
+
+// Мапим методы базы данных к именам запросов.
 
 const crud = { get: "read", post: "create", put: "update", delete: "delete" };
 
