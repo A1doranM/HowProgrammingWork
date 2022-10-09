@@ -1,7 +1,7 @@
 "use strict";
 
 // Код с вэбинара по Ноде https://www.youtube.com/watch?v=GRg4BmV1uYI
-// он очень похож на код с курса, смотреть можно начинать в принципе с 6 папки.
+// он очень похож на код с курса, смотреть можно начинать в принципе с 7 папки.
 
 const express = require("express");
 const bodyParser = require("body-parser");

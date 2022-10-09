@@ -1,5 +1,7 @@
 "use strict";
 
+// Отрефакторили и добавили логгер.
+
 const fsp = require("node:fs").promises;
 const path = require("node:path");
 const server = require("./ws.js");

@@ -1,5 +1,9 @@
 "use strict";
 
+// Логгер реализует интерфейс console поэтому мы можем им спокойно подменять
+// консоль во всех модулях, при этом они смогут пользоваться им абсолютно так же
+// как и консолью.
+
 const fs = require("node:fs");
 const util = require("node:util");
 const path = require("node:path");
