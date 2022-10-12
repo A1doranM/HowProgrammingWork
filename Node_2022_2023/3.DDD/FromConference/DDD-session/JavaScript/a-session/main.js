@@ -1,5 +1,7 @@
 "use strict";
 
+// Тот же пример но добавлен дополнительный метод в АПИ, для авторизации.
+
 const fsp = require("node:fs").promises;
 const path = require("node:path");
 const server = require("./ws.js");

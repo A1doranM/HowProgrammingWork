@@ -12,7 +12,7 @@ const hash = require("./hash.js");
 const logger = require("./logger.js");
 
 const sandbox = {
-  console: Object.freeze(logger),
+  console: Object.freeze(logger), // Добавили логгер.
   db: Object.freeze(db),
   common: { hash },
 };
