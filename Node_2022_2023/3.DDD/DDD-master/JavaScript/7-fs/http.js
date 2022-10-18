@@ -12,7 +12,9 @@ const receiveArgs = async (req) => {
 module.exports = (routing, port) => {
   http.createServer(async (req, res) => {
     const { url, socket } = req;
+    console.log("REQUEST: ", url, socket);
     const [name, method, id] = url.substring(1).split("/");
+    console.log("REQUEST: ", name, method, id);
     const entity = routing[name];
     if (!entity) return res.end("Not found");
     const handler = entity[method];

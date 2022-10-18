@@ -2,13 +2,16 @@
 
 // И в конце добавляем еще логер. Все файлы кроме логера неизменны.
 
+const config = require("./config");
+
 const fsp = require("node:fs").promises;
 const path = require("node:path");
-const server = require("./ws.js");
+const server = require(`./${TRANSPORT}.js`);
 const staticServer = require("./static.js");
 const load = require("./load.js");
 const db = require("./db.js");
 const hash = require("./hash.js");
+
 const logger = require("./logger.js"); // Логгер.
 
 const sandbox = {
@@ -26,8 +29,9 @@ const routing = {};
     const filePath = path.join(apiPath, fileName);
     const serviceName = path.basename(fileName, ".js");
     routing[serviceName] = await load(filePath, sandbox);
+    console.log("ROUTING: ", routing[serviceName]);
   }
 
-  staticServer("./static", 8000);
-  server(routing, 8001);
+  staticServer("./static", STATIC_PORT);
+  server(routing, SERVER_PORT);
 })();
