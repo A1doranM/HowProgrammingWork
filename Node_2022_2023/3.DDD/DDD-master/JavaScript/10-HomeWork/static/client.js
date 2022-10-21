@@ -1,13 +1,14 @@
 "use strict";
 
-const webSocketUrl = "ws://127.0.0.1:8001/";
-const httpUrl = "http://localhost:8001/"
+const webSocketUrl = "ws://127.0.0.1:8001";
+const httpUrl = "http://localhost:8001";
 
-const socket = new WebSocket(webSocketUrl);
+const headers = new Headers();
+
+headers.append("Accept", "*");
 
 const webSocketScaffold = (serviceName, methodName) => (...args) => new Promise((resolve) => {
   const packet = {name: serviceName, method: methodName, args};
-  console.log("PACKET: ", packet);
   socket.send(JSON.stringify(packet));
   socket.onmessage = (event) => {
     const data = JSON.parse(event.data);
@@ -17,11 +18,10 @@ const webSocketScaffold = (serviceName, methodName) => (...args) => new Promise(
 
 const httpScaffold = (serviceName, methodName) => (...args) => new Promise((resolve) => {
   fetch(`${httpUrl}/${serviceName}/${methodName}/${args}`, {
-    method: "GET"
-  }).then((res) => {
-    console.log("RESPONSE: ", res);
-    const data = JSON.parse(res);
-    resolve(data);
+    method: "GET",
+  }).then(async (res) => {
+    const data = await res.json();
+    resolve(data[0]);
   });
 });
 
@@ -66,7 +66,22 @@ const api = scaffold({
   },
 }, httpUrl);
 
-socket.addEventListener("open", async () => {
+const runHttp = async () => {
+  console.log("Run HTTP");
   const data = await api.user.read(3);
-  console.dir({data});
-});
+  console.log("DATA: ", {data});
+}
+
+const runWs = () => {
+  const socket = new WebSocket(webSocketUrl);
+  socket.addEventListener("open", async () => {
+    const data = await api.user.read(3);
+    console.dir({data});
+  });
+}
+
+runHttp();
+
+
+
+
