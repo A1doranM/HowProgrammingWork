@@ -6,7 +6,7 @@ const config = require("./config");
 
 const fsp = require("node:fs").promises;
 const path = require("node:path");
-const server = require(`./http.js`);
+const server = require(`./${TRANSPORT}.js`);
 const staticServer = require("./static.js");
 const load = require("./load.js");
 const db = require("./db.js");
