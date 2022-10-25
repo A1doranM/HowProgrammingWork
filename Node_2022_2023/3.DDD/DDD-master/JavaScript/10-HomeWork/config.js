@@ -1,10 +1,20 @@
-STATIC_PORT = 8000;
-SERVER_PORT = 8001;
-
-DB_HOST = "localhost";
-DB_PORT = 5433;
-DB_NAME = "node-2022";
-DB_USER = "postgres";
-DB_PASSWORD = "1q2w3e3e2w1q4r";
-
-TRANSPORT = "http";
+module.exports = {
+  static: {
+   port: 8000
+  },
+  api: {
+    port: 8001
+  },
+  sandbox: {
+    timeout: 5000,
+    displayErrors: false
+  },
+  db: {
+    host: "localhost",
+    port: 5433,
+    name: "node-2022",
+    user: "postgres",
+    password: "1q2w3e3e2w1q4r"
+  },
+  transport: "http"
+}
