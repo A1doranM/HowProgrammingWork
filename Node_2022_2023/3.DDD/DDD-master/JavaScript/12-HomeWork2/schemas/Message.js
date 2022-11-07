@@ -1,7 +1,7 @@
 ({
   Entity: {},
 
-  area: 'Area',
-  from: 'Account',
-  text: 'string',
+  area: "Area",
+  from: "Account",
+  text: "string",
 });

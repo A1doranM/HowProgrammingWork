@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 module.exports = {
   static: {
@@ -6,17 +6,17 @@ module.exports = {
   },
   api: {
     port: 8001,
-    transport: 'http',
+    transport: "http",
   },
   sandbox: {
     timeout: 5000,
     displayErrors: false,
   },
   db: {
-    host: '127.0.0.1',
-    port: 5432,
-    database: 'example',
-    user: 'marcus',
-    password: 'marcus',
+    host: "localhost",
+    port: 5433,
+    database: "node-2022-hw-task-2",
+    user: "postgres",
+    password: "1q2w3e3e2w1q4r"
   },
 };

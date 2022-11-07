@@ -1,3 +1,3 @@
 ({
-  ip: { js: 'string', metadata: { pg: 'inet' } },
+  ip: { js: "string", metadata: { pg: "inet" } },
 });
