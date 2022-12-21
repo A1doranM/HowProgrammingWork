@@ -20,6 +20,9 @@ const routing = {};
 
 (async () => {
   const files = await fsp.readdir(apiPath);
+
+  console.log("DATABASE: ", db());
+
   for (const fileName of files) {
     if (!fileName.endsWith(".js")) continue;
     const filePath = path.join(apiPath, fileName);

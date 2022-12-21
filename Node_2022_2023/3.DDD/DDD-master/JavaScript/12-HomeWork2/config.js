@@ -13,10 +13,6 @@ module.exports = {
     displayErrors: false,
   },
   db: {
-    host: "localhost",
-    port: 5433,
-    database: "node-2022-hw-task-2",
-    user: "postgres",
-    password: "1q2w3e3e2w1q4r"
+    url: process.env.DATABASE_URL
   },
 };
