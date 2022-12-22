@@ -12,65 +12,35 @@ datasource db {
 
 // -------------------------- DATABASE SCHEMA ------------------------------------
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  title     String   @db.VarChar(255)
-  content   String?
-  published Boolean  @default(false)
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  Int
+model Role {
+    name    String @unique
 }
-
-
-model Profile {
-  id     Int     @id @default(autoincrement())
-  bio    String?
-  user   User    @relation(fields: [userId], references: [id])
-  userId Int     @unique
-}
-
-
-model User {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  name    String?
-  posts   Post[]
-  profile Profile?
-}
-
-// -----------------------------------------------------------------------------------------------
 
 model Account {
     id          Int @id @default(autoincrement())
     login       String @db.VarChar(255) @unique
     password    String
-    roles       Role @relation(fields: [roleName], references: [name])
+    roles       Role[]
     roleName    String @unique
 }
 
 model Area {
     name        String @unique
-    owner       Account @relation(fileds: [accountId], references: [id])
-    accountId   Int @unique
-    members     many-to-many //TODO
+    owner       Account @relation(fields: [accountId], references: [id])
+    ownerId     Int @unique
+    members     Account[] //TODO
 }
 
 model Message {
-    area        Area @relation(fileds: [areaName], references: [name])
+    area        Area @relation(fields: [areaName], references: [name])
     areaName    String @unique
-    from        Account @relation(fileds: [fromId], references: [id])
+    from        Account @relation(fields: [fromId], references: [id])
     fromId      Int
     text        String
 }
 
-model Role {
-    name    String @unique
-}
-
 model Session {
-    account     Account @relation(fileds: [accountId], references: [id])
+    account     Account @relation(fields: [accountId], references: [id])
     accountId   Int
     token       String @unique
     ip          Int
