@@ -24,7 +24,6 @@ model Account {
     login    String    @unique @db.VarChar(255)
     password String
     roles    Role[]
-    roleName String
     areas    AreaAccount[]
     Message  Message[]
     Session  Session[]
