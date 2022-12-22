@@ -13,36 +13,41 @@ datasource db {
 // -------------------------- DATABASE SCHEMA ------------------------------------
 
 model Role {
-    name    String @unique
+  name      String   @unique
+  Account   Account? @relation(fields: [accountId], references: [id])
+  accountId Int?
 }
 
 model Account {
-    id          Int @id @default(autoincrement())
-    login       String @db.VarChar(255) @unique
-    password    String
-    roles       Role[]
-    roleName    String @unique
+  id       Int       @id @default(autoincrement())
+  login    String    @unique @db.VarChar(255)
+  password String
+  roles    Role[]
+  roleName String    @unique
+  Area     Area?
+  Message  Message[]
+  Session  Session[]
 }
 
 model Area {
-    name        String @unique
-    owner       Account @relation(fields: [accountId], references: [id])
-    ownerId     Int @unique
-    members     Account[] //TODO
+  name    String   @unique
+  owner   Account  @relation(fields: [ownerId], references: [id])
+  ownerId Int      @unique
+  Message Message?
 }
 
 model Message {
-    area        Area @relation(fields: [areaName], references: [name])
-    areaName    String @unique
-    from        Account @relation(fields: [fromId], references: [id])
-    fromId      Int
-    text        String
+  area     Area    @relation(fields: [areaName], references: [name])
+  areaName String  @unique
+  from     Account @relation(fields: [fromId], references: [id])
+  fromId   Int
+  text     String
 }
 
 model Session {
-    account     Account @relation(fields: [accountId], references: [id])
-    accountId   Int
-    token       String @unique
-    ip          Int
-    data        String
+  account   Account @relation(fields: [accountId], references: [id])
+  accountId Int
+  token     String  @unique
+  ip        Int
+  data      String
 }

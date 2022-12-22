@@ -6,6 +6,7 @@
   "private": true,
   "main": "main.js",
   "dependencies": {
+    "@prisma/client": "^4.8.0",
     "metasql": "^2.1.0",
     "pg": "^8.8.0",
     "prisma": "^4.8.0",
