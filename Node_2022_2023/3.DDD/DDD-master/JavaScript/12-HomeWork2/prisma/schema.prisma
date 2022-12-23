@@ -14,7 +14,7 @@ datasource db {
 
 model Role {
     id        Int      @id @default(autoincrement())
-    name      String   @unique
+    name      String
     Account   Account? @relation(fields: [accountId], references: [id])
     accountId Int?
 }
