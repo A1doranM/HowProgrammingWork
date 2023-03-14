@@ -59,9 +59,35 @@
 
 ## 7. Keys
 
-    1. Natural key - is the key which is already in table data. E.g. we have table User
-       with first_name, last_name, email. And we identify user by email, so ligicaly email 
-       is a key.
+    1. Key must be UNIQUE
+    2. NEVER changes
+    3. NEVER NULL
+        
+#### Super Key 
+
+    It`s any number of columns which forces the row to be unique. E.g. ID, email.
+
+#### Candidate Key 
+    
+    It`s the least number of columns needed the row to be unique.
+
+### Primary Key
+
+    Key which will be used by another tables for reference to this table 
+
+### Alternate Ke
+
+### Surrogate Key
+
+    It`s key which we added to database, and they are don`t exist in our data from beginning.
+    In most cases this key should be private. 
+    E.g. we add ID for each user in Users table to identify users.  
+
+### Natural Key
+
+     Natural key - is the key which is already in table data. 
+     E.g. we have table User with first_name, last_name, email. And we identify 
+     user by email, so ligicaly email is a key.
 
 ### Look up tables
 
