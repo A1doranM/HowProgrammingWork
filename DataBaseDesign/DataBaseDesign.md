@@ -56,5 +56,22 @@
     Comments table refers to User with FK, Parent inherits nothing from child (we do not refer from user to each comment).
     But child "inherits" Foreign Key from Parent (each comment have one User who wrote it).
 ![img_3.png](img_3.png)
+
+## 7. Keys
+
+    1. Natural key - is the key which is already in table data. E.g. we have table User
+       with first_name, last_name, email. And we identify user by email, so ligicaly email 
+       is a key.
+
+### Look up tables
+
+    It`s about avoid same data duplication. 
     
+    E.g. we have table Members, and each member have some status so instead of 
+    duplicating status every time when user add, we create table Statuses and 
+    save status names there, and when we add user to Members table we just assign
+    key from Statuses to Member field.
+
+![img_4.png](img_4.png)
+![img_5.png](img_5.png)
 
