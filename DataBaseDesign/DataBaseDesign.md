@@ -73,9 +73,18 @@
 
 ### Primary Key
 
-    Key which will be used by another tables for reference to this table 
+    Key which will be used by another tables for reference to this table. Table
+    can have only one PK.
 
-### Alternate Ke
+### Foreign Key
+
+    Key which references to PK in another table
+
+    FOREIGN KEY CONSTRAINTS:
+        1. ON DELETE (RESTRICT, CASCADE, SET NULL) - what to do with children when PK will be deleted.
+        2. ON UPDATE (RESTRICT, CASCADE, SET NULL) - what to do with children when PK will be updated. 
+
+### Alternate Key
 
 ### Surrogate Key
 
@@ -86,8 +95,14 @@
 ### Natural Key
 
      Natural key - is the key which is already in table data. 
-     E.g. we have table User with first_name, last_name, email. And we identify 
+     E.g. we have table User    with first_name, last_name, email. And we identify 
      user by email, so ligicaly email is a key.
+
+### Simple, Composite, Compound Keys
+
+    Simple - key consist from one columns.
+    Composite - key consist from multiple columns.
+    Compound - key which consists from multiple columns where each column is a key itself.
 
 ### Look up tables
 
