@@ -116,3 +116,62 @@
 ![img_4.png](img_4.png)
 ![img_5.png](img_5.png)
 
+## 8. Entity Relationship Model (ER diagram)
+
+    Its a way to define relationship model in database, each table we draw as 
+    square. 
+    E.g. lets define table Users. First column it is ID, second is name, then 
+    password.
+![img_6.png](img_6.png)
+    
+## Cardinality
+    
+    Meanst that thing, or group of things or events compare with other groups
+    by containing more, fewer, or same number of instances. In databases, 
+    cardinality refers to the relationships between the data in two database 
+    tables.
+
+-One to One
+![img_9.png](img_9.png)
+
+-One to Many
+![img_7.png](img_7.png)  
+
+E.g lets draw one cardholder can have many cards
+![img_8.png](img_8.png)
+
+## Modality
+
+    Is about whether or not the relationship is required, we talk about that 
+    when we talk about the column characteritic NOT NULL.
+
+    E.g we have Cardholder and Card. And Card must always have Cardholder.
+    So Cardholder must always have ID, or another column as PK and Card must 
+    always have some Foreign Key which refers to Cardholder, so this field must
+    not be NULL. 
+    But if we change this requirement to Card should not always have Cardholder, 
+    in such case Cardholder field in Card can be NULL. 
+
+In ER diagram
+
+One to One, required
+![img_9.png](img_9.png)
+![img_12.png](img_12.png)
+
+One to One, not required
+![img_11.png](img_11.png)
+
+One to Many, not required and required
+![img_13.png](img_13.png)
+
+All together
+![img_14.png](img_14.png)
+![img_15.png](img_15.png)
+
+## Cardinality and Modality together
+
+![img_16.png](img_16.png)
+
+
+
+
