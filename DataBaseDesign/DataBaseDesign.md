@@ -172,6 +172,49 @@ All together
 
 ![img_16.png](img_16.png)
 
+## 9. Normalization
+
+    Normalization is a process of correcting our database design.
+    There is 3 main forms: 1NF, 2NF, 3NF.
+
+### 1 Normal Form
+
+    Makes all atomic.
+
+    First Normal Form deals with data to be atomic. E.g. We have column Adress which consists
+    from city, street, appartment. So this column are not atomic, and we should split it to 
+    three different columns. 
+
+### 2 Normal Form 
+
+    Remove all partial dependencies
+
+    Second Normal Form says  A non-prime attribute of a relation is an attribute that is not 
+    a part of any candidate key of the relation. It means we should remove and avoid partial 
+    dependencies in tables.
+
+(https://www.geeksforgeeks.org/second-normal-form-2nf/)
+
+### 3 Normal Form
+
+    Remove all transitive dependencies
+
+    A relation is in third normal form, if there is no transitive dependency for non-prime
+    attributes as well as it is in second normal form.
+
+    A relation is in 3NF if at least one of the following condition holds in every 
+    non-trivial function dependency X –> Y:
+
+    X is a super key.
+    Y is a prime attribute (each element of Y is part of some candidate key).
+
+    In other words,
+
+    A relation that is in First and Second Normal Form and in which no non-primary-key 
+    attribute is transitively dependent on the primary key, then it is in 
+    Third Normal Form (3NF).
+    
+(https://www.geeksforgeeks.org/third-normal-form-3nf/)
 
 
 
