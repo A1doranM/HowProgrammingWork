@@ -216,5 +216,65 @@ All together
     
 (https://www.geeksforgeeks.org/third-normal-form-3nf/)
 
+## 10. Indexes
 
+### Clustered
+    
+    Organized data. Can be created only if:
+    1. The data or file, that you are moving into secondary memory should be in sequential 
+    or sorted order.
+    2. There should be a key value, meaning it can not have repeated values.
 
+    Whenever you apply clustered indexing in a table, it will perform sorting in that table 
+    only. You can create only one clustered index in a table like primary key. Clustered 
+    index is as same as dictionary where the data is arranged by alphabetical order. 
+
+    In clustered index, index contains pointer to block but not direct data. 
+
+    E.g. If you apply primary key to any column, then automatically it will become clustered 
+    index. 
+
+### Nonclustered
+
+    Non-Clustered Index is similar to the index of a book. The index of a book consists 
+    of a chapter name and page number, if you want to read any topic or chapter then you 
+    can directly go to that page by using index of that book. No need to go through each 
+    and every page of a book. 
+
+    The data is stored in one place, and index is stored in another place. Since, the data 
+    and non-clustered index is stored separately, then you can have multiple non-clustered
+    index in a table.
+
+    In non-clustered index, index contains the pointer to data.
+ 
+## 11. Joins
+
+### Inner join
+
+    The INNER JOIN keyword selects all rows from both the tables as long as the condition 
+    is satisfied. This keyword will create the result-set by combining all rows from both 
+    the tables where the condition satisfies i.e value of the common field will be the same. 
+![img_17.png](img_17.png)
+
+### Left join, or LEFT OUTER JOIN
+
+    This join returns all the rows of the table on the left side of the join and matches 
+    rows for the table on the right side of the join. For the rows for which there is no 
+    matching row on the right side, the result-set will contain null. LEFT JOIN is also 
+    known as LEFT OUTER JOIN.
+![img_18.png](img_18.png)
+
+### Right join, or RIGHT OUTER JOIN
+
+    RIGHT JOIN is similar to LEFT JOIN. This join returns all the rows of the table on the
+    right side of the join and matching rows for the table on the left side of the join. 
+    For the rows for which there is no matching row on the left side, the result-set will
+    contain null. RIGHT JOIN is also known as RIGHT OUTER JOIN.
+![img_19.png](img_19.png)
+
+### Full join 
+
+    FULL JOIN creates the result-set by combining results of both LEFT JOIN and RIGHT JOIN.
+    The result-set will contain all the rows from both tables. For the rows for which there
+    is no matching, the result-set will contain NULL values.
+![img_20.png](img_20.png)
