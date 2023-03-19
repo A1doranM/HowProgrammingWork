@@ -30,7 +30,7 @@ const deserializeHash = (phcString) => { // Разбиваем строку на
   }
   const params = parseOptions(options);
   const salt = Buffer.from(salt64, "base64"); // Достали соль
-  const hash = Buffer.from(hash64, "base64"); // Хэщ
+  const hash = Buffer.from(hash64, "base64"); // Хэш
   return { params, salt, hash }; // И вернули все.
 };
 
