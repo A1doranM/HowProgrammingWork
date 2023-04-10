@@ -1,24 +1,27 @@
-# version isn't needed as of 2020 for docker compose CLI.
-# All 2.x and 3.x features supported
-# version: '2'
-
 services:
   drupal:
     image: drupal:9.3.13
     ports:
-      - "8080:80"
+      - '8080:80'
     volumes:
       - drupal-modules:/var/www/html/modules
       - drupal-profiles:/var/www/html/profiles
       - drupal-sites:/var/www/html/sites
       - drupal-themes:/var/www/html/themes
+    restart: always
   postgres:
+    # we use mariadb here for arm support
+    # mariadb is a fork of MySQL that's often faster and better multi-platform
     image: postgres:14.3
     environment:
-      - POSTGRES_PASSWORD=mypasswd
+      POSTGRES_PASSWORD: 1q2w3e3e2w1q4r
+    ports:
+      - 5433:5433
+    restart: always
 
 volumes:
   drupal-modules:
   drupal-profiles:
   drupal-sites:
   drupal-themes:
+
