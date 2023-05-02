@@ -1,3 +1,10 @@
+rd table.
+![img_2.png](img_2.png)
+
+## 6. Parent and Child tables
+
+    Parent has Primary key (PK)
+    Child has Foreign key (FK)
 # Database Design
 
 ## Database schemas
@@ -29,7 +36,7 @@
 
 ## 2. Atomic values
     Basicaly means that value stores, changes, deletes as one thing.
-    
+
 ## 3. Relationships
     1. One to One
     2. Many to One
@@ -44,14 +51,7 @@
 
 ## 5. Design One to Many relationship
     E.g. user can has many cards but the card can belongs to only one user.
-    For this we just remove cardId from User table and add userId to card table.
-![img_2.png](img_2.png)
-
-## 6. Parent and Child tables
-
-    Parent has Primary key (PK)
-    Child has Foreign key (FK)
-
+    For this we just remove cardId from User table and add userId to ca
     E.g. comments on YouTube, User - Parent, Comments - Child, because
     Comments table refers to User with FK, Parent inherits nothing from child (we do not refer from user to each comment).
     But child "inherits" Foreign Key from Parent (each comment have one User who wrote it).
