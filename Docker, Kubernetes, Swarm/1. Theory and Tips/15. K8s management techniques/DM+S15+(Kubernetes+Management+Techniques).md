@@ -1,5 +1,17 @@
 # Kubernetes Management Techniques
 
+## Namespaces 
+
+![img.png](img.png)
+
+![img_1.png](img_1.png)
+
+![img_2.png](img_2.png)
+
+Common namespace commands
+
+![img_3.png](img_3.png)
+
 ## Run, Expose and Create Generators
 
     kubectl create deployment sample --image nginx --dry-run -o yaml

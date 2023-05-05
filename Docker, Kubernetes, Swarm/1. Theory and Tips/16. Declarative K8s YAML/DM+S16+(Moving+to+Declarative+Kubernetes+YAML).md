@@ -1,5 +1,9 @@
 # Moving to Declarative Kubernetes YAML
 
+## Root level required properties for K8s
+
+![img_1.png](img_1.png)
+
 ## Kubectl Apply
 
     kubectl apply -f filename.yml

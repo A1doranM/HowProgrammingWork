@@ -1,24 +1,24 @@
 # Kubernetes Install and Your First Pods
 
-## Kubernetes Local Install
+## Kubernetes Architecture
 
-    http://play-with-k8s.com
+![img.png](img.png)
 
-    katacoda.com
+![img_1.png](img_1.png)
 
-### minikube
+## K8s API
 
-    minikube-installer.exe
+![img_2.png](img_2.png)
 
-    minikube start
+## K8s CLI
 
-### microk8s
+![img_3.png](img_3.png)
 
-    microk8s.kubectl
-    
-    microk8s.enable dns
-    
-    alias kubectl=microk8s.kubectl
+## K8s Context
+
+![img_4.png](img_4.png)
+
+![img_5.png](img_5.png)
 
 ## Kubectl run, create and apply
 
