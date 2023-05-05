@@ -1,5 +1,23 @@
 # Creating and Using Containers Like a Boss
 
+## Basic Docker CLI commands
+
+![img.png](img.png)
+
+Add memory and CPU limits for container 
+
+![img_1.png](img_1.png)
+
+Command structure example
+
+![img_2.png](img_2.png)
+
+Another useful commands
+
+![img_3.png](img_3.png)
+
+![img_4.png](img_4.png)
+
 ## Check Our Docker Install and Config
 
     docker version
@@ -12,11 +30,14 @@
     
     docker run
 
-## Starting a Nginx Web Server
+## Starting and working with a Nginx Web Server
 
     docker container run --publish 80:80 nginx
     
-    docker container run --publish 80:80 --detach nginx
+    // --detach command allows us to execute another commands in cmd
+    // while container running in background
+
+    docker container run --publish 80:80 --detach nginx 
     
     docker container ls
     

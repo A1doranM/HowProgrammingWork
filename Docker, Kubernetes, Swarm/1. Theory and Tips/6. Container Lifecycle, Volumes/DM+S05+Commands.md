@@ -1,5 +1,15 @@
 # Container Lifetime & Persistent Data: Volumes, Volumes, Volumes
 
+## Common Volumes Commands
+
+![img.png](img.png)
+
+Mapping a Volume to container 
+
+![img_1.png](img_1.png)
+
+![img_2.png](img_2.png)
+
 ## Persistent Data: Data Volumes
 
     docker pull mysql
