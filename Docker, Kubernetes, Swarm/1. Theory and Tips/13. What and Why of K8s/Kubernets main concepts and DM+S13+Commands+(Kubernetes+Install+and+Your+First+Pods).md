@@ -256,6 +256,8 @@ Deployment commands
 
 ![img_105.png](img_105.png)
 
+![img_119.png](img_119.png)
+
 ![img_106.png](img_106.png)
 
 ## ClusterIP 
@@ -272,7 +274,19 @@ Deployment commands
 
 ![img_112.png](img_112.png)
 
+## NodePort
 
+![img_113.png](img_113.png)
+
+![img_114.png](img_114.png)
+
+![img_115.png](img_115.png)
+
+![img_116.png](img_116.png)
+
+![img_117.png](img_117.png)
+
+![img_118.png](img_118.png)
 
 ## Kubectl run, create and apply
 
