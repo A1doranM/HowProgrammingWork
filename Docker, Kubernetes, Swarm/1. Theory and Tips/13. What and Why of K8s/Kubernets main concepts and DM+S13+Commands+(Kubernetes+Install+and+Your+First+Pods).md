@@ -128,6 +128,150 @@ Common Commands
 
 ![img_51.png](img_51.png)
 
+## Workloads
+
+![img_52.png](img_52.png)
+
+## Replica Sets
+
+![img_53.png](img_53.png)
+
+![img_54.png](img_54.png)
+
+![img_55.png](img_55.png)
+
+![img_56.png](img_56.png)
+
+Commands
+
+![img_57.png](img_57.png)
+
+![img_58.png](img_58.png)
+
+![img_59.png](img_59.png)
+
+![img_60.png](img_60.png)
+
+![img_61.png](img_61.png)
+
+![img_62.png](img_62.png)
+
+![img_63.png](img_63.png)
+
+Deployment commands
+
+![img_64.png](img_64.png)
+
+## Daemon Set
+
+![img_65.png](img_65.png)
+
+![img_66.png](img_66.png)
+
+![img_67.png](img_67.png)
+
+![img_68.png](img_68.png)
+
+## Stateful sets
+
+![img_69.png](img_69.png)
+
+![img_70.png](img_70.png)
+
+![img_71.png](img_71.png)
+
+![img_72.png](img_72.png)
+
+![img_73.png](img_73.png)
+
+![img_74.png](img_74.png)
+
+![img_75.png](img_75.png)
+
+![img_76.png](img_76.png)
+
+![img_77.png](img_77.png)
+
+![img_78.png](img_78.png)
+
+## Job
+
+![img_79.png](img_79.png)
+
+![img_80.png](img_80.png)
+
+![img_81.png](img_81.png)
+
+## CronJob
+
+![img_82.png](img_82.png)
+
+![img_83.png](img_83.png)
+
+![img_84.png](img_84.png)
+
+![img_85.png](img_85.png)
+
+## Rolling Updates
+
+![img_86.png](img_86.png)
+
+![img_87.png](img_87.png)
+
+![img_88.png](img_88.png)
+
+![img_89.png](img_89.png)
+
+![img_90.png](img_90.png)
+
+![img_91.png](img_91.png)
+
+![img_92.png](img_92.png)
+
+![img_93.png](img_93.png)
+
+![img_94.png](img_94.png)
+
+![img_95.png](img_95.png)
+
+![img_96.png](img_96.png)
+
+![img_97.png](img_97.png)
+
+![img_98.png](img_98.png)
+
+![img_99.png](img_99.png)
+
+![img_100.png](img_100.png)
+
+## Services
+
+![img_101.png](img_101.png)
+
+![img_102.png](img_102.png)
+
+![img_104.png](img_104.png)
+
+![img_103.png](img_103.png)
+
+![img_105.png](img_105.png)
+
+![img_106.png](img_106.png)
+
+## ClusterIP 
+
+![img_107.png](img_107.png)
+
+![img_108.png](img_108.png)
+
+![img_109.png](img_109.png)
+
+![img_110.png](img_110.png)
+
+![img_111.png](img_111.png)
+
+![img_112.png](img_112.png)
+
 
 
 ## Kubectl run, create and apply
