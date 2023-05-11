@@ -25,9 +25,9 @@ amqp.connect("amqp://localhost", function(error0, connection) {
 
     for (const q of queues) {
       channel.assertQueue(q, {
-        durable: false
+        durable: true
       });
-      channel.bindExchange(q, "ex.hash", "1");
+      channel.bindQueue(q, "ex.hash", "1");
     }
 
     console.log(" [x] Publishing");
