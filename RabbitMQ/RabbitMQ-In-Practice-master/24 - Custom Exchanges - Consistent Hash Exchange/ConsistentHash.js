@@ -38,5 +38,7 @@ amqp.connect("amqp://localhost", function(error0, connection) {
     }
 
     console.log(" [x] Published");
+
+    process.exit(0);
   });
 });
