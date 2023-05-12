@@ -1,15 +1,15 @@
-'use strict';
+"use strict";
 
 // Здесь описаны клиент, контекст, сессия и сервер
 
-const http = require('node:http');
-const fs = require('node:fs');
-const path = require('node:path');
-const crypto = require('node:crypto');
-const { EventEmitter } = require('node:events');
-const ws = require('ws');
-const { receiveBody, jsonParse } = require('../lib/common.js');
-const transport = require('./transport.js');
+const http = require("node:http");
+const fs = require("node:fs");
+const path = require("node:path");
+const crypto = require("node:crypto");
+const { EventEmitter } = require("node:events");
+const ws = require("ws");
+const { receiveBody, jsonParse } = require("../lib/common.js");
+const transport = require("./transport.js");
 const { HttpTransport, WsTransport, MIME_TYPES, HEADERS } = transport;
 
 class Session {
@@ -53,11 +53,11 @@ class Client extends EventEmitter {
   }
 
   emit(name, data) {
-    if (name === 'close') {
+    if (name === "close") {
       super.emit(name, data);
       return;
     }
-    this.send({ type: 'event', name, data });
+    this.send({ type: "event", name, data });
   }
 
   initializeSession(token, data = {}) {
@@ -85,7 +85,7 @@ class Client extends EventEmitter {
 
   destroy() {
     // Очищаем ссылки
-    this.emit('close');
+    this.emit("close");
     if (!this.session) return;
     this.finalizeSession();
   }
@@ -94,17 +94,17 @@ class Client extends EventEmitter {
 // Функция для отдачи статики но она хороша только для маленьких файлов
 // для больших надо использовать файловые потоки.
 const serveStatic = (staticPath) => async (req, res) => {
-  const url = req.url === '/' ? '/index.html' : req.url;
+  const url = req.url === "/" ? "/index.html" : req.url;
   const filePath = path.join(staticPath, url);
   try {
     const data = await fs.promises.readFile(filePath);
     const fileExt = path.extname(filePath).substring(1);
     const mimeType = MIME_TYPES[fileExt] || MIME_TYPES.html;
-    res.writeHead(200, { ...HEADERS, 'Content-Type': mimeType });
+    res.writeHead(200, { ...HEADERS, "Content-Type": mimeType });
     res.end(data);
   } catch (err) {
     res.statusCode = 404;
-    res.end('File is not found');
+    res.end("File is not found");
   }
 };
 
@@ -112,7 +112,7 @@ class Server {
   constructor(application) {
     this.application = application;
     const { console, routing, config } = application;
-    const staticPath = path.join(application.path, './static');
+    const staticPath = path.join(application.path, "./static");
     this.staticHandler = serveStatic(staticPath);
     this.routing = routing;
     this.console = console;
@@ -123,9 +123,9 @@ class Server {
   }
 
   listen(port) {
-    this.httpServer.on('request', async (req, res) => {
+    this.httpServer.on("request", async (req, res) => {
       // Открываем порт
-      if (!req.url.startsWith('/api')) {
+      if (!req.url.startsWith("/api")) {
         this.staticHandler(req, res);
         return;
       }
@@ -134,22 +134,22 @@ class Server {
       const data = await receiveBody(req);
       this.rpc(client, data); // Вызываем rpc
 
-      req.on('close', () => {
+      req.on("close", () => {
         client.destroy();
       });
     });
 
     // Создаем вэб сокет сервер
     const wsServer = new ws.Server({ server: this.httpServer });
-    wsServer.on('connection', (connection, req) => {
+    wsServer.on("connection", (connection, req) => {
       const transport = new WsTransport(this, req, connection);
       const client = new Client(transport);
 
-      connection.on('message', (data) => {
+      connection.on("message", (data) => {
         this.rpc(client, data); // Вызываем rpc
       });
 
-      connection.on('close', () => {
+      connection.on("close", () => {
         client.destroy();
       });
     });
@@ -160,19 +160,19 @@ class Server {
   rpc(client, data) {
     const packet = jsonParse(data);
     if (!packet) {
-      const error = new Error('JSON parsing error');
+      const error = new Error("JSON parsing error");
       client.error(500, { error, pass: true });
       return;
     }
     const { id, type, args } = packet;
-    if (type !== 'call' || !id || !args) {
-      const error = new Error('Packet structure error');
+    if (type !== "call" || !id || !args) {
+      const error = new Error("Packet structure error");
       client.error(400, { id, error, pass: true });
       return;
     }
     /* TODO: resumeCookieSession(); */
-    const [unit, method] = packet.method.split('/');
-    const proc = this.routing.get(unit + '.' + method);
+    const [unit, method] = packet.method.split("/");
+    const proc = this.routing.get(unit + "." + method);
     if (!proc) {
       client.error(404, { id });
       return;
@@ -187,12 +187,12 @@ class Server {
     proc(context)
       .method(packet.args)
       .then((result) => {
-        if (result?.constructor?.name === 'Error') {
+        if (result?.constructor?.name === "Error") {
           const { code, httpCode = 200 } = result;
           client.error(code, { id, error: result, httpCode });
           return;
         }
-        client.send({ type: 'callback', id, result });
+        client.send({ type: "callback", id, result });
       })
       .catch((error) => {
         client.error(error.code, { id, error });
