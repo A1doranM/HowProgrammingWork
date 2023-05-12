@@ -8,7 +8,12 @@ const common = require("./lib/common.js");
 const { loadDir } = require("./src/loader.js");
 const { Server } = require("./src/server.js");
 
-const appPath = path.join(process.cwd(), "../NodeJS-Application");
+console.log("Path: ");
+
+const appPath = path.join(process.cwd(), "../NodeJS-Pure-main");
+
+console.log("Path: ", appPath);
+
 const api = Object.freeze({});
 const sandbox = { console, common, api, db: null };
 

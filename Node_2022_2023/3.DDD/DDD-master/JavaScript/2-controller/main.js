@@ -18,7 +18,7 @@ const pool = new pg.Pool({
 });
 
 // Роутинг проекта. Например здесь уже методы ничего не знают про протокол
-// тоесть это может быть и вэб сокет и хттп.
+// то есть это может быть и вэб сокет и хттп.
 
 const routing = {
   user: {
@@ -47,21 +47,24 @@ const routing = {
   },
 };
 
-http.createServer(async (req, res) => { // Сервер
-  const { method, url, socket } = req; // Забираем из реквеста метод, урл, сокет
-  const [name, id] = url.substring(1).split("/"); // парсим урл
-  const entity = routing[name]; // и получаем список роутов для нужной сущьности
-  if (!entity) return res.end("Not found");
-  const handler = entity[method.toLowerCase()]; // читаем какой метод вызвать из роутинга
-  if (!handler) return res.end("Not found");
-  const src = handler.toString(); // получаем исходный код метода
-  const signature = src.substring(0, src.indexOf(")")); // и забрали из него то что в скобочках (тоесть параметры фукнции)
-  const args = []; // загатавливаем массив аргументов
-  if (signature.includes("(id")) args.push(id); // если нужен id, добавляем его,
-  if (signature.includes("{")) args.push(await receiveArgs(req)); // если нужны еще аргументы, добавляем остальные аргументы достав их из body запроса
-  console.log(`${socket.remoteAddress} ${method} ${url}`);
-  const result = await handler(...args); // выполняем метод
-  res.end(JSON.stringify(result.rows)); // возвращаем результат.
-}).listen(PORT); // это шаблон фронт-контроллер, его суть в том чтобы создать одну точку входа для всех запросов.
+http
+  .createServer(async (req, res) => {
+    // Сервер
+    const { method, url, socket } = req; // Забираем из реквеста метод, урл, сокет
+    const [name, id] = url.substring(1).split("/"); // парсим урл
+    const entity = routing[name]; // и получаем список роутов для нужной сущности
+    if (!entity) return res.end("Not found");
+    const handler = entity[method.toLowerCase()]; // читаем какой метод вызвать из роутинга
+    if (!handler) return res.end("Not found");
+    const src = handler.toString(); // получаем исходный код метода
+    const signature = src.substring(0, src.indexOf(")")); // и забрали из него то что в скобочках (тоесть параметры фукнции)
+    const args = []; // заготавливаем массив аргументов
+    if (signature.includes("(id")) args.push(id); // если нужен id, добавляем его,
+    if (signature.includes("{")) args.push(await receiveArgs(req)); // если нужны еще аргументы, добавляем остальные аргументы достав их из body запроса
+    console.log(`${socket.remoteAddress} ${method} ${url}`);
+    const result = await handler(...args); // выполняем метод
+    res.end(JSON.stringify(result.rows)); // возвращаем результат.
+  })
+  .listen(PORT); // это шаблон фронт-контроллер, его суть в том чтобы создать одну точку входа для всех запросов.
 
 console.log(`Listen on port ${PORT}`);
