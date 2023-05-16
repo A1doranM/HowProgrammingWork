@@ -13,6 +13,10 @@ Delete key
 
     del testKey
 
+Delete key async
+
+    unlink key
+
 With multiple keys
 
     del testKey1 testKey2 testKey3
@@ -22,6 +26,14 @@ Existing of a key
     exists testKey
 
     1 - true, 0 - false
+
+Renaming key
+
+    renamenx key_name new_name
+
+Get type of key value
+
+    type key_name
 
 ## Keys with expiration
 
@@ -85,3 +97,51 @@ Delete all keys from namespace
 Key space index start with 0
 
 We can not link keys with one space to another
+
+## Keys naming convention
+
+Create complex key name Object:id:additional_info
+
+e.g.
+
+    user:100 Aldoran
+
+    user:101 Blayne_Mono
+
+    user:10:friends University group
+
+Max key size - 512 MB
+
+Redis keys are binary safe - you can use any binary sequence as a key.
+
+Empty string is also a valid key - not recommended
+
+## Keys patterns matching
+
+    * - matches everything with unlimited length
+    
+    ? - matches everything with but only length = 1 
+    
+    [ae] - matches length = 1, and only "a" or "e"
+
+    [^e] - mathces length = 1, except "e"
+
+    [a-b] - length = 1, from a to b
+
+e.g.
+
+    keys user:*
+
+    keys user:[0-10000]:*
+
+    keys user:[^100]
+
+## Saving information on server
+
+For saving info on server when shutdown
+
+    shutdown save
+
+or do not save 
+
+    shutdown nosave
