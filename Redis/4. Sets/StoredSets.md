@@ -52,3 +52,11 @@ Atomic Operations
     If member does not exists it will be added to a set
 
     zincrby users:fllowers 5 test - add test with score 5 to set.
+
+Get rank of "member" in set
+
+    rank users:followers adam
+
+    or reverse 
+
+    revrank users:followers adam
