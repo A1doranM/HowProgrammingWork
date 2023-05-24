@@ -1,8 +1,3 @@
-// open–closed principle
-// Принцип открытости/закрытости.
-// Программные сущности должны быть открыты для расширения но закрыты для изменения.
-// Потому что рабочий код уже оттестирован и надо стараться лишний раз его не менять. А по возможности
-// наследоваться от него добавляя новый функционал таким образом.
 interface Attacker {
   attack: () => void;
 }
@@ -10,7 +5,7 @@ class Weapon implements Attacker {
   damage: number; // 0 - 100;
   range: number; // 0 - 100;
 
-  constructor( damage: number, range: number) {
+  constructor(damage: number, range: number) {
     this.damage = damage;
     this.range = range;
   }
@@ -20,19 +15,19 @@ class Weapon implements Attacker {
 
 class Sword extends Weapon {
   attack() {
-    console.log("Удар мечом с уроном " + this.damage)
+    console.log("Удар мечом с уроном " + this.damage);
   }
 }
 
 class Crossbow extends Weapon {
   attack() {
-    console.log("Выстрел из арбалета с уроном " + this.damage)
+    console.log("Выстрел из арбалета с уроном " + this.damage);
   }
 }
 
 class Knife extends Weapon {
   attack() {
-    console.log("Удар ножом с уроном " + this.damage)
+    console.log("Удар ножом с уроном " + this.damage);
   }
 }
 
@@ -56,9 +51,8 @@ class Character {
 
 const sword = new Sword(15, 2);
 const character = new Character("Warrior", sword);
-character.attack()
+character.attack();
 
 const crossbow = new Crossbow(40, 100);
 character.changeWeapon(crossbow);
-character.attack()
-
+character.attack();

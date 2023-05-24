@@ -1,6 +1,6 @@
 // Single Responsibility Principle
-// Принцип единственной ответственности гласит что один класс, или функция должен решать одну задачу.
-const http = {send: () => ({})};
+
+const http = { send: () => ({}) };
 
 const generateId = () => Date.now() * Math.random();
 
@@ -27,13 +27,13 @@ class UserRepository {
 // Логер.
 class UserLogger {
   log(user: User) {
-    console.log(user)
+    console.log(user);
   }
 }
 
 // И контролер
 class UserController {
   send(user: User) {
-    return http.send()
+    return http.send();
   }
 }
