@@ -1,6 +1,6 @@
 "use strict";
 
-const http = require("http");
+const http = require("node:http");
 
 const user = {
   name: "Marcus Aurelius",
@@ -9,9 +9,7 @@ const user = {
 };
 
 const server = http.createServer((req, res) => {
-  res.end(
-    `${user.name} said "Java is a crap!" and chiao from ${user.city}`
-  );
+  res.end(`${user.name} said "Java is a crap!" and chiao from ${user.city}`);
 });
 
 server.on("clientError", (err, socket) => {

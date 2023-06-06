@@ -1,19 +1,16 @@
 "use strict";
 
-const os = require("os");
+const os = require("node:os");
 const express = require("express");
-const cluster = require("cluster");
+const cluster = require("node:cluster");
 const app = express();
 
 const user = { name: "jura", age: 22 };
 
 if (cluster.isMaster) {
-
   const count = os.cpus().length;
   for (let i = 0; i < count; i++) cluster.fork();
-
 } else {
-
   app.get("/", (req, res) => {
     res.end("welcome to homepage");
   });
@@ -31,5 +28,4 @@ if (cluster.isMaster) {
   });
 
   app.listen(8000);
-
 }
