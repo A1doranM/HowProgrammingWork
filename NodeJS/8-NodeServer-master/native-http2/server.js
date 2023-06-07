@@ -1,5 +1,7 @@
 "use strict";
 
+// Базовый ХТТП2 сервер
+
 const fs = require("node:fs");
 const http2 = require("node:http2");
 
@@ -28,6 +30,8 @@ const types = {
   undefined: () => "not found",
   function: (fn, stream, headers) => JSON.stringify(fn(stream, headers)),
 };
+
+// Генерируем криптографические ключи необходимые для работы ХТТП2 сервера
 
 const key = fs.readFileSync("./cert/key.pem");
 const cert = fs.readFileSync("./cert/cert.pem");

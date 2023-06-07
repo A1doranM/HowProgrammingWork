@@ -1,5 +1,7 @@
 "use strict";
 
+// Обработка сразу нескольких доменов на одном сервере
+
 const fs = require("node:fs");
 const https = require("node:https");
 
@@ -40,6 +42,8 @@ const server = https.createServer(options, (req, res) => {
   const result = serializer(data, req, res);
   res.end(result);
 });
+
+// Регистрируем новые домены каждому из которых даем собственные креды
 
 {
   const key = fs.readFileSync("./cert/key.pem");

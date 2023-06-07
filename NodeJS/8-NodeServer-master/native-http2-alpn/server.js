@@ -1,5 +1,12 @@
 "use strict";
 
+// ALPN (Application-Layer Protocol Negotiation Extension) and SNI (Server Name
+// Indication) are TLS handshake extensions:
+//
+//   ALPN: Allows the use of one TLS server for multiple protocols (HTTP, HTTP/2)
+//   SNI: Allows the use of one TLS server for multiple hostnames with different
+//        certificates.
+
 const fs = require("node:fs");
 const http2 = require("node:http2");
 
@@ -34,6 +41,8 @@ const cert = fs.readFileSync("./cert/cert.pem");
 const options = { key, cert, allowHTTP1: true };
 
 const server = http2.createSecureServer(options, (req, res) => {
+  // Проверяем какой протокол поддерживает клиент и работаем уже по нему.
+  // HTTP/2           // HTTP
   const { socket } = req.httpVersion === "2.0" ? req.stream.session : req;
   console.log(`req.httpVersion: ${req.httpVersion}`);
   console.log(`socket.alpnProtocol: ${socket.alpnProtocol}`);

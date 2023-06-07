@@ -1,5 +1,7 @@
 "use strict";
 
+// Зарефакторенный ХТТП2 сервер использующий чуть более продвинутый роутинг
+
 const fs = require("node:fs");
 const http2 = require("node:http2");
 
