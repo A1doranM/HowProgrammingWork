@@ -1,10 +1,3 @@
-rd table.
-![img_2.png](img_2.png)
-
-## 6. Parent and Child tables
-
-    Parent has Primary key (PK)
-    Child has Foreign key (FK)
 # Database Design
 
 ## Database schemas
@@ -44,9 +37,11 @@ rd table.
 
 ## 4. Design One to One relationship
     E.g we have account and user in tabke username exclusive for each user
+
 ![img.png](img.png)
 
     E.g. cardholder  and card.
+
 ![img_1.png](img_1.png)
 
 ## 5. Design One to Many relationship
@@ -55,7 +50,15 @@ rd table.
     E.g. comments on YouTube, User - Parent, Comments - Child, because
     Comments table refers to User with FK, Parent inherits nothing from child (we do not refer from user to each comment).
     But child "inherits" Foreign Key from Parent (each comment have one User who wrote it).
+
 ![img_3.png](img_3.png)
+
+![img_2.png](img_2.png)
+
+## 6. Parent and Child tables
+
+    Parent has Primary key (PK)
+    Child has Foreign key (FK)
 
 ## 7. Keys
 
@@ -114,6 +117,7 @@ rd table.
     key from Statuses to Member field.
 
 ![img_4.png](img_4.png)
+
 ![img_5.png](img_5.png)
 
 ## 8. Entity Relationship Model (ER diagram)
@@ -122,6 +126,7 @@ rd table.
     square. 
     E.g. lets define table Users. First column it is ID, second is name, then 
     password.
+
 ![img_6.png](img_6.png)
     
 ## Cardinality
@@ -132,12 +137,15 @@ rd table.
     tables.
 
 -One to One
+
 ![img_9.png](img_9.png)
 
 -One to Many
+
 ![img_7.png](img_7.png)  
 
 E.g lets draw one cardholder can have many cards
+
 ![img_8.png](img_8.png)
 
 ## Modality
@@ -156,6 +164,7 @@ In ER diagram
 
 One to One, required
 ![img_9.png](img_9.png)
+
 ![img_12.png](img_12.png)
 
 One to One, not required
@@ -165,7 +174,9 @@ One to Many, not required and required
 ![img_13.png](img_13.png)
 
 All together
+
 ![img_14.png](img_14.png)
+
 ![img_15.png](img_15.png)
 
 ## Cardinality and Modality together
@@ -254,6 +265,7 @@ All together
     The INNER JOIN keyword selects all rows from both the tables as long as the condition 
     is satisfied. This keyword will create the result-set by combining all rows from both 
     the tables where the condition satisfies i.e value of the common field will be the same. 
+
 ![img_17.png](img_17.png)
 
 ### Left join, or LEFT OUTER JOIN
@@ -262,6 +274,7 @@ All together
     rows for the table on the right side of the join. For the rows for which there is no 
     matching row on the right side, the result-set will contain null. LEFT JOIN is also 
     known as LEFT OUTER JOIN.
+
 ![img_18.png](img_18.png)
 
 ### Right join, or RIGHT OUTER JOIN
@@ -270,6 +283,7 @@ All together
     right side of the join and matching rows for the table on the left side of the join. 
     For the rows for which there is no matching row on the left side, the result-set will
     contain null. RIGHT JOIN is also known as RIGHT OUTER JOIN.
+
 ![img_19.png](img_19.png)
 
 ### Full join 
