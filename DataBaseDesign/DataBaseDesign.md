@@ -98,7 +98,7 @@
 ### Natural Key
 
      Natural key - is the key which is already in table data. 
-     E.g. we have table User    with first_name, last_name, email. And we identify 
+     E.g. we have table User with first_name, last_name, email. And we identify 
      user by email, so ligicaly email is a key.
 
 ### Simple, Composite, Compound Keys
