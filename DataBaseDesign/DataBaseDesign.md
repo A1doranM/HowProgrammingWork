@@ -203,7 +203,7 @@ All together
 
     Remove all partial dependencies
 
-    Second Normal Form says  A non-prime attribute of a relation is an attribute that is not 
+    Second Normal Form says. A non-prime attribute of a relation is an attribute that is not 
     a part of any candidate key of the relation. It means we should remove and avoid partial 
     dependencies in tables.
 
