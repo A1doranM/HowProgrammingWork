@@ -36,7 +36,7 @@
     3. Many to Many
 
 ## 4. Design One to One relationship
-    E.g we have account and user in tabke username exclusive for each user
+    E.g we have account and user in table username exclusive for each user
 
 ![img.png](img.png)
 
