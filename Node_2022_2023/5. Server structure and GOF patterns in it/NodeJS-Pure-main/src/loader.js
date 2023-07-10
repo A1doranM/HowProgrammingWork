@@ -19,15 +19,22 @@ const load = async (filePath, sandbox, contextualize = false) => {
 };
 
 const loadDir = async (dir, sandbox, contextualize = false) => {
-  const files = await fsp.readdir(dir, { withFileTypes: true });
   const container = new Map();
+  const files = await fsp.readdir(dir, { withFileTypes: true });
+
   for (const file of files) {
     const { name } = file;
+
     if (file.isFile() && !name.endsWith(".js")) continue;
+
     const location = path.join(dir, name);
     const prefix = path.basename(name, ".js");
     const loader = file.isFile() ? load : loadDir;
+
+    console.log("Loader: ", location, sandbox);
+
     const exp = await loader(location, sandbox, contextualize);
+
     if (exp.constructor.name === "Map") {
       for (const [key, value] of exp) {
         container.set(prefix + "." + key, value);
@@ -36,6 +43,7 @@ const loadDir = async (dir, sandbox, contextualize = false) => {
       container.set(prefix, exp);
     }
   }
+
   return container;
 };
 

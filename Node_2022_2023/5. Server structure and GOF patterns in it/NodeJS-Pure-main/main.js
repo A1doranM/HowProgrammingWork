@@ -1,5 +1,5 @@
 "use strict";
-
+// 5. Server structure and GOF patterns in it
 const path = require("node:path");
 
 const console = require("./lib/logger.js");
@@ -8,11 +8,7 @@ const common = require("./lib/common.js");
 const { loadDir } = require("./src/loader.js");
 const { Server } = require("./src/server.js");
 
-console.log("Path: ");
-
 const appPath = path.join(process.cwd(), "../NodeJS-Pure-main");
-
-console.log("Path: ", appPath);
 
 const api = Object.freeze({});
 const sandbox = { console, common, api, db: null };
@@ -24,6 +20,8 @@ const sandbox = { console, common, api, db: null };
 
   const db = require("./lib/db.js")(config.db);
   sandbox.db = Object.freeze(db);
+
+  console.log("Sandbox DB: ", db);
 
   const apiPath = path.join(appPath, "./api");
   const routing = await loadDir(apiPath, sandbox, true);
