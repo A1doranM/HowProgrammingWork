@@ -1,4 +1,4 @@
-const country = db("country");
+country = db("country");
 
 ({
   read(id) {

@@ -29,9 +29,8 @@ const loadDir = async (dir, sandbox, contextualize = false) => {
 
     const location = path.join(dir, name);
     const prefix = path.basename(name, ".js");
-    const loader = file.isFile() ? load : loadDir;
 
-    console.log("Loader: ", location, sandbox);
+    const loader = file.isFile() ? load : loadDir;
 
     const exp = await loader(location, sandbox, contextualize);
 

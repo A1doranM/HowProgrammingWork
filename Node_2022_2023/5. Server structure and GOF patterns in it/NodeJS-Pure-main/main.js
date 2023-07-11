@@ -16,12 +16,11 @@ const sandbox = { console, common, api, db: null };
 (async () => {
   const configPath = path.join(appPath, "./config");
   const configData = await loadDir(configPath, sandbox);
+
   const config = Object.fromEntries(configData);
 
   const db = require("./lib/db.js")(config.db);
   sandbox.db = Object.freeze(db);
-
-  console.log("Sandbox DB: ", db);
 
   const apiPath = path.join(appPath, "./api");
   const routing = await loadDir(apiPath, sandbox, true);

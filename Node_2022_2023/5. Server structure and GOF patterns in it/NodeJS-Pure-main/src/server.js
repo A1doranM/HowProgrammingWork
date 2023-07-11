@@ -111,14 +111,19 @@ const serveStatic = (staticPath) => async (req, res) => {
 class Server {
   constructor(application) {
     this.application = application;
+
     const { console, routing, config } = application;
     const staticPath = path.join(application.path, "./static");
+
     this.staticHandler = serveStatic(staticPath);
     this.routing = routing;
     this.console = console;
     this.httpServer = http.createServer(); // Хттп сервер
+
     const [port] = config.server.ports;
+
     this.listen(port);
+
     console.log(`API on port ${port}`);
   }
 
@@ -129,6 +134,7 @@ class Server {
         this.staticHandler(req, res);
         return;
       }
+
       const transport = new HttpTransport(this, req, res);
       const client = new Client(transport);
       const data = await receiveBody(req);
