@@ -1,7 +1,7 @@
 ({
-  host: "127.0.0.1",
-  port: 5432,
-  database: "application",
-  user: "marcus",
-  password: "marcus",
+  host: "localhost",
+  port: 5433,
+  database: "HPW_NodeJSApp_main_application",
+  user: "aldoran",
+  password: "aldoran",
 });

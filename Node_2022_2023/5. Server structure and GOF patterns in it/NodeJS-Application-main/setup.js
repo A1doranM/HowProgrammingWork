@@ -12,17 +12,17 @@ const metasql = require("metasql");
 //   password: "1q2w3e3e2w1q4r"
 
 const POSTGRES = {
-  host: "127.0.0.1",
+  host: "localhost",
   port: 5433,
-  database: "postgres",
+  database: "HPW_NodeJSApp_main_postgres",
   user: "postgres",
   password: "postgres",
 };
 
 const APPLICATION = {
-  host: "127.0.0.1",
+  host: "localhost",
   port: 5433,
-  database: "application",
+  database: "HPW_NodeJSApp_main_application",
   user: "postgres",
   password: "postgres",
 };
@@ -54,18 +54,25 @@ const executeFile = async (client, name) => {
 
 (async () => {
   await metasql.create(SCHEMAS, DB);
+
   const databaseFile = path.join(DB, "database.sql");
   const structureFile = path.join(DB, "structure.sql");
   await fsp.rename(databaseFile, structureFile);
-  console.log("Generate typings domain.d.ts");
+
+  console.log("Generating typings domain.d.ts");
+
   const typesFile = path.join(DB, "database.d.ts");
   const domainTypes = path.join(DB, "domain.d.ts");
   await fsp.rename(typesFile, domainTypes);
+
+  console.log("Creating DB");
 
   const inst = new pg.Client(POSTGRES);
   await inst.connect();
   await executeFile(inst, "install.sql");
   await inst.end();
+
+  console.log("Generating DB initial structure and data mocks");
 
   const db = new pg.Client(APPLICATION);
   await db.connect();
