@@ -3,7 +3,10 @@
     "sourceType": "module"
   },
   "rules": {
-    "strict": ["error", "never"]
+    "strict": [
+      "error",
+      "never"
+    ]
   },
   "globals": {
     "db": "readonly",

@@ -5,29 +5,29 @@
   },
 
   saveSession(token, data) {
-    db.pg.update('Session', { data: JSON.stringify(data) }, { token });
+    db.pg.update("Session", { data: JSON.stringify(data) }, { token });
   },
 
   startSession(token, data, fields = {}) {
     const record = { token, data: JSON.stringify(data), ...fields };
-    db.pg.insert('Session', record);
+    db.pg.insert("Session", record);
   },
 
   async restoreSession(token) {
-    const record = await db.pg.row('Session', ['data'], { token });
+    const record = await db.pg.row("Session", ["data"], { token });
     if (record && record.data) return record.data;
     return null;
   },
 
   deleteSession(token) {
-    db.pg.delete('Session', { token });
+    db.pg.delete("Session", { token });
   },
 
   async registerUser(login, password) {
-    return db.pg.insert('Account', { login, password });
+    return db.pg.insert("Account", { login, password });
   },
 
   async getUser(login) {
-    return db.pg.row('Account', { login });
+    return db.pg.row("Account", { login });
   },
 });

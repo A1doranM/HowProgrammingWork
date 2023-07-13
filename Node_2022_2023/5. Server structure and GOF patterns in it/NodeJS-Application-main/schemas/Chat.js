@@ -1,6 +1,6 @@
 ({
   Entity: {},
 
-  createdBy: 'Account',
-  name: 'string',
+  createdBy: "Account",
+  name: "string",
 });

@@ -1,6 +1,6 @@
 ({
   Registry: {},
 
-  name: { type: 'string', unique: true },
-  parent: '?Division',
+  name: { type: "string", unique: true },
+  parent: "?Division",
 });

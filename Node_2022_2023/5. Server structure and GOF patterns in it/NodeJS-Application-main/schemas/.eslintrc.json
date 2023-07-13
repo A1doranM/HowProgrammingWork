@@ -3,6 +3,9 @@
     "sourceType": "module"
   },
   "rules": {
-    "id-denylist": [2, "global"]
+    "id-denylist": [
+      2,
+      "global"
+    ]
   }
 }

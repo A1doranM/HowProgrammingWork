@@ -1,18 +1,18 @@
 ({
   Entity: {},
 
-  thread: '?Message', // parent message
+  thread: "?Message", // parent message
 
-  chat: 'Chat',
-  area: 'Area',
-  from: 'Account',
+  chat: "Chat",
+  area: "Area",
+  from: "Account",
 
   data: {
-    type: 'json',
+    type: "json",
     schema: {
-      kind: { enum: ['text', 'image', 'video', 'file'] },
-      media: { array: 'string', required: false },
-      text: { type: 'string', required: false },
+      kind: { enum: ["text", "image", "video", "file"] },
+      media: { array: "string", required: false },
+      text: { type: "string", required: false },
     },
   },
 });

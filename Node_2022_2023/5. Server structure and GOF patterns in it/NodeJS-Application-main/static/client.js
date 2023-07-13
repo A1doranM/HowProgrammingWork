@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const transport = {};
 
@@ -15,11 +15,11 @@ transport.http = (url) => (structure) => {
       api[name][methodName] = (...args) =>
         new Promise((resolve, reject) => {
           const id = callId++;
-          const method = name + '/' + methodName;
-          const packet = { type: 'call', id, method, args };
-          fetch(url + '/api', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+          const method = name + "/" + methodName;
+          const packet = { type: "call", id, method, args };
+          fetch(url + "/api", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(packet),
           }).then((res) => {
             if (res.status === 200) resolve(res.json());
@@ -43,8 +43,8 @@ transport.ws = (url) => (structure) => {
       api[name][methodName] = (...args) =>
         new Promise((resolve) => {
           const id = callId++;
-          const method = name + '/' + methodName;
-          const packet = { type: 'call', id, method, args };
+          const method = name + "/" + methodName;
+          const packet = { type: "call", id, method, args };
           socket.send(JSON.stringify(packet));
           socket.onmessage = (event) => {
             const data = JSON.parse(event.data);
@@ -54,26 +54,26 @@ transport.ws = (url) => (structure) => {
     }
   }
   return new Promise((resolve) => {
-    socket.addEventListener('open', () => resolve(api));
+    socket.addEventListener("open", () => resolve(api));
   });
 };
 
 const scaffold = (url) => {
-  const protocol = url.startsWith('ws:') ? 'ws' : 'http';
+  const protocol = url.startsWith("ws:") ? "ws" : "http";
   return transport[protocol](url);
 };
 
 (async () => {
-  const api = await scaffold('ws://localhost:8001')({
+  const api = await scaffold("ws://localhost:8001")({
     auth: {
-      signin: ['login', 'password'],
+      signin: ["login", "password"],
       signout: [],
-      restore: ['token'],
+      restore: ["token"],
     },
     messenger: {
-      method: ['arg'],
+      method: ["arg"],
     },
   });
-  const data = await api.auth.signin('marcus', 'marcus');
+  const data = await api.auth.signin("marcus", "marcus");
   console.dir({ data });
 })();

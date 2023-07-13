@@ -11,9 +11,9 @@ module.exports = (routing, port, console) => {
       const obj = JSON.parse(message);
       const { name, method, args = [] } = obj;
       const entity = routing[name];
-      if (!entity) return connection.send(""Not found"", { binary: false });
+      if (!entity) return connection.send("Not found", { binary: false });
       const handler = entity[method];
-      if (!handler) return connection.send(""Not found"", { binary: false });
+      if (!handler) return connection.send("Not found", { binary: false });
       const json = JSON.stringify(args);
       const parameters = json.substring(1, json.length - 1);
       console.log(`${ip} ${name}.${method}(${parameters})`);
@@ -22,7 +22,7 @@ module.exports = (routing, port, console) => {
         connection.send(JSON.stringify(result), { binary: false });
       } catch (err) {
         console.error(err);
-        connection.send(""Server error"", { binary: false });
+        connection.send("Server error", { binary: false });
       }
     });
   });

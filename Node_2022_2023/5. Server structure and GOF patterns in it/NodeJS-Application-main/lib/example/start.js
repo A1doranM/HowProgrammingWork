@@ -1,3 +1,3 @@
 async () => {
-  console.info('Start handler');
+  console.info("Start handler");
 };

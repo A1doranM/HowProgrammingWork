@@ -1,7 +1,7 @@
 ({
-  host: '0.0.0.0',
+  host: "0.0.0.0",
   balancer: 8000,
-  protocol: 'http',
+  protocol: "http",
   ports: [8001],
   nagle: false,
   timeouts: {
@@ -27,6 +27,6 @@
     timeout: 5000,
   },
   cors: {
-    origin: '*',
+    origin: "*",
   },
 });

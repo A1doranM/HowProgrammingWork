@@ -13,7 +13,10 @@
     "metarhia": "readonly"
   },
   "rules": {
-    "strict": ["error", "never"],
+    "strict": [
+      "error",
+      "never"
+    ],
     "id-denylist": [
       2,
       "api",

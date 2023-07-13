@@ -24,7 +24,7 @@ const crud = (pool) => (table) => ({
       data[i] = record[key];
       nums[i] = `$${++i}`;
     }
-    const fields = """ + keys.join("", "") + """;
+    const fields = "" + keys.join("", "") + "";
     const params = nums.join(", ");
     const sql = `INSERT INTO "${table}" (${fields}) VALUES (${params})`;
     return pool.query(sql, data);
