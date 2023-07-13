@@ -19,8 +19,6 @@ const sandbox = { console, common, api, db: null };
 
   const config = Object.fromEntries(configData);
 
-  console.log("Config: ", config);
-
   const db = require("./lib/db.js")(config.db);
   sandbox.db = Object.freeze(db);
 
@@ -28,5 +26,8 @@ const sandbox = { console, common, api, db: null };
   const routing = await loadDir(apiPath, sandbox, true);
 
   const application = { path: appPath, sandbox, console, config, routing };
+
+  console.log("Application: ", application);
+
   application.server = new Server(application);
 })();
