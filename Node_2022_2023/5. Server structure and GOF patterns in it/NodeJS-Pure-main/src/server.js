@@ -120,7 +120,7 @@ class Server {
     this.console = console;
     this.httpServer = http.createServer(); // Хттп сервер
 
-    const [port] = config.server.ports;
+    const port = config.api.port;
 
     this.listen(port);
 

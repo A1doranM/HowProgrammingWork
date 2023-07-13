@@ -19,6 +19,8 @@ const sandbox = { console, common, api, db: null };
 
   const config = Object.fromEntries(configData);
 
+  console.log("Config: ", config);
+
   const db = require("./lib/db.js")(config.db);
   sandbox.db = Object.freeze(db);
 
