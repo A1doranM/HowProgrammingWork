@@ -59,6 +59,7 @@ const executeFile = async (client, name) => {
   const structureFile = path.join(DB, "structure.sql");
   await fsp.rename(databaseFile, structureFile);
 
+
   console.log("Generating typings domain.d.ts");
 
   const typesFile = path.join(DB, "database.d.ts");
