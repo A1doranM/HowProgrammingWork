@@ -8,6 +8,6 @@ const options = { encoding: "utf8" };
 const readable = stream.Readable.from(text, options);
 const writable = fs.createWriteStream("stdout.tmp");
 
+readable.pipe(process.stdout); // Шлем данные из ридбл стрима в поток вывода данных
 readable.pipe(process.stdout);
-readable.pipe(process.stdout);
-readable.pipe(writable);
+readable.pipe(writable); // и в стрим для записи.

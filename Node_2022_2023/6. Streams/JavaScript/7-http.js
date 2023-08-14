@@ -1,5 +1,7 @@
 "use strict";
 
+// Отсылаем данные с сервера на фронт.
+
 const fs = require("node:fs");
 const zlib = require("node:zlib");
 const http = require("node:http");

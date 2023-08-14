@@ -1,5 +1,7 @@
 "use strict";
 
+// Здесь мы кастомизируем трасформ трим чтобы он умел читать и писать.
+
 const stream = require("node:stream");
 
 const purchase = {

@@ -1,5 +1,7 @@
 "use strict";
 
+// Тоже самое что и в примере выше но с другими функциями
+
 const fs = require("node:fs");
 const streams = require("node:stream/promises");
 const zlib = require("node:zlib");
