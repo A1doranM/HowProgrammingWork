@@ -1,6 +1,6 @@
 "use strict";
 
-// Тоже самое что и в примере выше но с другими функциями
+// Тоже самое что и в примере выше но с другим таймаутом
 
 const fs = require("node:fs");
 const streams = require("node:stream/promises");
