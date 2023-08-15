@@ -1,6 +1,6 @@
 "use strict";
 
-// Отсылаем данные с сервера на фронт.
+// Отсылаем данные с сервера на фронт. Предварительно архивировав их
 
 const fs = require("node:fs");
 const zlib = require("node:zlib");
@@ -20,6 +20,7 @@ gzip.on("end", () => {
   buffer = Buffer.concat(buffers);
 });
 
+// Пропускаем считанные данные через стрим для архивирования.
 readable.pipe(gzip);
 
 const server = http.createServer((request, response) => {
