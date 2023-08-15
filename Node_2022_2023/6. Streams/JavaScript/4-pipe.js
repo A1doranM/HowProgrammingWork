@@ -10,7 +10,7 @@ const stream  = require("node:stream");
 const readable = fs.createReadStream("data.tmp"); // читаем данные.
 
 // Обратите внимание на паттерн "Открытый конструктор" используемый для создания
-// стрима.
+// стрима, c его помощью мы можем переопределять работу встроенных в стримы методов.
 const writable = new stream.Writable({ // Создаем стрим на запись.
   write(chunk, encoding, next) {
     console.log({ size: chunk.length, encoding, next }); // Пишем данные в лог.
