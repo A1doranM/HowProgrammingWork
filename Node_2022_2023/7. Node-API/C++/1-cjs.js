@@ -1,5 +1,7 @@
 "use strict";
 
+// Для того чтобы получить нужный файл надо выполнить инструкцию из ридми файла
+
 const example = require("./build/Release/example.node");
 
 const sum = example.add(3, 7);

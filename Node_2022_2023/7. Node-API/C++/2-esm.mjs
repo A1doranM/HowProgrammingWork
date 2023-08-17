@@ -1,3 +1,7 @@
+// Пример с ЕСМА модулями
+// Создаем функцию рекваир так как модули надо подгружать при помощи нее,
+// а в ЕСМА модулях такой функции нету.
+
 import { createRequire } from "node:module";
 const require = createRequire(import.meta.url);
 const example = require("./build/Release/example.node");
