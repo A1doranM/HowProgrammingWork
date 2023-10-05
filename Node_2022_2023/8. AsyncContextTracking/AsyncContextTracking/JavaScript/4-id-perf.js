@@ -1,5 +1,9 @@
 "use strict";
 
+// Чекаем перфоманс. Здесь с использованием AsyncLocalStorage, а в след примере
+// без. Если в целом то оверхед минимальный, на тысячу запросов разница всего в
+// пол секунды.
+
 const { AsyncLocalStorage } = require("node:async_hooks");
 
 const application = {

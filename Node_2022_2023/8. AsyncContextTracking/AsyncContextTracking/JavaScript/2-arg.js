@@ -1,5 +1,7 @@
 "use strict";
 
+// Пример без использования AsyncLocalStorage
+
 const http = require("node:http");
 
 const application = {
@@ -33,6 +35,7 @@ http.createServer(async (req, res) => {
   const type = typeof data;
   const endpoint = types[type];
   const id = application.nextRequestId++;
+  // Теперь во все функции приходится явно прокидывать идшки
   const result = await endpoint(data, req, res, id);
   res.end(result);
 }).listen(8000);

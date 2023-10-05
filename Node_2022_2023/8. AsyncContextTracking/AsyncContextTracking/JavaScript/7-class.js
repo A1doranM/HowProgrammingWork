@@ -2,6 +2,9 @@
 
 const { AsyncResource, executionAsyncId } = require("node:async_hooks");
 
+// Пример с коллекцией умеющей накапливать в себе кусочки данных и вызывать коллбек
+// когда такие кусочки накопились.
+
 class AsyncCollector extends AsyncResource {
   constructor(expected, callback) {
     super("collector");
@@ -12,7 +15,7 @@ class AsyncCollector extends AsyncResource {
 
   add(element) {
     this.collection.add(element);
-    if (this.expected === this.collection.size) {
+    if (this.expected === this.collection.size) { // Когда набрали вызываем коллбек.
       this.finish(this.callback);
     }
   }

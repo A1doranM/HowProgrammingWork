@@ -1,5 +1,7 @@
 "use strict";
 
+// Пример старых async_hooks которые лучше не использовать.
+
 const asyncHooks = require("node:async_hooks");
 const fs = require("node:fs");
 const { fd } = process.stdout;
