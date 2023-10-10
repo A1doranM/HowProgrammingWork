@@ -266,7 +266,9 @@
     ],
     "consistent-return": [
       "error",
-      { "treatUndefinedAsUnspecified": true }
+      {
+        "treatUndefinedAsUnspecified": true
+      }
     ]
   }
 }
