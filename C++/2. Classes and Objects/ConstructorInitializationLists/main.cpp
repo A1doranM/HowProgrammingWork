@@ -27,9 +27,7 @@ Player::Player() {
 }
 
 // New-style
-Player::Player()
-    : name{"None"}, health{0}, xp{0} {
-}
+Player::Player(): name{"None"}, health{0}, xp{0} {}
 
 Player::Player(std::string name_val)
    : name{name_val}, health{0}, xp{0} {
