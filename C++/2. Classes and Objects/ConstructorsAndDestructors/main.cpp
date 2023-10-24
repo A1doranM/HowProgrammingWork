@@ -1,5 +1,6 @@
 // Section 13
 // Constructors and Destructors
+// If we do not provide constructor and destructor C++ provide default.
 
 #include <iostream>
 #include <string>
