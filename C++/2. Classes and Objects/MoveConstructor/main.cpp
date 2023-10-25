@@ -1,5 +1,6 @@
 // Section 13
-// Move Constructor 
+// Move Constructor
+// Move Constructor when we use class as R-value
 #include <iostream>
 #include <vector>
 
@@ -34,7 +35,8 @@ Move::Move(const Move &source)
 }
 
 //Move ctor
-Move::Move(Move &&source) noexcept 
+// Double & is special syntax for pointer to R-value
+Move::Move(Move &&source) noexcept
     : data {source.data} {
         source.data = nullptr;
         cout << "Move constructor - moving resource: " << *data << endl;
