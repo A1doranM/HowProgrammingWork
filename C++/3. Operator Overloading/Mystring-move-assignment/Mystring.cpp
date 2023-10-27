@@ -3,14 +3,14 @@
 #include "Mystring.h"
 
  // No-args constructor
-Mystring::Mystring() 
+Mystring::Mystring()
     : str{nullptr} {
     str = new char[1];
     *str = '\0';
 }
 
 // Overloaded constructor
-Mystring::Mystring(const char *s) 
+Mystring::Mystring(const char *s)
     : str {nullptr} {
         if (s==nullptr) {
             str = new char[1];
@@ -22,7 +22,7 @@ Mystring::Mystring(const char *s)
 }
 
 // Copy constructor
-Mystring::Mystring(const Mystring &source) 
+Mystring::Mystring(const Mystring &source)
     : str{nullptr} {
         str = new char[strlen(source.str)+ 1];
         strcpy(str, source.str);
@@ -31,7 +31,7 @@ Mystring::Mystring(const Mystring &source)
 }
 
 // Move constructor
-Mystring::Mystring( Mystring &&source) 
+Mystring::Mystring( Mystring &&source)
     :str(source.str) {
         source.str = nullptr;
         std::cout << "Move constructor used" << std::endl;
@@ -51,7 +51,7 @@ Mystring::~Mystring() {
 Mystring &Mystring::operator=(const Mystring &rhs) {
     std::cout << "Using copy assignment" << std::endl;
 
-    if (this == &rhs) 
+    if (this == &rhs)
         return *this;
     delete [] str;
     str = new char[strlen(rhs.str) + 1];
@@ -62,13 +62,13 @@ Mystring &Mystring::operator=(const Mystring &rhs) {
 // Move assignment
 Mystring &Mystring::operator=(Mystring &&rhs) {
     std::cout << "Using move assignment" << std::endl;
-    if (this == &rhs) 
+    if (this == &rhs)
         return *this;
     delete [] str;
-    str = rhs.str;
-    rhs.str = nullptr;
-    return *this;
-    
+    str = rhs.str; // Steal the pointer from the rhs obj and assign it to this->str
+    rhs.str = nullptr; // Null out rhs pointer
+    return *this; // allow chaining.
+
 }
 
 
