@@ -3,14 +3,14 @@
 #include "Mystring.h"
 
 // No-args constructor
-Mystring::Mystring() 
+Mystring::Mystring()
     : str{nullptr} {
     str = new char[1];
     *str = '\0';
 }
 
 // Overloaded constructor
-Mystring::Mystring(const char *s) 
+Mystring::Mystring(const char *s)
     : str {nullptr} {
         if (s==nullptr) {
             str = new char[1];
@@ -22,7 +22,7 @@ Mystring::Mystring(const char *s)
 }
 
 // Copy constructor
-Mystring::Mystring(const Mystring &source) 
+Mystring::Mystring(const Mystring &source)
     : str{nullptr} {
         str = new char[std::strlen(source.str) + 1];
         std::strcpy(str, source.str);
@@ -36,12 +36,15 @@ Mystring::~Mystring() {
 // Copy assignment
 Mystring &Mystring::operator=(const Mystring &rhs) {
     std::cout << "Copy assignment" << std::endl;
+
+    // Check for self assignment. E.g. p1 = p1
+    // And return current object
     if (this == &rhs)
         return *this;
-    delete [] this->str;
-    str = new char[std::strlen(rhs.str) + 1];
-    std::strcpy(this->str, rhs.str);
-    return *this;
+    delete [] this->str; // Deallocate storage for this->str since we are overwriting it.
+    str = new char[std::strlen(rhs.str) + 1]; // Allocate storage for deep copy
+    std::strcpy(this->str, rhs.str); // perform copy.
+    return *this; // Return the current by reference so we allowing chaining.
 }
 
 
