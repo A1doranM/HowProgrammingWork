@@ -15,7 +15,7 @@ public:
 
     void display() const;
 
-    int get_length() const;                                       // getters
+    int get_length() const;     // getters
     const char *get_str() const;
 };
 
