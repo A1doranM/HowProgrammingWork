@@ -18,16 +18,16 @@ class Derived : public Base {
 private:
     int doubled_value;
 public:
-    Derived() : doubled_value {0} { cout << "Derived no-args constructor " << endl; } 
+    Derived() : doubled_value {0} { cout << "Derived no-args constructor " << endl; }
     Derived(int x) : doubled_value {x*2}  { cout << "Derived (int) overloaded constructor" << endl; }
-    ~Derived() { cout << "Derived destructor " << endl; } 
+    ~Derived() { cout << "Derived destructor " << endl; }
 };
 
 int main() {
 //   Base b;
 //    Base b{100};
- //   Derived d;
+//   Derived d;
  Derived d {1000};
-    
+
     return 0;
 }
