@@ -5,7 +5,13 @@
 #include <vector>
 
 // This class uses dynamic polymorphism for the withdraw method
-// We'll learn about virtual functions in the next video
+
+// Virtual functions
+// Redefined functions are bound statically
+// Overridden functions are bound dynamically
+// Virtual functions are overridden
+// Allow us to treat all objects generally as objects of the Base class
+
 class Account {
 public:
     virtual void withdraw(double amount) {
@@ -19,7 +25,7 @@ public:
     virtual void withdraw(double amount) {
         std::cout << "In Checking::withdraw" << std::endl;
     }
-    
+
     virtual ~Checking() {  }
 };
 
@@ -45,17 +51,17 @@ int main() {
     Account *p2 = new Savings();
     Account *p3 = new Checking();
     Account *p4 = new Trust();
-    
+
     p1->withdraw(1000);
     p2->withdraw(1000);
     p3->withdraw(1000);
     p4->withdraw(1000);
-    
+
     std::cout << "\n === Array ==== " << std::endl;
     Account *array [] = {p1,p2,p3,p4};
     for (auto i=0; i<4; ++i)
         array[i]->withdraw(1000);
-        
+
     std::cout << "\n === Array ==== " << std::endl;
     array[0] = p4;
     for (auto i=0; i<4; ++i)
@@ -65,7 +71,7 @@ int main() {
     std::vector<Account *> accounts {p1,p2,p3,p4};
     for (auto acc_ptr: accounts)
         acc_ptr->withdraw(1000);
-        
+
     std::cout << "\n === Vector ==== " << std::endl;
     accounts.push_back(p4);
     accounts.push_back(p4);
@@ -77,7 +83,7 @@ int main() {
     delete p2;
     delete p3;
     delete p4;
-        
+
     return 0;
 }
 
