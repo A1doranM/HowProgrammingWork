@@ -11,6 +11,8 @@
 // Overridden functions are bound dynamically
 // Virtual functions are overridden
 // Allow us to treat all objects generally as objects of the Base class
+// Override the function in the Derived classes if we do not provide overridden version
+// it is inherited from it`s base class
 
 class Account {
 public:
