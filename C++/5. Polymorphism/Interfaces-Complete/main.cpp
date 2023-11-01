@@ -1,8 +1,11 @@
 // Section 16
 // Interfaces - complete
 
+// Abstract classes and pure functions are form of interface in C++
+
 #include <iostream>
 
+// Abstract class
 class I_Printable {
     friend std::ostream &operator<<(std::ostream &os, const I_Printable &obj);
 public:
@@ -15,7 +18,7 @@ std::ostream &operator<<(std::ostream &os, const I_Printable &obj) {
     return os;
 }
 
-
+// Concrete class
 class Account : public I_Printable {
 public:
     virtual void withdraw(double amount) {
@@ -65,7 +68,7 @@ class Dog : public I_Printable {
 public:
   virtual void print(std::ostream &os) const override {
         os << "Woof woof";
-    } 
+    }
 };
 
 void print(const I_Printable &obj) {
@@ -74,30 +77,30 @@ void print(const I_Printable &obj) {
 
 
 int main() {
-    
+
     Dog *dog = new Dog();
-    std::cout << *dog<< std::endl;  
-    
+    std::cout << *dog<< std::endl;
+
     print(*dog);
-    
+
     Account *p1 = new Account();
     std::cout << *p1<< std::endl;
-        
+
     Account *p2 = new Checking();
-    std::cout << *p2<< std::endl;  
+    std::cout << *p2<< std::endl;
 
 //    Account a;
 //    std::cout << a<< std::endl;
-//    
+//
 //    Checking c;
 //    std::cout << c << std::endl;
 //
 //    Savings s;
 //    std::cout << s << std::endl;
-//    
+//
 //    Trust t;
 //    std::cout << t << std::endl;
-        
+
     delete p1;
     delete p2;
     delete dog;

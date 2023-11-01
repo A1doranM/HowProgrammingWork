@@ -1,6 +1,8 @@
 // Section 16
 // Interfaces - start
 
+// Abstract classes and pure functions are form of interface in C++
+
 #include <iostream>
 
 class Account  {
@@ -64,20 +66,20 @@ int main() {
 
     Account *p2 = new Checking();
     std::cout << *p2<< std::endl;
-   
+
 //    Account a;
 //    std::cout << a<< std::endl;
-//    
+//
 //    Checking c;
 //    std::cout << c << std::endl;
 //
 //    Savings s;
 //    std::cout << s << std::endl;
-//    
+//
 //    Trust t;
 //    std::cout << t << std::endl;
 
-    delete p1;  
+    delete p1;
     delete p2;
     return 0;
 }
