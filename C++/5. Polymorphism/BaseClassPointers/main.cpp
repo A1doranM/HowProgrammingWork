@@ -14,6 +14,8 @@
 // Override the function in the Derived classes if we do not provide overridden version
 // it is inherited from it`s base class
 
+// If we have virtual methods in class we should always provide virtual destructor.
+
 class Account {
 public:
     virtual void withdraw(double amount) {
