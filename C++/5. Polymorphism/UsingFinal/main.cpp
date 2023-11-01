@@ -1,5 +1,10 @@
 // Section 16
 // Using final
+
+// When used at the class level prevents a class from being derived from
+// When used at method level prevents virtual method from being overridden in derived
+// classes
+
 #include <iostream>
 
 using namespace std;
@@ -13,7 +18,7 @@ public:
 
 class Derived: public Base {
 public:
-    virtual void say_hello()  const override final {       
+    virtual void say_hello()  const override final {
         std::cout << "Hello - I'm a Derived class object" << std::endl;
     }
 };
@@ -35,19 +40,19 @@ using namespace std;
 int main() {
     Base b;
     b.say_hello();                      // Base::say_hello()
-    
+
     Derived d;                          // Derived::say_hello()
     d.say_hello();
-    
+
     Base *p1 = new Base();      // Base::say_hello()
     p1->say_hello();
-    
+
     Derived *p2 = new Derived();    // Derived::say_hello()
     p2->say_hello();
-    
+
     Base *p3 = new Derived();   //  Base::say_hello()   ?????   IMPORTANT !!!
     p3->say_hello();
-    
+
     std::cout <<  "\n========================" << std::endl;
     greetings(b);
     greetings(d);
