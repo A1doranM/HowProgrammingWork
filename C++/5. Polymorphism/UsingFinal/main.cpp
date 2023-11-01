@@ -25,7 +25,7 @@ public:
 
 class Another: public Derived {
 public:
-    virtual void say_hello()  const override  {       // Errror cannot override final method
+    virtual void say_hello()  const override  { // Errror cannot override final method
         std::cout << "Hello - I'm a Another class object" << std::endl;
     }
 };
