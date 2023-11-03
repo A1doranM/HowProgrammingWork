@@ -3,6 +3,18 @@
 #include <iostream>
 #include <memory>
 
+/*
+    Provides a non-owning "weak" reference
+
+    weak_ptr<T>
+        - Points to an object of type T on the heap
+        - Does not participate in owning relationship
+        - Always created from a shared_ptr
+        - Does NOT increment or decrement reference use count
+        - Used to prevent strong reference cycles which could prevent obj from deletion
+
+*/
+
 using namespace std;
 
 class B;    // forward declaration
@@ -32,7 +44,7 @@ int main() {
     shared_ptr<B> b = make_shared<B>();
     a->set_B(b);
     b->set_A(a);
-    
+
     return 0;
 }
 
