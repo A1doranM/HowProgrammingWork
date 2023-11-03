@@ -7,6 +7,22 @@
 #include "Savings_Account.h"
 #include "Trust_Account.h"
 
+/*
+
+    Provides shared ownership of heap object
+
+    shared_ptr<T>
+        - Points to an object of type T on the heap
+        - It is not unique - there can many shared_ptr pointing to the same object
+            on the heap
+        - Establishes shared ownership relationship
+        - CAN be assigned and copied
+        - CAN be moved
+        - Doesn't`t support managing arrays by default
+        - When the use count is zero, the managed object on the heap is destroyed
+
+*/
+
 class Test {
 private:
     int data;
