@@ -1,5 +1,5 @@
 // Section 17
-// Unique Pointers 
+// Unique Pointers
 #include <iostream>
 #include <memory>
 #include <vector>
@@ -8,6 +8,19 @@
 #include "Checking_Account.h"
 #include "Trust_Account.h"
 #include "Savings_Account.h"
+
+/*
+
+   unique_ptr<T>
+    - Points to an object of type T on the heap
+    - It is unique - there can only be one unique_ptr<T> pointing to the object on
+        the heap
+    - Owns what it points to
+    - Cannot be assigned or copied
+    - CAN be moved
+    - When the pointer is destroyed, what it points to is automatically destroyed
+
+*/
 
 class Test {
 private:
@@ -26,12 +39,12 @@ int main() {
    //  delete t1;
 //   std::unique_ptr<Test> t1 {new Test{100}};
 //   std::unique_ptr<Test> t2 = std::make_unique<Test>(1000);
-//   
+//
 //   std::unique_ptr<Test> t3;
 //   t3 = std::move(t1);
-//   if (!t1) 
+//   if (!t1)
 //       std::cout << "t1 is nullptr" << std::endl;
-       
+
        std::unique_ptr<Account> a1 = std::make_unique<Checking_Account>("Moe", 5000);
        std::cout << *a1 << std::endl;
        a1->deposit(5000);
