@@ -8,4 +8,5 @@ public:
     ~IllegalBalanceException() = default;
 };
 
+
 #endif // __ILLEGAL_BALANCE_EXCEPTION_H__
