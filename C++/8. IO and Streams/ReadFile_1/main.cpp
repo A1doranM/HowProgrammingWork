@@ -1,6 +1,7 @@
 // Section 19
 // Read File 1
 // Test for file open and simple read of 3 data items
+
 #include <iostream>
 #include <fstream>
 
@@ -9,7 +10,7 @@ int main() {
     std::string line;
     int num;
     double total;
-    
+
     in_file.open("../test.txt");
     if (!in_file) {
         std::cerr << "Problem opening file" << std::endl;
