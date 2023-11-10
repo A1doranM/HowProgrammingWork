@@ -1,15 +1,5 @@
 // Section 20
 // Macros
-
-/*
-
-    - C++ preprocessor directives
-    - No type information
-    - Simple substitution
-
-*/
-
-
 #include <iostream>
 
 //int min(int a, int b) {
@@ -23,6 +13,14 @@
 //double min(double a, double b) {
 //    return (a < b) ? a : b;
 //}
+
+/*
+
+    - C++ preprocessor directives
+    - No type information
+    - Simple substitution
+
+*/
 
 #define min(a, b)  (((a)<(b)) ? (a) : (b)) // Macros function
 
