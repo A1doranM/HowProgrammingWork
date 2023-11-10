@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="Section20" Database="" Version="10.0.0">
+  <Project Name="Macros" Path="Macros/Macros.project" Active="No"/>
+  <Project Name="FunctionTemplates" Path="FunctionTemplates/FunctionTemplates.project" Active="Yes"/>
+  <Project Name="ClassTemplates" Path="ClassTemplates/ClassTemplates.project" Active="No"/>
+  <Project Name="ClassTemplateArray" Path="ClassTemplateArray/ClassTemplateArray.project" Active="No"/>
+  <Project Name="Iterators" Path="Iterators/Iterators.project" Active="No"/>
+  <Project Name="Algorithms" Path="Algorithms/Algorithms.project" Active="No"/>
+  <Project Name="Array" Path="Array/Array.project" Active="No"/>
+  <Project Name="Vector" Path="Vector/Vector.project" Active="No"/>
+  <Project Name="Deque" Path="Deque/Deque.project" Active="No"/>
+  <Project Name="Challenge_1" Path="Challenge_1/Challenge_1.project" Active="No"/>
+  <Project Name="Challenge_1_Solution" Path="Challenge_1_Solution/Challenge_1_Solution.project" Active="No"/>
+  <Project Name="Challenge_2" Path="Challenge_2/Challenge_2.project" Active="No"/>
+  <Project Name="Challenge_2_Solution" Path="Challenge_2_Solution/Challenge_2_Solution.project" Active="No"/>
+  <Project Name="List" Path="List/List.project" Active="No"/>
+  <Project Name="Challenge_3" Path="Challenge_3/Challenge_3.project" Active="No"/>
+  <Project Name="Challenge_3_Solution" Path="Challenge_3_Solution/Challenge_3_Solution.project" Active="No"/>
+  <Project Name="Challenge_4" Path="Challenge_4/Challenge_4.project" Active="No"/>
+  <Project Name="Challenge_4_Solution" Path="Challenge_4_Solution/Challenge_4_Solution.project" Active="No"/>
+  <Project Name="Set" Path="Set/Set.project" Active="No"/>
+  <Project Name="Map" Path="Map/Map.project" Active="No"/>
+  <Project Name="Stack" Path="Stack/Stack.project" Active="No"/>
+  <Project Name="Queue" Path="Queue/Queue.project" Active="No"/>
+  <Project Name="PriorityQueue" Path="PriorityQueue/PriorityQueue.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug">
+      <Environment/>
+      <Project Name="Macros" ConfigName="Debug"/>
+      <Project Name="FunctionTemplates" ConfigName="Debug"/>
+      <Project Name="ClassTemplates" ConfigName="Debug"/>
+      <Project Name="ClassTemplateArray" ConfigName="Debug"/>
+      <Project Name="Iterators" ConfigName="Debug"/>
+      <Project Name="Algorithms" ConfigName="Debug"/>
+      <Project Name="Array" ConfigName="Debug"/>
+      <Project Name="Vector" ConfigName="Debug"/>
+      <Project Name="Deque" ConfigName="Debug"/>
+      <Project Name="Challenge_1" ConfigName="Debug"/>
+      <Project Name="Challenge_1_Solution" ConfigName="Debug"/>
+      <Project Name="Challenge_2" ConfigName="Debug"/>
+      <Project Name="Challenge_2_Solution" ConfigName="Debug"/>
+      <Project Name="List" ConfigName="Debug"/>
+      <Project Name="Challenge_3" ConfigName="Debug"/>
+      <Project Name="Challenge_3_Solution" ConfigName="Debug"/>
+      <Project Name="Challenge_4" ConfigName="Debug"/>
+      <Project Name="Challenge_4_Solution" ConfigName="Debug"/>
+      <Project Name="Set" ConfigName="Debug"/>
+      <Project Name="Map" ConfigName="Debug"/>
+      <Project Name="Stack" ConfigName="Debug"/>
+      <Project Name="Queue" ConfigName="Debug"/>
+      <Project Name="PriorityQueue" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release">
+      <Environment/>
+      <Project Name="Macros" ConfigName="Release"/>
+      <Project Name="FunctionTemplates" ConfigName="Release"/>
+      <Project Name="ClassTemplates" ConfigName="Release"/>
+      <Project Name="ClassTemplateArray" ConfigName="Release"/>
+      <Project Name="Iterators" ConfigName="Release"/>
+      <Project Name="Algorithms" ConfigName="Release"/>
+      <Project Name="Array" ConfigName="Release"/>
+      <Project Name="Vector" ConfigName="Release"/>
+      <Project Name="Deque" ConfigName="Release"/>
+      <Project Name="Challenge_1" ConfigName="Release"/>
+      <Project Name="Challenge_1_Solution" ConfigName="Release"/>
+      <Project Name="Challenge_2" ConfigName="Release"/>
+      <Project Name="Challenge_2_Solution" ConfigName="Release"/>
+      <Project Name="List" ConfigName="Release"/>
+      <Project Name="Challenge_3" ConfigName="Release"/>
+      <Project Name="Challenge_3_Solution" ConfigName="Release"/>
+      <Project Name="Challenge_4" ConfigName="Release"/>
+      <Project Name="Challenge_4_Solution" ConfigName="Release"/>
+      <Project Name="Set" ConfigName="Release"/>
+      <Project Name="Map" ConfigName="Release"/>
+      <Project Name="Stack" ConfigName="Release"/>
+      <Project Name="Queue" ConfigName="Release"/>
+      <Project Name="PriorityQueue" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>
