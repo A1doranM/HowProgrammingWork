@@ -1,4 +1,4 @@
-// Section 20
+  // Section 20
 // Iterators
 #include <iostream>
 #include <vector>
@@ -19,10 +19,12 @@ void test1() {
     std::cout << "\n=============================" << std::endl;
     std::vector<int> nums1 {1, 2, 3, 4, 5};
     auto it = nums1.begin();            // point to 1
+    // same to
+    //  std::vector<int>::iterator it = nums1.begin();
     std::cout << *it << std::endl;
 
     it++;                                           // point to 2
-    std::cout << *it << std::endl;      
+    std::cout << *it << std::endl;
 
     it += 2;                                       // point to 4
     std::cout << *it << std::endl;
@@ -37,7 +39,7 @@ void test1() {
 void test2() {
     std::cout << "\n=============================" << std::endl;
     // display all vector elements using an iterator
-    
+
     std::vector<int> nums1 {1, 2, 3, 4, 5};
 
     std::vector<int>::iterator it = nums1.begin();
@@ -45,7 +47,7 @@ void test2() {
         std::cout << *it << std::endl;
         it++;
     }
-    
+
     // change all vector elements to 0
     it = nums1.begin();
     while (it != nums1.end()) {
@@ -57,19 +59,19 @@ void test2() {
 }
 
 void test3() {
-    
+
     // using a const_iterator
     std::cout << "\n=============================" << std::endl;
     std::vector<int> nums1 {1, 2, 3, 4, 5};
 
     std::vector<int>::const_iterator it1 = nums1.begin();
     // auto it1 = nums1.cbegin();
-    
+
     while (it1 != nums1.end()) {
         std::cout << *it1 << std::endl;
         it1++;
     }
-    
+
     // compiler error when we try to change element
     it1 = nums1.begin();
     while (it1 != nums1.end()) {
@@ -114,12 +116,12 @@ void test5() {
     std::vector<int> vec {1,2,3,4,5,6,7,8,9,10};
     auto start = vec.begin() + 2;
     auto finish = vec.end() - 3;
-    
+
     while (start != finish) {
         std::cout << *start << std::endl;
         start++;
     }
-    
+
 }
 int main() {
 
