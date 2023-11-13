@@ -18,7 +18,7 @@ void display(const std::vector<int> &vec) {
 void test1() {
     std::cout << "\n=============================" << std::endl;
     std::vector<int> nums1 {1, 2, 3, 4, 5};
-    auto it = nums1.begin();            // point to 1
+    auto it = nums1.begin(); // Get iterator points to 1
     // same to
     //  std::vector<int>::iterator it = nums1.begin();
     std::cout << *it << std::endl;
@@ -43,6 +43,8 @@ void test2() {
     std::vector<int> nums1 {1, 2, 3, 4, 5};
 
     std::vector<int>::iterator it = nums1.begin();
+
+    // nums1.end() points to end + 1 element in container
     while (it != nums1.end()) {
         std::cout << *it << std::endl;
         it++;
@@ -58,6 +60,8 @@ void test2() {
     display(nums1);
 }
 
+// Using const inerator
+// Const iterator does not allow us to change container values.
 void test3() {
 
     // using a const_iterator
@@ -65,7 +69,8 @@ void test3() {
     std::vector<int> nums1 {1, 2, 3, 4, 5};
 
     std::vector<int>::const_iterator it1 = nums1.begin();
-    // auto it1 = nums1.cbegin();
+    //same as auto it1 = nums1.cbegin();
+    //cbegin() returns const iterator
 
     while (it1 != nums1.end()) {
         std::cout << *it1 << std::endl;
@@ -83,7 +88,7 @@ void test3() {
 
 void test4() {
     // more iterators
-    // using a reverse iterator
+    // using a reverse iterator. Reverse iterator goes through container in reverse way
     std::vector<int> vec {1,2,3,4};
     auto it1  = vec.rbegin();       // reverse iterator over vector of ints starts at 4
     while (it1 != vec.rend()) {
