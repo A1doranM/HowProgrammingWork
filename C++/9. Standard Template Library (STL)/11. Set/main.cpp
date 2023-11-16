@@ -7,6 +7,7 @@
 
     - collection of stored objects that allow fast retrieval using a key
     - usually implemented as a balanced binary tree or hashsets
+    - sets ordered by default
 
 */
 
