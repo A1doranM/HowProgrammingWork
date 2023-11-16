@@ -18,6 +18,8 @@
     - All operations occur on one end of the stack (top)
     - No iterators supported
 
+    - Supported operations: push, pop, size, empty
+
 */
 
 template <typename T>
@@ -32,7 +34,7 @@ void display(std::stack<T> s) {
 }
 
 int main() {
-    std::stack<int> s;
+    std::stack<int> s; // default deque
     std::stack<int, std::vector<int>> s1;
     std::stack<int, std::list<int>> s2;
     std::stack<int, std::deque<int>> s3;
