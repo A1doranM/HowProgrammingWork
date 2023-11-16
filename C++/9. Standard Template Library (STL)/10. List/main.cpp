@@ -12,8 +12,7 @@
     - less overhead than a std::list
     - direct element access is not provided
     - rapid insertion and deletion of elements anywhere in the container
-    - reverse iterators not available. Iterators invalidate when corresponding
-      element  is deleted
+    - reverse iterators not available.
 
 */
 
