@@ -11,10 +11,10 @@
 /*
 
     - FIFO
-    - Implemented over other STL containers
+    - Implemented over other STL containers.
     - We can use "list" or "deque" to implement it. Default deque.
 
-    Supported operations: push, pop, front, back, empty, size
+    Supported operations: push, pop, front, back, empty, size.
 
 */
 
