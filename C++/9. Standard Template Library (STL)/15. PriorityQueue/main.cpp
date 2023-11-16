@@ -10,6 +10,13 @@
     - elements are inserted in priority order
     - no iterators are supported
 
+    Supported operations:
+     - push - insert an element into sorted order
+     - pop - removes the top element (greatest)
+     - top - access the top element (greatest)
+     - empty - is the queue empty
+     - size - number of elements in the queue
+
 */
 
 class Person {
