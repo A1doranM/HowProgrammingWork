@@ -1,4 +1,0 @@
--IC:\Users\frank\Documents\CPPGitHub\UdemyBeginningCPP\Enumerations\UnscopedEnums
--std=c++17
--target
-
