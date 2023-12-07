@@ -1,6 +1,6 @@
 // Section 16
-// Using final
 
+// Using final
 // When used at the class level prevents a class from being derived from
 // When used at method level prevents virtual method from being overridden in derived
 // classes
