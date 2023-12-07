@@ -55,13 +55,12 @@ int main() {
    Savings a2;
    Checking a3;
    Trust a4;
-   
+
    do_withdraw(a1, 1000);       // In Account::withdraw
    do_withdraw(a2, 2000);       // In Savings::withdraw
    do_withdraw(a3, 3000);       // In Checking::withdraw
    do_withdraw(a4,  4000);      // In Trust::withdraw
 
-
-    return 0;
+   return 0;
 }
 
