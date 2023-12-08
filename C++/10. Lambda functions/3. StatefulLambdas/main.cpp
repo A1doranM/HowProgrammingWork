@@ -14,7 +14,7 @@ int global_x {1000};
     Examples:
         - [=, &x] // Default capture by value but capture X by reference
         - [&]     // Default capture by reference
-        - [&, y]  // Default capture by reference by capture Y by value
+        - [&, y]  // Default capture by reference but capture Y by value
 
 */
 
