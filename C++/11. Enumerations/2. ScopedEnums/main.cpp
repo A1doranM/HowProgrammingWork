@@ -4,7 +4,7 @@
 // Used for test1
 // Scoped enumeration holding the items for a grocery list
 // The value of the enumerator could be the item code
-// In scoped enums we use class ket word to define it.
+// In scoped enums we use class key word to define it.
 enum class Grocery_Item {Milk=350, Bread=250, Apple=132, Orange=100};
 
 // Used for test1
