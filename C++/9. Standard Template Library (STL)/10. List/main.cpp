@@ -13,7 +13,6 @@
     - direct element access is not provided
     - rapid insertion and deletion of elements anywhere in the container
     - reverse iterators not available.
-
 */
 
 
