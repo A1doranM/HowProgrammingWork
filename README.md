@@ -1,5 +1,6 @@
 # Summary of educational process from different sources
 
+
 ## HowProgrammingWorks lessons created by Timur Shemsedinov 
 https://github.com/HowProgrammingWorks
 
