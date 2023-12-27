@@ -1,21 +1,22 @@
-const http2 = require('node:http2');
-const fs = require('node:fs');
+"use strict";
 
-const server = http2.createSecureServer({
-  key: fs.readFileSync('localhost-privkey.pem'),
-  cert: fs.readFileSync('localhost-cert.pem'),
-});
-server.on('error', (err) => console.error(err));
+const http = require("node:http");
 
-server.on('stream', (stream, headers) => {
-  // stream is a Duplex
-  stream.respond({
-    'content-type': 'text/html; charset=utf-8',
-    ':status': 200,
-  });
-  stream.end('<h1>Hello World</h1>');
+const hostname = "127.0.0.1";
+const port = 8000;
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/plain");
+  res.end("Hello World\n");
 });
 
-console.log('Server listening port 8443');
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
 
-server.listen(8443);
+server.on("error", (err) => {
+  if (err.code === "EACCES") {
+    console.log(`No access to port: ${port}`);
+  }
+});
