@@ -2,7 +2,7 @@
 
 // Пример с кастомной буферизацией для стрима.
 
-const stream  = require("node:stream");
+const stream = require("node:stream");
 
 const ENTER = 13; // Код клавиши ентер
 
@@ -17,7 +17,7 @@ const createBufferedStream = () => {
       const result = Buffer.concat(buffers); // В конце соединяем все буферы в один.
       this.emit("result", result);
       done();
-    }
+    },
   });
   return writable;
 };
