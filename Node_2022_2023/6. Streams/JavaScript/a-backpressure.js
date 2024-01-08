@@ -1,6 +1,6 @@
 "use strict";
 
-// Backpressure -
+// Backpressure
 
 const fs = require("node:fs");
 
