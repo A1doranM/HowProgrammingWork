@@ -3,7 +3,7 @@
 const moduleName = {};
 module.exports = moduleName;
 
-const privateProperty = "Privat variable value in Module1";
+const privateProperty = "Private variable value in Module1";
 
 const privateFunction = () => {
   console.log("Output from private function of Module1");
