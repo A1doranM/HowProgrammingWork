@@ -2,13 +2,13 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: app-kuber-with-labels
-  labels: 
-    environment: dev 
+  labels:
+    environment: dev
     app: http-server
 spec:
   containers:
   - name: app-kuber-container
-    image: bokovets/kuber:0.1
+    image: bakavets/kuber:0.1
     ports:
     - containerPort: 8000
 
