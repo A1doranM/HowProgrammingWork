@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: kuber-app-manual
   labels:
-    app: kuber-test
+    app: kuber
 spec:
   containers:
   - name: kuber-app-image
