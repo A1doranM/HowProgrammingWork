@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: kuber-service-lb
 spec:
-  externalTrafficPolicy: Local
   selector:
     app: http-server
   ports:
