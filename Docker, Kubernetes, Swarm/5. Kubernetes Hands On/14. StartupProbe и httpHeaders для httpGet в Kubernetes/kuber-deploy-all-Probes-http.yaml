@@ -23,7 +23,7 @@ spec:
           exec:
             command:
             - cat
-            - /server-test.py
+            - /server.py
           initialDelaySeconds: 10
           failureThreshold: 30 # 30 * 10 = 300 + 10 = 310 sec
           periodSeconds: 10
