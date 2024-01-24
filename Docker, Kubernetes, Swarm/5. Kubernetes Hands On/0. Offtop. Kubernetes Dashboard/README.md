@@ -1,3 +1,3 @@
-<a href="https://youtu.be/HpMel0AVu_Y" target="_blank">
- <img src="https://img.youtube.com/vi/HpMel0AVu_Y/0.jpg" alt="Watch the video" width="860" height="620" border="10" />
-</a>
+Уроки начинаются с 6 цифры так как именно с 6 урока начинается то что можно конспектировать.
+
+(https://youtube.com/playlist?list=PL3SzV1_k2H1VDePbSWUqERqlBXIk02wCQ&si=CE2sURYjgxMHtFvG)

@@ -10,7 +10,9 @@ https://www.udemy.com/course-dashboard-redirect/?course_id=4152302
 ## Kubernetes and Docker 
 https://www.udemy.com/course-dashboard-redirect/?course_id=1035000
 
-https://www.youtube.com/watch?v=BzuC4GNoj0A&list=PL3SzV1_k2H1VDePbSWUqERqlBXIk02wCQ&index=7&ab_channel=BAKAVETS
+By BAKAVETS
+
+https://youtube.com/playlist?list=PL3SzV1_k2H1VDePbSWUqERqlBXIk02wCQ&si=CE2sURYjgxMHtFvG
 
 ## RabbitMQ 
 https://www.udemy.com/course-dashboard-redirect/?course_id=4049476
