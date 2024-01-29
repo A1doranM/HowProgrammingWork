@@ -7,8 +7,8 @@ metadata:
     app: http-server
 spec:
   containers:
-  - name: app-kuber-container
-    image: bakavets/kuber:0.1
-    ports:
-    - containerPort: 8000
+    - name: app-kuber-container
+      image: bakavets/kuber:0.1
+      ports:
+        - containerPort: 8000
 

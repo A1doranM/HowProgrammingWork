@@ -14,10 +14,10 @@ server:
       cert-manager.io/cluster-issuer: letsencrypt-prod
     ingressClassName: nginx
     hosts:
-     - argocd.${host}
-    tls:
-    - hosts:
       - argocd.${host}
-      secretName: argocd-tls
+    tls:
+      - hosts:
+          - argocd.${host}
+        secretName: argocd-tls
   extraArgs:
     - --insecure # https://github.com/argoproj/argo-cd/issues/2953#issuecomment-602898868

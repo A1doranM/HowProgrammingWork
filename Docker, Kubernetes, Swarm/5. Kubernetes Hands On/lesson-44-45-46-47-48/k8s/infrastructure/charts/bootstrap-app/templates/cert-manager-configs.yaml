@@ -1,4 +1,4 @@
-{{ if .Values.certManagerConfigs.enabled }}
+{ { if .Values.certManagerConfigs.enabled } }
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -10,9 +10,9 @@ metadata:
 spec:
   project: infrastructure
   source:
-    repoURL: {{ .Values.certManagerConfigs.repoURL }}
-    targetRevision: {{ .Values.certManagerConfigs.version }}
-    path: {{ .Values.certManagerConfigs.path }}
+    repoURL: { { .Values.certManagerConfigs.repoURL } }
+    targetRevision: { { .Values.certManagerConfigs.version } }
+    path: { { .Values.certManagerConfigs.path } }
     helm:
       values: |
         acme:
@@ -26,10 +26,10 @@ spec:
             hostedZoneID: {{ .Values.certManagerConfigs.acme.route53.hostedZoneID }}
 
   destination:
-    server: {{ .Values.spec.destination.server }}
+    server: { { .Values.spec.destination.server } }
 
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-{{ end }}
+  { { end } }

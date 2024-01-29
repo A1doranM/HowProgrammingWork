@@ -2,7 +2,7 @@ services:
   backend:
     build:
       args:
-      - NODE_ENV=development
+        - NODE_ENV=development
       context: backend
     command: npm run start-watch
     environment:

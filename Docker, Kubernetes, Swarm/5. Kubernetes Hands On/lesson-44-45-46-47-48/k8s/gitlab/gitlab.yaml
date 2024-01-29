@@ -90,7 +90,7 @@ spec:
               key: POSTGRES_PASSWORD
 
           redis:
-            
+        
             # https://docs.gitlab.com/ee/administration/redis/troubleshooting.html#troubleshooting-a-non-bundled-redis-with-a-self-compiled-installation
             # TL;DR: masterSet name in redis helm chart = k8s service gitlab-redis name = host below
             # Since we use sentinel we must set the host the same as masterSet 
@@ -98,7 +98,7 @@ spec:
             # case gitlab-redis and gitlab-redis service name for redis has to 
             # exist too because other GitLab services (like gitlab-exporter etc.) use gitlab-redis host to 
             # reach redis via K8s service. 
-            
+        
             host: gitlab-redis
             sentinels:
               - host: gitlab-redis.gitlab.svc.cluster.local
@@ -256,7 +256,7 @@ spec:
                 config:
                   secret: s3-credentials
                   key: config
-          
+        
           gitlab-shell:
             resources:
               limits:

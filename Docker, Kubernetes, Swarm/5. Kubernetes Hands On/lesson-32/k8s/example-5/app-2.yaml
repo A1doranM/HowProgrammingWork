@@ -22,10 +22,10 @@ spec:
         app: http-server-2
     spec:
       containers:
-      - name: kuber-app
-        image: bakavets/kuber:v2.0
-        ports:
-        - containerPort: 8000
+        - name: kuber-app
+          image: bakavets/kuber:v2.0
+          ports:
+            - containerPort: 8000
 ---
 apiVersion: v1
 kind: Service
@@ -54,13 +54,13 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-   - host: app-2.kubxr.com
-     http:
+    - host: app-2.kubxr.com
+      http:
         paths:
           - pathType: Prefix
             path: /
             backend:
               service:
                 name: kuber-service-2
-                port: 
+                port:
                   number: 80

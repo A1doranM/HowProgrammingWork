@@ -15,17 +15,17 @@ spec:
         app: http-server-2
     spec:
       containers:
-      - name: kuber-app
-        image: bakavets/kuber:v2.0
-        ports:
-        - containerPort: 8000
-        volumeMounts:
-        - name: secrets
-          mountPath: "/etc/secrets"
+        - name: kuber-app
+          image: bakavets/kuber:v2.0
+          ports:
+            - containerPort: 8000
+          volumeMounts:
+            - name: secrets
+              mountPath: "/etc/secrets"
       volumes:
-      - name: secrets
-        secret:
-          secretName: secret-data
-          items:
-          - key: username
-            path: my-group/my-username
+        - name: secrets
+          secret:
+            secretName: secret-data
+            items:
+              - key: username
+                path: my-group/my-username

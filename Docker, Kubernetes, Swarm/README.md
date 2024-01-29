@@ -2,7 +2,8 @@
 
 [![Lint Code Base](https://github.com/BretFisher/udemy-docker-mastery/actions/workflows/call-super-linter.yaml/badge.svg)](https://github.com/BretFisher/udemy-docker-mastery/actions/workflows/call-super-linter.yaml)
 
-> Build, test, deploy containers with the best mega-course on Docker, Kubernetes, Compose, Swarm and Registry using DevOps
+> Build, test, deploy containers with the best mega-course on Docker, Kubernetes, Compose, Swarm and Registry using
+> DevOps
 
 This repository is for use in my Udemy Courses "Docker Mastery" and "Swarm Mastery"
 

@@ -1,4 +1,5 @@
 Terraform
+
 ```
 export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
 export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
@@ -13,6 +14,7 @@ aws eks update-kubeconfig --name demo-eks-cluster --profile personal --region eu
 ```
 
 K8s
+
 ```
 cd k8s
 kubectl create ns gitlab-space-external

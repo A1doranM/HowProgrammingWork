@@ -6,8 +6,8 @@ metadata:
     run: nginx-sts-demo
 spec:
   ports:
-  - port: 80
-    name: web
+    - port: 80
+      name: web
   clusterIP: None
   selector:
     run: nginx-sts-demo
@@ -28,18 +28,18 @@ spec:
         run: nginx-sts-demo
     spec:
       containers:
-      - name: nginx
-        image: nginx
-        volumeMounts:
-        - name: www
-          mountPath: /var/www/
+        - name: nginx
+          image: nginx
+          volumeMounts:
+            - name: www
+              mountPath: /var/www/
   volumeClaimTemplates:
-  - metadata:
-      name: www
-    spec:
-      storageClassName: hostpath
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: 10Mi
+    - metadata:
+        name: www
+      spec:
+        storageClassName: hostpath
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 10Mi

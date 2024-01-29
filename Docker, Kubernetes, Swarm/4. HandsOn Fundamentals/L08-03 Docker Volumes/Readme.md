@@ -22,6 +22,7 @@
     apt-get install nano
 
 ## Create a file in the app folder
+
     cd app
     nano test.txt
 

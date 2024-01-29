@@ -6,11 +6,14 @@
 
 [![All-Hands Automation with Docker](https://user-images.githubusercontent.com/792287/160971371-0ae75c14-1ea4-4a11-82dc-f35f96184fa3.gif)](https://www.youtube.com/watch?v=aZzV6X7XhyI)
 
-Watch the walkthrough of this repo: [https://www.youtube.com/watch?v=aZzV6X7XhyI](https://www.youtube.com/watch?v=aZzV6X7XhyI)
+Watch the walkthrough of this
+repo: [https://www.youtube.com/watch?v=aZzV6X7XhyI](https://www.youtube.com/watch?v=aZzV6X7XhyI)
 
-See this repositories' [`.github/workflows`](.github/workflows) directory for the below example workflows, ordered by number, simple to complex.
+See this repositories' [`.github/workflows`](.github/workflows) directory for the below example workflows, ordered by
+number, simple to complex.
 
-These examples are focused on five of Docker's [official GitHub Actions](https://github.com/marketplace?type=actions&query=publisher%3Adocker+).
+These examples are focused on five of
+Docker's [official GitHub Actions](https://github.com/marketplace?type=actions&query=publisher%3Adocker+).
 
 These examples are based on three workflow diagrams on progressively more complex automation pipelines:
 
@@ -47,10 +50,13 @@ These examples are based on three workflow diagrams on progressively more comple
 
 ## This repository is part of my example DevOps repos on GitHub Actions
 
-- [bretfisher/github-actions-templates](https://github.com/BretFisher/github-actions-templates) - Main reusable templates repository
+- [bretfisher/github-actions-templates](https://github.com/BretFisher/github-actions-templates) - Main reusable
+  templates repository
 - [bretfisher/super-linter-workflow](https://github.com/BretFisher/super-linter-workflow) - Reusable linter workflow
-- [bretfisher/docker-build-workflow](https://github.com/BretFisher/docker-build-workflow)- Reusable docker build workflow
-- (you are here) [bretfisher/docker-ci-automation](https://github.com/BretFisher/docker-ci-automation) - Step by step video and example of a Docker CI workflow
+- [bretfisher/docker-build-workflow](https://github.com/BretFisher/docker-build-workflow)- Reusable docker build
+  workflow
+- (you are here) [bretfisher/docker-ci-automation](https://github.com/BretFisher/docker-ci-automation) - Step by step
+  video and example of a Docker CI workflow
 - [My full list of container examples and tools](https://github.com/bretfisher)
 
 ## More reading

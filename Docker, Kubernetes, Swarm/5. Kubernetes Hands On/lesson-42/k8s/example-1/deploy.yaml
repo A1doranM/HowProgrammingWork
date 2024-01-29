@@ -19,14 +19,14 @@ spec:
       #   runAsGroup: 3000
       #   fsGroup: 2000
       containers:
-      - name: kuber-app
-        image: bakavets/kuber
-        ports:
-        - containerPort: 8000
-        volumeMounts:
-        - mountPath: /data
-          name: data-volume
+        - name: kuber-app
+          image: bakavets/kuber
+          ports:
+            - containerPort: 8000
+          volumeMounts:
+            - mountPath: /data
+              name: data-volume
       volumes:
-      - name: data-volume
-        persistentVolumeClaim:
-          claimName: efs-claim
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: efs-claim

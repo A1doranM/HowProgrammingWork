@@ -1,6 +1,6 @@
 # Kubernetes Network Policies.
 
-## Docs: 
+## Docs:
 
 * https://kubernetes.io/docs/concepts/services-networking/network-policies/
 * https://docs.aws.amazon.com/eks/latest/userguide/calico.html

@@ -20,7 +20,8 @@ Use a context:
 
 ## Using kubectx
 
-What's great about Kubernetes is the incredible amount of tools created by the community and available for free.  Kubectx is a simple tool that provides an easy way to list and change context.
+What's great about Kubernetes is the incredible amount of tools created by the community and available for free. Kubectx
+is a simple tool that provides an easy way to list and change context.
 
 You can install it on:
 

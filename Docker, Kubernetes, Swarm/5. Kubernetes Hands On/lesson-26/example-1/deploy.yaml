@@ -15,14 +15,14 @@ spec:
         app: http-server-1
     spec:
       containers:
-      - name: kuber-app
-        image: bakavets/kuber:v1.0
-        ports:
-        - containerPort: 8000
-        env:
-        - name: HELLO
-          value: "Hello"
-        - name: WORLD
-          value: "World"
-        - name: ENV_HELLO_WORLD
-          value: "$(HELLO)_$(WORLD) from Pod"
+        - name: kuber-app
+          image: bakavets/kuber:v1.0
+          ports:
+            - containerPort: 8000
+          env:
+            - name: HELLO
+              value: "Hello"
+            - name: WORLD
+              value: "World"
+            - name: ENV_HELLO_WORLD
+              value: "$(HELLO)_$(WORLD) from Pod"

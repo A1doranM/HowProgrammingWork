@@ -1,4 +1,4 @@
-{{ if .Values.externalDNS.enabled }}
+{ { if .Values.externalDNS.enabled } }
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -11,7 +11,7 @@ spec:
   project: infrastructure
   source:
     repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: {{ .Values.externalDNS.version }}
+    targetRevision: { { .Values.externalDNS.version } }
     chart: external-dns
     helm:
       values: |
@@ -37,13 +37,13 @@ spec:
           zoneType: {{ .Values.externalDNS.zoneType }}
 
   destination:
-    namespace: {{ .Values.externalDNS.namespace }}
-    server: {{ .Values.spec.destination.server }}
+    namespace: { { .Values.externalDNS.namespace } }
+    server: { { .Values.spec.destination.server } }
 
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
-    - CreateNamespace=true
-{{ end }}
+      - CreateNamespace=true
+  { { end } }

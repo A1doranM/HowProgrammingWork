@@ -3,17 +3,17 @@
 name: Lint Code Base
 
 on:
-  
+
   push:
-    branches: [main]
-  
+    branches: [ main ]
+
   pull_request:
 
 jobs:
   call-super-linter:
 
     name: Call Super-Linter
-    
+
     permissions:
       contents: read # clone the repo to lint
       statuses: write #read/write to repo custom statuses
@@ -23,14 +23,14 @@ jobs:
     ### you can also call workflows from inside the same repo via file path
 
     uses: bretfisher/super-linter-workflow/.github/workflows/reusable-super-linter.yaml@main
-    
+
     ### Optional settings examples
-    
+
     with:
       ### For a DevOps-focused repository. Prevents some code-language linters from running
       ### defaults to false
       devops-only: true
-      
+
       ### A regex to exclude files from linting
       ### defaults to empty
       filter-regex-exclude: .*compose-sample-3/html/.*,.*dockerfile-sample-5/.*

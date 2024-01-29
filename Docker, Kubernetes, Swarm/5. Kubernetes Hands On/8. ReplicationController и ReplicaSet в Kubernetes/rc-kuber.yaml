@@ -13,7 +13,7 @@ spec:
         app: http-server
     spec:
       containers:
-      - name: http-server-image
-        image: bokovets/kuber
-        ports:
-        - containerPort: 8000
+        - name: http-server-image
+          image: bokovets/kuber
+          ports:
+            - containerPort: 8000

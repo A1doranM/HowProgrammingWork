@@ -15,18 +15,18 @@ spec:
         app: http-server-2
     spec:
       containers:
-      - name: kuber-app
-        image: bakavets/kuber:v2.0
-        ports:
-        - containerPort: 8000
-        env:
-          - name: SECRET_USERNAME
-            valueFrom:
-              secretKeyRef:
-                name: secret-stringdata
-                key: username
-          - name: SECRET_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: secret-stringdata
-                key: password
+        - name: kuber-app
+          image: bakavets/kuber:v2.0
+          ports:
+            - containerPort: 8000
+          env:
+            - name: SECRET_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: secret-stringdata
+                  key: username
+            - name: SECRET_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret-stringdata
+                  key: password

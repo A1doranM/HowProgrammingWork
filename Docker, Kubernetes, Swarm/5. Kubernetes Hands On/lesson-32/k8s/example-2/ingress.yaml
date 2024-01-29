@@ -10,23 +10,23 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-   - host: app-1.kubxr.com
-     http:
+    - host: app-1.kubxr.com
+      http:
         paths:
           - pathType: Prefix
             path: /
             backend:
               service:
                 name: kuber-service-1
-                port: 
+                port:
                   number: 80
-   - host: app-2.kubxr.com
-     http:
+    - host: app-2.kubxr.com
+      http:
         paths:
           - pathType: Prefix
             path: /
             backend:
               service:
                 name: kuber-service-2
-                port: 
+                port:
                   number: 80

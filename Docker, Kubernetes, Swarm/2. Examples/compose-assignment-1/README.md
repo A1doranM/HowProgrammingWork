@@ -10,6 +10,7 @@
 - Use `ports` to expose Drupal on 8080 (or your preferred port for localhost access)
 - Be sure to setup the POSTGRES_PASSWORD environment variable on the postgres service
 - Walk through the Drupal config steps in browser at `http://localhost:8080`
-- Tip: Drupal setup will assume the database runs on localhost, which is incorrect. You'll need to change it to the name of the service you gave to postgres
+- Tip: Drupal setup will assume the database runs on localhost, which is incorrect. You'll need to change it to the name
+  of the service you gave to postgres
 - Use Docker Hub documentation to figure out the right environment and volume settings
 - Extra Credit: Use volumes to store Drupal unique data

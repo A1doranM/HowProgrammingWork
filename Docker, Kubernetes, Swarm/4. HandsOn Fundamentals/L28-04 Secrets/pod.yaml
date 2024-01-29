@@ -5,26 +5,26 @@ metadata:
 spec:
   restartPolicy: Always
   containers:
-  - name: mybox
-    image: busybox
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 250m
-        memory: 256Mi    
-    command:
-      - sleep
-      - "3600"
-    env:
-      - name: USERNAME
-        valueFrom:
-          secretKeyRef:
-            name: secrets
-            key: username
-      - name: PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: secrets
-            key: password            
+    - name: mybox
+      image: busybox
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          cpu: 250m
+          memory: 256Mi
+      command:
+        - sleep
+        - "3600"
+      env:
+        - name: USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: secrets
+              key: username
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: secrets
+              key: password

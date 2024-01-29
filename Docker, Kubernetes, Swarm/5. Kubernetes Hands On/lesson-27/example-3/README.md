@@ -7,5 +7,6 @@ kubectl create secret docker-registry secret-docker-registry \
   --docker-password=password \
   --docker-server=https://index.docker.io/v1/
 ```
+
 Ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 

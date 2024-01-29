@@ -38,7 +38,7 @@ If a participant engages in harassing behavior, the Slack group organizers may t
 they deem appropriate, including warning the offender or expulsion from the Slack group.
 
 If you are being harassed, notice that someone else is being harassed, or have any other concerns,
-please contact [Bret](bret@bretfisher.com) or a member of the  group organizers and moderators immediately.
+please contact [Bret](bret@bretfisher.com) or a member of the group organizers and moderators immediately.
 
 Organizers will be happy to help participants experiencing harassment to feel safe for the
 duration of their time in our community. We value your contribution to the community.

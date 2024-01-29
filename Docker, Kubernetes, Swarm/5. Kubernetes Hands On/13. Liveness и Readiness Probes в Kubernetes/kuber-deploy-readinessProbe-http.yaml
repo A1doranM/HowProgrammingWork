@@ -15,20 +15,20 @@ spec:
         app: http-server-default
     spec:
       containers:
-      - name: kuber-app
-        image: bakavets/kuber:v1.0-unhealthy
-        ports:
-        - containerPort: 8000
-        readinessProbe:
-          httpGet:
-            path: /healthcheck
-            port: 8000
-          initialDelaySeconds: 5
-          periodSeconds: 5
-        livenessProbe:
-          httpGet:
-            path: /healthcheck
-            port: 8000
-          initialDelaySeconds: 5
-          periodSeconds: 5
+        - name: kuber-app
+          image: bakavets/kuber:v1.0-unhealthy
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 5
 

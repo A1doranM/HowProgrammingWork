@@ -8,17 +8,17 @@ metadata:
 spec:
   ingressClassName: nginx # replacement of annotation: kubernetes.io/ingress.class: nginx
   tls:
-  - hosts:
-    - demo.k8s.bakavets.com
-    secretName: app-tls-bakavets
+    - hosts:
+        - demo.k8s.bakavets.com
+      secretName: app-tls-bakavets
   rules:
-   - host: demo.k8s.bakavets.com
-     http:
+    - host: demo.k8s.bakavets.com
+      http:
         paths:
           - pathType: Prefix
             path: /
             backend:
               service:
                 name: kuber-service
-                port: 
+                port:
                   number: 80

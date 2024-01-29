@@ -15,7 +15,7 @@ spec:
         app: http-server
     spec:
       containers:
-      - name: kuber-app
-        image: bakavets/kuber:v1.0
-        ports:
-        - containerPort: 8000
+        - name: kuber-app
+          image: bakavets/kuber:v1.0
+          ports:
+            - containerPort: 8000

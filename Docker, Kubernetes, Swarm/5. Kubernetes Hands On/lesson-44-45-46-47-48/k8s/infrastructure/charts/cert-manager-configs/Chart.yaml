@@ -1,6 +1,6 @@
 apiVersion: v2
 name: cert-manager-configs
-description: A Helm chart to deploy certificate Issuers/ClusterIssuer and certificates 
+description: A Helm chart to deploy certificate Issuers/ClusterIssuer and certificates
 
 # A chart can be either an 'application' or a 'library' chart.
 #

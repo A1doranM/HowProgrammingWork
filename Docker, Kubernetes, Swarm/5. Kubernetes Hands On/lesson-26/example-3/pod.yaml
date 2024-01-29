@@ -6,7 +6,7 @@ spec:
   containers:
     - name: container
       image: busybox
-      command: [ "/bin/sh", "-c", "echo Interval = $(INTERVAL). Desired count of print = $(COUNT). Text: $(TEXT_ARG)"]
+      command: [ "/bin/sh", "-c", "echo Interval = $(INTERVAL). Desired count of print = $(COUNT). Text: $(TEXT_ARG)" ]
       env:
         - name: INTERVAL
           valueFrom:

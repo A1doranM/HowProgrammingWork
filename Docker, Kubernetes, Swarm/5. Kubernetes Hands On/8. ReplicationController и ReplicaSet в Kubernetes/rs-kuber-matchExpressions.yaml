@@ -20,5 +20,5 @@ spec:
         env: dev
     spec:
       containers:
-      - name: kuber-app
-        image: bokovets/kuber
+        - name: kuber-app
+          image: bokovets/kuber

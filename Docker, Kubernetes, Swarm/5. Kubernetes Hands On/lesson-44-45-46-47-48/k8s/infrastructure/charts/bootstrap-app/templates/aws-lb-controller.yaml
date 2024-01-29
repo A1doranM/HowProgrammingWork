@@ -1,4 +1,4 @@
-{{ if .Values.awsLBController.enabled }}
+{ { if .Values.awsLBController.enabled } }
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -11,7 +11,7 @@ spec:
   project: infrastructure
   source:
     repoURL: https://aws.github.io/eks-charts
-    targetRevision: {{ .Values.awsLBController.version }}
+    targetRevision: { { .Values.awsLBController.version } }
     chart: aws-load-balancer-controller
     helm:
       values: |
@@ -24,11 +24,11 @@ spec:
         enableCertManager: true
 
   destination:
-    namespace: {{ .Values.awsLBController.namespace }}
-    server: {{ .Values.spec.destination.server }}
+    namespace: { { .Values.awsLBController.namespace } }
+    server: { { .Values.spec.destination.server } }
 
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-{{ end }}
+  { { end } }

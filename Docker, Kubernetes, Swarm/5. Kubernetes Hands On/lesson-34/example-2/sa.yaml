@@ -10,9 +10,9 @@ metadata:
   # "namespace" omitted since ClusterRoles are not namespaced
   name: example-2-cr
 rules:
-  - apiGroups: ["apps"]
-    resources: ["deployments"]
-    verbs: ["list"]
+  - apiGroups: [ "apps" ]
+    resources: [ "deployments" ]
+    verbs: [ "list" ]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding

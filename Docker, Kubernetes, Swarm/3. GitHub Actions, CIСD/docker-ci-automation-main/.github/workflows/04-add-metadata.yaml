@@ -26,7 +26,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-#NEW: (START) ##########################################################
+      #NEW: (START) ##########################################################
       - name: Docker meta
         id: docker_meta
         uses: docker/metadata-action@v4
@@ -40,16 +40,16 @@ jobs:
             type=ref,event=pr
             type=ref,event=branch
             type=semver,pattern={{version}}
-#NEW: (END) ############################################################
-      
+      #NEW: (END) ############################################################
+
       - name: Docker build
         uses: docker/build-push-action@v4
         with:
-#NEW: (START) ##########################################################
+          #NEW: (START) ##########################################################
           push: true
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
-#NEW: (END) ############################################################
+          #NEW: (END) ############################################################
           cache-from: type=gha
           cache-to: type=gha,mode=max
           platforms: linux/amd64,linux/arm64,linux/arm/v7

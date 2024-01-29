@@ -1,6 +1,7 @@
 # L23-03
 
-Let’s create multiple containers in a Pod using a YAML file.  We'll use the Busybox container to get the default page served by the Nginx container.
+Let’s create multiple containers in a Pod using a YAML file. We'll use the Busybox container to get the default page
+served by the Nginx container.
 
 ## Create the pod
 

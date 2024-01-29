@@ -5,8 +5,8 @@ metadata:
 spec:
   secretName: tls-wildcard
   dnsNames:
-  - kubxr.com
-  - '*.kubxr.com'
+    - kubxr.com
+    - '*.kubxr.com'
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer

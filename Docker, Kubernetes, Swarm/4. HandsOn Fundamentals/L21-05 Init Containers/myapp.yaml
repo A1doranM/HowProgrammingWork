@@ -4,32 +4,32 @@ metadata:
   name: init-demo
 spec:
   containers:
-  - name: nginx
-    image: nginx
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 250m
-        memory: 256Mi  
-    ports:
-    - containerPort: 80
-    volumeMounts:
-    - name: workdir
-      mountPath: /usr/share/nginx/html
+    - name: nginx
+      image: nginx
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          cpu: 250m
+          memory: 256Mi
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - name: workdir
+          mountPath: /usr/share/nginx/html
   initContainers:
-  - name: install
-    image: busybox
-    command:
-    - wget
-    - "-O"
-    - "/work-dir/index.html"
-    - http://info.cern.ch
-    volumeMounts:
-    - name: workdir
-      mountPath: "/work-dir"
+    - name: install
+      image: busybox
+      command:
+        - wget
+        - "-O"
+        - "/work-dir/index.html"
+        - http://info.cern.ch
+      volumeMounts:
+        - name: workdir
+          mountPath: "/work-dir"
   volumes:
-  - name: workdir
-    emptyDir: {}
+    - name: workdir
+      emptyDir: { }
 

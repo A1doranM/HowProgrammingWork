@@ -4,7 +4,7 @@ Let's use the Horizontal Pod Autoscaler to scale a pod.
 
 ## Metrics Server
 
-Is the Metrics Server installed in your cluster?  Look for a pod called **metrics-server** in the kube-system namespace
+Is the Metrics Server installed in your cluster? Look for a pod called **metrics-server** in the kube-system namespace
 
     kubectl get po -n kube-system 
 
@@ -19,7 +19,6 @@ The YAML file was downloaded from the Metrics Server Git repo located here:
 The file was edited to include an extra parameter in the args section of the Deployment
 
     - --kubelet-insecure-tls
-
 
 ## Create the deployment
 

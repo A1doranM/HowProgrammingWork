@@ -15,10 +15,10 @@ spec:
         app: http-server-v1
     spec:
       containers:
-      - name: kuber-app
-        image: bakavets/kuber:v1.0
-        ports:
-        - containerPort: 8000
+        - name: kuber-app
+          image: bakavets/kuber:v1.0
+          ports:
+            - containerPort: 8000
 ---
 apiVersion: v1
 kind: Service

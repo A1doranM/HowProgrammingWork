@@ -15,31 +15,31 @@ spec:
         app: kuber-http-allprobes
     spec:
       containers:
-      - name: kuber-app
-        image: bakavets/kuber:v1.0
-        ports:
-        - containerPort: 8000
-        startupProbe:
-          exec:
-            command:
-            - cat
-            - /server.py
-          initialDelaySeconds: 10
-          failureThreshold: 30 # 30 * 10 = 300 + 10 = 310 sec
-          periodSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 8000
-          initialDelaySeconds: 10
-          periodSeconds: 5
-        livenessProbe:
-          exec:
-            command:
-            - cat
-            - /server-test.py
-          failureThreshold: 1
-          periodSeconds: 10
+        - name: kuber-app
+          image: bakavets/kuber:v1.0
+          ports:
+            - containerPort: 8000
+          startupProbe:
+            exec:
+              command:
+                - cat
+                - /server.py
+            initialDelaySeconds: 10
+            failureThreshold: 30 # 30 * 10 = 300 + 10 = 310 sec
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            exec:
+              command:
+                - cat
+                - /server-test.py
+            failureThreshold: 1
+            periodSeconds: 10
 ---
 apiVersion: v1
 kind: Service

@@ -15,8 +15,8 @@ spec:
         app: http-server-args
     spec:
       containers:
-      - name: kuber-app
-        image: bakavets/kuber:v1.0-args
-        args: ["1","7","Hello World!"]
-        ports:
-        - containerPort: 8000
+        - name: kuber-app
+          image: bakavets/kuber:v1.0-args
+          args: [ "1","7","Hello World!" ]
+          ports:
+            - containerPort: 8000

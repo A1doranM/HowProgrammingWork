@@ -8,10 +8,10 @@ metadata:
 spec:
   description: Project containing development environment services
   sourceRepos:
-  - '*'
+    - '*'
   destinations:
-  - namespace: '*'
-    server: '*'
+    - namespace: '*'
+      server: '*'
   clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
+    - group: '*'
+      kind: '*'

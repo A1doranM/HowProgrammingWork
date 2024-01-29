@@ -23,10 +23,10 @@ spec:
         app: http-server
     spec:
       containers:
-      - name: kuber-app
-        image: bakavets/kuber
-        ports:
-        - containerPort: 8000
+        - name: kuber-app
+          image: bakavets/kuber
+          ports:
+            - containerPort: 8000
 ---
 # https://cloud-provider-aws.sigs.k8s.io/service_controller/
 apiVersion: v1

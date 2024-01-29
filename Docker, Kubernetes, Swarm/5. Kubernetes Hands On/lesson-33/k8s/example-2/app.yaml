@@ -22,10 +22,10 @@ spec:
         app: http-server-2
     spec:
       containers:
-      - name: kuber-app
-        image: bakavets/kuber:v2.0
-        ports:
-        - containerPort: 8000
+        - name: kuber-app
+          image: bakavets/kuber:v2.0
+          ports:
+            - containerPort: 8000
 ---
 apiVersion: v1
 kind: Service
@@ -50,16 +50,16 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: instance
     alb.ingress.kubernetes.io/tags: Environment=Development,Team=DevOps,Project=app
-    external-dns.alpha.kubernetes.io/hostname: app-2.kubxr.com # For ingress objects ExternalDNS will create a DNS record based on the hosts specified for the ingress object, as well as the external-dns.alpha.kubernetes.io/hostname annotation. 
+    external-dns.alpha.kubernetes.io/hostname: app-2.kubxr.com # For ingress objects ExternalDNS will create a DNS record based on the hosts specified for the ingress object, as well as the external-dns.alpha.kubernetes.io/hostname annotation.
 spec:
   ingressClassName: alb
   rules:
-   - http:
-      paths:
-        - pathType: Prefix
-          path: /
-          backend:
-            service:
-              name: kuber-service-2
-              port: 
-                number: 80
+    - http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: kuber-service-2
+                port:
+                  number: 80

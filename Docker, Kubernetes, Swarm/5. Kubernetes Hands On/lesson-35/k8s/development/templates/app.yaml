@@ -7,9 +7,9 @@ metadata:
 spec:
   project: development
   source:
-    repoURL: {{ .Values.source.repoURL }}
-    targetRevision: {{ .Values.source.targetRevision }}
-    path: {{ .Values.source.path }}
+    repoURL: { { .Values.source.repoURL } }
+    targetRevision: { { .Values.source.targetRevision } }
+    path: { { .Values.source.path } }
     helm:
       values: |
         hosts:
@@ -20,12 +20,12 @@ spec:
           name: {{ .Values.clusterIssuer.name }}
 
   destination:
-    namespace: {{ .Values.namespace }}
-    server: {{ .Values.spec.destination.server }}
+    namespace: { { .Values.namespace } }
+    server: { { .Values.spec.destination.server } }
 
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true

@@ -9,7 +9,7 @@ Let's now use the Deployment template instead of the Pod template.
 ## Get the pods list
 
     kubectl get pods -o wide
-    
+
 ## Describe the pod
 
     kubectl describe pod deploy-example

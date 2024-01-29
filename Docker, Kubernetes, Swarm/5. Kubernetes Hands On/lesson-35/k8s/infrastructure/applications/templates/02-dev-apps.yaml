@@ -7,8 +7,8 @@ metadata:
 spec:
   project: development
   source:
-    repoURL: {{ .Values.source.repoURL }}
-    targetRevision: {{ .Values.source.targetRevision }}
+    repoURL: { { .Values.source.repoURL } }
+    targetRevision: { { .Values.source.targetRevision } }
     path: k8s/development
     helm:
       values: |

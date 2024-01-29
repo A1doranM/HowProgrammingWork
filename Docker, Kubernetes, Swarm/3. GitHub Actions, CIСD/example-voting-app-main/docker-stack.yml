@@ -23,7 +23,7 @@ services:
       - backend
     deploy:
       placement:
-        constraints: [node.role == manager]
+        constraints: [ node.role == manager ]
   vote:
     image: dockersamples/examplevotingapp_vote:before
     ports:
@@ -65,14 +65,14 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      labels: [APP=VOTING]
+      labels: [ APP=VOTING ]
       restart_policy:
         condition: on-failure
         delay: 10s
         max_attempts: 3
         window: 120s
       placement:
-        constraints: [node.role == manager]
+        constraints: [ node.role == manager ]
 
   visualizer:
     image: dockersamples/visualizer:stable
@@ -83,7 +83,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
     deploy:
       placement:
-        constraints: [node.role == manager]
+        constraints: [ node.role == manager ]
 
 networks:
   frontend:

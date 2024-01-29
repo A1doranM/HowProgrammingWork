@@ -17,8 +17,8 @@ spec:
       # imagePullSecrets:
       # - name: secret-docker-registry
       containers:
-      - name: kuber-app
-        image: bakavets/kuber-private
-        ports:
-        - containerPort: 8000
+        - name: kuber-app
+          image: bakavets/kuber-private
+          ports:
+            - containerPort: 8000
 

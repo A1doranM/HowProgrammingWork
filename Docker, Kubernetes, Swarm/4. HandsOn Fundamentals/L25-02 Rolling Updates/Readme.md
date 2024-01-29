@@ -1,6 +1,7 @@
 # L25-02
 
-**NOTE: If you are running this lab on a ARM64 laptop/PC, edit the YAML file and change the image name from "hello-app" to "hello-arm" keeping the tag name as is.**
+**NOTE: If you are running this lab on a ARM64 laptop/PC, edit the YAML file and change the image name from "hello-app"
+to "hello-arm" keeping the tag name as is.**
 
 ## Create a V1 Deployment
 
@@ -29,7 +30,7 @@ Do not delete the Deployment yet!
 ## Create a V2 Deployment
 
 Edit the YAML file and change the container version from 1.0 to 2.0. Save the file.
- 
+
 ## Create the Deployment
 
     kubectl apply -f hello-deployment.yaml
@@ -52,6 +53,7 @@ Edit the YAML file and change the container version from 1.0 to 2.0. Save the fi
 
 ---
  
+
 ## Rollback
 
 ## Undo the last deployment using either

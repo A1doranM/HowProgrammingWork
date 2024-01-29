@@ -10,7 +10,7 @@ services:
       - drupal-profiles:/var/www/html/profiles
       - drupal-sites:/var/www/html/sites
       - drupal-themes:/var/www/html/themes
- 
+
   postgres:
     environment:
       - POSTGRES_PASSWORD_FILE=/run/secrets/psql-pw

@@ -11,7 +11,9 @@ A simple distributed application running across multiple Docker containers.
 Getting started
 ---------------
 
-Download [Docker Desktop](https://www.docker.com/products/docker-desktop) for Mac or Windows. [Docker Compose](https://docs.docker.com/compose) will be automatically installed. On Linux, make sure you have the latest version of [Compose](https://docs.docker.com/compose/install/).
+Download [Docker Desktop](https://www.docker.com/products/docker-desktop) for Mac or
+Windows. [Docker Compose](https://docs.docker.com/compose) will be automatically installed. On Linux, make sure you have
+the latest version of [Compose](https://docs.docker.com/compose/install/).
 
 Linux Containers
 ----------------
@@ -24,9 +26,11 @@ Run in this directory:
 docker-compose up
 ```
 
-The app will be running at [http://localhost:5000](http://localhost:5000), and the results will be at [http://localhost:5001](http://localhost:5001).
+The app will be running at [http://localhost:5000](http://localhost:5000), and the results will be
+at [http://localhost:5001](http://localhost:5001).
 
-Alternately, if you want to run it on a [Docker Swarm](https://docs.docker.com/engine/swarm/), first make sure you have a swarm. If you don't, run:
+Alternately, if you want to run it on a [Docker Swarm](https://docs.docker.com/engine/swarm/), first make sure you have
+a swarm. If you don't, run:
 
 ```shell
 docker swarm init
@@ -64,7 +68,8 @@ service "vote" created
 deployment "worker" created
 ```
 
-The vote interface is then available on port 31000 on each host of the cluster, the result one is available on port 31001.
+The vote interface is then available on port 31000 on each host of the cluster, the result one is available on port
+31001.
 
 Architecture
 ------------
@@ -80,7 +85,8 @@ Architecture
 Notes
 -----
 
-The voting application only accepts one vote per client. It does not register votes if a vote has already been submitted from a client.
+The voting application only accepts one vote per client. It does not register votes if a vote has already been submitted
+from a client.
 
 This isn't an example of a properly architected perfectly designed distributed app... it's just a simple
 example of the various types of pieces and languages you might see (queues, persistent data, etc), and how to

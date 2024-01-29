@@ -5,13 +5,13 @@ services:
     build: ./vote
     command: python app.py
     volumes:
-     - ./vote:/app
+      - ./vote:/app
     ports:
       - "5000:80"
 
   redis:
     image: redis:alpine
-    ports: ["6379"]
+    ports: [ "6379" ]
 
   worker:
     build: ./worker

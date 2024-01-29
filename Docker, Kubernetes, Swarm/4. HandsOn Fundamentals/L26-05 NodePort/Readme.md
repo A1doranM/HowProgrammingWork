@@ -16,7 +16,8 @@ Let's expose a deployment using a Nodeport service.
 
 ## Use the nodeport
 
-Since we are using Docker Desktop and that the Docker Desktop node is mapped to localhost, to reach the service you need to use **localhost** + the **nodeport**.
+Since we are using Docker Desktop and that the Docker Desktop node is mapped to localhost, to reach the service you need
+to use **localhost** + the **nodeport**.
 
 When using a Cloud provider, you would need to get a node IP address instead of localhost.
 

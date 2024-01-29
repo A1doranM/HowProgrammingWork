@@ -9,7 +9,7 @@ services:
     command: python app.py
     depends_on:
       redis:
-        condition: service_healthy 
+        condition: service_healthy
     volumes:
       - ./vote:/app
     ports:
@@ -24,7 +24,7 @@ services:
     command: nodemon server.js
     depends_on:
       db:
-        condition: service_healthy 
+        condition: service_healthy
     volumes:
       - ./result:/app
     ports:
@@ -39,9 +39,9 @@ services:
       context: ./worker
     depends_on:
       redis:
-        condition: service_healthy 
+        condition: service_healthy
       db:
-        condition: service_healthy 
+        condition: service_healthy
     networks:
       - back-tier
 
@@ -52,7 +52,7 @@ services:
     healthcheck:
       test: /healthchecks/redis.sh
       interval: "5s"
-    ports: ["6379"]
+    ports: [ "6379" ]
     networks:
       - back-tier
 

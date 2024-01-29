@@ -5,22 +5,22 @@ metadata:
 spec:
   restartPolicy: Always
   containers:
-  - name: mybox
-    image: busybox
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 250m
-        memory: 256Mi    
-    command:
-      - sleep
-      - "3600"
-    env:
-      - name: CITY
-        valueFrom:
-          configMapKeyRef:
-            name: cm-example
-            key: city
+    - name: mybox
+      image: busybox
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          cpu: 250m
+          memory: 256Mi
+      command:
+        - sleep
+        - "3600"
+      env:
+        - name: CITY
+          valueFrom:
+            configMapKeyRef:
+              name: cm-example
+              key: city
 

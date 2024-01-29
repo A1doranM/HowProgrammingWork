@@ -12,10 +12,10 @@ spec:
       template:
         spec:
           containers:
-          - name: hello
-            image: busybox
-            args:
-            - /bin/sh
-            - -c
-            - date; echo "Hello World!"; sleep 8000
+            - name: hello
+              image: busybox
+              args:
+                - /bin/sh
+                - -c
+                - date; echo "Hello World!"; sleep 8000
           restartPolicy: Never

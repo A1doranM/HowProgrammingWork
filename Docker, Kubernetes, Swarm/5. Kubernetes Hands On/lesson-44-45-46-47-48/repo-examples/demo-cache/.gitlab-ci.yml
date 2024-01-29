@@ -9,7 +9,7 @@ job1:
     policy: pull-push
 
 job2:
-  needs: ["job1"]
+  needs: [ "job1" ]
   script:
     - ls -la
     - cat date.txt

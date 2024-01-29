@@ -79,7 +79,7 @@ spec:
       containers:
         - name: app
           image: centos
-          command: ["/bin/sh"]
+          command: [ "/bin/sh" ]
           args:
             [
               "-c",

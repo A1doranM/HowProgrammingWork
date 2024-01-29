@@ -31,4 +31,4 @@ spec:
               name: db-data
       volumes:
         - name: db-data
-          emptyDir: {} 
+          emptyDir: { }

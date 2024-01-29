@@ -12,13 +12,13 @@ loki:
   affinity:
     podAntiAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-      - labelSelector:
-          matchExpressions:
-          - key: app
-            operator: In
-            values:
-            - loki
-        topologyKey: topology.kubernetes.io/zone
+        - labelSelector:
+            matchExpressions:
+              - key: app
+                operator: In
+                values:
+                  - loki
+          topologyKey: topology.kubernetes.io/zone
 
   persistence:
     enabled: true
@@ -26,7 +26,7 @@ loki:
       - ReadWriteOnce
     size: 10Gi
     storageClassName: gp2
-  
+
   serviceAccount:
     create: true
     name: ${sa_name}

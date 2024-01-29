@@ -15,15 +15,15 @@ spec:
         app: http-server-1
     spec:
       containers:
-      - name: kuber-app
-        image: bakavets/kuber:v1.0
-        ports:
-        - containerPort: 8000
-        volumeMounts:
-        - name: secrets
-          mountPath: "/etc/secrets"
+        - name: kuber-app
+          image: bakavets/kuber:v1.0
+          ports:
+            - containerPort: 8000
+          volumeMounts:
+            - name: secrets
+              mountPath: "/etc/secrets"
       volumes:
-      - name: secrets
-        secret:
-          secretName: secret-data
-          defaultMode: 0400
+        - name: secrets
+          secret:
+            secretName: secret-data
+            defaultMode: 0400

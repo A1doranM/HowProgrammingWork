@@ -19,8 +19,8 @@ spec:
         app: hello-dep
     spec:
       containers:
-      - image: gcr.io/google-samples/hello-app:1.0
-        imagePullPolicy: Always
-        name: hello-dep
-        ports:
-        - containerPort: 8080
+        - image: gcr.io/google-samples/hello-app:1.0
+          imagePullPolicy: Always
+          name: hello-dep
+          ports:
+            - containerPort: 8080

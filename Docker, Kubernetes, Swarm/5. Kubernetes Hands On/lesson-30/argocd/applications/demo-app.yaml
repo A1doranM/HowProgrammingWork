@@ -16,15 +16,15 @@ spec:
     helm:
       # Extra parameters to set (same as setting through values.yaml, but these take precedence)
       parameters:
-      - name: "service.port"
-        value: "8082"
+        - name: "service.port"
+          value: "8082"
       # - name: "replicaCount"
       #   value: "4"
 
       # Helm values files for overriding values in the helm chart
       # The path is relative to the spec.source.path directory defined above
       valueFiles:
-      - values-dev.yaml
+        - values-dev.yaml
 
       # Values file as block file
       values: |
@@ -46,4 +46,4 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true

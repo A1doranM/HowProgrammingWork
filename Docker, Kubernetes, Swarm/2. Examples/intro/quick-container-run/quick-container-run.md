@@ -4,7 +4,9 @@
 
 A quick way to start a container before we get into the details.
 
-You'll want Docker installed on your local machine, but before we get into all the configuration details, let's just run a simple container. Docker runs a web-based playground where you can learn the Docker command-line to get started.  It's called Play With Docker, or PWD for short.
+You'll want Docker installed on your local machine, but before we get into all the configuration details, let's just run
+a simple container. Docker runs a web-based playground where you can learn the Docker command-line to get started. It's
+called Play With Docker, or PWD for short.
 
 You'll first need a Docker account to access PWD (this is really just a way to prevent abuse of this free service.)
 
@@ -16,9 +18,12 @@ Once you have that username and password, we can log into PWD and start a contai
 
 Go to: [labs.play-with-docker.com](https://labs.play-with-docker.com/) and log in.
 
-> Note: Sometimes PWD can be busy. If you get an error after login, you might try refreshing the browser or retrying in a few minutes. If PWD continues to have issues, you can just read through this lecture as we'll cover all these commands again on your local machine once you've installed Docker.
+> Note: Sometimes PWD can be busy. If you get an error after login, you might try refreshing the browser or retrying in
+> a few minutes. If PWD continues to have issues, you can just read through this lecture as we'll cover all these commands
+> again on your local machine once you've installed Docker.
 
-Once you're in a new session (with the countdown timer at the top), click `Add New Instance` to create a new shell that has access to the Docker CLI and Docker Engine (daemon).
+Once you're in a new session (with the countdown timer at the top), click `Add New Instance` to create a new shell that
+has access to the Docker CLI and Docker Engine (daemon).
 
 ![Add new PWD instance](images/pwd-add-new-instance.png)
 
@@ -61,7 +66,10 @@ Server: Docker Engine - Community
   GitCommit:        de40ad0
 ```
 
-We'll get back two sets of versions, one for the "Client", which is the command-line binary we just ran, and one for the "Server", which is the Docker Engine background daemon that our Client talks to over the Docker API. In this case, the Docker Engine is running on the same machine as our Client, but it could also be running on a different machine, and we talk to it over Sockets, TCP, or SSH.
+We'll get back two sets of versions, one for the "Client", which is the command-line binary we just ran, and one for
+the "Server", which is the Docker Engine background daemon that our Client talks to over the Docker API. In this case,
+the Docker Engine is running on the same machine as our Client, but it could also be running on a different machine, and
+we talk to it over Sockets, TCP, or SSH.
 
 ![Docker Client and Server](images/docker-client-server.excalidraw.png)
 
@@ -91,15 +99,20 @@ We now have the latest version of an Apache Web Server running in a container!
 But wait, so much happened in the background that you might have missed it, so let's go step-by-step:
 
 1. The Docker Client tells our Docker Engine to:
-   1. `run` the `httpd` image in a new container.
-   2. `-d` run it in the background (detached).
-   3. `-p 8800:80` Open port 8800 on our host IP and forward traffic into the containers port 80.
-2. Docker Engine didn't see us specify a version of Apache, so it assumes `latest`, similar to how other package managers default to the latest version.
+    1. `run` the `httpd` image in a new container.
+    2. `-d` run it in the background (detached).
+    3. `-p 8800:80` Open port 8800 on our host IP and forward traffic into the containers port 80.
+2. Docker Engine didn't see us specify a version of Apache, so it assumes `latest`, similar to how other package
+   managers default to the latest version.
 3. Docker Engine can't find a cached image locally called `httpd:latest`, so it downloads it from Docker Hub first.
 4. Docker Engine creates a new container from the `httpd:latest` image.
-5. Docker Engine creates a new virtual ethernet interface on the host and connects it to the container. This `veth` is connected to Docker's default network, which is [NATed](https://en.wikipedia.org/wiki/Network_address_translation) behind the host NIC.
-6. Docker Engine assigns a unique IP to the container, which is a private subnet that docker controls. By default it routes through the host IP to access the real network gateway and internet.
-7. Docker Engine asks the host to open port 8800 on our host IP (and localhost) and forward that traffic into the container IP on port 80, which is where Apache listens by default.
+5. Docker Engine creates a new virtual ethernet interface on the host and connects it to the container. This `veth` is
+   connected to Docker's default network, which is [NATed](https://en.wikipedia.org/wiki/Network_address_translation)
+   behind the host NIC.
+6. Docker Engine assigns a unique IP to the container, which is a private subnet that docker controls. By default it
+   routes through the host IP to access the real network gateway and internet.
+7. Docker Engine asks the host to open port 8800 on our host IP (and localhost) and forward that traffic into the
+   container IP on port 80, which is where Apache listens by default.
 8. Docker Engine starts the container process `httpd`.
 9. Docker Engine returns a unique container ID to the client.
 
@@ -122,9 +135,12 @@ CONTAINER ID   IMAGE     COMMAND              CREATED          STATUS          P
 049c7a9c9f56   httpd     "httpd-foreground"   24 minutes ago   Up 24 minutes   0.0.0.0:8800->80/tcp   upbeat_mclean
 ```
 
-Now, because that container is fully isolated, we can run many copies of Apache on the same machine and they won't interfere with each other.
+Now, because that container is fully isolated, we can run many copies of Apache on the same machine and they won't
+interfere with each other.
 
-> Note: Remember that just like any process that listens on a IP port, that two processes can never listen on the same IP:PORT combination at the same time, so we do have to change the *published* port so that our host doesn't give us an error of "port already in use".
+> Note: Remember that just like any process that listens on a IP port, that two processes can never listen on the same
+> IP:PORT combination at the same time, so we do have to change the *published* port so that our host doesn't give us an
+> error of "port already in use".
 
 ## Run a second container from the same image
 
@@ -136,7 +152,8 @@ Let's run a second Apache container that's listening on port 8801.
 daf459a2c121b4d6007f9779d0563368564a4c50632e888afc0de59c192db065
 ```
 
-This time, Docker knew we already had the image cached, so it did all the startup steps as before, except using the existing cached image.
+This time, Docker knew we already had the image cached, so it did all the startup steps as before, except using the
+existing cached image.
 
 We should now see two containers running:
 
@@ -148,19 +165,27 @@ daf459a2c121   httpd     "httpd-foreground"   About a minute ago   Up About a mi
 049c7a9c9f56   httpd     "httpd-foreground"   31 minutes ago       Up 31 minutes       0.0.0.0:8800->80/tcp   upbeat_mclean
 ```
 
-> Note: docker has many CLI aliases to keep it backwards compatible and friendly. You could also type `docker container ls` to get the same result.
+> Note: docker has many CLI aliases to keep it backwards compatible and friendly. You could also
+> type `docker container ls` to get the same result.
 
-These two Apache containers share nothing in common except the image and the host IP they are "published" to. The two containers can have their own Apache running on port 80 at the same time, because each container gets a virtual ethernet interface, or `veth`. The `-p` tells the Linux host's `iptables` to route the traffic from `host-ip:8800` and `host-ip:8801` to the respective container's `container-ip:80`.
+These two Apache containers share nothing in common except the image and the host IP they are "published" to. The two
+containers can have their own Apache running on port 80 at the same time, because each container gets a virtual ethernet
+interface, or `veth`. The `-p` tells the Linux host's `iptables` to route the traffic from `host-ip:8800`
+and `host-ip:8801` to the respective container's `container-ip:80`.
 
 ![Two Apache containers](images/pwd-two-httpd.excalidraw.png)
 
-From here we can run many more containers, we can use `docker logs <id>` to see the output of each container, and we can use `docker exec <id>` to run additional commands inside the container.
+From here we can run many more containers, we can use `docker logs <id>` to see the output of each container, and we can
+use `docker exec <id>` to run additional commands inside the container.
 
-We can even run different versions of the same application by adding a version, so you could do the same thing with `httpd:2.4.52` and it'll download that image as well.
+We can even run different versions of the same application by adding a version, so you could do the same thing
+with `httpd:2.4.52` and it'll download that image as well.
 
-This command also operates the same on any system you run it from, including different OSs (Linux, macOS, Windows) and platforms (x86_64, arm64, i386, etc.)
+This command also operates the same on any system you run it from, including different OSs (Linux, macOS, Windows) and
+platforms (x86_64, arm64, i386, etc.)
 
-You'll learn a lot more commands and features throughout this course, but hopefully you're already seeing some of the benefits of running software this way.
+You'll learn a lot more commands and features throughout this course, but hopefully you're already seeing some of the
+benefits of running software this way.
 
 > Nav: [Back to Intro Lectures](../README.md)
 

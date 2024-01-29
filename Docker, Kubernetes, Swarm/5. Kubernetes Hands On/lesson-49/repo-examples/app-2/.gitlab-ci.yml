@@ -22,7 +22,7 @@ kaniko:
     KANIKO_IMAGE_DIGEST_NAME: kaniko_image_digest.txt
   image:
     name: gcr.io/kaniko-project/executor:v1.16.0-debug
-    entrypoint: [""]
+    entrypoint: [ "" ]
   before_script:
     - |
       if [ -z $VERSION ]; then

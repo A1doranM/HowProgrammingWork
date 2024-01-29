@@ -4,7 +4,7 @@
 
 ![img.png](img.png)
 
-Mapping a Volume to container 
+Mapping a Volume to container
 
 ![img_1.png](img_1.png)
 
@@ -59,7 +59,7 @@ Mapping a Volume to container
     docker container inspect mysql3
     
     docker volume create --help
-    
+
 ## Persistent Data: Bind Mounting
 
     cd dockerfile-sample-2
@@ -71,7 +71,7 @@ Mapping a Volume to container
     docker container run -d --name nginx2 -p 8080:80 nginx
     
     docker container exec -it nginx bash
-    
+
 ## Assignment Answers: Edit Code Running In Containers With Bind Mounts
 
     docker run -p 80:4000 -v $(pwd):/site bretfisher/jekyll-serve

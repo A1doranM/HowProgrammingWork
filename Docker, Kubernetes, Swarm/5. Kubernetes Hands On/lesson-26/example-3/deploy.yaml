@@ -15,31 +15,31 @@ spec:
         app: http-server-2
     spec:
       containers:
-      - name: kuber-app
-        image: bakavets/kuber:v1.0-args
-        args: ["$(INTERVAL)","$(COUNT)","$(TEXT_ARG)"]
-        ports:
-        - containerPort: 8000
-        env:
-          - name: INTERVAL
-            valueFrom:
-              configMapKeyRef:
-                name: demo-cm
-                key: interval
-          - name: COUNT
-            valueFrom:
-              configMapKeyRef:
-                name: demo-cm
-                key: count
-          - name: TEXT_ARG
-            valueFrom:
-              configMapKeyRef:
-                name: demo-cm
-                key: properties
-        volumeMounts:
-        - name: config
-          mountPath: "/config"
-          readOnly: true
+        - name: kuber-app
+          image: bakavets/kuber:v1.0-args
+          args: [ "$(INTERVAL)","$(COUNT)","$(TEXT_ARG)" ]
+          ports:
+            - containerPort: 8000
+          env:
+            - name: INTERVAL
+              valueFrom:
+                configMapKeyRef:
+                  name: demo-cm
+                  key: interval
+            - name: COUNT
+              valueFrom:
+                configMapKeyRef:
+                  name: demo-cm
+                  key: count
+            - name: TEXT_ARG
+              valueFrom:
+                configMapKeyRef:
+                  name: demo-cm
+                  key: properties
+          volumeMounts:
+            - name: config
+              mountPath: "/config"
+              readOnly: true
       volumes:
         # You set volumes at the Pod level, then mount them into containers inside that Pod
         - name: config
@@ -48,7 +48,7 @@ spec:
             name: demo-cm
             # An array of keys from the ConfigMap to create as files
             items:
-            - key: "properties"
-              path: "properties"
-            - key: "config.ini"
-              path: "config.ini"
+              - key: "properties"
+                path: "properties"
+              - key: "config.ini"
+                path: "config.ini"

@@ -8,17 +8,17 @@ spec:
     - name: nginx-container
       image: nginx
       volumeMounts:
-      - name: shared-data
-        mountPath: /usr/share/nginx/html
-        readOnly: true
+        - name: shared-data
+          mountPath: /usr/share/nginx/html
+          readOnly: true
     - name: debian-container
       image: debian
       volumeMounts:
-      - name: shared-data
-        mountPath: /pod-data
-      command: ["/bin/sh"]
-      args: ["-c", "while true; do echo Hello from the debian container date: $(date)> /pod-data/index.html; sleep 1; done"]
+        - name: shared-data
+          mountPath: /pod-data
+      command: [ "/bin/sh" ]
+      args: [ "-c", "while true; do echo Hello from the debian container date: $(date)> /pod-data/index.html; sleep 1; done" ]
   volumes:
-  - name: shared-data
-    emptyDir: # {}
-       medium: Memory
+    - name: shared-data
+      emptyDir: # {}
+        medium: Memory

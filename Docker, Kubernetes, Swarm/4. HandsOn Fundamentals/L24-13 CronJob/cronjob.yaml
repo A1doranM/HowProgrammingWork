@@ -9,7 +9,7 @@ spec:
       template:
         spec:
           containers:
-          - name: busybox
-            image: busybox
-            command: ["echo", "Hello from the CronJob"]
+            - name: busybox
+              image: busybox
+              command: [ "echo", "Hello from the CronJob" ]
           restartPolicy: Never

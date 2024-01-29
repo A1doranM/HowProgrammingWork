@@ -13,7 +13,8 @@ Get a list of all the installed pods.
 
     kubectl get pods
 
-You get the pods from the default namespace.  Try getting the pods from the docker namespace.  You will get a different list.
+You get the pods from the default namespace. Try getting the pods from the docker namespace. You will get a different
+list.
 
     kubectl get pods --namespace=kube-system
     kubectl get pods -n kube-system

@@ -16,14 +16,14 @@ spec:
         env: prod
     spec:
       containers:
-      - name: nginx
-        image: nginx:alpine
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi        
-        ports:
-        - containerPort: 80
+        - name: nginx
+          image: nginx:alpine
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          ports:
+            - containerPort: 80

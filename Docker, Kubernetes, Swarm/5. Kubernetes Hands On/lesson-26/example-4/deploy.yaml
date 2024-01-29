@@ -15,12 +15,12 @@ spec:
         app: http-server-2
     spec:
       containers:
-      - name: kuber-app
-        image: bakavets/kuber:v1.0-args
-        args: ["$(INTERVAL)","$(COUNT)","$(TEXT_ARG)"]
-        ports:
-        - containerPort: 8000
-        envFrom:
-        - # prefix: CONFIG_
-          configMapRef:
-            name: demo-cm
+        - name: kuber-app
+          image: bakavets/kuber:v1.0-args
+          args: [ "$(INTERVAL)","$(COUNT)","$(TEXT_ARG)" ]
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - # prefix: CONFIG_
+              configMapRef:
+                name: demo-cm

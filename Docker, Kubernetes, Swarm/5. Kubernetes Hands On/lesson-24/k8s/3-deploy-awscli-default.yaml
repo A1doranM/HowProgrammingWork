@@ -6,13 +6,13 @@ spec:
   selector:
     matchLabels:
       app: aws-cli
-  replicas: 1 
+  replicas: 1
   template:
     metadata:
       labels:
         app: aws-cli
     spec:
       containers:
-      - name: aws-cli
-        image: amazon/aws-cli
-        command: ["/bin/sh", "-c", "sleep 100000000"]
+        - name: aws-cli
+          image: amazon/aws-cli
+          command: [ "/bin/sh", "-c", "sleep 100000000" ]

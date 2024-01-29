@@ -32,14 +32,14 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-#NEW: (START) ############################################################
+      #NEW: (START) ############################################################
       - name: Login to ghcr.io registry
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Build and Push to GHCR
         uses: docker/build-push-action@v4
         with:
@@ -57,7 +57,7 @@ jobs:
             --agents 1
             --no-lb
             --k3s-arg "--no-deploy=traefik,servicelb,metrics-server@server:*"
-      
+
       - name: Smoke test deployment in k3d Kubernetes
         run: |
           kubectl create secret docker-registry regcred \
@@ -68,7 +68,7 @@ jobs:
           envsubst < manifests/deployment.yaml  | kubectl apply -f -
           kubectl rollout status deployment myapp
           kubectl exec deploy/myapp -- curl --fail localhost
-#NEW: (END) ############################################################  
+      #NEW: (END) ############################################################
 
       - name: Docker Metadata for Final Image Build
         id: docker_meta
@@ -84,7 +84,7 @@ jobs:
           # type=ref,event=pr
           # type=ref,event=branch
           # type=semver,pattern={{version}}
-      
+
       - name: Docker Build and Push to Docker Hub
         uses: docker/build-push-action@v4
         with:

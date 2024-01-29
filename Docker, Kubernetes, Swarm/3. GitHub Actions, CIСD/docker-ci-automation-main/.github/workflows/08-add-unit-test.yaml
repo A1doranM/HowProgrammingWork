@@ -26,7 +26,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-#NEW: (START) ##########################################################
+      #NEW: (START) ##########################################################
       - name: Build and export to Docker
         uses: docker/build-push-action@v4
         with:
@@ -42,7 +42,7 @@ jobs:
       - name: Unit Testing in Docker
         run: |
           docker run --rm ${{ github.run_id }} echo "run test commands here"
-#NEW: (END) ############################################################
+      #NEW: (END) ############################################################
 
       - name: Docker Metadata for Final Image Build
         id: docker_meta
@@ -58,7 +58,7 @@ jobs:
           # type=ref,event=pr
           # type=ref,event=branch
           # type=semver,pattern={{version}}
-      
+
       - name: Docker Build and Push to Docker Hub
         uses: docker/build-push-action@v4
         with:

@@ -7,28 +7,28 @@ metadata:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   tls:
-  - hosts:
-    - app-1.bakavets.com
-    - app-2.bakavets.com
-    secretName: app-tls
+    - hosts:
+        - app-1.bakavets.com
+        - app-2.bakavets.com
+      secretName: app-tls
   rules:
-   - host: app-1.bakavets.com
-     http:
+    - host: app-1.bakavets.com
+      http:
         paths:
           - pathType: Prefix
             path: /
             backend:
               service:
                 name: kuber-service-1
-                port: 
+                port:
                   number: 80
-   - host: app-2.bakavets.com
-     http:
+    - host: app-2.bakavets.com
+      http:
         paths:
           - pathType: Prefix
             path: /
             backend:
               service:
                 name: kuber-service-2
-                port: 
+                port:
                   number: 80

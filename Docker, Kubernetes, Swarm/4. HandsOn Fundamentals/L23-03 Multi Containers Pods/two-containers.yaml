@@ -5,28 +5,28 @@ metadata:
 spec:
   restartPolicy: Always
   containers:
-  - name: mynginx
-    image: nginx
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 250m
-        memory: 256Mi    
-    ports:
-      - containerPort: 80
-  - name: mybox
-    image: busybox
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 250m
-        memory: 256Mi    
-    ports:
-      - containerPort: 81
-    command:
-      - sleep
-      - "3600"
+    - name: mynginx
+      image: nginx
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          cpu: 250m
+          memory: 256Mi
+      ports:
+        - containerPort: 80
+    - name: mybox
+      image: busybox
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          cpu: 250m
+          memory: 256Mi
+      ports:
+        - containerPort: 81
+      command:
+        - sleep
+        - "3600"

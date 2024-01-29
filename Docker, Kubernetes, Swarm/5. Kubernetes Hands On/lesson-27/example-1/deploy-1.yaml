@@ -15,10 +15,10 @@ spec:
         app: http-server-1
     spec:
       containers:
-      - name: kuber-app
-        image: bakavets/kuber:v1.0
-        ports:
-        - containerPort: 8000
-        envFrom:
-        - secretRef:
-            name: secret-data
+        - name: kuber-app
+          image: bakavets/kuber:v1.0
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - secretRef:
+                name: secret-data

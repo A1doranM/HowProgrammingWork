@@ -18,7 +18,6 @@ macOS (if you have Brew installed):
 
 Linux: see https://k9scli.io/topics/install/
 
-
 ## Create a deployment and watch what's happening in the Dashboard
 
     kubectl create -f hello-deployment.yaml
@@ -31,7 +30,8 @@ Watch what's happening in K9s
 
 ## Delete a pod
 
-Select one of the pods and delete it by typing **Ctrl-k**.  You'll notice that the pod will be replaced almost immediately.
+Select one of the pods and delete it by typing **Ctrl-k**. You'll notice that the pod will be replaced almost
+immediately.
 
 ## Cleanup
 

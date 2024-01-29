@@ -4,7 +4,7 @@
 
 ![img.png](img.png)
 
-Add memory and CPU limits for container 
+Add memory and CPU limits for container
 
 ![img_1.png](img_1.png)
 

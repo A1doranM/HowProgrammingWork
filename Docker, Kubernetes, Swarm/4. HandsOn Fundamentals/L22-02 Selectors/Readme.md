@@ -10,11 +10,11 @@
 
 ## Is the service connected to the pod?
 
-If so, the enpoint will point to the pod IP address.  Get the IP address of the pod:
+If so, the enpoint will point to the pod IP address. Get the IP address of the pod:
 
     kubectl get po -o wide
 
-Then get the service endpoint.  The IP address should match.
+Then get the service endpoint. The IP address should match.
 
     kubectl get ep myservice
 

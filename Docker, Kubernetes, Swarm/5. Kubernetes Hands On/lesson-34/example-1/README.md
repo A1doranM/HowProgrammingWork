@@ -17,10 +17,13 @@ CACERT=${SERVICEACCOUNT}/ca.crt
 # Explore the API with TOKEN
 curl --cacert ${CACERT} --header "Authorization: Bearer ${TOKEN}" -X GET ${APISERVER}/api
 ```
+
 ---
+
 ```
 curl --cacert ${CACERT} --header "Authorization: Bearer ${TOKEN}" -X GET ${APISERVER}/apis/apps/v1/namespaces/${NAMESPACE}/deployments
 ```
+
 ```
 curl -s --retry 3 --retry-delay 3 \
     --cacert ${CACERT} \
@@ -30,7 +33,9 @@ curl -s --retry 3 --retry-delay 3 \
     --data '{"spec":{"replicas":3}}' \
     ${APISERVER}/apis/apps/v1/namespaces/${NAMESPACE}/deployments/nginx-deployment
 ```
+
 ---
+
 ```
 kubectl cluster-info
 kubectl config set-cluster demo-cluster --server=https://kubernetes.default --certificate-authority=ca.crt
@@ -39,7 +44,9 @@ kubectl config set-credentials demo-user --token={token}
 kubectl config set-context demo-context --user=demo-user
 kubectl config use-context demo-context
 ```
+
 ---
+
 ```
 curl --cacert ${CACERT} --header "Authorization: Bearer ${TOKEN}" -X GET ${APISERVER}/api/v1/namespaces/${NAMESPACE}/services
 

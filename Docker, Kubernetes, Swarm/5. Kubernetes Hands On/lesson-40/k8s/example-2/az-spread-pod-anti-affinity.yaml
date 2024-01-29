@@ -31,10 +31,10 @@ spec:
                       - app-worker
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - http-server
-            topologyKey: topology.kubernetes.io/zone
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - http-server
+              topologyKey: topology.kubernetes.io/zone

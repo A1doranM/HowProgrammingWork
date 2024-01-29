@@ -7,6 +7,7 @@ kubectl create configmap nginx-config --from-file=nginx.conf
 ## Create ConfigMaps from literal values
 
 You can use kubectl create configmap with the --from-literal argument to define a literal value from the command line:
+
 ```bash
 kubectl create configmap config --from-literal=interval=7 --from-literal=count=3 --from-literal=config.ini="Hello from ConfigMap"
 ```

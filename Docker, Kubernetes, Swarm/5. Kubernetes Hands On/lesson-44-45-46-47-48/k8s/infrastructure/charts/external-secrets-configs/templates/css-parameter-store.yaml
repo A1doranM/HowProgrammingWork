@@ -6,9 +6,9 @@ spec:
   provider:
     aws:
       service: ParameterStore
-      region: {{ .Values.aws.region }}
+      region: { { .Values.aws.region } }
       auth:
         jwt:
           serviceAccountRef:
-            name: {{ .Values.serviceAccountRef.name }}
-            namespace: {{ .Values.serviceAccountRef.namespace }}
+            name: { { .Values.serviceAccountRef.name } }
+            namespace: { { .Values.serviceAccountRef.namespace } }

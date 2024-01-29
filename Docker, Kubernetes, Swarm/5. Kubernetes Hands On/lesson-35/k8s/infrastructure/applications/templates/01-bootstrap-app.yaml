@@ -7,7 +7,7 @@ metadata:
 spec:
   project: infrastructure
   source:
-    repoURL: {{ .Values.source.repoURL }}
+    repoURL: { { .Values.source.repoURL } }
     targetRevision: main
     path: k8s/infrastructure/charts/bootstrap-app
     helm:

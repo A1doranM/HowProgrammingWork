@@ -1,4 +1,4 @@
-{{ if .Values.certManager.enabled }}
+{ { if .Values.certManager.enabled } }
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -11,7 +11,7 @@ spec:
   project: infrastructure
   source:
     repoURL: https://charts.jetstack.io
-    targetRevision: {{ .Values.certManager.version }}
+    targetRevision: { { .Values.certManager.version } }
     chart: cert-manager
     helm:
       values: |
@@ -23,13 +23,13 @@ spec:
         installCRDs: true
 
   destination:
-    namespace: {{ .Values.certManager.namespace }}
-    server: {{ .Values.spec.destination.server }}
+    namespace: { { .Values.certManager.namespace } }
+    server: { { .Values.spec.destination.server } }
 
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
-    - CreateNamespace=true
-{{ end }}
+      - CreateNamespace=true
+  { { end } }

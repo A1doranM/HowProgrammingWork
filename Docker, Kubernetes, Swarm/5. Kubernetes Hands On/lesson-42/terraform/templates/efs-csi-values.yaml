@@ -1,4 +1,4 @@
-controller:  
+controller:
   serviceAccount:
     create: true
     name: ${sa_name}

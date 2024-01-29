@@ -5,7 +5,7 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: ssd 
+  storageClassName: ssd
   capacity:
     storage: 10Mi
   volumeMode: Filesystem

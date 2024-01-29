@@ -8,8 +8,8 @@ spec:
   template:
     spec:
       containers:
-      - name: job-with-failure
-        image: busybox
-        command: ["/bin/sh", "-c"]
-        args: ["echo 'Running Job'; sleep 5; exit 1"]
+        - name: job-with-failure
+          image: busybox
+          command: [ "/bin/sh", "-c" ]
+          args: [ "echo 'Running Job'; sleep 5; exit 1" ]
       restartPolicy: Never

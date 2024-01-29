@@ -19,15 +19,15 @@ spec:
         app: hello-dep
     spec:
       containers:
-      - image: guybarrette/hello-app:1.0
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi      
-        imagePullPolicy: Always
-        name: hello-dep
-        ports:
-        - containerPort: 8080
+        - image: guybarrette/hello-app:1.0
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          imagePullPolicy: Always
+          name: hello-dep
+          ports:
+            - containerPort: 8080

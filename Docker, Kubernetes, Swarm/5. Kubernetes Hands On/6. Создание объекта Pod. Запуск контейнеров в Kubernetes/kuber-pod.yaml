@@ -4,7 +4,7 @@ metadata:
   name: app-kuber-1
 spec:
   containers:
-  - name: app-kuber-container
-    image: bakavets/kuber:latest
-    ports:
-    - containerPort: 8000
+    - name: app-kuber-container
+      image: bakavets/kuber:latest
+      ports:
+        - containerPort: 8000

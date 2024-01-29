@@ -19,7 +19,7 @@ const server = app.listen(port, function() {
 process.on("SIGINT", function onSigint() {
   console.info(
     "Got SIGINT (aka ctrl-c in docker). Graceful shutdown ",
-    new Date().toISOString()
+    new Date().toISOString(),
   );
   shutdown();
 });
@@ -28,7 +28,7 @@ process.on("SIGINT", function onSigint() {
 process.on("SIGTERM", function onSigterm() {
   console.info(
     "Got SIGTERM (docker container stop). Graceful shutdown ",
-    new Date().toISOString()
+    new Date().toISOString(),
   );
   shutdown();
 });
@@ -43,6 +43,7 @@ function shutdown() {
     process.exit(0);
   });
 }
+
 //
 // need above in docker container to properly exit
 //

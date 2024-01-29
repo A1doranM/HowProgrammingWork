@@ -10,7 +10,6 @@
 
 When the app will run, launch the voting app in your browser http://localhost:5000
 
-
 ## List the containers
 
     docker compose ps
@@ -18,7 +17,6 @@ When the app will run, launch the voting app in your browser http://localhost:50
 ## Look at the db container logs
 
     docker compose logs -f web-fe
-
 
 ## Compose V2 commands
 

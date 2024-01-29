@@ -4,7 +4,7 @@ This time, we'll containerize an .NET Core app.
 
 ## Generate the project
 
-The project is already located in the lab's folder.  It was created using this command:
+The project is already located in the lab's folder. It was created using this command:
 
     dotnet new webapp
 

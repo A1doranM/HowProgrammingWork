@@ -1,4 +1,3 @@
-
 ## Kubectl run, create and apply
 
     kubectl run
