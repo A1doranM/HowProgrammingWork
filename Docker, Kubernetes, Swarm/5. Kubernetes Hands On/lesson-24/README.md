@@ -1,1 +1,0 @@
-# How to associate AWS IAM roles to Kubernetes service accounts in AWS EKS
