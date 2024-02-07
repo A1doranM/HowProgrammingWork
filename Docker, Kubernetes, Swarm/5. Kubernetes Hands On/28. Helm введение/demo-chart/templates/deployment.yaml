@@ -1,44 +1,44 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "demo-chart.fullname" . }}
+  name: { { include "demo-chart.fullname" . } }
   labels:
-    {{- include "demo-chart.labels" . | nindent 4 }}
+    { { - include "demo-chart.labels" . | nindent 4 } }
 spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
-  {{- end }}
+  { { - if not .Values.autoscaling.enabled } }
+  replicas: { { .Values.replicaCount } }
+  { { - end } }
   selector:
     matchLabels:
-      {{- include "demo-chart.selectorLabels" . | nindent 6 }}
+      { { - include "demo-chart.selectorLabels" . | nindent 6 } }
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
+      { { - with .Values.podAnnotations } }
       annotations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        { { - toYaml . | nindent 8 } }
+      { { - end } }
       labels:
-        {{- include "demo-chart.labels" . | nindent 8 }}
-        {{- with .Values.podLabels }}
-        {{- toYaml . | nindent 8 }}
-        {{- end }}
+        { { - include "demo-chart.labels" . | nindent 8 } }
+          { { - with .Values.podLabels } }
+          { { - toYaml . | nindent 8 } }
+          { { - end } }
     spec:
-      {{- with .Values.imagePullSecrets }}
+      { { - with .Values.imagePullSecrets } }
       imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      serviceAccountName: {{ include "demo-chart.serviceAccountName" . }}
+        { { - toYaml . | nindent 8 } }
+      { { - end } }
+      serviceAccountName: { { include "demo-chart.serviceAccountName" . } }
       securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+        { { - toYaml .Values.podSecurityContext | nindent 8 } }
       containers:
-        - name: {{ .Chart.Name }}
+        - name: { { .Chart.Name } }
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
+            { { - toYaml .Values.securityContext | nindent 12 } }
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: { { .Values.image.pullPolicy } }
           ports:
             - name: http
-              containerPort: {{ .Values.service.port }}
+              containerPort: { { .Values.service.port } }
               protocol: TCP
           livenessProbe:
             httpGet:
@@ -49,24 +49,24 @@ spec:
               path: /
               port: http
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
-          {{- with .Values.volumeMounts }}
+            { { - toYaml .Values.resources | nindent 12 } }
+          { { - with .Values.volumeMounts } }
           volumeMounts:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
-      {{- with .Values.volumes }}
+            { { - toYaml . | nindent 12 } }
+          { { - end } }
+      { { - with .Values.volumes } }
       volumes:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.nodeSelector }}
+        { { - toYaml . | nindent 8 } }
+      { { - end } }
+      { { - with .Values.nodeSelector } }
       nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.affinity }}
+        { { - toYaml . | nindent 8 } }
+      { { - end } }
+      { { - with .Values.affinity } }
       affinity:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.tolerations }}
+        { { - toYaml . | nindent 8 } }
+      { { - end } }
+      { { - with .Values.tolerations } }
       tolerations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        { { - toYaml . | nindent 8 } }
+      { { - end } }
