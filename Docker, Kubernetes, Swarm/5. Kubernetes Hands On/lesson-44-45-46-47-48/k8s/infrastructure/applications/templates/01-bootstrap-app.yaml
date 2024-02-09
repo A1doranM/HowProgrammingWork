@@ -16,7 +16,7 @@ spec:
 
         aws:
           region: {{ .Values.aws.region }}
-        
+
         certManager:
           enabled: true
           version: v1.9.1

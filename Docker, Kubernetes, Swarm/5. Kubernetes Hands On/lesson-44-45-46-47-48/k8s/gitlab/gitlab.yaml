@@ -44,7 +44,7 @@ spec:
 
         # https://gitlab.com/gitlab-org/charts/gitlab/-/issues/2979#note_732297487
         upgradeCheck:
-          # for a fresh install disable it one time after a successful installation enable it again. 
+          # for a fresh install disable it one time after a successful installation enable it again.
           enabled: false
 
         global:
@@ -90,15 +90,15 @@ spec:
               key: POSTGRES_PASSWORD
 
           redis:
-        
+
             # https://docs.gitlab.com/ee/administration/redis/troubleshooting.html#troubleshooting-a-non-bundled-redis-with-a-self-compiled-installation
             # TL;DR: masterSet name in redis helm chart = k8s service gitlab-redis name = host below
-            # Since we use sentinel we must set the host the same as masterSet 
-            # in the Redis helm chart. It means that masterSet must be in our 
-            # case gitlab-redis and gitlab-redis service name for redis has to 
-            # exist too because other GitLab services (like gitlab-exporter etc.) use gitlab-redis host to 
-            # reach redis via K8s service. 
-        
+            # Since we use sentinel we must set the host the same as masterSet
+            # in the Redis helm chart. It means that masterSet must be in our
+            # case gitlab-redis and gitlab-redis service name for redis has to
+            # exist too because other GitLab services (like gitlab-exporter etc.) use gitlab-redis host to
+            # reach redis via K8s service.
+
             host: gitlab-redis
             sentinels:
               - host: gitlab-redis.gitlab.svc.cluster.local
@@ -110,11 +110,11 @@ spec:
 
           hosts:
             domain: kubxr.com
-            gitlab: 
+            gitlab:
               name: git.kubxr.com
             kas:
               name: kas-gitlab.kubxr.com
-            pages: 
+            pages:
               name: gitlab-pg.kubxr.com
 
           minio:
@@ -138,7 +138,7 @@ spec:
                 key: connection
             packages:
               bucket: demo-gitlab-packages-storage
-              connection: 
+              connection:
                 secret: gitlab-rails-s3-storage
                 key: connection
 
@@ -256,7 +256,7 @@ spec:
                 config:
                   secret: s3-credentials
                   key: config
-        
+
           gitlab-shell:
             resources:
               limits:

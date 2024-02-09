@@ -82,8 +82,8 @@ spec:
           command: [ "/bin/sh" ]
           args:
             [
-              "-c",
-              "while true; do echo $(date -u) - $HOSTNAME >> /data-dir1/out.txt; echo Hello from: $HOSTNAME - $(date -u) >> /data-dir2/hello.txt; sleep 5; done",
+                "-c",
+                "while true; do echo $(date -u) - $HOSTNAME >> /data-dir1/out.txt; echo Hello from: $HOSTNAME - $(date -u) >> /data-dir2/hello.txt; sleep 5; done",
             ]
           volumeMounts:
             - name: efs-volume-1

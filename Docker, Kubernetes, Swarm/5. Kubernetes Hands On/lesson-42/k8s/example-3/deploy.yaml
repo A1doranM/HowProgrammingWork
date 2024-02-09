@@ -24,8 +24,8 @@ spec:
           command: [ "/bin/sh" ]
           args:
             [
-              "-c",
-              "while true; do echo $(date -u) - $HOSTNAME >> /data/out.txt; sleep 3; done",
+                "-c",
+                "while true; do echo $(date -u) - $HOSTNAME >> /data/out.txt; sleep 3; done",
             ]
           volumeMounts:
             - name: efs-volume

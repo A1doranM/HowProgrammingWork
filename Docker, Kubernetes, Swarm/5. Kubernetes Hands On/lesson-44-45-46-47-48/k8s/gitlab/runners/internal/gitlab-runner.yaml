@@ -50,18 +50,18 @@ spec:
                 node_selector_overwrite_allowed = "karpenter.sh/capacity-type=.*"
 
                 # https://docs.gitlab.com/runner/executors/kubernetes.html#configuration-settings
-        
+
                 # build container
                 cpu_request = "100m"
                 memory_request = "100Mi"
                 cpu_limit = "1"
                 memory_limit = "1Gi"
-        
+
                 cpu_request_overwrite_max_allowed = "3"
                 memory_request_overwrite_max_allowed = "12Gi"
                 cpu_limit_overwrite_max_allowed =  "3600m"
                 memory_limit_overwrite_max_allowed = "14Gi"
-        
+
                 # service containers
                 service_cpu_request = "50m"
                 service_memory_request = "128Mi"
