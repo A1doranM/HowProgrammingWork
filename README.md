@@ -37,3 +37,6 @@ https://www.youtube.com/playlist?list=PLBlnK6fEyqRiVhbXDGLXDk_OQAeuVcp2O
 
 ## Fundamentals of Math
 https://www.udemy.com/course/fundamentals-of-math/
+
+## Python
+https://www.udemy.com/course/complete-python-bootcamp/
