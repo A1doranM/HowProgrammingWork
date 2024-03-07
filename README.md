@@ -34,3 +34,6 @@ https://dreamhost.udemy.com/course/beginning-c-plus-plus-programming/learn/lectu
 
 ## Operating Systems
 https://www.youtube.com/playlist?list=PLBlnK6fEyqRiVhbXDGLXDk_OQAeuVcp2O
+
+## Fundamentals of Math
+https://www.udemy.com/course/fundamentals-of-math/
