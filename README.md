@@ -43,3 +43,6 @@ https://www.udemy.com/course/geometry-basics/
 
 ## Python
 https://www.udemy.com/course/complete-python-bootcamp/
+
+## Data Visualisation
+https://dreamhost.udemy.com/course/python-data-analysis-visualization/
