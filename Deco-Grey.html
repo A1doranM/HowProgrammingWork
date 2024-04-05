@@ -939,29 +939,36 @@
       <div class="block_grid_template">
         <a class="block_grid_template__link" href="https://colorcity.com.ua/TVT_1900" style="background: rgb(64,64,65)">
           TVT 1900
+          <img src="deco-grey-cover.png" class="block_grid_template__img"/>
         </a>
         <a class="block_grid_template__link" href="https://colorcity.com.ua/TVT_1901"
            style="background: rgb(212,209,197)">
           TVT 1901
+          <img src="deco-grey-cover.png" class="block_grid_template__img"/>
         </a>
         <a class="block_grid_template__link" href="https://colorcity.com.ua/TVT_1902"
            style="background: rgb(191,187,172)">
           TVT 1902
+          <img src="deco-grey-cover.png" class="block_grid_template__img"/>
         </a>
         <a class="block_grid_template__link" href="https://colorcity.com.ua/TVT_1903"
            style="background: rgb(172,169,156)">
           TVT 1903
+          <img src="deco-grey-cover.png" class="block_grid_template__img"/>
         </a>
         <a class="block_grid_template__link" href="https://colorcity.com.ua/TVT_1904"
            style="background: rgb(154,153,139)">
           TVT 1904
+          <img src="deco-grey-cover.png" class="block_grid_template__img"/>
         </a>
         <a class="block_grid_template__link" href="https://colorcity.com.ua/TVT_1905"
            style="background: rgb(124,125,112)">
           TVT 1905
+          <img src="deco-grey-cover.png" class="block_grid_template__img"/>
         </a>
         <a class="block_grid_template__link" href="https://colorcity.com.ua/TVT_1906" style="background: rgb(96,98,90)">
           TVT 1906
+          <img src="deco-grey-cover.png" class="block_grid_template__img"/>
         </a>
         <a class="block_grid_template__link" href="https://colorcity.com.ua/TVT_1907" style="background: rgb(75,78,73)">
           TVT 1907
@@ -1550,6 +1557,7 @@
 <!-- Memory: 2 МБ -->
 <style>
     .block_grid_template {
+        position: relative;
         display: grid;
         width: 60%;
         grid-template-columns: repeat(4, 1fr);
@@ -1563,6 +1571,45 @@
         box-sizing: content-box;
         justify-content: center;
         align-items: center;
+    }
+
+    .block_grid_template__img{
+        display: none;
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        width: inherit;
+        height: inherit;
+        transform: translate(50%, -50%);
+        z-index: 1;
+    }
+
+
+    .block_grid_template__link:hover {
+        transform: scale3d(1.5, 2.3, 1); /* Makes the element three times bigger */
+        position: relative;
+        z-index: 1;
+    }
+
+    .block_grid_template__link:hover::after  {
+        display: inline-block;
+    }
+
+    .block_grid_template__link:hover .block_grid_template__img {
+        display: inline-block;
+    }
+
+
+    .block_grid_template__link::after {
+        content: "";
+        display: none;
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        width: inherit;
+        height: inherit;
+        background-color: inherit;
+        transform: translate(50%, -50%);
     }
 
     @media (max-width: 900px) {
