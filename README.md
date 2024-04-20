@@ -45,4 +45,7 @@ https://www.udemy.com/course/geometry-basics/
 https://www.udemy.com/course/complete-python-bootcamp/
 
 ## Data Visualisation
-https://dreamhost.udemy.com/course/python-data-analysis-visualization/
+https://udemy.com/course/python-data-analysis-visualization/
+
+## Microservices with Node and React
+https://dreamhost.udemy.com/course/microservices-with-node-js-and-react
