@@ -46,7 +46,7 @@
 
 ## 5. Design One to Many relationship
     E.g. user can has many cards but the card can belongs to only one user.
-    For this we just remove cardId from User table and add userId to ca
+    For this we just remove cardId from User table and add userId to card
     E.g. comments on YouTube, User - Parent, Comments - Child, because
     Comments table refers to User with FK, Parent inherits nothing from child (we do not refer from user to each comment).
     But child "inherits" Foreign Key from Parent (each comment have one User who wrote it).
