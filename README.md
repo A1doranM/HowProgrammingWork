@@ -41,6 +41,9 @@ https://www.udemy.com/course/fundamentals-of-math/
 ## Fundamentals of Geometry
 https://www.udemy.com/course/geometry-basics/
 
+## Linear Algebra and Geometry 1
+https://www.udemy.com/course/linear-algebra-and-geometry-1
+
 ## Python
 https://www.udemy.com/course/complete-python-bootcamp/
 
