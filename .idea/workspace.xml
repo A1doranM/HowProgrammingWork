@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Fixed project issues">
+    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/1. Intro/LA_intro_picSVD.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/1. Intro/LA_intro_picSVD.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_addSubtract.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_addSubtract.ipynb" afterDir="false" />
@@ -97,7 +97,7 @@
       <workItem from="1717434734267" duration="97000" />
       <workItem from="1717434835664" duration="328000" />
       <workItem from="1717435175784" duration="650000" />
-      <workItem from="1717435847642" duration="1722000" />
+      <workItem from="1717435847642" duration="2098000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed project issues">
       <option name="closed" value="true" />
@@ -115,15 +115,35 @@
       <option name="project" value="LOCAL" />
       <updated>1717435870803</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1717478124065</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1717478124065</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed project issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed project issues" />
+    <MESSAGE value="Linear Algebra in Code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Linear Algebra in Code" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
