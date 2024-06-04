@@ -4,39 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/1. Intro/LA_intro_picSVD.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/1. Intro/LA_intro_picSVD.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_addSubtract.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_addSubtract.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_addSubtract.m" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_addSubtract.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_algebraGeometry.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_algebraGeometry.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_algebraGeometry.m" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_algebraGeometry.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_allCode.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_allCode.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_allCode.m" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_allCode.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_crossProduct.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_crossProduct.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_crossProduct.m" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_crossProduct.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_dotProdAssocDistr.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_dotProdAssocDistr.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_dotProdAssocDistr.m" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_dotProdAssocDistr.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_dotProduct.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_dotProduct.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_dotProduct.m" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_dotProduct.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_dotprodGeometry.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_dotprodGeometry.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_dotprodGeometry.m" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_dotprodGeometry.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_hadamard.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_hadamard.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_hadamard.m" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_hadamard.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_hermitian.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_hermitian.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_hermitian.m" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_hermitian.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_outerProduct.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_outerProduct.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_outerProduct.m" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_outerProduct.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_span.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_span.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_span.m" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_span.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_unitVectors.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_unitVectors.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_unitVectors.m" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_unitVectors.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_vectScalarMult.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_vectScalarMult.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_vectScalarMult.m" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_vectScalarMult.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_vectorLength.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_vectorLength.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/LA_vectors_vectorLength.m" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_vectorLength.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/vectors/linalg_vectors.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/linalg_vectors.pdf" afterDir="false" />
-    </list>
+    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,7 +65,7 @@
       <workItem from="1717434734267" duration="97000" />
       <workItem from="1717434835664" duration="328000" />
       <workItem from="1717435175784" duration="650000" />
-      <workItem from="1717435847642" duration="2098000" />
+      <workItem from="1717435847642" duration="2483000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed project issues">
       <option name="closed" value="true" />
@@ -123,7 +91,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717478124065</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1717478387510</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717478387510</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
