@@ -91,6 +91,7 @@
       <workItem from="1717913251026" duration="2932000" />
       <workItem from="1718000559717" duration="2724000" />
       <workItem from="1718085052835" duration="3135000" />
+      <workItem from="1718173120381" duration="1025000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed project issues">
       <option name="closed" value="true" />
@@ -188,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718000641074</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1718173145953</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1718173145953</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
