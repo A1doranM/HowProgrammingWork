@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_allCode.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_allCode.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,14 +122,7 @@
       <workItem from="1720853322017" duration="2324000" />
       <workItem from="1721108242785" duration="1965000" />
       <workItem from="1721311340614" duration="3707000" />
-    </task>
-    <task id="LOCAL-00022" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1718612965573</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1718612965574</updated>
+      <workItem from="1721386902668" duration="301000" />
     </task>
     <task id="LOCAL-00023" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -515,7 +508,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721315305802</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721386954939</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1721386954940</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
