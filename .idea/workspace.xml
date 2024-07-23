@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code">
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/3. Intro Matrices/LA_introMatrices_allCode.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/3. Intro Matrices/LA_introMatrices_allCode.ipynb" afterDir="false" />
-    </list>
+    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -123,15 +121,7 @@
       <workItem from="1721108242785" duration="1965000" />
       <workItem from="1721311340614" duration="3707000" />
       <workItem from="1721386902668" duration="7613000" />
-      <workItem from="1721640931146" duration="1899000" />
-    </task>
-    <task id="LOCAL-00029" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1719301507621</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1719301507621</updated>
+      <workItem from="1721640931146" duration="1921000" />
     </task>
     <task id="LOCAL-00030" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -517,7 +507,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721642928366</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721642936831</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1721642936831</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
