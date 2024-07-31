@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/3. Intro Matrices/LA_introMatrices_allCode.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/3. Intro Matrices/LA_introMatrices_allCode.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +126,10 @@
       <workItem from="1722253716965" duration="608000" />
       <workItem from="1722258415981" duration="11000" />
       <workItem from="1722322854632" duration="1474000" />
+      <workItem from="1722324842135" duration="1290000" />
+      <workItem from="1722338488397" duration="1207000" />
+      <workItem from="1722401081688" duration="607000" />
+      <workItem from="1722416178432" duration="1162000" />
     </task>
     <task id="LOCAL-00044" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
