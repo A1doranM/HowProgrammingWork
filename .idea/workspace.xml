@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code">
+      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions and transformations/images/img_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions and transformations/images/img_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions and transformations/images/img_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions and transformations/images/img_5.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_allCode.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_allCode.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions and transformations/Inverse functions and transformations.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions and transformations/Inverse functions and transformations.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +43,9 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2hNVooCHYTGhUNlimDi8BlJTiso" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -50,7 +57,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/aldoran/IdeaProjects/HowProgrammingWork&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/aldoran/IdeaProjects/openai-cookbook&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -59,7 +66,7 @@
     &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.python.templateLanguages.PyTemplateLanguageModulesConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -77,65 +84,457 @@
       <workItem from="1717435175784" duration="650000" />
       <workItem from="1717435847642" duration="5977000" />
       <workItem from="1717661647063" duration="51000" />
-      <workItem from="1717661722244" duration="906000" />
+      <workItem from="1717661722244" duration="2275000" />
+      <workItem from="1717742533201" duration="717000" />
+      <workItem from="1717760059983" duration="64000" />
+      <workItem from="1717760133250" duration="1365000" />
+      <workItem from="1717913251026" duration="2932000" />
+      <workItem from="1718000559717" duration="2724000" />
+      <workItem from="1718085052835" duration="3135000" />
+      <workItem from="1718173120381" duration="1025000" />
+      <workItem from="1718187300769" duration="783000" />
+      <workItem from="1718256536798" duration="716000" />
+      <workItem from="1718262037456" duration="15000" />
+      <workItem from="1718264357573" duration="191000" />
+      <workItem from="1718393011171" duration="637000" />
+      <workItem from="1718605176468" duration="1535000" />
+      <workItem from="1718702733578" duration="286000" />
+      <workItem from="1718706846145" duration="70000" />
+      <workItem from="1718971592299" duration="3040000" />
+      <workItem from="1719208470210" duration="1207000" />
+      <workItem from="1719297798397" duration="2552000" />
+      <workItem from="1719383414884" duration="1230000" />
+      <workItem from="1719502073600" duration="52000" />
+      <workItem from="1719824782255" duration="312000" />
+      <workItem from="1719825163375" duration="70000" />
+      <workItem from="1719825241460" duration="685000" />
+      <workItem from="1719980258003" duration="282000" />
+      <workItem from="1719994237121" duration="5000" />
+      <workItem from="1720188823445" duration="626000" />
+      <workItem from="1720415103362" duration="926000" />
+      <workItem from="1720499897298" duration="917000" />
+      <workItem from="1720621300055" duration="2516000" />
+      <workItem from="1720683478482" duration="4148000" />
+      <workItem from="1720787252630" duration="791000" />
+      <workItem from="1720853322017" duration="2324000" />
+      <workItem from="1721108242785" duration="1965000" />
+      <workItem from="1721311340614" duration="3707000" />
+      <workItem from="1721386902668" duration="7613000" />
+      <workItem from="1721640931146" duration="1921000" />
+      <workItem from="1721738119284" duration="2028000" />
+      <workItem from="1721819969617" duration="426000" />
+      <workItem from="1721897124455" duration="2566000" />
+      <workItem from="1721975047211" duration="184000" />
+      <workItem from="1721975246303" duration="826000" />
+      <workItem from="1721988756608" duration="1866000" />
+      <workItem from="1722230043475" duration="887000" />
+      <workItem from="1722253716965" duration="608000" />
+      <workItem from="1722258415981" duration="11000" />
+      <workItem from="1722322854632" duration="1474000" />
+      <workItem from="1722324842135" duration="1290000" />
+      <workItem from="1722338488397" duration="1207000" />
+      <workItem from="1722401081688" duration="607000" />
+      <workItem from="1722416178432" duration="1162000" />
+      <workItem from="1722422752702" duration="2039000" />
+      <workItem from="1722430455387" duration="2179000" />
+      <workItem from="1722492561739" duration="890000" />
+      <workItem from="1722516375085" duration="1527000" />
+      <workItem from="1722580051723" duration="599000" />
+      <workItem from="1722583168237" duration="3376000" />
     </task>
-    <task id="LOCAL-00001" summary="Fixed project issues">
+    <task id="LOCAL-00053" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
-      <created>1717434875345</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
+      <created>1720684509077</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
       <option name="project" value="LOCAL" />
-      <updated>1717434875345</updated>
+      <updated>1720684509077</updated>
     </task>
-    <task id="LOCAL-00002" summary="Fixed project issues">
+    <task id="LOCAL-00054" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
-      <created>1717435870803</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
+      <created>1720685850366</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
       <option name="project" value="LOCAL" />
-      <updated>1717435870803</updated>
+      <updated>1720685850366</updated>
     </task>
-    <task id="LOCAL-00003" summary="Linear Algebra in Code">
+    <task id="LOCAL-00055" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
-      <created>1717478124065</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
+      <created>1720687741332</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
       <option name="project" value="LOCAL" />
-      <updated>1717478124065</updated>
+      <updated>1720687741332</updated>
     </task>
-    <task id="LOCAL-00004" summary="Linear Algebra in Code">
+    <task id="LOCAL-00056" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
-      <created>1717478387510</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
+      <created>1720687786347</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
       <option name="project" value="LOCAL" />
-      <updated>1717478387510</updated>
+      <updated>1720687786347</updated>
     </task>
-    <task id="LOCAL-00005" summary="Linear Algebra in Code">
+    <task id="LOCAL-00057" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
-      <created>1717483236048</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
+      <created>1720794039508</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
       <option name="project" value="LOCAL" />
-      <updated>1717483236048</updated>
+      <updated>1720794039508</updated>
     </task>
-    <task id="LOCAL-00006" summary="Linear Algebra in Code">
+    <task id="LOCAL-00058" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
-      <created>1717483469169</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
+      <created>1720853337963</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
       <option name="project" value="LOCAL" />
-      <updated>1717483469169</updated>
+      <updated>1720853337964</updated>
     </task>
-    <task id="LOCAL-00007" summary="Linear Algebra in Code">
+    <task id="LOCAL-00059" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
-      <created>1717485291968</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
+      <created>1720854637957</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
       <option name="project" value="LOCAL" />
-      <updated>1717485291968</updated>
+      <updated>1720854637957</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00060" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1720857071120</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1720857071120</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1720857078944</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1720857078944</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721108326735</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1721108326735</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721115256114</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1721115256114</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721115897916</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1721115897916</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721116007283</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1721116007283</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721312198725</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1721312198726</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721313418549</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1721313418549</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721315166688</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1721315166688</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721315214559</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1721315214559</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721315305802</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1721315305802</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721386954939</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1721386954940</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721387209588</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1721387209588</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721388140254</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1721388140254</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721394155265</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1721394155265</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721642559291</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1721642559292</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721642577928</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1721642577928</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721642928366</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1721642928366</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721642936831</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1721642936831</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721738519733</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1721738519733</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721739426077</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1721739426077</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721739641064</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1721739641064</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721752800305</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1721752800306</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721819978975</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1721819978975</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721820394146</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1721820394146</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721899755226</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1721899755226</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721899770688</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1721899770688</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721900447277</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1721900447277</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721990155332</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1721990155333</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1721995592142</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1721995592142</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1722230054725</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1722230054726</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1722237755257</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1722237755257</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1722237803219</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1722237803219</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1722423302015</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1722423302015</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1722423376477</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1722423376478</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1722423576155</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1722423576155</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1722439162166</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1722439162167</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1722524982223</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1722524982227</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1722525093889</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1722525093889</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1722525199248</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1722525199248</updated>
+    </task>
+    <task id="LOCAL-00100" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1722589559059</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1722589559059</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1722591572706</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1722591572706</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
