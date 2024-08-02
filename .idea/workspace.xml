@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code">
-      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions and transformations/images/img_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions and transformations/images/img_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions and transformations/images/img_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions and transformations/images/img_5.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions and transformations/Inverse functions and transformations.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions and transformations/Inverse functions and transformations.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,15 +135,7 @@
       <workItem from="1722492561739" duration="890000" />
       <workItem from="1722516375085" duration="1527000" />
       <workItem from="1722580051723" duration="599000" />
-      <workItem from="1722583168237" duration="3376000" />
-    </task>
-    <task id="LOCAL-00053" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1720684509077</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1720684509077</updated>
+      <workItem from="1722583168237" duration="3921000" />
     </task>
     <task id="LOCAL-00054" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -534,7 +521,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722591572706</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1722592082095</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1722592082095</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
