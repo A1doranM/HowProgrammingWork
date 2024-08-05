@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code">
+      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions, matrices and transformations/images/img_10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions, matrices and transformations/images/img_11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions, matrices and transformations/images/img_12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions, matrices and transformations/images/img_13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions, matrices and transformations/images/img_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions, matrices and transformations/images/img_8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions, matrices and transformations/images/img_9.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions, matrices and transformations/Inverse functions and transformations.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions, matrices and transformations/Inverse functions and transformations.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,14 +145,7 @@
       <workItem from="1722580051723" duration="599000" />
       <workItem from="1722583168237" duration="3921000" />
       <workItem from="1722594811083" duration="1143000" />
-    </task>
-    <task id="LOCAL-00055" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1720687741332</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1720687741332</updated>
+      <workItem from="1722836332704" duration="1156000" />
     </task>
     <task id="LOCAL-00056" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -530,7 +531,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722594824388</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1722839096178</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1722839096178</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
