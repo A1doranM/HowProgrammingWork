@@ -1,0 +1,31 @@
+Routing Number: 044000804
+Account Number: 913019651793
+
+Wire Funds to Beneficiary/Account Title:
+    Interactive Brokers LLC
+    One Pickwick Plaza
+    Greenwich, Connecticut 06830
+    United States
+
+Bank Account Number:
+    40806826U19651793
+    40806826U19651793 is a virtual account number (VAN) assigned to you.
+    The VAN combines our Citibank N.A. bank account number 40806826 with your IBKR account number U19651793.
+    If your banking platform does not allow letters in the destination bank account, please send the funds to Citibank N.A.
+    account 40806826 and include your IBKR account U19651793 in the "Payment Reference/For Further Credit"
+    field in your bank's platform.
+
+ABA Routing Number:
+    021000089
+
+SWIFT/BIC Code:
+    CITIUS33XXX
+
+Beneficiary Bank:
+    Citibank N.A.
+    388 Greenwich Street
+    New York 10013
+    United States
+
+Payment Reference/For Further Credit to:
+    U19651793 / Maksym Medvediev
