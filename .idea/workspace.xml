@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code">
-      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/8. Orthogonal Projections/images/img_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/8. Orthogonal Projections/images/img_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/8. Orthogonal Projections/images/img_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/8. Orthogonal Projections/images/img_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/8. Orthogonal Projections/images/img_8.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/8. Orthogonal Projections/Orthogonal Projections.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/8. Orthogonal Projections/Orthogonal Projections.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/8. Orthogonal Projections/images/img_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/8. Orthogonal Projections/images/img_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/8. Orthogonal Projections/images/img_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/8. Orthogonal Projections/images/img_2.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,23 +157,7 @@
       <workItem from="1723095600434" duration="3430000" />
       <workItem from="1723120059401" duration="945000" />
       <workItem from="1723192939142" duration="4289000" />
-      <workItem from="1723459954983" duration="1816000" />
-    </task>
-    <task id="LOCAL-00070" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1721315305802</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1721315305802</updated>
-    </task>
-    <task id="LOCAL-00071" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1721386954939</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1721386954940</updated>
+      <workItem from="1723459954983" duration="3355000" />
     </task>
     <task id="LOCAL-00072" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -548,7 +535,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723460257719</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1723463053531</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1723463053531</updated>
+    </task>
+    <task id="LOCAL-00120" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1723463199764</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1723463199764</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
