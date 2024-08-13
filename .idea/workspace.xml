@@ -150,22 +150,7 @@
       <workItem from="1723120059401" duration="945000" />
       <workItem from="1723192939142" duration="4289000" />
       <workItem from="1723459954983" duration="3515000" />
-    </task>
-    <task id="LOCAL-00073" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1721388140254</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1721388140254</updated>
-    </task>
-    <task id="LOCAL-00074" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1721394155265</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1721394155265</updated>
+      <workItem from="1723522106673" duration="801000" />
     </task>
     <task id="LOCAL-00075" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -543,7 +528,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723464408157</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1723522295314</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1723522295315</updated>
+    </task>
+    <task id="LOCAL-00123" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1723522303151</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1723522303151</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
