@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code" />
+    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code">
+      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/8. Orthogonal Projections/Orthogonal Projections.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/8. Orthogonal Projections/Orthogonal Projections.ipynb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -151,6 +153,7 @@
       <workItem from="1723192939142" duration="4289000" />
       <workItem from="1723459954983" duration="3515000" />
       <workItem from="1723522106673" duration="801000" />
+      <workItem from="1724044369201" duration="950000" />
     </task>
     <task id="LOCAL-00075" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
