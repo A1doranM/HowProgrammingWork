@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code">
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/8. Orthogonal Projections/Orthogonal Projections.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/8. Orthogonal Projections/Orthogonal Projections.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_allCode.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_allCode.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,31 +153,7 @@
       <workItem from="1723192939142" duration="4289000" />
       <workItem from="1723459954983" duration="3515000" />
       <workItem from="1723522106673" duration="801000" />
-      <workItem from="1724044369201" duration="950000" />
-    </task>
-    <task id="LOCAL-00075" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1721642559291</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1721642559292</updated>
-    </task>
-    <task id="LOCAL-00076" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1721642577928</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1721642577928</updated>
-    </task>
-    <task id="LOCAL-00077" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1721642928366</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1721642928366</updated>
+      <workItem from="1724044369201" duration="1940000" />
     </task>
     <task id="LOCAL-00078" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -547,7 +523,31 @@
       <option name="project" value="LOCAL" />
       <updated>1723522303151</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1724047947518</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1724047947518</updated>
+    </task>
+    <task id="LOCAL-00125" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1724047958919</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1724047958919</updated>
+    </task>
+    <task id="LOCAL-00126" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1724048023757</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1724048023757</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
