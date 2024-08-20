@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code">
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_allCode.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/2. Vectors/LA_vectors_allCode.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,8 +68,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.300" />
-        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.300" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.387" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.387" />
       </set>
     </attachedChunks>
   </component>
@@ -153,15 +153,10 @@
       <workItem from="1723192939142" duration="4289000" />
       <workItem from="1723459954983" duration="3515000" />
       <workItem from="1723522106673" duration="801000" />
-      <workItem from="1724044369201" duration="1940000" />
-    </task>
-    <task id="LOCAL-00078" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1721642936831</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1721642936831</updated>
+      <workItem from="1724044369201" duration="2517000" />
+      <workItem from="1724052248478" duration="23000" />
+      <workItem from="1724073684597" duration="750000" />
+      <workItem from="1724130935534" duration="2979000" />
     </task>
     <task id="LOCAL-00079" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -547,7 +542,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724048023757</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1724049201927</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1724049201927</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
