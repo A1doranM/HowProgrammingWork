@@ -159,30 +159,8 @@
       <workItem from="1724130935534" duration="2979000" />
       <workItem from="1724155465168" duration="678000" />
       <workItem from="1724222965187" duration="1595000" />
-    </task>
-    <task id="LOCAL-00084" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1721820394146</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1721820394146</updated>
-    </task>
-    <task id="LOCAL-00085" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1721899755226</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1721899755226</updated>
-    </task>
-    <task id="LOCAL-00086" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1721899770688</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1721899770688</updated>
+      <workItem from="1724412266155" duration="644000" />
+      <workItem from="1724424109170" duration="9000" />
     </task>
     <task id="LOCAL-00087" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -552,7 +530,31 @@
       <option name="project" value="LOCAL" />
       <updated>1724224023130</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1724412660264</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1724412660264</updated>
+    </task>
+    <task id="LOCAL-00134" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1724412889387</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1724412889387</updated>
+    </task>
+    <task id="LOCAL-00135" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1724412905312</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1724412905312</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
