@@ -5,11 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code">
-      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/11. Eigenvectors and Eigenvalues /images/img_13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/11. Eigenvectors and Eigenvalues /images/img_14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/11. Eigenvectors and Eigenvalues /images/img_15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/11. Eigenvectors and Eigenvalues /images/img_16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/11. Eigenvectors and Eigenvalues /images/img_5.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/11. Eigenvectors and Eigenvalues /Eigenvectors and Eigenvalues.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/11. Eigenvectors and Eigenvalues /Eigenvectors and Eigenvalues.ipynb" afterDir="false" />
     </list>
@@ -171,22 +166,9 @@
       <workItem from="1724739299134" duration="4466000" />
       <workItem from="1724751685663" duration="614000" />
       <workItem from="1724826254237" duration="1391000" />
-    </task>
-    <task id="LOCAL-00096" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1722439162166</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1722439162167</updated>
-    </task>
-    <task id="LOCAL-00097" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1722524982223</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1722524982227</updated>
+      <workItem from="1724833712372" duration="1724000" />
+      <workItem from="1724839836613" duration="904000" />
+      <workItem from="1724910435898" duration="1242000" />
     </task>
     <task id="LOCAL-00098" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -564,7 +546,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724745811471</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1724833732779</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1724833732779</updated>
+    </task>
+    <task id="LOCAL-00146" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1724833798912</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1724833798912</updated>
+    </task>
+    <option name="localTasksCounter" value="147" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
