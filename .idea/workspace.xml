@@ -66,8 +66,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
-        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
       </set>
     </attachedChunks>
   </component>
@@ -166,30 +166,7 @@
       <workItem from="1724833712372" duration="1724000" />
       <workItem from="1724839836613" duration="904000" />
       <workItem from="1724910435898" duration="2254000" />
-    </task>
-    <task id="LOCAL-00101" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1722591572706</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1722591572706</updated>
-    </task>
-    <task id="LOCAL-00102" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1722592082095</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1722592082095</updated>
-    </task>
-    <task id="LOCAL-00103" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1722594824387</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1722594824388</updated>
+      <workItem from="1724996738004" duration="478000" />
     </task>
     <task id="LOCAL-00104" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -559,7 +536,31 @@
       <option name="project" value="LOCAL" />
       <updated>1724912563108</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1724996899801</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1724996899802</updated>
+    </task>
+    <task id="LOCAL-00151" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1724997171151</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1724997171151</updated>
+    </task>
+    <task id="LOCAL-00152" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1724997180850</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1724997180850</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
