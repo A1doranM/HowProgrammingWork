@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions, matrices and transformations/Inverse functions and transformations.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/3. Linear Algebra/1 - Linear Algebra In Code/4. Inverse functions, matrices and transformations/Inverse functions and transformations.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,15 +169,8 @@
       <workItem from="1724839836613" duration="904000" />
       <workItem from="1724910435898" duration="2254000" />
       <workItem from="1724996738004" duration="478000" />
-      <workItem from="1725253460231" duration="1698000" />
-    </task>
-    <task id="LOCAL-00106" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1722840536830</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1722840536830</updated>
+      <workItem from="1725253460231" duration="3288000" />
+      <workItem from="1725295867659" duration="404000" />
     </task>
     <task id="LOCAL-00107" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -564,7 +556,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725254732124</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1725255242728</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1725255242728</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
