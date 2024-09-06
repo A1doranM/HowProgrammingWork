@@ -5,6 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code">
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/2. Algebraic properties of limits: limit properties/1. Algebraic properties of limits: limit properties.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/2. Algebraic properties of limits: limit properties/images/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/2. Algebraic properties of limits: limit properties/images/img_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/2. Algebraic properties of limits: limit properties/images/img_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/2. Algebraic properties of limits: limit properties/images/img_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/2. Algebraic properties of limits: limit properties/images/img_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/2. Algebraic properties of limits: limit properties/images/img_5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +39,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/A1doranM/HowProgrammingWork.git&quot;,
-    &quot;accountId&quot;: &quot;61e281b1-f779-4a41-b18e-9f4deb3b0622&quot;
+    &quot;accountId&quot;: &quot;7c93f851-0748-4761-abda-c11d042efb86&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -45,26 +53,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/aldoran/IdeaProjects/multi-01-starting-setup&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/aldoran/IdeaProjects/HowProgrammingWork",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "show.migrate.to.gradle.popup": "false",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -174,46 +189,9 @@
       <workItem from="1725345951602" duration="2138000" />
       <workItem from="1725433115498" duration="3135000" />
       <workItem from="1725516967889" duration="586000" />
-    </task>
-    <task id="LOCAL-00113" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1723120356639</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1723120356639</updated>
-    </task>
-    <task id="LOCAL-00114" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1723120971064</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1723120971064</updated>
-    </task>
-    <task id="LOCAL-00115" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1723211885512</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1723211885513</updated>
-    </task>
-    <task id="LOCAL-00116" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1723212247128</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1723212247128</updated>
-    </task>
-    <task id="LOCAL-00117" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1723213158752</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL-00117" />
-      <option name="project" value="LOCAL" />
-      <updated>1723213158752</updated>
+      <workItem from="1725517746177" duration="3164000" />
+      <workItem from="1725601746887" duration="698000" />
+      <workItem from="1725602460470" duration="760000" />
     </task>
     <task id="LOCAL-00118" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -567,7 +545,47 @@
       <option name="project" value="LOCAL" />
       <updated>1725441599085</updated>
     </task>
-    <option name="localTasksCounter" value="162" />
+    <task id="LOCAL-00162" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1725520467653</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1725520467654</updated>
+    </task>
+    <task id="LOCAL-00163" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1725521180791</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1725521180791</updated>
+    </task>
+    <task id="LOCAL-00164" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1725521238151</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1725521238151</updated>
+    </task>
+    <task id="LOCAL-00165" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1725521282914</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1725521282914</updated>
+    </task>
+    <task id="LOCAL-00166" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1725521403532</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1725521403533</updated>
+    </task>
+    <option name="localTasksCounter" value="167" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
