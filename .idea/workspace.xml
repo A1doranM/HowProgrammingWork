@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Linear Algebra in Code" />
+    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in Code">
+      <change beforePath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/2. Algebraic properties of limits: limit properties/1. Algebraic properties of limits: limit properties.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/2. Algebraic properties of limits: limit properties/1. Algebraic properties of limits: limit properties.ipynb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -181,23 +183,7 @@
       <workItem from="1725516967889" duration="586000" />
       <workItem from="1725517746177" duration="3164000" />
       <workItem from="1725601746887" duration="698000" />
-      <workItem from="1725602460470" duration="1067000" />
-    </task>
-    <task id="LOCAL-00120" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1723463199764</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1723463199764</updated>
-    </task>
-    <task id="LOCAL-00121" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1723464408157</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1723464408157</updated>
+      <workItem from="1725602460470" duration="1535000" />
     </task>
     <task id="LOCAL-00122" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -575,7 +561,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725603526810</updated>
     </task>
-    <option name="localTasksCounter" value="169" />
+    <task id="LOCAL-00169" summary="Linear Algebra in Code">
+      <option name="closed" value="true" />
+      <created>1725603611348</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1725603611348</updated>
+    </task>
+    <task id="LOCAL-00170" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1725603619387</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1725603619387</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -595,7 +597,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed project issues" />
     <MESSAGE value="Linear Algebra in Code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Linear Algebra in Code" />
+    <MESSAGE value="Calculus in Code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calculus in Code" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
