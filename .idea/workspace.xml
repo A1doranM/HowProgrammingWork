@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in Code">
-      <change afterPath="$PROJECT_DIR$/Trading/1. Terminology/1. General terms.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Trading/1. Terminology/images/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Trading/1. Terminology/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Trading/1. Terminology/img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Trading/1. Terminology/img_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/2. Algebraic properties of limits: limit properties/images/img_11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/2. Algebraic properties of limits: limit properties/images/img_12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/2. Algebraic properties of limits: limit properties/images/img_13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/2. Algebraic properties of limits: limit properties/images/img_14.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/2. Algebraic properties of limits: limit properties/1. Algebraic properties of limits: limit properties.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/2. Algebraic properties of limits: limit properties/1. Algebraic properties of limits: limit properties.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,14 +191,10 @@
       <workItem from="1725602460470" duration="3327000" />
       <workItem from="1725793052596" duration="1545000" />
       <workItem from="1725804557077" duration="1928000" />
-    </task>
-    <task id="LOCAL-00123" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1723522303151</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1723522303151</updated>
+      <workItem from="1725860787117" duration="1276000" />
+      <workItem from="1725866593979" duration="765000" />
+      <workItem from="1725889694516" duration="691000" />
+      <workItem from="1725893184934" duration="918000" />
     </task>
     <task id="LOCAL-00124" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -584,7 +580,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725604171269</updated>
     </task>
-    <option name="localTasksCounter" value="172" />
+    <task id="LOCAL-00172" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1725863424261</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1725863424262</updated>
+    </task>
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
