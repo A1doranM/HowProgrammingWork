@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in Code" />
+    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in Code">
+      <change afterPath="$PROJECT_DIR$/Trading/1. Terminology/images/img_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Trading/1. Terminology/images/img_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Trading/1. Terminology/images/img_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Trading/1. Terminology/images/img_6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/1. Terminology/1. General terms.md" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/1. Terminology/1. General terms.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/1. Terminology/img.png" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/1. Terminology/img.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/1. Terminology/img_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/1. Terminology/images/img_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/1. Terminology/img_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/1. Terminology/images/img_2.png" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,6 +78,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Trading/1. Terminology/images" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -188,30 +201,8 @@
       <workItem from="1725866593979" duration="765000" />
       <workItem from="1725889694516" duration="691000" />
       <workItem from="1725893184934" duration="1668000" />
-    </task>
-    <task id="LOCAL-00126" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1724048023757</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1724048023757</updated>
-    </task>
-    <task id="LOCAL-00127" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1724049201927</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1724049201927</updated>
-    </task>
-    <task id="LOCAL-00128" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1724155472879</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
-      <option name="project" value="LOCAL" />
-      <updated>1724155472880</updated>
+      <workItem from="1725945517886" duration="3341000" />
+      <workItem from="1725966834772" duration="3364000" />
     </task>
     <task id="LOCAL-00129" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -581,7 +572,31 @@
       <option name="project" value="LOCAL" />
       <updated>1725895500228</updated>
     </task>
-    <option name="localTasksCounter" value="175" />
+    <task id="LOCAL-00175" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1725946071854</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1725946071855</updated>
+    </task>
+    <task id="LOCAL-00176" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1725947091144</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1725947091144</updated>
+    </task>
+    <task id="LOCAL-00177" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1725947862835</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1725947862835</updated>
+    </task>
+    <option name="localTasksCounter" value="178" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
