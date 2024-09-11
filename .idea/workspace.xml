@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in Code">
-      <change afterPath="$PROJECT_DIR$/Trading/1. Terminology/images/img_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Trading/1. Terminology/images/img_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Trading/1. Terminology/images/img_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Trading/1. Terminology/images/img_6.png" afterDir="false" />
+    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Trading">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/1. Terminology/1. General terms.md" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/1. Terminology/1. General terms.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/1. Terminology/img.png" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/1. Terminology/img.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/1. Terminology/img_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/1. Terminology/images/img_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/1. Terminology/img_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/1. Terminology/images/img_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/2. Algebraic properties of limits: limit properties/1. Algebraic properties of limits: limit properties.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/2. Algebraic properties of limits: limit properties/1. Algebraic properties of limits: limit properties.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,15 +195,8 @@
       <workItem from="1725889694516" duration="691000" />
       <workItem from="1725893184934" duration="1668000" />
       <workItem from="1725945517886" duration="3341000" />
-      <workItem from="1725966834772" duration="3364000" />
-    </task>
-    <task id="LOCAL-00129" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1724155537504</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1724155537504</updated>
+      <workItem from="1725966834772" duration="3445000" />
+      <workItem from="1726036601124" duration="743000" />
     </task>
     <task id="LOCAL-00130" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -596,7 +582,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725947862835</updated>
     </task>
-    <option name="localTasksCounter" value="178" />
+    <task id="LOCAL-00178" summary="Trading">
+      <option name="closed" value="true" />
+      <created>1725983359211</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1725983359211</updated>
+    </task>
+    <option name="localTasksCounter" value="179" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,7 +619,8 @@
     <MESSAGE value="Fixed project issues" />
     <MESSAGE value="Linear Algebra in Code" />
     <MESSAGE value="Calculus in Code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calculus in Code" />
+    <MESSAGE value="Trading" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trading" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
