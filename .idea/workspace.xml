@@ -53,7 +53,7 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/aldoran/IdeaProjects/HowProgrammingWork&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/aldoran/IdeaProjects/kub-action-01-starting-setup&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -201,22 +201,8 @@
       <workItem from="1726243952900" duration="51000" />
       <workItem from="1726493105591" duration="3952000" />
       <workItem from="1726554598365" duration="3437000" />
-    </task>
-    <task id="LOCAL-00147" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1724912176607</created>
-      <option name="number" value="00147" />
-      <option name="presentableId" value="LOCAL-00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1724912176607</updated>
-    </task>
-    <task id="LOCAL-00148" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1724912296203</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1724912296203</updated>
+      <workItem from="1726669690550" duration="387000" />
+      <workItem from="1726670509721" duration="129000" />
     </task>
     <task id="LOCAL-00149" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -594,7 +580,23 @@
       <option name="project" value="LOCAL" />
       <updated>1726556833255</updated>
     </task>
-    <option name="localTasksCounter" value="196" />
+    <task id="LOCAL-00196" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1726669708233</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1726669708233</updated>
+    </task>
+    <task id="LOCAL-00197" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1726669970573</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1726669970573</updated>
+    </task>
+    <option name="localTasksCounter" value="198" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
