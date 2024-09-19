@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in Code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/1. Average and instantaneous rates of change/1. Average and instantaneous rates of change.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/1. Average and instantaneous rates of change/1. Average and instantaneous rates of change.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +35,10 @@
     &quot;accountId&quot;: &quot;7c93f851-0748-4761-abda-c11d042efb86&quot;
   }
 }</component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -72,6 +77,7 @@
       <recent name="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/1. Average and instantaneous rates of change" />
       <recent name="$PROJECT_DIR$/Trading/1. Terminology/images" />
     </key>
   </component>
@@ -203,14 +209,7 @@
       <workItem from="1726554598365" duration="3437000" />
       <workItem from="1726669690550" duration="387000" />
       <workItem from="1726670509721" duration="129000" />
-    </task>
-    <task id="LOCAL-00149" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1724912563108</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1724912563108</updated>
+      <workItem from="1726723997298" duration="684000" />
     </task>
     <task id="LOCAL-00150" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -596,7 +595,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726669970573</updated>
     </task>
-    <option name="localTasksCounter" value="198" />
+    <task id="LOCAL-00198" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1726724113133</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1726724113133</updated>
+    </task>
+    <option name="localTasksCounter" value="199" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
