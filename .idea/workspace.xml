@@ -34,10 +34,10 @@
     &quot;accountId&quot;: &quot;7c93f851-0748-4761-abda-c11d042efb86&quot;
   }
 }</component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -83,8 +83,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.22855.74" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.22855.74" />
       </set>
     </attachedChunks>
   </component>
@@ -208,15 +208,10 @@
       <workItem from="1726554598365" duration="3437000" />
       <workItem from="1726669690550" duration="387000" />
       <workItem from="1726670509721" duration="129000" />
-      <workItem from="1726723997298" duration="2483000" />
-    </task>
-    <task id="LOCAL-00153" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1725253708898</created>
-      <option name="number" value="00153" />
-      <option name="presentableId" value="LOCAL-00153" />
-      <option name="project" value="LOCAL" />
-      <updated>1725253708899</updated>
+      <workItem from="1726723997298" duration="2499000" />
+      <workItem from="1726753198271" duration="23000" />
+      <workItem from="1726839395548" duration="609000" />
+      <workItem from="1726841266302" duration="759000" />
     </task>
     <task id="LOCAL-00154" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -602,7 +597,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726726750286</updated>
     </task>
-    <option name="localTasksCounter" value="202" />
+    <task id="LOCAL-00202" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1726731092537</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
+      <option name="project" value="LOCAL" />
+      <updated>1726731092538</updated>
+    </task>
+    <option name="localTasksCounter" value="203" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
