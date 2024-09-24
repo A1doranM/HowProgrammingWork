@@ -216,22 +216,8 @@
       <workItem from="1727074234002" duration="564000" />
       <workItem from="1727074970043" duration="2100000" />
       <workItem from="1727089377089" duration="658000" />
-    </task>
-    <task id="LOCAL-00156" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1725346187397</created>
-      <option name="number" value="00156" />
-      <option name="presentableId" value="LOCAL-00156" />
-      <option name="project" value="LOCAL" />
-      <updated>1725346187397</updated>
-    </task>
-    <task id="LOCAL-00157" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1725346255993</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1725346255993</updated>
+      <workItem from="1727098347288" duration="742000" />
+      <workItem from="1727107955016" duration="607000" />
     </task>
     <task id="LOCAL-00158" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -609,7 +595,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727097266739</updated>
     </task>
-    <option name="localTasksCounter" value="205" />
+    <task id="LOCAL-00205" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1727098442758</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1727098442759</updated>
+    </task>
+    <task id="LOCAL-00206" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1727098470455</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1727098470455</updated>
+    </task>
+    <option name="localTasksCounter" value="207" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
