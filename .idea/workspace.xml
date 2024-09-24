@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in Code">
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/3. Differentiability and continuity/1. Differentiability and continuity.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -217,15 +218,7 @@
       <workItem from="1727074970043" duration="2100000" />
       <workItem from="1727089377089" duration="658000" />
       <workItem from="1727098347288" duration="742000" />
-      <workItem from="1727107955016" duration="607000" />
-    </task>
-    <task id="LOCAL-00158" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1725346888615</created>
-      <option name="number" value="00158" />
-      <option name="presentableId" value="LOCAL-00158" />
-      <option name="project" value="LOCAL" />
-      <updated>1725346888615</updated>
+      <workItem from="1727107955016" duration="2195000" />
     </task>
     <task id="LOCAL-00159" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -611,7 +604,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727098470455</updated>
     </task>
-    <option name="localTasksCounter" value="207" />
+    <task id="LOCAL-00207" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1727158814908</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1727158814909</updated>
+    </task>
+    <option name="localTasksCounter" value="208" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
