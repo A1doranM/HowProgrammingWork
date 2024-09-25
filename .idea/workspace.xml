@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in Code">
-      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/3. Differentiability and continuity/1. Differentiability and continuity.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -218,23 +217,9 @@
       <workItem from="1727074970043" duration="2100000" />
       <workItem from="1727089377089" duration="658000" />
       <workItem from="1727098347288" duration="742000" />
-      <workItem from="1727107955016" duration="2195000" />
-    </task>
-    <task id="LOCAL-00159" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1725437772061</created>
-      <option name="number" value="00159" />
-      <option name="presentableId" value="LOCAL-00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1725437772062</updated>
-    </task>
-    <task id="LOCAL-00160" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1725440801952</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL-00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1725440801952</updated>
+      <workItem from="1727107955016" duration="2497000" />
+      <workItem from="1727186797724" duration="599000" />
+      <workItem from="1727194332354" duration="670000" />
     </task>
     <task id="LOCAL-00161" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -612,7 +597,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727158814909</updated>
     </task>
-    <option name="localTasksCounter" value="208" />
+    <task id="LOCAL-00208" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1727163781368</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1727163781368</updated>
+    </task>
+    <task id="LOCAL-00209" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1727163797367</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1727163797367</updated>
+    </task>
+    <option name="localTasksCounter" value="210" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
