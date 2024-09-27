@@ -5,15 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in Code">
-      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/6. Differentiating Polynomials/1. Differentiating Polynomials.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/6. Differentiating Polynomials/images/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/6. Differentiating Polynomials/images/img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/6. Differentiating Polynomials/images/img_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/6. Differentiating Polynomials/images/img_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/6. Differentiating Polynomials/images/img_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/6. Differentiating Polynomials/images/img_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/6. Differentiating Polynomials/images/img_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/6. Differentiating Polynomials/images/img_7.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -231,15 +222,7 @@
       <workItem from="1727194332354" duration="670000" />
       <workItem from="1727253397920" duration="933000" />
       <workItem from="1727278024918" duration="1438000" />
-      <workItem from="1727347642560" duration="722000" />
-    </task>
-    <task id="LOCAL-00165" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1725521282914</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1725521282914</updated>
+      <workItem from="1727347642560" duration="1107000" />
     </task>
     <task id="LOCAL-00166" summary="Linear Algebra in Code">
       <option name="closed" value="true" />
@@ -625,7 +608,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727347879457</updated>
     </task>
-    <option name="localTasksCounter" value="214" />
+    <task id="LOCAL-00214" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1727348699341</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1727348699341</updated>
+    </task>
+    <option name="localTasksCounter" value="215" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
