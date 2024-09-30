@@ -5,11 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in Code">
+      <change afterPath="$PROJECT_DIR$/0. Certificates/AndroidJava.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0. Certificates/Docker&amp;Kubernetes.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0. Certificates/DockerMasteryWithKubernetes.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0. Certificates/Flutter_Certificate.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0. Certificates/Geometry.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0. Certificates/InvestingInStocks.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0. Certificates/MathFundamentals.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0. Certificates/NestJS.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0. Certificates/NodeJS.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0. Certificates/ProgressiveWebApps.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0. Certificates/Python_Certificate.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0. Certificates/Python_DataVisualisation_Certificate.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0. Certificates/RabbitMQ.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0. Certificates/Redis.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/8. Product Rule/1. Product Rule.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/8. Product Quotient Rules/1. Product and Quotient Rules.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/8. Product Rule/images/img.png" beforeDir="false" afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/8. Product Quotient Rules/images/img.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/8. Product Rule/images/img_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/8. Product Quotient Rules/images/img_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/8. Product Rule/images/img_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/8. Product Quotient Rules/images/img_2.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +71,7 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/aldoran/IdeaProjects/kub-data-05-pv-and-pvc&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/aldoran/IdeaProjects/HowProgrammingWork/0. Certificates&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -77,6 +87,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/0. Certificates" />
       <recent name="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -229,31 +240,8 @@
       <workItem from="1727347642560" duration="1107000" />
       <workItem from="1727422126823" duration="1755000" />
       <workItem from="1727679688335" duration="234000" />
-      <workItem from="1727690316922" duration="386000" />
-    </task>
-    <task id="LOCAL-00170" summary="Calculus in Code">
-      <option name="closed" value="true" />
-      <created>1725603619387</created>
-      <option name="number" value="00170" />
-      <option name="presentableId" value="LOCAL-00170" />
-      <option name="project" value="LOCAL" />
-      <updated>1725603619387</updated>
-    </task>
-    <task id="LOCAL-00171" summary="Calculus in Code">
-      <option name="closed" value="true" />
-      <created>1725604171269</created>
-      <option name="number" value="00171" />
-      <option name="presentableId" value="LOCAL-00171" />
-      <option name="project" value="LOCAL" />
-      <updated>1725604171269</updated>
-    </task>
-    <task id="LOCAL-00172" summary="Calculus in Code">
-      <option name="closed" value="true" />
-      <created>1725863424261</created>
-      <option name="number" value="00172" />
-      <option name="presentableId" value="LOCAL-00172" />
-      <option name="project" value="LOCAL" />
-      <updated>1725863424262</updated>
+      <workItem from="1727690316922" duration="1773000" />
+      <workItem from="1727703370342" duration="1292000" />
     </task>
     <task id="LOCAL-00173" summary="Calculus in Code">
       <option name="closed" value="true" />
@@ -623,7 +611,31 @@
       <option name="project" value="LOCAL" />
       <updated>1727679886371</updated>
     </task>
-    <option name="localTasksCounter" value="219" />
+    <task id="LOCAL-00219" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1727690812620</created>
+      <option name="number" value="00219" />
+      <option name="presentableId" value="LOCAL-00219" />
+      <option name="project" value="LOCAL" />
+      <updated>1727690812620</updated>
+    </task>
+    <task id="LOCAL-00220" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1727690898418</created>
+      <option name="number" value="00220" />
+      <option name="presentableId" value="LOCAL-00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1727690898418</updated>
+    </task>
+    <task id="LOCAL-00221" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1727691055779</created>
+      <option name="number" value="00221" />
+      <option name="presentableId" value="LOCAL-00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1727691055779</updated>
+    </task>
+    <option name="localTasksCounter" value="222" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
