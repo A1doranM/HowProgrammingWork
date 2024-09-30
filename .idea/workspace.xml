@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in Code" />
+    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in Code">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/8. Product Rule/1. Product Rule.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/8. Product Quotient Rules/1. Product and Quotient Rules.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/8. Product Rule/images/img.png" beforeDir="false" afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/8. Product Quotient Rules/images/img.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/8. Product Rule/images/img_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/8. Product Quotient Rules/images/img_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/8. Product Rule/images/img_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/8. Product Quotient Rules/images/img_2.png" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -222,14 +228,8 @@
       <workItem from="1727278024918" duration="1438000" />
       <workItem from="1727347642560" duration="1107000" />
       <workItem from="1727422126823" duration="1755000" />
-    </task>
-    <task id="LOCAL-00169" summary="Linear Algebra in Code">
-      <option name="closed" value="true" />
-      <created>1725603611348</created>
-      <option name="number" value="00169" />
-      <option name="presentableId" value="LOCAL-00169" />
-      <option name="project" value="LOCAL" />
-      <updated>1725603611348</updated>
+      <workItem from="1727679688335" duration="234000" />
+      <workItem from="1727690316922" duration="386000" />
     </task>
     <task id="LOCAL-00170" summary="Calculus in Code">
       <option name="closed" value="true" />
@@ -615,7 +615,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727423187310</updated>
     </task>
-    <option name="localTasksCounter" value="218" />
+    <task id="LOCAL-00218" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1727679886371</created>
+      <option name="number" value="00218" />
+      <option name="presentableId" value="LOCAL-00218" />
+      <option name="project" value="LOCAL" />
+      <updated>1727679886371</updated>
+    </task>
+    <option name="localTasksCounter" value="219" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
