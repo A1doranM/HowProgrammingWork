@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in Code">
-      <change afterPath="$PROJECT_DIR$/0. Certificates/AndroidJava.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0. Certificates/Docker&amp;Kubernetes.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0. Certificates/DockerMasteryWithKubernetes.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0. Certificates/Flutter_Certificate.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0. Certificates/Geometry.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0. Certificates/InvestingInStocks.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0. Certificates/MathFundamentals.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0. Certificates/NestJS.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0. Certificates/NodeJS.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0. Certificates/ProgressiveWebApps.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0. Certificates/Python_Certificate.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0. Certificates/Python_DataVisualisation_Certificate.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0. Certificates/RabbitMQ.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0. Certificates/Redis.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Trading/AlgorithmTrading/S8. API Trading with IBKR/Interactive_Brokers_firststeps.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InteractiveBrockersTrasferGo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/InteractiveBrockersTrasferGo.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +59,7 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/aldoran/IdeaProjects/HowProgrammingWork/0. Certificates&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/aldoran/IdeaProjects/HowProgrammingWork/Trading/AlgorithmTrading/S8. API Trading with IBKR&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -87,10 +75,12 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Trading/AlgorithmTrading/S8. API Trading with IBKR" />
       <recent name="$PROJECT_DIR$/0. Certificates" />
       <recent name="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Trading" />
       <recent name="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/1. Average and instantaneous rates of change" />
       <recent name="$PROJECT_DIR$/Trading/1. Terminology/images" />
     </key>
@@ -241,23 +231,9 @@
       <workItem from="1727422126823" duration="1755000" />
       <workItem from="1727679688335" duration="234000" />
       <workItem from="1727690316922" duration="1773000" />
-      <workItem from="1727703370342" duration="1292000" />
-    </task>
-    <task id="LOCAL-00173" summary="Calculus in Code">
-      <option name="closed" value="true" />
-      <created>1725895436268</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL-00173" />
-      <option name="project" value="LOCAL" />
-      <updated>1725895436269</updated>
-    </task>
-    <task id="LOCAL-00174" summary="Calculus in Code">
-      <option name="closed" value="true" />
-      <created>1725895500227</created>
-      <option name="number" value="00174" />
-      <option name="presentableId" value="LOCAL-00174" />
-      <option name="project" value="LOCAL" />
-      <updated>1725895500228</updated>
+      <workItem from="1727703370342" duration="2311000" />
+      <workItem from="1727711528273" duration="1839000" />
+      <workItem from="1727765288985" duration="1063000" />
     </task>
     <task id="LOCAL-00175" summary="Calculus in Code">
       <option name="closed" value="true" />
@@ -635,7 +611,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727691055779</updated>
     </task>
-    <option name="localTasksCounter" value="222" />
+    <task id="LOCAL-00222" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1727704664354</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1727704664355</updated>
+    </task>
+    <task id="LOCAL-00223" summary="Calculus in Code">
+      <option name="closed" value="true" />
+      <created>1727704727296</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL-00223" />
+      <option name="project" value="LOCAL" />
+      <updated>1727704727296</updated>
+    </task>
+    <option name="localTasksCounter" value="224" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
