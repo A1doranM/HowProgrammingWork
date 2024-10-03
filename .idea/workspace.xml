@@ -5,27 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Trading">
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Exercises/Exercise_07.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Exercises/Exercise_08.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Exercises/Exercise_09.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Exercises/Exercise_09_Solution.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Exercises/Exercise_10.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Exercises/Exercise_10_Solution.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Exercises/cars.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/NB_01_Numpy.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/NB_02_multidim_arrays.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/NB_03_Pandas_Basics.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/NB_04_Pandas_Intermediate_1.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/NB_05_Pandas_Intermediate_2.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/NB_06_Data_Visualization_1.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/NB_07_Data_Visualization_2.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/NB_08_Pandas_Advanced.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/clean_df.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/sales.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/summer.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/temp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/titanic.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/NB_01_Numpy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/NB_01_Numpy.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/NB_02_multidim_arrays.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/NB_02_multidim_arrays.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/NB_03_Pandas_Basics.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/NB_03_Pandas_Basics.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/NB_04_Pandas_Intermediate_1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/NB_04_Pandas_Intermediate_1.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/NB_05_Pandas_Intermediate_2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/NB_05_Pandas_Intermediate_2.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/NB_06_Data_Visualization_1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/NB_06_Data_Visualization_1.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/NB_07_Data_Visualization_2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/NB_07_Data_Visualization_2.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/NB_08_Pandas_Advanced.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/NB_08_Pandas_Advanced.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/clean_df.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/clean_df.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/sales.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/sales.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/summer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/summer.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/temp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/temp.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Video_Lectures_NBs/titanic.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/titanic.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,22 +256,6 @@
       <workItem from="1727869417330" duration="2579000" />
       <workItem from="1727880566878" duration="2241000" />
       <workItem from="1727882852691" duration="2545000" />
-    </task>
-    <task id="LOCAL-00183" summary="Calculus in Code">
-      <option name="closed" value="true" />
-      <created>1726160040771</created>
-      <option name="number" value="00183" />
-      <option name="presentableId" value="LOCAL-00183" />
-      <option name="project" value="LOCAL" />
-      <updated>1726160040773</updated>
-    </task>
-    <task id="LOCAL-00184" summary="Calculus in Code">
-      <option name="closed" value="true" />
-      <created>1726160153277</created>
-      <option name="number" value="00184" />
-      <option name="presentableId" value="LOCAL-00184" />
-      <option name="project" value="LOCAL" />
-      <updated>1726160153277</updated>
     </task>
     <task id="LOCAL-00185" summary="Calculus in Code">
       <option name="closed" value="true" />
@@ -656,7 +633,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727952068256</updated>
     </task>
-    <option name="localTasksCounter" value="232" />
+    <task id="LOCAL-00232" summary="Trading">
+      <option name="closed" value="true" />
+      <created>1727953984351</created>
+      <option name="number" value="00232" />
+      <option name="presentableId" value="LOCAL-00232" />
+      <option name="project" value="LOCAL" />
+      <updated>1727953984351</updated>
+    </task>
+    <task id="LOCAL-00233" summary="Trading">
+      <option name="closed" value="true" />
+      <created>1727954048396</created>
+      <option name="number" value="00233" />
+      <option name="presentableId" value="LOCAL-00233" />
+      <option name="project" value="LOCAL" />
+      <updated>1727954048396</updated>
+    </task>
+    <option name="localTasksCounter" value="234" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
