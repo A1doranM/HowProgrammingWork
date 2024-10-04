@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Trading">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/AlgorithmTrading/S8. API Trading with IBKR/Interactive_Brokers_firststeps.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/AlgorithmTrading/S8. API Trading with IBKR/Interactive_Brokers_firststeps.ipynb" afterDir="false" />
-    </list>
+    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -237,31 +234,7 @@
       <workItem from="1727850881133" duration="33000" />
       <workItem from="1727869417330" duration="2579000" />
       <workItem from="1727880566878" duration="2241000" />
-      <workItem from="1727882852691" duration="2545000" />
-    </task>
-    <task id="LOCAL-00181" summary="Calculus in Code">
-      <option name="closed" value="true" />
-      <created>1726038763840</created>
-      <option name="number" value="00181" />
-      <option name="presentableId" value="LOCAL-00181" />
-      <option name="project" value="LOCAL" />
-      <updated>1726038763840</updated>
-    </task>
-    <task id="LOCAL-00182" summary="Calculus in Code">
-      <option name="closed" value="true" />
-      <created>1726040422313</created>
-      <option name="number" value="00182" />
-      <option name="presentableId" value="LOCAL-00182" />
-      <option name="project" value="LOCAL" />
-      <updated>1726040422313</updated>
-    </task>
-    <task id="LOCAL-00183" summary="Calculus in Code">
-      <option name="closed" value="true" />
-      <created>1726160040771</created>
-      <option name="number" value="00183" />
-      <option name="presentableId" value="LOCAL-00183" />
-      <option name="project" value="LOCAL" />
-      <updated>1726160040773</updated>
+      <workItem from="1727882852691" duration="5504000" />
     </task>
     <task id="LOCAL-00184" summary="Calculus in Code">
       <option name="closed" value="true" />
@@ -631,7 +604,31 @@
       <option name="project" value="LOCAL" />
       <updated>1727883802031</updated>
     </task>
-    <option name="localTasksCounter" value="230" />
+    <task id="LOCAL-00230" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1727935288212</created>
+      <option name="number" value="00230" />
+      <option name="presentableId" value="LOCAL-00230" />
+      <option name="project" value="LOCAL" />
+      <updated>1727935288212</updated>
+    </task>
+    <task id="LOCAL-00231" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1727935302061</created>
+      <option name="number" value="00231" />
+      <option name="presentableId" value="LOCAL-00231" />
+      <option name="project" value="LOCAL" />
+      <updated>1727935302061</updated>
+    </task>
+    <task id="LOCAL-00232" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1727937165494</created>
+      <option name="number" value="00232" />
+      <option name="presentableId" value="LOCAL-00232" />
+      <option name="project" value="LOCAL" />
+      <updated>1727937165494</updated>
+    </task>
+    <option name="localTasksCounter" value="233" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -661,7 +658,8 @@
     <MESSAGE value="Linear Algebra in Code" />
     <MESSAGE value="Calculus in Code" />
     <MESSAGE value="Trading" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trading" />
+    <MESSAGE value="Calculus in code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calculus in code" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
