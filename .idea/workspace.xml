@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code" />
+    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code">
+      <change beforePath="$PROJECT_DIR$/.idea/HowProgrammingWork.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HowProgrammingWork.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/NB_01_Numpy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/NB_01_Numpy.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/AlgorithmTrading/1. S8. API Trading with IBKR/Interactive_Brokers_firststeps.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/AlgorithmTrading/1. S8. API Trading with IBKR/Interactive_Brokers_firststeps.ipynb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,7 +70,7 @@
     &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -84,8 +90,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.22855.74" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.22855.74" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
       </set>
     </attachedChunks>
   </component>
@@ -235,14 +241,9 @@
       <workItem from="1727869417330" duration="2579000" />
       <workItem from="1727880566878" duration="2241000" />
       <workItem from="1727882852691" duration="5504000" />
-    </task>
-    <task id="LOCAL-00184" summary="Calculus in Code">
-      <option name="closed" value="true" />
-      <created>1726160153277</created>
-      <option name="number" value="00184" />
-      <option name="presentableId" value="LOCAL-00184" />
-      <option name="project" value="LOCAL" />
-      <updated>1726160153277</updated>
+      <workItem from="1728031397275" duration="3796000" />
+      <workItem from="1728118963352" duration="3718000" />
+      <workItem from="1728215845621" duration="687000" />
     </task>
     <task id="LOCAL-00185" summary="Calculus in Code">
       <option name="closed" value="true" />
@@ -628,7 +629,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727937165494</updated>
     </task>
-    <option name="localTasksCounter" value="233" />
+    <task id="LOCAL-00233" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1728034660407</created>
+      <option name="number" value="00233" />
+      <option name="presentableId" value="LOCAL-00233" />
+      <option name="project" value="LOCAL" />
+      <updated>1728034660408</updated>
+    </task>
+    <option name="localTasksCounter" value="234" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
