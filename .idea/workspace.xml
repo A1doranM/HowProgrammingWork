@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code">
-      <change beforePath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/NB_02_multidim_arrays.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/NB_02_multidim_arrays.ipynb" afterDir="false" />
-    </list>
+    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -244,15 +242,7 @@
       <workItem from="1728366550724" duration="5471000" />
       <workItem from="1728402913986" duration="994000" />
       <workItem from="1728459570848" duration="89000" />
-      <workItem from="1728459676523" duration="1628000" />
-    </task>
-    <task id="LOCAL-00193" summary="Calculus in Code">
-      <option name="closed" value="true" />
-      <created>1726555803932</created>
-      <option name="number" value="00193" />
-      <option name="presentableId" value="LOCAL-00193" />
-      <option name="project" value="LOCAL" />
-      <updated>1726555803932</updated>
+      <workItem from="1728459676523" duration="1938000" />
     </task>
     <task id="LOCAL-00194" summary="Calculus in Code">
       <option name="closed" value="true" />
@@ -638,7 +628,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728464972865</updated>
     </task>
-    <option name="localTasksCounter" value="242" />
+    <task id="LOCAL-00242" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1728465326996</created>
+      <option name="number" value="00242" />
+      <option name="presentableId" value="LOCAL-00242" />
+      <option name="project" value="LOCAL" />
+      <updated>1728465326996</updated>
+    </task>
+    <option name="localTasksCounter" value="243" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
