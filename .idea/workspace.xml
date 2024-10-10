@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code" />
+    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/NB_03_Pandas_Basics.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/DataScience/2. Numpy, Pandas, Matplotlib, Seabord Crash Course/Lectures/NB_03_Pandas_Basics.ipynb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -242,15 +245,10 @@
       <workItem from="1728366550724" duration="5471000" />
       <workItem from="1728402913986" duration="994000" />
       <workItem from="1728459570848" duration="89000" />
-      <workItem from="1728459676523" duration="1938000" />
-    </task>
-    <task id="LOCAL-00194" summary="Calculus in Code">
-      <option name="closed" value="true" />
-      <created>1726556104702</created>
-      <option name="number" value="00194" />
-      <option name="presentableId" value="LOCAL-00194" />
-      <option name="project" value="LOCAL" />
-      <updated>1726556104702</updated>
+      <workItem from="1728459676523" duration="3421000" />
+      <workItem from="1728479200299" duration="680000" />
+      <workItem from="1728483043473" duration="485000" />
+      <workItem from="1728483922192" duration="238000" />
     </task>
     <task id="LOCAL-00195" summary="Calculus in Code">
       <option name="closed" value="true" />
@@ -636,7 +634,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728465326996</updated>
     </task>
-    <option name="localTasksCounter" value="243" />
+    <task id="LOCAL-00243" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1728465817000</created>
+      <option name="number" value="00243" />
+      <option name="presentableId" value="LOCAL-00243" />
+      <option name="project" value="LOCAL" />
+      <updated>1728465817001</updated>
+    </task>
+    <option name="localTasksCounter" value="244" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
