@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -265,38 +263,7 @@
       <workItem from="1729252030484" duration="1709000" />
       <workItem from="1729490809657" duration="2087000" />
       <workItem from="1729497923528" duration="5292000" />
-    </task>
-    <task id="LOCAL-00217" summary="Calculus in Code">
-      <option name="closed" value="true" />
-      <created>1727423187310</created>
-      <option name="number" value="00217" />
-      <option name="presentableId" value="LOCAL-00217" />
-      <option name="project" value="LOCAL" />
-      <updated>1727423187310</updated>
-    </task>
-    <task id="LOCAL-00218" summary="Calculus in Code">
-      <option name="closed" value="true" />
-      <created>1727679886371</created>
-      <option name="number" value="00218" />
-      <option name="presentableId" value="LOCAL-00218" />
-      <option name="project" value="LOCAL" />
-      <updated>1727679886371</updated>
-    </task>
-    <task id="LOCAL-00219" summary="Calculus in Code">
-      <option name="closed" value="true" />
-      <created>1727690812620</created>
-      <option name="number" value="00219" />
-      <option name="presentableId" value="LOCAL-00219" />
-      <option name="project" value="LOCAL" />
-      <updated>1727690812620</updated>
-    </task>
-    <task id="LOCAL-00220" summary="Calculus in Code">
-      <option name="closed" value="true" />
-      <created>1727690898418</created>
-      <option name="number" value="00220" />
-      <option name="presentableId" value="LOCAL-00220" />
-      <option name="project" value="LOCAL" />
-      <updated>1727690898418</updated>
+      <workItem from="1729528929217" duration="3649000" />
     </task>
     <task id="LOCAL-00221" summary="Calculus in Code">
       <option name="closed" value="true" />
@@ -658,7 +625,39 @@
       <option name="project" value="LOCAL" />
       <updated>1729502493083</updated>
     </task>
-    <option name="localTasksCounter" value="266" />
+    <task id="LOCAL-00266" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1729575625507</created>
+      <option name="number" value="00266" />
+      <option name="presentableId" value="LOCAL-00266" />
+      <option name="project" value="LOCAL" />
+      <updated>1729575625508</updated>
+    </task>
+    <task id="LOCAL-00267" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1729575990417</created>
+      <option name="number" value="00267" />
+      <option name="presentableId" value="LOCAL-00267" />
+      <option name="project" value="LOCAL" />
+      <updated>1729575990417</updated>
+    </task>
+    <task id="LOCAL-00268" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1729577182254</created>
+      <option name="number" value="00268" />
+      <option name="presentableId" value="LOCAL-00268" />
+      <option name="project" value="LOCAL" />
+      <updated>1729577182254</updated>
+    </task>
+    <task id="LOCAL-00269" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1729577465030</created>
+      <option name="number" value="00269" />
+      <option name="presentableId" value="LOCAL-00269" />
+      <option name="project" value="LOCAL" />
+      <updated>1729577465030</updated>
+    </task>
+    <option name="localTasksCounter" value="270" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
