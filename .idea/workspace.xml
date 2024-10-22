@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code" />
+    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -264,14 +266,8 @@
       <workItem from="1729490809657" duration="2087000" />
       <workItem from="1729497923528" duration="5292000" />
       <workItem from="1729528929217" duration="3649000" />
-    </task>
-    <task id="LOCAL-00221" summary="Calculus in Code">
-      <option name="closed" value="true" />
-      <created>1727691055779</created>
-      <option name="number" value="00221" />
-      <option name="presentableId" value="LOCAL-00221" />
-      <option name="project" value="LOCAL" />
-      <updated>1727691055779</updated>
+      <workItem from="1729585446445" duration="4123000" />
+      <workItem from="1729610742188" duration="306000" />
     </task>
     <task id="LOCAL-00222" summary="Calculus in Code">
       <option name="closed" value="true" />
@@ -657,7 +653,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729577465030</updated>
     </task>
-    <option name="localTasksCounter" value="270" />
+    <task id="LOCAL-00270" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1729590597604</created>
+      <option name="number" value="00270" />
+      <option name="presentableId" value="LOCAL-00270" />
+      <option name="project" value="LOCAL" />
+      <updated>1729590597604</updated>
+    </task>
+    <option name="localTasksCounter" value="271" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
