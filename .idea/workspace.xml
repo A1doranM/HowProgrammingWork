@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code" />
+    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/AlgorithmTrading/2. S12. Financial Data Analysis/9. Log Returns.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/AlgorithmTrading/2. S12. Financial Data Analysis/9. Log Returns.ipynb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +58,7 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/aldoran/IdeaProjects/HowProgrammingWork/Trading/AlgorithmTrading/S8. API Trading with IBKR&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/aldoran/IdeaProjects/strapi_V3_V4_converter/strapi_graphql_converter&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -273,22 +276,9 @@
       <workItem from="1729841033949" duration="3189000" />
       <workItem from="1729860027846" duration="334000" />
       <workItem from="1729934367695" duration="598000" />
-    </task>
-    <task id="LOCAL-00229" summary="Trading">
-      <option name="closed" value="true" />
-      <created>1727883802030</created>
-      <option name="number" value="00229" />
-      <option name="presentableId" value="LOCAL-00229" />
-      <option name="project" value="LOCAL" />
-      <updated>1727883802031</updated>
-    </task>
-    <task id="LOCAL-00230" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1727935288212</created>
-      <option name="number" value="00230" />
-      <option name="presentableId" value="LOCAL-00230" />
-      <option name="project" value="LOCAL" />
-      <updated>1727935288212</updated>
+      <workItem from="1730132031357" duration="11175000" />
+      <workItem from="1730208983243" duration="87000" />
+      <workItem from="1730209122124" duration="1093000" />
     </task>
     <task id="LOCAL-00231" summary="Calculus in code">
       <option name="closed" value="true" />
@@ -666,7 +656,23 @@
       <option name="project" value="LOCAL" />
       <updated>1729844300107</updated>
     </task>
-    <option name="localTasksCounter" value="278" />
+    <task id="LOCAL-00278" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1730134420979</created>
+      <option name="number" value="00278" />
+      <option name="presentableId" value="LOCAL-00278" />
+      <option name="project" value="LOCAL" />
+      <updated>1730134420979</updated>
+    </task>
+    <task id="LOCAL-00279" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1730183112584</created>
+      <option name="number" value="00279" />
+      <option name="presentableId" value="LOCAL-00279" />
+      <option name="project" value="LOCAL" />
+      <updated>1730183112584</updated>
+    </task>
+    <option name="localTasksCounter" value="280" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
