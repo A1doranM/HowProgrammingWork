@@ -5,7 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code">
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/NB_02_Financial_Data_Analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/NB_02_Financial_Data_Analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/1. Financial Data Analysis.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/10. Comparing Performance of Financial Instruments.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/2. Initial inspection and visualisation.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/3. Normalizing Time Series to a Base Value.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/4. Code Challenge.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/5. Price Changes and Financial Returns.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/6. Reward and Risk of Financial Instruments.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/7. Investment Multiple and CAGR.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/8. Compounding.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/9. Log Returns.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/FinancialInstrument.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/FinancialInstrument.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/GE_prices.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/GE_prices.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/NB_01_TimeSeries_Intro.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/01. TimeSeries_Intro.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/NB_02_Financial_Data_Analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/02. Financial_Data_Analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/NB_03_Advanced_Topics.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/03. Advanced_Topics.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/NB_04_OOP.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/04. OOP.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/New_NB.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/New_NB.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/SP500.xls" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/SP500.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/close.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/close.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/msft.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/msft.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/multi_assets.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/multi_assets.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/stocks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/stocks.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/temp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/temp.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/titanic.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/titanic.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/ba_csv.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/close.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/multi_assets.csv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,11 +100,13 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis" />
       <recent name="$PROJECT_DIR$/Trading/AlgorithmTrading/S8. API Trading with IBKR" />
       <recent name="$PROJECT_DIR$/0. Certificates" />
       <recent name="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Trading/2. Algorithm Trading" />
       <recent name="$PROJECT_DIR$/Math/3. Linear Algebra" />
       <recent name="$PROJECT_DIR$/Trading" />
       <recent name="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/1. Average and instantaneous rates of change" />
@@ -282,15 +311,7 @@
       <workItem from="1730358111188" duration="629000" />
       <workItem from="1730370020158" duration="1022000" />
       <workItem from="1730375838250" duration="600000" />
-      <workItem from="1730470640146" duration="2475000" />
-    </task>
-    <task id="LOCAL-00235" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1728285649759</created>
-      <option name="number" value="00235" />
-      <option name="presentableId" value="LOCAL-00235" />
-      <option name="project" value="LOCAL" />
-      <updated>1728285649759</updated>
+      <workItem from="1730470640146" duration="2866000" />
     </task>
     <task id="LOCAL-00236" summary="Calculus in code">
       <option name="closed" value="true" />
@@ -676,7 +697,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730474457684</updated>
     </task>
-    <option name="localTasksCounter" value="284" />
+    <task id="LOCAL-00284" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1730474989053</created>
+      <option name="number" value="00284" />
+      <option name="presentableId" value="LOCAL-00284" />
+      <option name="project" value="LOCAL" />
+      <updated>1730474989053</updated>
+    </task>
+    <option name="localTasksCounter" value="285" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
