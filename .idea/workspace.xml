@@ -6,33 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/1. Financial Data Analysis.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/10. Comparing Performance of Financial Instruments.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/2. Initial inspection and visualisation.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/3. Normalizing Time Series to a Base Value.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/4. Code Challenge.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/5. Price Changes and Financial Returns.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/6. Reward and Risk of Financial Instruments.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/7. Investment Multiple and CAGR.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/8. Compounding.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/9. Log Returns.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/FinancialInstrument.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/FinancialInstrument.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/GE_prices.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/GE_prices.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/NB_01_TimeSeries_Intro.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/01. TimeSeries_Intro.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/NB_02_Financial_Data_Analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/02. Financial_Data_Analysis.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/NB_03_Advanced_Topics.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/03. Advanced_Topics.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/NB_04_OOP.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/04. OOP.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/New_NB.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/New_NB.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/SP500.xls" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/SP500.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/close.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/close.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/msft.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/msft.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/multi_assets.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/multi_assets.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/stocks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/stocks.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/temp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/temp.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/Video_Lecture_NBs/titanic.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/titanic.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/ba_csv.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/close.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis/multi_assets.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/02. Financial_Data_Analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S11, 12, 13, 14/02. Financial_Data_Analysis.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,28 +50,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/aldoran/IdeaProjects/HowProgrammingWork/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "show.migrate.to.gradle.popup": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/aldoran/IdeaProjects/HowProgrammingWork/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Trading/2. Algorithm Trading/2. S12. Financial Data Analysis" />
@@ -311,15 +285,8 @@
       <workItem from="1730358111188" duration="629000" />
       <workItem from="1730370020158" duration="1022000" />
       <workItem from="1730375838250" duration="600000" />
-      <workItem from="1730470640146" duration="2866000" />
-    </task>
-    <task id="LOCAL-00236" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1728285830327</created>
-      <option name="number" value="00236" />
-      <option name="presentableId" value="LOCAL-00236" />
-      <option name="project" value="LOCAL" />
-      <updated>1728285830327</updated>
+      <workItem from="1730470640146" duration="4173000" />
+      <workItem from="1730713794721" duration="1744000" />
     </task>
     <task id="LOCAL-00237" summary="Calculus in code">
       <option name="closed" value="true" />
@@ -705,7 +672,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730474989053</updated>
     </task>
-    <option name="localTasksCounter" value="285" />
+    <task id="LOCAL-00285" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1730475600433</created>
+      <option name="number" value="00285" />
+      <option name="presentableId" value="LOCAL-00285" />
+      <option name="project" value="LOCAL" />
+      <updated>1730475600433</updated>
+    </task>
+    <option name="localTasksCounter" value="286" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
