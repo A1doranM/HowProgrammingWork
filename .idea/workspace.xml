@@ -287,30 +287,8 @@
       <workItem from="1730470640146" duration="4173000" />
       <workItem from="1730713794721" duration="3567000" />
       <workItem from="1730736091624" duration="3482000" />
-    </task>
-    <task id="LOCAL-00240" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1728464959291</created>
-      <option name="number" value="00240" />
-      <option name="presentableId" value="LOCAL-00240" />
-      <option name="project" value="LOCAL" />
-      <updated>1728464959291</updated>
-    </task>
-    <task id="LOCAL-00241" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1728464972865</created>
-      <option name="number" value="00241" />
-      <option name="presentableId" value="LOCAL-00241" />
-      <option name="project" value="LOCAL" />
-      <updated>1728464972865</updated>
-    </task>
-    <task id="LOCAL-00242" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1728465326996</created>
-      <option name="number" value="00242" />
-      <option name="presentableId" value="LOCAL-00242" />
-      <option name="project" value="LOCAL" />
-      <updated>1728465326996</updated>
+      <workItem from="1730826560171" duration="797000" />
+      <workItem from="1730905348576" duration="503000" />
     </task>
     <task id="LOCAL-00243" summary="Calculus in code">
       <option name="closed" value="true" />
@@ -680,7 +658,31 @@
       <option name="project" value="LOCAL" />
       <updated>1730719180132</updated>
     </task>
-    <option name="localTasksCounter" value="289" />
+    <task id="LOCAL-00289" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1730826667299</created>
+      <option name="number" value="00289" />
+      <option name="presentableId" value="LOCAL-00289" />
+      <option name="project" value="LOCAL" />
+      <updated>1730826667299</updated>
+    </task>
+    <task id="LOCAL-00290" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1730826684031</created>
+      <option name="number" value="00290" />
+      <option name="presentableId" value="LOCAL-00290" />
+      <option name="project" value="LOCAL" />
+      <updated>1730826684031</updated>
+    </task>
+    <task id="LOCAL-00291" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1730826752738</created>
+      <option name="number" value="00291" />
+      <option name="presentableId" value="LOCAL-00291" />
+      <option name="project" value="LOCAL" />
+      <updated>1730826752738</updated>
+    </task>
+    <option name="localTasksCounter" value="292" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
