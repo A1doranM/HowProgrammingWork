@@ -54,8 +54,8 @@ class FinancialInstrument():
     def get_data(self):
         ''' retrieves (from yahoo finance) and prepares the data
         '''
-        raw = yf.download(self._ticker, self.start, self.end).Close.to_frame()
-        raw.rename(columns = {"Close":"price"}, inplace = True)
+        raw = yf.download(self._ticker, self.start, self.end)[['Close']]
+        raw.rename(columns={"Close": "price"}, inplace=True)
         self.data = raw
         
     def log_returns(self):
