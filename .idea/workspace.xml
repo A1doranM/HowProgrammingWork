@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code">
       <change afterPath="$PROJECT_DIR$/Math/4. Calculus/3. Contextual application of differentiation/2. Related rates/images/img_10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/3. Contextual application of differentiation/2. Related rates/images/img_11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/3. Contextual application of differentiation/2. Related rates/images/img_12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/3. Contextual application of differentiation/2. Related rates/images/img_13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/3. Contextual application of differentiation/2. Related rates/images/img_14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/3. Contextual application of differentiation/2. Related rates/images/img_15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/3. Contextual application of differentiation/2. Related rates/images/img_16.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Math/4. Calculus/3. Contextual application of differentiation/2. Related rates/images/img_4.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Math/4. Calculus/3. Contextual application of differentiation/2. Related rates/images/img_5.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Math/4. Calculus/3. Contextual application of differentiation/2. Related rates/images/img_6.png" afterDir="false" />
@@ -303,15 +309,7 @@
       <workItem from="1730999677932" duration="2474000" />
       <workItem from="1731050309817" duration="833000" />
       <workItem from="1731074001176" duration="1029000" />
-      <workItem from="1731350543730" duration="3996000" />
-    </task>
-    <task id="LOCAL-00254" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1729006799606</created>
-      <option name="number" value="00254" />
-      <option name="presentableId" value="LOCAL-00254" />
-      <option name="project" value="LOCAL" />
-      <updated>1729006799606</updated>
+      <workItem from="1731350543730" duration="4836000" />
     </task>
     <task id="LOCAL-00255" summary="Calculus in code">
       <option name="closed" value="true" />
@@ -697,7 +695,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731353034770</updated>
     </task>
-    <option name="localTasksCounter" value="303" />
+    <task id="LOCAL-00303" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1731400619882</created>
+      <option name="number" value="00303" />
+      <option name="presentableId" value="LOCAL-00303" />
+      <option name="project" value="LOCAL" />
+      <updated>1731400619882</updated>
+    </task>
+    <option name="localTasksCounter" value="304" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
