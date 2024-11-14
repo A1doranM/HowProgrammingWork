@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0. Certificates/Flutter_Certificate.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/0. Certificates/FlutterDeveloperCertificate.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S15 - 21/NB_01_SMA.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S15 - 21/NB_01_SMA.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S15 - 21/NB_02_SMABacktester.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S15 - 21/NB_02_SMABacktester.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S15 - 21/NB_03_Contrarian.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S15 - 21/NB_03_Contrarian.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S15 - 21/NB_04_Contrarian_Backtester.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S15 - 21/NB_04_Contrarian_Backtester.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -300,15 +299,7 @@
       <workItem from="1731074001176" duration="1029000" />
       <workItem from="1731350543730" duration="5908000" />
       <workItem from="1731419547700" duration="5313000" />
-      <workItem from="1731505077714" duration="1482000" />
-    </task>
-    <task id="LOCAL-00258" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1729251017986</created>
-      <option name="number" value="00258" />
-      <option name="presentableId" value="LOCAL-00258" />
-      <option name="project" value="LOCAL" />
-      <updated>1729251017987</updated>
+      <workItem from="1731505077714" duration="7030000" />
     </task>
     <task id="LOCAL-00259" summary="Calculus in code">
       <option name="closed" value="true" />
@@ -694,7 +685,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731425487511</updated>
     </task>
-    <option name="localTasksCounter" value="307" />
+    <task id="LOCAL-00307" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1731506688324</created>
+      <option name="number" value="00307" />
+      <option name="presentableId" value="LOCAL-00307" />
+      <option name="project" value="LOCAL" />
+      <updated>1731506688324</updated>
+    </task>
+    <option name="localTasksCounter" value="308" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
