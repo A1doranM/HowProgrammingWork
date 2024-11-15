@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code">
-      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/3. Contextual application of differentiation/3. Approximating using local linearity and linearization/images/img.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S15 - 21/NB_05_Mean_Reversion.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S15 - 21/NB_05_Mean_Reversion.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,15 +302,7 @@
       <workItem from="1731505077714" duration="7030000" />
       <workItem from="1731586419987" duration="925000" />
       <workItem from="1731595030238" duration="3162000" />
-      <workItem from="1731681737793" duration="472000" />
-    </task>
-    <task id="LOCAL-00262" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1729252435159</created>
-      <option name="number" value="00262" />
-      <option name="presentableId" value="LOCAL-00262" />
-      <option name="project" value="LOCAL" />
-      <updated>1729252435159</updated>
+      <workItem from="1731681737793" duration="4439000" />
     </task>
     <task id="LOCAL-00263" summary="Calculus in code">
       <option name="closed" value="true" />
@@ -695,7 +688,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731681970585</updated>
     </task>
-    <option name="localTasksCounter" value="311" />
+    <task id="LOCAL-00311" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1731683843791</created>
+      <option name="number" value="00311" />
+      <option name="presentableId" value="LOCAL-00311" />
+      <option name="project" value="LOCAL" />
+      <updated>1731683843791</updated>
+    </task>
+    <option name="localTasksCounter" value="312" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
