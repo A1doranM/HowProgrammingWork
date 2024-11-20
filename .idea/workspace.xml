@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code">
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S15 - 21/NB_08_Classification.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S15 - 21/NB_08_Classification.ipynb" afterDir="false" />
-    </list>
+    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -306,15 +304,7 @@
       <workItem from="1731946386493" duration="2363000" />
       <workItem from="1731955629691" duration="1696000" />
       <workItem from="1732028601999" duration="1697000" />
-      <workItem from="1732109429828" duration="317000" />
-    </task>
-    <task id="LOCAL-00273" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1729666238760</created>
-      <option name="number" value="00273" />
-      <option name="presentableId" value="LOCAL-00273" />
-      <option name="project" value="LOCAL" />
-      <updated>1729666238760</updated>
+      <workItem from="1732109429828" duration="650000" />
     </task>
     <task id="LOCAL-00274" summary="Calculus in code">
       <option name="closed" value="true" />
@@ -700,7 +690,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732109469805</updated>
     </task>
-    <option name="localTasksCounter" value="322" />
+    <task id="LOCAL-00322" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1732110079140</created>
+      <option name="number" value="00322" />
+      <option name="presentableId" value="LOCAL-00322" />
+      <option name="project" value="LOCAL" />
+      <updated>1732110079140</updated>
+    </task>
+    <option name="localTasksCounter" value="323" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
