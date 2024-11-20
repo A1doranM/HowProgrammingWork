@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code">
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/4. Applying derivatives to analyze functions/1. Applying derivatives to analyze functions.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/4. Applying derivatives to analyze functions/images/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/4. Applying derivatives to analyze functions/images/img_1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S15 - 21/NB_08_Classification.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/S15 - 21/NB_08_Classification.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -307,15 +309,7 @@
       <workItem from="1731946386493" duration="2363000" />
       <workItem from="1731955629691" duration="1696000" />
       <workItem from="1732028601999" duration="1697000" />
-      <workItem from="1732109429828" duration="955000" />
-    </task>
-    <task id="LOCAL-00275" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1729752184671</created>
-      <option name="number" value="00275" />
-      <option name="presentableId" value="LOCAL-00275" />
-      <option name="project" value="LOCAL" />
-      <updated>1729752184671</updated>
+      <workItem from="1732109429828" duration="2729000" />
     </task>
     <task id="LOCAL-00276" summary="Calculus in code">
       <option name="closed" value="true" />
@@ -701,7 +695,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732110384147</updated>
     </task>
-    <option name="localTasksCounter" value="324" />
+    <task id="LOCAL-00324" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1732111209609</created>
+      <option name="number" value="00324" />
+      <option name="presentableId" value="LOCAL-00324" />
+      <option name="project" value="LOCAL" />
+      <updated>1732111209609</updated>
+    </task>
+    <option name="localTasksCounter" value="325" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
