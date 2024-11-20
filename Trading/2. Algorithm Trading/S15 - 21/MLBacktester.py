@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LogisticRegression
+from sklearn.multiclass import OneVsRestClassifier # added (from sklearn v. 1.7)
 import matplotlib.pyplot as plt
 plt.style.use("seaborn-v0_8")
 
@@ -26,7 +27,7 @@ class MLBacktester():
         self.start = start
         self.end = end
         self.tc = tc
-        self.model = LogisticRegression(C = 1e6, max_iter = 100000, multi_class = "ovr")
+        self.model = OneVsRestClassifier(LogisticRegression(C = 1e6, max_iter = 100000)) # new (from sklearn v. 1.7)
         self.results = None
         self.get_data()
     
@@ -60,11 +61,21 @@ class MLBacktester():
             self.data_subset[col] = self.data_subset["returns"].shift(lag)
             self.feature_columns.append(col)
         self.data_subset.dropna(inplace=True)
+
+    def scale_features(self, recalc = True): # Newly added
+        ''' Scales/Standardizes Features
+        '''
+        if recalc:
+            self.means = self.data_subset[self.feature_columns].mean()
+            self.stand_devs = self.data_subset[self.feature_columns].std()
+        
+        self.data_subset[self.feature_columns] = (self.data_subset[self.feature_columns] - self.means) / self.stand_devs
         
     def fit_model(self, start, end):
         ''' Fitting the ML Model.
         '''
         self.prepare_features(start, end)
+        self.scale_features(recalc = True) # calculate mean & std of train set and scale train set
         self.model.fit(self.data_subset[self.feature_columns], np.sign(self.data_subset["returns"]))
         
     def test_strategy(self, train_ratio = 0.7, lags = 5):
@@ -92,6 +103,7 @@ class MLBacktester():
         
         # prepare the test set
         self.prepare_features(split_date, test_end)
+        self.scale_features(recalc = False) # Newly added -> scale test set features with train set mean & std
                   
         # make predictions on the test set
         predict = self.model.predict(self.data_subset[self.feature_columns])
