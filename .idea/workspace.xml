@@ -81,11 +81,11 @@
       <recent name="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Math/4. Calculus/4. Applying derivatives to analyze functions/1. Mean Value Theorem" />
       <recent name="$PROJECT_DIR$/Trading/2. Algorithm Trading" />
       <recent name="$PROJECT_DIR$/Math/3. Linear Algebra" />
       <recent name="$PROJECT_DIR$/Trading" />
       <recent name="$PROJECT_DIR$/Math/4. Calculus/1. Limits and continuity/6. Differentiation: definition and basic derivative rules/1. Average and instantaneous rates of change" />
-      <recent name="$PROJECT_DIR$/Trading/1. Terminology/images" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -308,14 +308,7 @@
       <workItem from="1732028601999" duration="1697000" />
       <workItem from="1732109429828" duration="2729000" />
       <workItem from="1732118198533" duration="1220000" />
-    </task>
-    <task id="LOCAL-00277" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1729844300106</created>
-      <option name="number" value="00277" />
-      <option name="presentableId" value="LOCAL-00277" />
-      <option name="project" value="LOCAL" />
-      <updated>1729844300107</updated>
+      <workItem from="1732171121278" duration="1150000" />
     </task>
     <task id="LOCAL-00278" summary="Calculus in code">
       <option name="closed" value="true" />
@@ -701,7 +694,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732118813475</updated>
     </task>
-    <option name="localTasksCounter" value="326" />
+    <task id="LOCAL-00326" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1732171273396</created>
+      <option name="number" value="00326" />
+      <option name="presentableId" value="LOCAL-00326" />
+      <option name="project" value="LOCAL" />
+      <updated>1732171273396</updated>
+    </task>
+    <option name="localTasksCounter" value="327" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
