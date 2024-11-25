@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trading/2. Algorithm Trading/1. S8. API Trading with IBKR/Interactive_Brokers_firststeps.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Trading/2. Algorithm Trading/1. S8. API Trading with IBKR/Interactive_Brokers_firststeps.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,14 +311,9 @@
       <workItem from="1732118198533" duration="1220000" />
       <workItem from="1732171121278" duration="1760000" />
       <workItem from="1732201827516" duration="3557000" />
-    </task>
-    <task id="LOCAL-00281" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1730213517003</created>
-      <option name="number" value="00281" />
-      <option name="presentableId" value="LOCAL-00281" />
-      <option name="project" value="LOCAL" />
-      <updated>1730213517003</updated>
+      <workItem from="1732284979359" duration="1342000" />
+      <workItem from="1732369403495" duration="2736000" />
+      <workItem from="1732441571223" duration="803000" />
     </task>
     <task id="LOCAL-00282" summary="Calculus in code">
       <option name="closed" value="true" />
@@ -703,7 +699,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732208600714</updated>
     </task>
-    <option name="localTasksCounter" value="330" />
+    <task id="LOCAL-00330" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1732285008319</created>
+      <option name="number" value="00330" />
+      <option name="presentableId" value="LOCAL-00330" />
+      <option name="project" value="LOCAL" />
+      <updated>1732285008319</updated>
+    </task>
+    <option name="localTasksCounter" value="331" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
