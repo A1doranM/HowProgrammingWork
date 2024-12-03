@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code">
-      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/4. Applying derivatives to analyze functions/4. Concavity/1. Concavity.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Math/4. Calculus/4. Applying derivatives to analyze functions/4. Concavity/1. Concavity.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Math/4. Calculus/4. Applying derivatives to analyze functions/4. Concavity/1. Concavity.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,8 +93,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PY-241.14494.241" />
-        <option value="bundled-python-sdk-0509580d9d50-28c9f5db9ffe-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.14494.241" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>
@@ -318,14 +318,7 @@
       <workItem from="1732530039479" duration="2374000" />
       <workItem from="1732620699851" duration="3228000" />
       <workItem from="1733130279258" duration="351000" />
-    </task>
-    <task id="LOCAL-00286" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1730717752948</created>
-      <option name="number" value="00286" />
-      <option name="presentableId" value="LOCAL-00286" />
-      <option name="project" value="LOCAL" />
-      <updated>1730717752949</updated>
+      <workItem from="1733234206059" duration="1620000" />
     </task>
     <task id="LOCAL-00287" summary="Calculus in code">
       <option name="closed" value="true" />
@@ -711,7 +704,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732621408795</updated>
     </task>
-    <option name="localTasksCounter" value="335" />
+    <task id="LOCAL-00335" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1733140040870</created>
+      <option name="number" value="00335" />
+      <option name="presentableId" value="LOCAL-00335" />
+      <option name="project" value="LOCAL" />
+      <updated>1733140040870</updated>
+    </task>
+    <option name="localTasksCounter" value="336" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
