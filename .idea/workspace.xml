@@ -318,22 +318,7 @@
       <workItem from="1733312664671" duration="2269000" />
       <workItem from="1733335851589" duration="130000" />
       <workItem from="1733407746698" duration="1078000" />
-    </task>
-    <task id="LOCAL-00293" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1730907582992</created>
-      <option name="number" value="00293" />
-      <option name="presentableId" value="LOCAL-00293" />
-      <option name="project" value="LOCAL" />
-      <updated>1730907582992</updated>
-    </task>
-    <task id="LOCAL-00294" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1730907828510</created>
-      <option name="number" value="00294" />
-      <option name="presentableId" value="LOCAL-00294" />
-      <option name="project" value="LOCAL" />
-      <updated>1730907828510</updated>
+      <workItem from="1733497804391" duration="1290000" />
     </task>
     <task id="LOCAL-00295" summary="Calculus in code">
       <option name="closed" value="true" />
@@ -711,7 +696,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733407909997</updated>
     </task>
-    <option name="localTasksCounter" value="342" />
+    <task id="LOCAL-00342" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1733498387602</created>
+      <option name="number" value="00342" />
+      <option name="presentableId" value="LOCAL-00342" />
+      <option name="project" value="LOCAL" />
+      <updated>1733498387602</updated>
+    </task>
+    <task id="LOCAL-00343" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1733498455032</created>
+      <option name="number" value="00343" />
+      <option name="presentableId" value="LOCAL-00343" />
+      <option name="project" value="LOCAL" />
+      <updated>1733498455032</updated>
+    </task>
+    <option name="localTasksCounter" value="344" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
