@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code" />
+    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -329,22 +331,8 @@
       <workItem from="1735041829919" duration="1030000" />
       <workItem from="1735044545506" duration="34000" />
       <workItem from="1735220635127" duration="1529000" />
-    </task>
-    <task id="LOCAL-00311" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1731683843791</created>
-      <option name="number" value="00311" />
-      <option name="presentableId" value="LOCAL-00311" />
-      <option name="project" value="LOCAL" />
-      <updated>1731683843791</updated>
-    </task>
-    <task id="LOCAL-00312" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1731698640949</created>
-      <option name="number" value="00312" />
-      <option name="presentableId" value="LOCAL-00312" />
-      <option name="project" value="LOCAL" />
-      <updated>1731698640949</updated>
+      <workItem from="1735311744189" duration="1689000" />
+      <workItem from="1735984043419" duration="298000" />
     </task>
     <task id="LOCAL-00313" summary="Calculus in code">
       <option name="closed" value="true" />
@@ -722,7 +710,23 @@
       <option name="project" value="LOCAL" />
       <updated>1735222384159</updated>
     </task>
-    <option name="localTasksCounter" value="360" />
+    <task id="LOCAL-00360" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1735312334031</created>
+      <option name="number" value="00360" />
+      <option name="presentableId" value="LOCAL-00360" />
+      <option name="project" value="LOCAL" />
+      <updated>1735312334032</updated>
+    </task>
+    <task id="LOCAL-00361" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1735313311514</created>
+      <option name="number" value="00361" />
+      <option name="presentableId" value="LOCAL-00361" />
+      <option name="project" value="LOCAL" />
+      <updated>1735313311514</updated>
+    </task>
+    <option name="localTasksCounter" value="362" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
