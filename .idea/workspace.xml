@@ -332,22 +332,7 @@
       <workItem from="1735311744189" duration="1689000" />
       <workItem from="1735984043419" duration="298000" />
       <workItem from="1736951743417" duration="793000" />
-    </task>
-    <task id="LOCAL-00314" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1731933879393</created>
-      <option name="number" value="00314" />
-      <option name="presentableId" value="LOCAL-00314" />
-      <option name="project" value="LOCAL" />
-      <updated>1731933879393</updated>
-    </task>
-    <task id="LOCAL-00315" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1731933936284</created>
-      <option name="number" value="00315" />
-      <option name="presentableId" value="LOCAL-00315" />
-      <option name="project" value="LOCAL" />
-      <updated>1731933936284</updated>
+      <workItem from="1737043242851" duration="1835000" />
     </task>
     <task id="LOCAL-00316" summary="Calculus in code">
       <option name="closed" value="true" />
@@ -725,7 +710,23 @@
       <option name="project" value="LOCAL" />
       <updated>1736951924973</updated>
     </task>
-    <option name="localTasksCounter" value="363" />
+    <task id="LOCAL-00363" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1737043514860</created>
+      <option name="number" value="00363" />
+      <option name="presentableId" value="LOCAL-00363" />
+      <option name="project" value="LOCAL" />
+      <updated>1737043514860</updated>
+    </task>
+    <task id="LOCAL-00364" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1737046382203</created>
+      <option name="number" value="00364" />
+      <option name="presentableId" value="LOCAL-00364" />
+      <option name="project" value="LOCAL" />
+      <updated>1737046382204</updated>
+    </task>
+    <option name="localTasksCounter" value="365" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
