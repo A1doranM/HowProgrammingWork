@@ -89,8 +89,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.117" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.117" />
       </set>
     </attachedChunks>
   </component>
@@ -333,22 +333,7 @@
       <workItem from="1735984043419" duration="298000" />
       <workItem from="1736951743417" duration="793000" />
       <workItem from="1737043242851" duration="1835000" />
-    </task>
-    <task id="LOCAL-00316" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1731933954189</created>
-      <option name="number" value="00316" />
-      <option name="presentableId" value="LOCAL-00316" />
-      <option name="project" value="LOCAL" />
-      <updated>1731933954189</updated>
-    </task>
-    <task id="LOCAL-00317" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1731947495346</created>
-      <option name="number" value="00317" />
-      <option name="presentableId" value="LOCAL-00317" />
-      <option name="project" value="LOCAL" />
-      <updated>1731947495346</updated>
+      <workItem from="1737133776586" duration="1326000" />
     </task>
     <task id="LOCAL-00318" summary="Calculus in code">
       <option name="closed" value="true" />
@@ -726,7 +711,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737046382204</updated>
     </task>
-    <option name="localTasksCounter" value="365" />
+    <task id="LOCAL-00365" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1737134153483</created>
+      <option name="number" value="00365" />
+      <option name="presentableId" value="LOCAL-00365" />
+      <option name="project" value="LOCAL" />
+      <updated>1737134153483</updated>
+    </task>
+    <task id="LOCAL-00366" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1737134567992</created>
+      <option name="number" value="00366" />
+      <option name="presentableId" value="LOCAL-00366" />
+      <option name="project" value="LOCAL" />
+      <updated>1737134567992</updated>
+    </task>
+    <option name="localTasksCounter" value="367" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
