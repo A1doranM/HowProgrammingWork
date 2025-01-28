@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code" />
+    <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code">
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/5. Integration and accumulation of change/7. Integration using square completion/1. Integration using square completion.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/5. Integration and accumulation of change/7. Integration using square completion/images/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/5. Integration and accumulation of change/7. Integration using square completion/images/img_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/5. Integration and accumulation of change/7. Integration using square completion/images/img_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/5. Integration and accumulation of change/7. Integration using square completion/images/img_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/5. Integration and accumulation of change/7. Integration using square completion/images/img_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/5. Integration and accumulation of change/7. Integration using square completion/images/img_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/4. Calculus/5. Integration and accumulation of change/7. Integration using square completion/images/img_6.png" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,8 +98,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.117" />
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.117" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
       </set>
     </attachedChunks>
   </component>
@@ -334,14 +343,7 @@
       <workItem from="1736951743417" duration="793000" />
       <workItem from="1737043242851" duration="1835000" />
       <workItem from="1737133776586" duration="1326000" />
-    </task>
-    <task id="LOCAL-00318" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1732028815649</created>
-      <option name="number" value="00318" />
-      <option name="presentableId" value="LOCAL-00318" />
-      <option name="project" value="LOCAL" />
-      <updated>1732028815649</updated>
+      <workItem from="1738080717124" duration="2495000" />
     </task>
     <task id="LOCAL-00319" summary="Calculus in code">
       <option name="closed" value="true" />
@@ -727,7 +729,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737134567992</updated>
     </task>
-    <option name="localTasksCounter" value="367" />
+    <task id="LOCAL-00367" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1738081180462</created>
+      <option name="number" value="00367" />
+      <option name="presentableId" value="LOCAL-00367" />
+      <option name="project" value="LOCAL" />
+      <updated>1738081180462</updated>
+    </task>
+    <option name="localTasksCounter" value="368" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
