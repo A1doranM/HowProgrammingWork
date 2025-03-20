@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a83394c7-6a17-47ef-86e5-9c002dc074e6" name="Changes" comment="Calculus in code">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +59,7 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/aldoran/IdeaProjects/HowProgrammingWork/0. Certificates&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/aldoran/WebstormProjects&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -91,8 +92,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PY-241.14494.241" />
+        <option value="bundled-python-sdk-0509580d9d50-28c9f5db9ffe-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.14494.241" />
       </set>
     </attachedChunks>
   </component>
@@ -338,270 +339,38 @@
       <workItem from="1737133776586" duration="1326000" />
       <workItem from="1738080717124" duration="2732000" />
       <workItem from="1738504708061" duration="333000" />
-    </task>
-    <task id="LOCAL-00320" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1732029318682</created>
-      <option name="number" value="00320" />
-      <option name="presentableId" value="LOCAL-00320" />
-      <option name="project" value="LOCAL" />
-      <updated>1732029318682</updated>
-    </task>
-    <task id="LOCAL-00321" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1732109469804</created>
-      <option name="number" value="00321" />
-      <option name="presentableId" value="LOCAL-00321" />
-      <option name="project" value="LOCAL" />
-      <updated>1732109469805</updated>
-    </task>
-    <task id="LOCAL-00322" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1732110079140</created>
-      <option name="number" value="00322" />
-      <option name="presentableId" value="LOCAL-00322" />
-      <option name="project" value="LOCAL" />
-      <updated>1732110079140</updated>
-    </task>
-    <task id="LOCAL-00323" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1732110384146</created>
-      <option name="number" value="00323" />
-      <option name="presentableId" value="LOCAL-00323" />
-      <option name="project" value="LOCAL" />
-      <updated>1732110384147</updated>
-    </task>
-    <task id="LOCAL-00324" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1732111209609</created>
-      <option name="number" value="00324" />
-      <option name="presentableId" value="LOCAL-00324" />
-      <option name="project" value="LOCAL" />
-      <updated>1732111209609</updated>
-    </task>
-    <task id="LOCAL-00325" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1732118813475</created>
-      <option name="number" value="00325" />
-      <option name="presentableId" value="LOCAL-00325" />
-      <option name="project" value="LOCAL" />
-      <updated>1732118813475</updated>
-    </task>
-    <task id="LOCAL-00326" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1732171273396</created>
-      <option name="number" value="00326" />
-      <option name="presentableId" value="LOCAL-00326" />
-      <option name="project" value="LOCAL" />
-      <updated>1732171273396</updated>
-    </task>
-    <task id="LOCAL-00327" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1732178241625</created>
-      <option name="number" value="00327" />
-      <option name="presentableId" value="LOCAL-00327" />
-      <option name="project" value="LOCAL" />
-      <updated>1732178241625</updated>
-    </task>
-    <task id="LOCAL-00328" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1732201850511</created>
-      <option name="number" value="00328" />
-      <option name="presentableId" value="LOCAL-00328" />
-      <option name="project" value="LOCAL" />
-      <updated>1732201850511</updated>
-    </task>
-    <task id="LOCAL-00329" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1732208600714</created>
-      <option name="number" value="00329" />
-      <option name="presentableId" value="LOCAL-00329" />
-      <option name="project" value="LOCAL" />
-      <updated>1732208600714</updated>
-    </task>
-    <task id="LOCAL-00330" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1732285008319</created>
-      <option name="number" value="00330" />
-      <option name="presentableId" value="LOCAL-00330" />
-      <option name="project" value="LOCAL" />
-      <updated>1732285008319</updated>
-    </task>
-    <task id="LOCAL-00331" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1732531234398</created>
-      <option name="number" value="00331" />
-      <option name="presentableId" value="LOCAL-00331" />
-      <option name="project" value="LOCAL" />
-      <updated>1732531234399</updated>
-    </task>
-    <task id="LOCAL-00332" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1732531479468</created>
-      <option name="number" value="00332" />
-      <option name="presentableId" value="LOCAL-00332" />
-      <option name="project" value="LOCAL" />
-      <updated>1732531479468</updated>
-    </task>
-    <task id="LOCAL-00333" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1732531796493</created>
-      <option name="number" value="00333" />
-      <option name="presentableId" value="LOCAL-00333" />
-      <option name="project" value="LOCAL" />
-      <updated>1732531796493</updated>
-    </task>
-    <task id="LOCAL-00334" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1732621408794</created>
-      <option name="number" value="00334" />
-      <option name="presentableId" value="LOCAL-00334" />
-      <option name="project" value="LOCAL" />
-      <updated>1732621408795</updated>
-    </task>
-    <task id="LOCAL-00335" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1733140040870</created>
-      <option name="number" value="00335" />
-      <option name="presentableId" value="LOCAL-00335" />
-      <option name="project" value="LOCAL" />
-      <updated>1733140040870</updated>
-    </task>
-    <task id="LOCAL-00336" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1733237198120</created>
-      <option name="number" value="00336" />
-      <option name="presentableId" value="LOCAL-00336" />
-      <option name="project" value="LOCAL" />
-      <updated>1733237198120</updated>
-    </task>
-    <task id="LOCAL-00337" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1733237556441</created>
-      <option name="number" value="00337" />
-      <option name="presentableId" value="LOCAL-00337" />
-      <option name="project" value="LOCAL" />
-      <updated>1733237556441</updated>
-    </task>
-    <task id="LOCAL-00338" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1733239212977</created>
-      <option name="number" value="00338" />
-      <option name="presentableId" value="LOCAL-00338" />
-      <option name="project" value="LOCAL" />
-      <updated>1733239212977</updated>
-    </task>
-    <task id="LOCAL-00339" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1733312846188</created>
-      <option name="number" value="00339" />
-      <option name="presentableId" value="LOCAL-00339" />
-      <option name="project" value="LOCAL" />
-      <updated>1733312846188</updated>
-    </task>
-    <task id="LOCAL-00340" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1733407879672</created>
-      <option name="number" value="00340" />
-      <option name="presentableId" value="LOCAL-00340" />
-      <option name="project" value="LOCAL" />
-      <updated>1733407879672</updated>
-    </task>
-    <task id="LOCAL-00341" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1733407909996</created>
-      <option name="number" value="00341" />
-      <option name="presentableId" value="LOCAL-00341" />
-      <option name="project" value="LOCAL" />
-      <updated>1733407909997</updated>
-    </task>
-    <task id="LOCAL-00342" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1733498387602</created>
-      <option name="number" value="00342" />
-      <option name="presentableId" value="LOCAL-00342" />
-      <option name="project" value="LOCAL" />
-      <updated>1733498387602</updated>
-    </task>
-    <task id="LOCAL-00343" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1733498455032</created>
-      <option name="number" value="00343" />
-      <option name="presentableId" value="LOCAL-00343" />
-      <option name="project" value="LOCAL" />
-      <updated>1733498455032</updated>
-    </task>
-    <task id="LOCAL-00344" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1733743860098</created>
-      <option name="number" value="00344" />
-      <option name="presentableId" value="LOCAL-00344" />
-      <option name="project" value="LOCAL" />
-      <updated>1733743860098</updated>
-    </task>
-    <task id="LOCAL-00345" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1733746021454</created>
-      <option name="number" value="00345" />
-      <option name="presentableId" value="LOCAL-00345" />
-      <option name="project" value="LOCAL" />
-      <updated>1733746021454</updated>
-    </task>
-    <task id="LOCAL-00346" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1733938727665</created>
-      <option name="number" value="00346" />
-      <option name="presentableId" value="LOCAL-00346" />
-      <option name="project" value="LOCAL" />
-      <updated>1733938727665</updated>
-    </task>
-    <task id="LOCAL-00347" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1734359664179</created>
-      <option name="number" value="00347" />
-      <option name="presentableId" value="LOCAL-00347" />
-      <option name="project" value="LOCAL" />
-      <updated>1734359664179</updated>
-    </task>
-    <task id="LOCAL-00348" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1734360257850</created>
-      <option name="number" value="00348" />
-      <option name="presentableId" value="LOCAL-00348" />
-      <option name="project" value="LOCAL" />
-      <updated>1734360257850</updated>
-    </task>
-    <task id="LOCAL-00349" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1734360405718</created>
-      <option name="number" value="00349" />
-      <option name="presentableId" value="LOCAL-00349" />
-      <option name="project" value="LOCAL" />
-      <updated>1734360405718</updated>
-    </task>
-    <task id="LOCAL-00350" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1734361669441</created>
-      <option name="number" value="00350" />
-      <option name="presentableId" value="LOCAL-00350" />
-      <option name="project" value="LOCAL" />
-      <updated>1734361669441</updated>
-    </task>
-    <task id="LOCAL-00351" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1734450405635</created>
-      <option name="number" value="00351" />
-      <option name="presentableId" value="LOCAL-00351" />
-      <option name="project" value="LOCAL" />
-      <updated>1734450405635</updated>
-    </task>
-    <task id="LOCAL-00352" summary="Calculus in code">
-      <option name="closed" value="true" />
-      <created>1734451441996</created>
-      <option name="number" value="00352" />
-      <option name="presentableId" value="LOCAL-00352" />
-      <option name="project" value="LOCAL" />
-      <updated>1734451441997</updated>
+      <workItem from="1738651780579" duration="1231000" />
+      <workItem from="1738750815726" duration="2994000" />
+      <workItem from="1738829587924" duration="1578000" />
+      <workItem from="1739175553554" duration="1977000" />
+      <workItem from="1739268316356" duration="617000" />
+      <workItem from="1739269462156" duration="4257000" />
+      <workItem from="1739359624592" duration="864000" />
+      <workItem from="1739362186860" duration="8000" />
+      <workItem from="1739451034924" duration="3237000" />
+      <workItem from="1739526726042" duration="3600000" />
+      <workItem from="1739613515963" duration="1625000" />
+      <workItem from="1739962593080" duration="1591000" />
+      <workItem from="1740058981866" duration="1929000" />
+      <workItem from="1740135408437" duration="2052000" />
+      <workItem from="1740144906863" duration="1290000" />
+      <workItem from="1740384328069" duration="3575000" />
+      <workItem from="1740403092248" duration="467000" />
+      <workItem from="1740424269010" duration="133000" />
+      <workItem from="1740563785031" duration="2716000" />
+      <workItem from="1740646747996" duration="1843000" />
+      <workItem from="1740734470167" duration="2248000" />
+      <workItem from="1741013880604" duration="2423000" />
+      <workItem from="1741022479712" duration="614000" />
+      <workItem from="1741084200811" duration="2324000" />
+      <workItem from="1741094737357" duration="432000" />
+      <workItem from="1741611529443" duration="1929000" />
+      <workItem from="1741636323903" duration="4000" />
+      <workItem from="1741676457064" duration="2110000" />
+      <workItem from="1741686164340" duration="1027000" />
+      <workItem from="1742287323158" duration="2080000" />
+      <workItem from="1742372120297" duration="3234000" />
+      <workItem from="1742468363837" duration="3950000" />
     </task>
     <task id="LOCAL-00353" summary="Calculus in code">
       <option name="closed" value="true" />
@@ -731,7 +500,271 @@
       <option name="project" value="LOCAL" />
       <updated>1738083290381</updated>
     </task>
-    <option name="localTasksCounter" value="369" />
+    <task id="LOCAL-00369" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1738597045235</created>
+      <option name="number" value="00369" />
+      <option name="presentableId" value="LOCAL-00369" />
+      <option name="project" value="LOCAL" />
+      <updated>1738597045235</updated>
+    </task>
+    <task id="LOCAL-00370" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1738652404825</created>
+      <option name="number" value="00370" />
+      <option name="presentableId" value="LOCAL-00370" />
+      <option name="project" value="LOCAL" />
+      <updated>1738652404826</updated>
+    </task>
+    <task id="LOCAL-00371" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1738751798225</created>
+      <option name="number" value="00371" />
+      <option name="presentableId" value="LOCAL-00371" />
+      <option name="project" value="LOCAL" />
+      <updated>1738751798226</updated>
+    </task>
+    <task id="LOCAL-00372" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1738753256263</created>
+      <option name="number" value="00372" />
+      <option name="presentableId" value="LOCAL-00372" />
+      <option name="project" value="LOCAL" />
+      <updated>1738753256264</updated>
+    </task>
+    <task id="LOCAL-00373" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1739175985738</created>
+      <option name="number" value="00373" />
+      <option name="presentableId" value="LOCAL-00373" />
+      <option name="project" value="LOCAL" />
+      <updated>1739175985739</updated>
+    </task>
+    <task id="LOCAL-00374" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1739270526080</created>
+      <option name="number" value="00374" />
+      <option name="presentableId" value="LOCAL-00374" />
+      <option name="project" value="LOCAL" />
+      <updated>1739270526080</updated>
+    </task>
+    <task id="LOCAL-00375" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1739272146349</created>
+      <option name="number" value="00375" />
+      <option name="presentableId" value="LOCAL-00375" />
+      <option name="project" value="LOCAL" />
+      <updated>1739272146349</updated>
+    </task>
+    <task id="LOCAL-00376" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1739452032697</created>
+      <option name="number" value="00376" />
+      <option name="presentableId" value="LOCAL-00376" />
+      <option name="project" value="LOCAL" />
+      <updated>1739452032697</updated>
+    </task>
+    <task id="LOCAL-00377" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1739455865970</created>
+      <option name="number" value="00377" />
+      <option name="presentableId" value="LOCAL-00377" />
+      <option name="project" value="LOCAL" />
+      <updated>1739455865970</updated>
+    </task>
+    <task id="LOCAL-00378" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1739613831218</created>
+      <option name="number" value="00378" />
+      <option name="presentableId" value="LOCAL-00378" />
+      <option name="project" value="LOCAL" />
+      <updated>1739613831219</updated>
+    </task>
+    <task id="LOCAL-00379" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1739614195812</created>
+      <option name="number" value="00379" />
+      <option name="presentableId" value="LOCAL-00379" />
+      <option name="project" value="LOCAL" />
+      <updated>1739614195812</updated>
+    </task>
+    <task id="LOCAL-00380" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1739615372475</created>
+      <option name="number" value="00380" />
+      <option name="presentableId" value="LOCAL-00380" />
+      <option name="project" value="LOCAL" />
+      <updated>1739615372475</updated>
+    </task>
+    <task id="LOCAL-00381" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1739963368361</created>
+      <option name="number" value="00381" />
+      <option name="presentableId" value="LOCAL-00381" />
+      <option name="project" value="LOCAL" />
+      <updated>1739963368361</updated>
+    </task>
+    <task id="LOCAL-00382" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1740060573864</created>
+      <option name="number" value="00382" />
+      <option name="presentableId" value="LOCAL-00382" />
+      <option name="project" value="LOCAL" />
+      <updated>1740060573864</updated>
+    </task>
+    <task id="LOCAL-00383" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1740061026669</created>
+      <option name="number" value="00383" />
+      <option name="presentableId" value="LOCAL-00383" />
+      <option name="project" value="LOCAL" />
+      <updated>1740061026669</updated>
+    </task>
+    <task id="LOCAL-00384" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1740137520261</created>
+      <option name="number" value="00384" />
+      <option name="presentableId" value="LOCAL-00384" />
+      <option name="project" value="LOCAL" />
+      <updated>1740137520261</updated>
+    </task>
+    <task id="LOCAL-00385" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1740397676566</created>
+      <option name="number" value="00385" />
+      <option name="presentableId" value="LOCAL-00385" />
+      <option name="project" value="LOCAL" />
+      <updated>1740397676567</updated>
+    </task>
+    <task id="LOCAL-00386" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1740398741225</created>
+      <option name="number" value="00386" />
+      <option name="presentableId" value="LOCAL-00386" />
+      <option name="project" value="LOCAL" />
+      <updated>1740398741225</updated>
+    </task>
+    <task id="LOCAL-00387" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1740565971052</created>
+      <option name="number" value="00387" />
+      <option name="presentableId" value="LOCAL-00387" />
+      <option name="project" value="LOCAL" />
+      <updated>1740565971052</updated>
+    </task>
+    <task id="LOCAL-00388" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1740647287937</created>
+      <option name="number" value="00388" />
+      <option name="presentableId" value="LOCAL-00388" />
+      <option name="project" value="LOCAL" />
+      <updated>1740647287937</updated>
+    </task>
+    <task id="LOCAL-00389" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1740648594528</created>
+      <option name="number" value="00389" />
+      <option name="presentableId" value="LOCAL-00389" />
+      <option name="project" value="LOCAL" />
+      <updated>1740648594528</updated>
+    </task>
+    <task id="LOCAL-00390" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1740734726209</created>
+      <option name="number" value="00390" />
+      <option name="presentableId" value="LOCAL-00390" />
+      <option name="project" value="LOCAL" />
+      <updated>1740734726209</updated>
+    </task>
+    <task id="LOCAL-00391" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1740736114861</created>
+      <option name="number" value="00391" />
+      <option name="presentableId" value="LOCAL-00391" />
+      <option name="project" value="LOCAL" />
+      <updated>1740736114861</updated>
+    </task>
+    <task id="LOCAL-00392" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1741084709849</created>
+      <option name="number" value="00392" />
+      <option name="presentableId" value="LOCAL-00392" />
+      <option name="project" value="LOCAL" />
+      <updated>1741084709850</updated>
+    </task>
+    <task id="LOCAL-00393" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1741085270549</created>
+      <option name="number" value="00393" />
+      <option name="presentableId" value="LOCAL-00393" />
+      <option name="project" value="LOCAL" />
+      <updated>1741085270550</updated>
+    </task>
+    <task id="LOCAL-00394" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1741086983681</created>
+      <option name="number" value="00394" />
+      <option name="presentableId" value="LOCAL-00394" />
+      <option name="project" value="LOCAL" />
+      <updated>1741086983681</updated>
+    </task>
+    <task id="LOCAL-00395" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1741614935237</created>
+      <option name="number" value="00395" />
+      <option name="presentableId" value="LOCAL-00395" />
+      <option name="project" value="LOCAL" />
+      <updated>1741614935237</updated>
+    </task>
+    <task id="LOCAL-00396" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1741615563314</created>
+      <option name="number" value="00396" />
+      <option name="presentableId" value="LOCAL-00396" />
+      <option name="project" value="LOCAL" />
+      <updated>1741615563314</updated>
+    </task>
+    <task id="LOCAL-00397" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1741677353560</created>
+      <option name="number" value="00397" />
+      <option name="presentableId" value="LOCAL-00397" />
+      <option name="project" value="LOCAL" />
+      <updated>1741677353561</updated>
+    </task>
+    <task id="LOCAL-00398" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1742293346407</created>
+      <option name="number" value="00398" />
+      <option name="presentableId" value="LOCAL-00398" />
+      <option name="project" value="LOCAL" />
+      <updated>1742293346407</updated>
+    </task>
+    <task id="LOCAL-00399" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1742373076517</created>
+      <option name="number" value="00399" />
+      <option name="presentableId" value="LOCAL-00399" />
+      <option name="project" value="LOCAL" />
+      <updated>1742373076517</updated>
+    </task>
+    <task id="LOCAL-00400" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1742376800775</created>
+      <option name="number" value="00400" />
+      <option name="presentableId" value="LOCAL-00400" />
+      <option name="project" value="LOCAL" />
+      <updated>1742376800775</updated>
+    </task>
+    <task id="LOCAL-00401" summary="Calculus in code">
+      <option name="closed" value="true" />
+      <created>1742472299664</created>
+      <option name="number" value="00401" />
+      <option name="presentableId" value="LOCAL-00401" />
+      <option name="project" value="LOCAL" />
+      <updated>1742472299665</updated>
+    </task>
+    <option name="localTasksCounter" value="402" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
