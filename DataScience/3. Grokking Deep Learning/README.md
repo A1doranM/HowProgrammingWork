@@ -1,19 +1,110 @@
-# Grokking-Deep-Learning
-[![Run on FloydHub](https://static.floydhub.com/button/button-small.svg)](https://floydhub.com/run)
+# Deep Learning Framework from Scratch
 
-This repository accompanies the book "Grokking Deep Learning", [available here](https://manning.com/books/grokking-deep-learning?a_aid=grokkingdl&a_bid=32715258 "Grokking Deep Learning"). Also, the coupon code "trask40" is good for a 40% discount.
+A lightweight deep learning framework implemented from scratch, based on the concepts from "Grokking Deep Learning" Chapter 13.
 
-- [Chapter 3 - Forward Propagation - Intro to Neural Prediction](https://github.com/iamtrask/Grokking-Deep-Learning/blob/master/Chapter3%20-%20%20Forward%20Propagation%20-%20Intro%20to%20Neural%20Prediction.ipynb)
-- [Chapter 4 - Gradient Descent - Into to Neural Learning](https://github.com/iamtrask/Grokking-Deep-Learning/blob/master/Chapter4%20-%20Gradient%20Descent%20-%20Intro%20to%20Neural%20Learning.ipynb)
-- [Chapter 5 - Generalizing Gradient Descent - Learning Multiple Weights at a Time](https://github.com/iamtrask/Grokking-Deep-Learning/blob/master/Chapter5%20-%20Generalizing%20Gradient%20Descent%20-%20Learning%20Multiple%20Weights%20at%20a%20Time.ipynb)
-- [Chapter 6 - Intro to Backpropagation - Building your first DEEP Neural Network](https://github.com/iamtrask/Grokking-Deep-Learning/blob/master/Chapter6%20-%20Intro%20to%20Backpropagation%20-%20Building%20Your%20First%20DEEP%20Neural%20Network.ipynb)
-- [Chapter 8 - Intro to Regularization - Learning Signal and Ignoring Noise](https://github.com/iamtrask/Grokking-Deep-Learning/blob/master/Chapter8%20-%20Intro%20to%20Regularization%20-%20Learning%20Signal%20and%20Ignoring%20Noise.ipynb)
-- [Chapter 9 - Intro to Activation Functions - Learning to Model Probabilities](https://github.com/iamtrask/Grokking-Deep-Learning/blob/master/Chapter9%20-%20Intro%20to%20Activation%20Functions%20-%20Modeling%20Probabilities.ipynb)
-- [Chapter 10 - Intro to Convolutional Neural Networks - Learning Edges and Corners](https://github.com/iamtrask/Grokking-Deep-Learning/blob/master/Chapter10%20-%20Intro%20to%20Convolutional%20Neural%20Networks%20-%20Learning%20Edges%20and%20Corners.ipynb)
-- [Chapter 11 - Intro to Word Embeddings - Neural Networks which Understand Language](https://github.com/iamtrask/Grokking-Deep-Learning/blob/master/Chapter11%20-%20Intro%20to%20Word%20Embeddings%20-%20Neural%20Networks%20that%20Understand%20Language.ipynb)
-- [Chapter 12 - Intro to Recurrence (RNNs) - Predicting the Next Word](https://github.com/iamtrask/Grokking-Deep-Learning/blob/master/Chapter12%20-%20Intro%20to%20Recurrence%20-%20Predicting%20the%20Next%20Word.ipynb)
-- [Chapter 13 - Intro to Automatic Differentiation](https://github.com/iamtrask/Grokking-Deep-Learning/blob/master/Chapter13%20-%20Intro%20to%20Automatic%20Differentiation%20-%20Let's%20Build%20A%20Deep%20Learning%20Framework.ipynb)
-- [Chapter 14 - Exploding Gradients Example](https://github.com/iamtrask/Grokking-Deep-Learning/blob/master/Chapter14%20-%20Exploding%20Gradients%20Examples.ipynb)
-- [Chapter 14 - Intro to LSTMs](https://github.com/iamtrask/Grokking-Deep-Learning/blob/master/Chapter14%20-%20Intro%20to%20LSTMs%20-%20Learn%20to%20Write%20Like%20Shakespeare.ipynb)
-- [Chapter 14 - Intro to LSTMs - Part 2](https://github.com/iamtrask/Grokking-Deep-Learning/blob/master/Chapter14%20-%20Intro%20to%20LSTMs%20-%20Part%202%20-%20Learn%20to%20Write%20Like%20Shakespeare.ipynb)
-- [Chapter 15 - Intro to Federated Learning](https://github.com/iamtrask/Grokking-Deep-Learning/blob/master/Chapter15%20-%20Intro%20to%20Federated%20Learning%20-%20Deep%20Learning%20on%20Unseen%20Data.ipynb)
+## Overview
+
+This framework provides a complete implementation of:
+
+- Automatic differentiation (autograd)
+- Tensor operations and computation graphs
+- Neural network layers (Linear, Embedding, RNN)
+- Activation functions (Sigmoid, Tanh)
+- Loss functions (MSE, CrossEntropy)
+- Optimization algorithms (SGD)
+
+The code follows a clean, modular architecture similar to PyTorch or TensorFlow.
+
+## Directory Structure
+
+```
+.
+├── deeplearning_framework/         # Main framework code
+│   ├── __init__.py                 # Package exports
+│   ├── tensor.py                   # Core tensor implementation
+│   ├── layers/                     # Neural network layers
+│   ├── losses/                     # Loss functions
+│   ├── optim/                      # Optimization algorithms
+│   ├── example.py                  # Basic example (XOR classification)
+│   ├── rnn_example.py              # RNN example (text generation)
+│   └── README.md                   # Framework documentation
+├── test_framework.py               # Tests for framework functionality
+└── import_test.py                  # Simple import test script
+```
+
+## Getting Started
+
+1. **Run the import test** to verify all components are correctly accessible:
+   ```
+   python import_test.py
+   ```
+
+2. **Run the test script** to verify the framework is working:
+   ```
+   python test_framework.py
+   ```
+
+3. **Try the examples**:
+   ```
+   python -m deeplearning_framework.example
+   python -m deeplearning_framework.rnn_example
+   ```
+
+## Creating Your Own Models
+
+### Simple Classification Example
+
+```python
+import numpy as np
+from deeplearning_framework import Tensor, Sequential, Linear, Tanh, Sigmoid, MSELoss, SGD
+
+# Create data
+X = Tensor(np.array([[0, 0], [0, 1], [1, 0], [1, 1]]), autograd=True)
+y = Tensor(np.array([[0], [1], [1], [0]]), autograd=True)
+
+# Create model
+model = Sequential([
+    Linear(2, 4),      # Input features -> hidden units
+    Tanh(),            # Activation function
+    Linear(4, 1),      # Hidden -> output
+    Sigmoid()          # Output activation
+])
+
+# Loss and optimizer
+criterion = MSELoss()
+optimizer = SGD(model.get_parameters(), alpha=0.1)
+
+# Training loop
+for epoch in range(1000):
+    # Forward pass
+    pred = model.forward(X)
+    
+    # Compute loss
+    loss = criterion.forward(pred, y)
+    
+    # Backward pass
+    loss.backward(Tensor(np.ones_like(loss.data)))
+    
+    # Update parameters
+    optimizer.step()
+    
+    if epoch % 100 == 0:
+        print(f"Epoch {epoch}, Loss: {loss.data}")
+```
+
+## Features
+
+- **Computation Graph**: Automatic tracking of operations for backpropagation
+- **Autograd**: Automatic differentiation for all mathematical operations
+- **Flexible API**: Clean, simple interfaces similar to popular frameworks
+- **Extensible Design**: Easy to add new layers, operations or optimizers
+
+## Advanced Features
+
+- **Embedding Layer**: For NLP and categorical feature processing
+- **RNN Support**: Recurrent neural networks for sequence data
+- **Cross-Entropy Loss**: For classification tasks with proper numerics
+
+## Background
+
+This implementation is based on Chapter 13 of "Grokking Deep Learning" by Andrew Trask, which introduces automatic differentiation and computational graphs. The code has been extended and organized into a complete, usable framework.
