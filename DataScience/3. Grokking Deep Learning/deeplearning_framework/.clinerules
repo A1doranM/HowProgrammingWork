@@ -1,0 +1,67 @@
+# .clinerules for Deep Learning Framework
+
+## Code Style Preferences
+
+- Use 4-space indentation for Python code
+- Follow PEP 8 naming conventions:
+  - `snake_case` for functions and variables
+  - `CamelCase` for classes
+  - `ALL_CAPS` for constants
+- Keep docstrings in NumPy/SciPy format for consistency
+- Prefer explicit imports over wildcard imports
+- Use relative imports within the package
+
+## Development Patterns
+
+- Always run tests after modifying tensor.py as it affects the entire framework
+- Use test-driven development when adding new features
+- Add both unit tests and functional tests for new components
+- When implementing backward passes, verify gradients against numerical approximations
+
+## Framework-Specific Knowledge
+
+- The Tensor class is the foundation - modifications need careful consideration
+- All operations in backward() need to be with autograd=False to avoid circular dependencies
+- Layer parameters should always be created with autograd=True
+- Loss functions should handle both vector and scalar targets appropriately
+- SGD optimizer step() function now accepts a zero=False parameter for test flexibility
+
+## Testing Intelligence
+
+- Test runner has different behavior when run directly vs. from the package root
+- The XOR test uses a random seed to ensure consistency
+- Some tensor operations have edge cases with broadcasting that need specific tests
+- Integration tests should verify both forward computation and gradient flow
+- When tests fail, check gradient flow first as it's the most common issue
+
+## Common Issues and Solutions
+
+- If gradients aren't flowing, verify that:
+  1. All tensors in computation graph have autograd=True
+  2. The backward() call includes a proper gradient argument
+  3. Parameters are properly registered in get_parameters()
+  
+- For numerical instability in loss functions:
+  1. Check for very large or small values that might cause overflow
+  2. Add epsilon values when dividing or taking logarithms
+  3. Consider using np.clip() to bound values in safe ranges
+
+- When extending the framework:
+  1. Start by subclassing the appropriate base class
+  2. Implement the required interface methods (forward, get_parameters)
+  3. Add comprehensive tests for both forward and backward passes
+  4. Document the new component in the README
+
+## Documentation Standards
+
+- Keep the memory bank files updated as the framework evolves
+- Add usage examples showing realistic use cases
+- Document complex gradient formulas with mathematical notation in comments
+- Each component should note its limitations and edge cases
+
+## Package Organization
+
+- Main framework code should stay in the deeplearning_framework package
+- Tests belong in the deeplearning_framework/tests directory
+- Examples should be at the project root but import from the package
+- The run_all_tests.py at the project root forwards to the package tests
