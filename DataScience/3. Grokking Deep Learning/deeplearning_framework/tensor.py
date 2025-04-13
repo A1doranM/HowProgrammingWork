@@ -120,39 +120,46 @@ class Tensor:
                     c0 = self.creators[0]
                     c1 = self.creators[1]
 
-                    new = self.grad.mm(c1.transpose())
-                    c0.backward(new)
-                    new = self.grad.transpose().mm(c0).transpose()
-                    c1.backward(new)
+                    # Fixed to handle different dimensions properly
+                    new = Tensor(np.dot(self.grad.data, c1.data.T), autograd=False)
+                    c0.backward(new, self)
+                    
+                    # Reshape for proper outer product if needed
+                    if len(c0.data.shape) == 1 and len(self.grad.data.shape) == 1:
+                        # Handle vector-matrix multiplication case
+                        new = Tensor(np.outer(c0.data, self.grad.data), autograd=False)
+                    else:
+                        new = Tensor(np.dot(c0.data.T, self.grad.data), autograd=False)
+                    c1.backward(new, self)
                     
                 elif self.creation_op == "transpose":
                     # partial wrt x => grad.transpose()
-                    self.creators[0].backward(self.grad.transpose())
+                    self.creators[0].backward(self.grad.transpose(), self)
 
                 elif ("sum" in self.creation_op):
                     # sum_<dim>
                     dim = int(self.creation_op.split("_")[1])
                     expanded = self.grad.expand(dim, self.creators[0].data.shape[dim])
-                    self.creators[0].backward(expanded)
+                    self.creators[0].backward(expanded, self)
 
                 elif ("expand" in self.creation_op):
                     # partial wrt x => grad.sum(dim)
                     dim = int(self.creation_op.split("_")[1])
-                    self.creators[0].backward(self.grad.sum(dim))
+                    self.creators[0].backward(self.grad.sum(dim), self)
                     
                 elif self.creation_op == "neg":
                     # partial wrt x => -grad
-                    self.creators[0].backward(self.grad.__neg__())
+                    self.creators[0].backward(self.grad.__neg__(), self)
                     
                 elif self.creation_op == "sigmoid":
                     # z = sigmoid(x), partial wrt x => grad * z*(1-z)
                     ones = Tensor(np.ones_like(self.grad.data))
-                    self.creators[0].backward(self.grad * (self * (ones - self)))
+                    self.creators[0].backward(self.grad * (self * (ones - self)), self)
                 
                 elif self.creation_op == "tanh":
                     # z = tanh(x), partial wrt x => grad * (1 - z^2)
                     ones = Tensor(np.ones_like(self.grad.data))
-                    self.creators[0].backward(self.grad * (ones - (self * self)))
+                    self.creators[0].backward(self.grad * (ones - (self * self)), self)
                 
                 elif self.creation_op == "index_select":
                     # route grad back to correct indices
@@ -161,13 +168,13 @@ class Tensor:
                     grad_ = self.grad.data.reshape(len(indices_), -1)
                     for i in range(len(indices_)):
                         new_grad[indices_[i]] += grad_[i]
-                    self.creators[0].backward(Tensor(new_grad))
+                    self.creators[0].backward(Tensor(new_grad), self)
                     
                 elif self.creation_op == "cross_entropy":
                     # Cross entropy with softmax:
                     # partial wrt input => (softmax_output - target_dist)
                     dx = self.softmax_output - self.target_dist
-                    self.creators[0].backward(Tensor(dx))
+                    self.creators[0].backward(Tensor(dx), self)
 
     # ----------------------
     # Overloaded Operators

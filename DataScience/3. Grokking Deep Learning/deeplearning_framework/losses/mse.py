@@ -22,7 +22,7 @@ class MSELoss(Layer):
     def forward(self, pred, target):
         """
         Given predicted values 'pred' and true values 'target',
-        return the sum of squared errors: ((pred - target)^2).sum(0)
+        compute the mean squared error loss.
 
         Parameters
         ----------
@@ -34,6 +34,19 @@ class MSELoss(Layer):
         Returns
         -------
         Tensor
-            A scalar tensor containing the MSE loss.
+            A scalar tensor containing the MSE loss, calculated as:
+            sum((pred - target)^2) across all elements.
         """
-        return ((pred - target) * (pred - target)).sum(0)
+        # Calculate squared differences
+        squared_diff = (pred - target) * (pred - target)
+        
+        # Sum across all dimensions to get a scalar
+        # First sum over features (dim=1 if it exists), then sum over batch (dim=0)
+        if len(squared_diff.data.shape) > 1:
+            # Sum over feature dimension first (dim=1)
+            feature_sum = squared_diff.sum(1)
+            # Then sum over batch dimension (dim=0)
+            return feature_sum.sum(0)
+        else:
+            # If only one dimension, just sum over it (dim=0)
+            return squared_diff.sum(0)

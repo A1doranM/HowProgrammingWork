@@ -35,7 +35,7 @@ class SGD:
             if p.grad is not None:
                 p.grad.data *= 0
         
-    def step(self, zero=True):
+    def step(self, zero=False):  # Changed default to False
         """
         Perform one optimization step.
         
@@ -46,10 +46,12 @@ class SGD:
         ----------
         zero : bool
             If True, gradients are set to zero after the update.
+            Default is False to preserve gradients for inspection.
         """
         for p in self.parameters:
             if p.grad is not None:
-                p.data -= p.grad.data * self.alpha
+                # The correct update: param -= learning_rate * gradient
+                p.data = p.data - self.alpha * p.grad.data
                 
                 if zero:
                     p.grad.data *= 0
