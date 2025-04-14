@@ -13,6 +13,8 @@ This framework provides the core building blocks for creating and training neura
 
 The framework is designed to be educational and illustrates the core principles behind deep learning libraries like PyTorch, while maintaining a clean and understandable implementation.
 
+For a comprehensive explanation of how the framework works internally, see [Deep Dive Explanation](deep_dive_explanation.md).
+
 ## Features
 
 - **Automatic Differentiation**: Compute gradients automatically through backpropagation
