@@ -223,6 +223,152 @@ The `Sequential` container:
 2. In the forward pass, passes the input through each layer in sequence
 3. Collects parameters from all contained layers for optimization
 
+### 3.4 Recurrent Neural Networks (RNNs)
+
+RNNs are specialized neural networks designed to process sequential data by maintaining a "memory" of previous inputs through a hidden state.
+
+#### 3.4.1 Basic RNN Cell
+
+The RNN cell processes one element of a sequence at a time, updating its hidden state:
+
+```python
+class RNNCell(Layer):
+    def __init__(self, n_inputs, n_hidden, n_output, activation='sigmoid'):
+        super().__init__()
+        
+        self.n_inputs = n_inputs
+        self.n_hidden = n_hidden
+        self.n_output = n_output
+        
+        # Choose activation function
+        self.activation = Sigmoid() if activation == 'sigmoid' else Tanh()
+
+        # Linear transformations
+        self.w_ih = Linear(n_inputs, n_hidden)  # input -> hidden
+        self.w_hh = Linear(n_hidden, n_hidden)  # hidden -> hidden
+        self.w_ho = Linear(n_hidden, n_output)  # hidden -> output
+        
+        # Register parameters
+        self.parameters.extend(self.w_ih.get_parameters())
+        self.parameters.extend(self.w_hh.get_parameters())
+        self.parameters.extend(self.w_ho.get_parameters())
+    
+    def forward(self, input, hidden):
+        # Transform previous hidden state
+        from_prev_hidden = self.w_hh.forward(hidden)
+        # Transform current input
+        from_input = self.w_ih.forward(input)
+        # Combine and apply activation
+        new_hidden = self.activation.forward(from_input + from_prev_hidden)
+        # Generate output
+        output = self.w_ho.forward(new_hidden)
+        
+        return output, new_hidden
+```
+
+The RNN update equation is:
+- h_t = activation(W_ih · x_t + W_hh · h_{t-1})
+- y_t = W_ho · h_t
+
+where:
+- x_t is the input at time t
+- h_t is the hidden state at time t
+- y_t is the output at time t
+
+#### 3.4.2 The Vanishing/Exploding Gradient Problem
+
+Standard RNNs suffer from the vanishing/exploding gradient problem during backpropagation through time:
+
+1. **Vanishing Gradients**: When repeatedly multiplying small values (<1) during backpropagation, gradients approach zero exponentially, making it impossible to learn long-term dependencies.
+
+2. **Exploding Gradients**: When repeatedly multiplying large values (>1), gradients grow exponentially, causing instability in training.
+
+This limitation makes standard RNNs ineffective for learning dependencies across many time steps.
+
+#### 3.4.3 Long Short-Term Memory (LSTM)
+
+LSTM networks address the vanishing gradient problem through a more complex architecture with gates and a cell state.
+
+```python
+class LSTMCell(Layer):
+    def __init__(self, n_inputs, n_hidden, n_output):
+        super().__init__()
+        
+        # Input transformations (x -> gates)
+        self.xf = Linear(n_inputs, n_hidden)  # Forget gate
+        self.xi = Linear(n_inputs, n_hidden)  # Input gate
+        self.xo = Linear(n_inputs, n_hidden)  # Output gate      
+        self.xc = Linear(n_inputs, n_hidden)  # Cell candidate
+        
+        # Hidden state transformations (h -> gates)
+        self.hf = Linear(n_hidden, n_hidden, bias=False)  # Forget gate
+        self.hi = Linear(n_hidden, n_hidden, bias=False)  # Input gate
+        self.ho = Linear(n_hidden, n_hidden, bias=False)  # Output gate
+        self.hc = Linear(n_hidden, n_hidden, bias=False)  # Cell candidate
+        
+        # Output projection
+        self.w_ho = Linear(n_hidden, n_output, bias=False)
+        
+        # Register parameters
+        # ... (collecting parameters from all Linear layers)
+    
+    def forward(self, input, hidden):
+        # Unpack hidden state and cell state
+        prev_hidden, prev_cell = hidden
+        
+        # Gate computations (each with sigmoid activation)
+        f = (self.xf.forward(input) + self.hf.forward(prev_hidden)).sigmoid()  # Forget gate
+        i = (self.xi.forward(input) + self.hi.forward(prev_hidden)).sigmoid()  # Input gate
+        o = (self.xo.forward(input) + self.ho.forward(prev_hidden)).sigmoid()  # Output gate
+        
+        # Cell candidate computation (with tanh activation)
+        g = (self.xc.forward(input) + self.hc.forward(prev_hidden)).tanh()
+        
+        # Update cell state: forget old information + add new information
+        c = (f * prev_cell) + (i * g)
+        
+        # Update hidden state based on cell state filtered by output gate
+        h = o * c.tanh()
+        
+        # Project to output dimension
+        output = self.w_ho.forward(h)
+        
+        return output, (h, c)
+```
+
+**LSTM Architecture Components:**
+
+1. **Cell State (c_t)**: The key innovation of LSTM - a separate memory pipeline that can maintain information over many time steps.
+
+2. **Gates**: Three sigmoid-activated gates control information flow:
+   - **Forget Gate (f_t)**: Controls what to discard from the cell state
+   - **Input Gate (i_t)**: Controls what new information to add to the cell state
+   - **Output Gate (o_t)**: Controls what parts of the cell state to expose as output
+
+3. **Cell Candidate (g_t)**: A tanh-activated layer creating new candidate values for the cell state
+
+**LSTM Update Equations:**
+- f_t = σ(W_xf · x_t + W_hf · h_{t-1} + b_f)
+- i_t = σ(W_xi · x_t + W_hi · h_{t-1} + b_i)
+- o_t = σ(W_xo · x_t + W_ho · h_{t-1} + b_o)
+- g_t = tanh(W_xc · x_t + W_hc · h_{t-1} + b_c)
+- c_t = f_t ⊙ c_{t-1} + i_t ⊙ g_t
+- h_t = o_t ⊙ tanh(c_t)
+
+where ⊙ represents element-wise multiplication.
+
+**Advantages of LSTM over Standard RNNs:**
+
+1. **Long-Term Dependencies**: The cell state provides a highway for information to flow unchanged, allowing LSTMs to learn dependencies across hundreds of time steps.
+
+2. **Selective Memory**: Gates allow the network to selectively remember or forget information, making it more adaptable to different sequence lengths and patterns.
+
+3. **Gradient Flow**: The cell state pathway helps gradients flow back through time without vanishing, enabling effective learning from long sequences.
+
+4. **Performance**: LSTMs consistently outperform standard RNNs on tasks requiring memory of events separated by many time steps.
+
+Despite having more parameters than standard RNNs, the improved capability to model long-term dependencies makes LSTMs the preferred choice for many sequence modeling tasks, including language modeling, speech recognition, time series prediction, and more.
+
 ## 4. Forward Propagation
 
 Forward propagation is the process of computing the output of the network for a given input. Let's examine this process using the XOR example:

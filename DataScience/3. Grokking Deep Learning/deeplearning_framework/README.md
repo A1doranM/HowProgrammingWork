@@ -32,7 +32,8 @@ deeplearning_framework/
 │   ├── activations.py      # Sigmoid, Tanh layers
 │   ├── container.py        # Sequential container
 │   ├── embedding.py        # Embedding layer for NLP
-│   └── rnn.py              # RNN cell implementation
+│   ├── rnn.py              # RNN cell implementation
+│   └── lstm.py             # LSTM cell implementation
 ├── losses/                 # Loss functions
 │   ├── mse.py              # Mean Squared Error loss
 │   └── cross_entropy.py    # Cross Entropy loss with softmax

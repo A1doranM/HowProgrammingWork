@@ -8,6 +8,7 @@ from .activations import Sigmoid, Tanh
 from .container import Sequential
 from .embedding import Embedding
 from .rnn import RNNCell
+from .lstm import LSTMCell
 
 __all__ = [
     'Layer',
@@ -16,5 +17,6 @@ __all__ = [
     'Tanh',
     'Sequential',
     'Embedding',
-    'RNNCell'
+    'RNNCell',
+    'LSTMCell'
 ]
