@@ -63,3 +63,5 @@ https://www.khanacademy.org/math/linear-algebra
 
 https://www.khanacademy.org/math/calculus-1
 
+## Grokking Deep Learning 
+https://www.amazon.com/Grokking-Deep-Learning-Andrew-Trask/dp/1617293709
