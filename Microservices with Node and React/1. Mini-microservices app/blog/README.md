@@ -11,33 +11,39 @@ The application follows an event-driven microservices architecture where each se
 ## Services
 
 ### Client (React Application)
+
 - Frontend that interacts with all the other services
 - Displays posts and their comments
 - Allows users to create posts and add comments
 
 ### Posts Service (Port 4000)
+
 - Responsible for creating and storing posts
 - Exposes endpoints to create and retrieve posts
 - Emits events when a post is created
 
 ### Comments Service (Port 4001)
+
 - Manages comments for posts
 - Exposes endpoints to create and retrieve comments for a specific post
 - Emits events when a comment is created
 - Updates comment status based on moderation results
 
 ### Query Service (Port 4002)
+
 - Aggregates data from other services
 - Maintains a local database of posts and their associated comments
 - Provides efficient read operations for the client
 - Listens for events to keep its data in sync
 
 ### Moderation Service (Port 4003)
+
 - Responsible for moderating comment content
 - Checks comments for inappropriate content (in this demo, rejects comments containing the word "orange")
 - Emits events with moderation results
 
 ### Event Bus (Port 4005)
+
 - Central component that facilitates communication between services
 - Receives events from any service and broadcasts them to all other services
 - Stores a history of all events for recovery purposes
