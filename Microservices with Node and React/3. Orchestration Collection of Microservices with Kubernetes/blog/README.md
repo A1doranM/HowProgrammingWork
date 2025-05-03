@@ -55,7 +55,7 @@ graph TD
     client -.->|React App Requests| ing
   end
   
-  User -->|External Access| ing
+  User -->|posts.com| ing
 ```
 
 ## Key Improvements from Docker Version
