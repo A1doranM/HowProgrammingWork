@@ -135,6 +135,7 @@ skaffold dev
 ```
 
 This will:
+
 1. Build all service images
 2. Deploy all Kubernetes resources
 3. Stream logs from all running pods
@@ -209,7 +210,7 @@ Skaffold automates the development workflow:
 
 ## Troubleshooting
 
-### Common Issues:
+### Common Issues
 
 1. **Ingress Not Working**
    - Ensure Ingress-NGINX controller is installed

@@ -63,6 +63,7 @@ spec:
 ```
 
 Each deployment file follows this structure, with service-specific details:
+
 - Unique deployment and service names
 - Specific container images
 - Appropriate port configuration
@@ -90,6 +91,7 @@ http://[service-name]:[port]
 ```
 
 For example, the Posts service can send events to the Event Bus using:
+
 ```
 http://event-bus-srv:4005/events
 ```
@@ -144,6 +146,7 @@ spec:
 ```
 
 Key aspects of the Ingress configuration:
+
 - Uses the NGINX Ingress Controller (specified by `ingressClassName: nginx`)
 - Enables regex in paths with the annotation `nginx.ingress.kubernetes.io/use-regex: "true"`
 - Routes traffic based on the URL path to different services
@@ -192,11 +195,13 @@ When adding new features or services:
 ## Deployment Strategy
 
 Our current deployment strategy is simple:
+
 - Each service has a single replica (`replicas: 1`)
 - Services use pre-built images from Docker Hub
 - No resource limits or health checks are defined (these would be added in a production environment)
 
 For a production deployment, consider:
+
 - Increasing the replica count for better availability
 - Adding resource requests and limits
 - Implementing health checks (readiness and liveness probes)
