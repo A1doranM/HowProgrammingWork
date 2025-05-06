@@ -326,28 +326,3 @@ graph TD
   StandardResponse1 --> Client
   StandardResponse2 --> Client
 ```
-
-## Future Extensions
-
-The response normalization strategy established in this version provides a foundation for future improvements:
-
-1. **Shared Error Library**: Extract common error types to a shared package for use across services
-2. **Internationalization**: Add support for localized error messages
-3. **Error Logging**: Integrate centralized error logging with the error handling system
-4. **Error Codes**: Add unique error codes for better tracking and documentation
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Connection refused to ticketing.dev**
-   - Ensure your hosts file is correctly configured
-   - Verify the NGINX Ingress controller is running
-
-2. **Services not starting**
-   - Check pod logs: `kubectl get pods` then `kubectl logs <pod-name>`
-   - Ensure Kubernetes contexts are correctly set
-
-3. **Changes not reflecting**
-   - Verify Skaffold is watching the correct files
-   - Check for any build errors in the Skaffold logs
