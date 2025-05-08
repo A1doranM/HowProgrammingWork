@@ -146,26 +146,26 @@ graph TD
     UserDB[(User Database)]
   end
 
-  Browser -->|1. POST /api/users/signup| Ingress
-  Ingress -->|2. Route Request| SignUp
-  SignUp -->|3. Create User| UserDB
-  SignUp -->|4. Generate JWT| SignUp
-  SignUp -->|5. Set Cookie with JWT| Browser
+  Browser -->|1.1 - POST  api/users/signup| Ingress
+  Ingress -->|2.1 - Route Request| SignUp
+  SignUp -->|3.1 - Create User| UserDB
+  SignUp -->|4.1 - Generate JWT| SignUp
+  SignUp -->|5.1 - Set Cookie with JWT| Browser
 
-  Browser -->|1. POST /api/users/signin| Ingress
-  Ingress -->|2. Route Request| SignIn
-  SignIn -->|3. Verify Credentials| UserDB
-  SignIn -->|4. Generate JWT| SignIn
-  SignIn -->|5. Set Cookie with JWT| Browser
+  Browser -->|1.2 - POST /api/users/signin| Ingress
+  Ingress -->|2.2 - Route Request| SignIn
+  SignIn -->|3.2 - Verify Credentials| UserDB
+  SignIn -->|4.2 - Generate JWT| SignIn
+  SignIn -->|5.2 - Set Cookie with JWT| Browser
 
-  Browser -->|1. POST /api/users/signout| Ingress
-  Ingress -->|2. Route Request| SignOut
-  SignOut -->|3. Clear Cookie| Browser
+  Browser -->|1.3 - POST /api/users/signout| Ingress
+  Ingress -->|2.3 - Route Request| SignOut
+  SignOut -->|3.3 - Clear Cookie| Browser
 
-  Browser -->|1. GET /api/users/currentuser| Ingress
-  Ingress -->|2. Route Request| CurrentUser
-  CurrentUser -->|3. Verify JWT| CurrentUser
-  CurrentUser -->|4. Return User Info| Browser
+  Browser -->|1.4 - GET /api/users/currentuser| Ingress
+  Ingress -->|2.4 - Route Request| CurrentUser
+  CurrentUser -->|3.4 - Verify JWT| CurrentUser
+  CurrentUser -->|4.4 - Return User Info| Browser
 
   subgraph "Protected Services"
     Service1[Service 1]
@@ -175,11 +175,11 @@ graph TD
 
   Browser -->|Request with Cookie| Ingress
   Ingress -->|Forward Request| ProtectedRoute
-  ProtectedRoute -->|1. Extract JWT| ProtectedRoute
-  ProtectedRoute -->|2. Verify JWT| ProtectedRoute
-  ProtectedRoute -->|3. Check Authorization| ProtectedRoute
-  ProtectedRoute -->|4. Process Request| ProtectedRoute
-  ProtectedRoute -->|5. Return Response| Browser
+  ProtectedRoute -->|1.5 - Extract JWT| ProtectedRoute
+  ProtectedRoute -->|2.5 - Verify JWT| ProtectedRoute
+  ProtectedRoute -->|3.5 - Check Authorization| ProtectedRoute
+  ProtectedRoute -->|4.5 - Process Request| ProtectedRoute
+  ProtectedRoute -->|5.5 - Return Response| Browser
 ```
 
 ### JWT Flow
