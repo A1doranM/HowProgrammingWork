@@ -68,7 +68,7 @@
 
 <https://www.udemy.com/course/python-data-analysis-visualization/>
 
-## Microservices with Node and React
+## Microservices with NodeJS and React
 
 <https://www.udemy.com/course/microservices-with-node-js-and-react>
 
