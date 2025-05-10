@@ -650,25 +650,3 @@ if (typeof window === 'undefined') {
 2. Custom App component to provide global auth context
 3. Conditional rendering based on auth state
 
-## Future Enhancements
-
-1. **Additional Frontend Features**
-   - Ticket creation and management UI
-   - User profile and settings
-   - Responsive design improvements
-
-2. **Performance Optimizations**
-   - Static generation for suitable pages
-   - Code splitting and lazy loading
-   - Image optimization
-
-3. **Enhanced Authentication**
-   - Two-factor authentication
-   - OAuth integrations
-   - Role-based access control
-
-4. **Extended Microservices**
-   - Ticket service integration
-   - Payment processing
-   - Order management
-   - Event notifications
