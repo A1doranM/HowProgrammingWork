@@ -9,6 +9,7 @@ Version 11 builds upon the frontend integration established in version 10, addin
 ### Shared Code Library Creation
 
 - **Common NPM Package**: Created a standalone reusable package
+
   ```json
   // in common/package.json
   {
@@ -23,6 +24,7 @@ Version 11 builds upon the frontend integration established in version 10, addin
   ```
 
 - **Publishing Workflow**: Automated build and release process
+
   ```json
   "scripts": {
     "clean": "del ./build/*",
@@ -32,6 +34,7 @@ Version 11 builds upon the frontend integration established in version 10, addin
   ```
 
 - **Shared Code Extraction**: Moved common code from individual services
+
   ```typescript
   // in common/src/index.ts
   export * from './errors/bad-request-error';
@@ -50,6 +53,7 @@ Version 11 builds upon the frontend integration established in version 10, addin
 ### Service Integration with Common Package
 
 - **Dependency Updates**: Services now depend on the common package
+
   ```json
   // in auth/package.json
   "dependencies": {
@@ -59,6 +63,7 @@ Version 11 builds upon the frontend integration established in version 10, addin
   ```
 
 - **Import Pattern Changes**: Imports now from common package
+
   ```typescript
   // Before (version 10) - local imports
   import { NotFoundError } from '../errors/not-found-error';
@@ -68,6 +73,7 @@ Version 11 builds upon the frontend integration established in version 10, addin
   ```
 
 - **Type Safety**: TypeScript declarations ensure correct usage
+
   ```typescript
   // Type definitions included in the package
   "types": "./build/index.d.ts"
@@ -339,6 +345,7 @@ flowchart TD
 ### Consistency and Standardization
 
 - **Error Handling**: Same error format across all services
+
   ```json
   // Example error response (same format in all services)
   {
@@ -356,7 +363,7 @@ flowchart TD
 
 ### Code Reuse Benefits
 
-1. **Elimination of Duplication**: 
+1. **Elimination of Duplication**:
    - Error classes not duplicated in each service
    - Middleware functions written once, used everywhere
    - Type definitions maintained in a single location
@@ -392,6 +399,7 @@ npm run pub
 ```
 
 This executes the following steps:
+
 1. Stages changes (`git add .`)
 2. Commits changes (`git commit -m "Updates"`)
 3. Increments version (`npm version patch`)
@@ -434,6 +442,7 @@ npm update @rallycoding/common
 ### Prerequisites
 
 Same as version 10:
+
 1. **Docker Desktop** with Kubernetes enabled
 2. **kubectl** command-line tool
 3. **Skaffold** for development workflow
