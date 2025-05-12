@@ -9,6 +9,7 @@ Version 12 builds upon the shared code architecture established in version 11, a
 ### New Tickets Microservice
 
 - **Complete Tickets Service**: Added a fully functional microservice for ticket management
+
   ```typescript
   // Ticket model
   interface TicketAttrs {
@@ -25,6 +26,7 @@ Version 12 builds upon the shared code architecture established in version 11, a
   ```
 
 - **CRUD API Endpoints**: Full REST API implementation
+
   ```
   POST   /api/tickets        - Create ticket (authenticated users only)
   GET    /api/tickets        - List all tickets (public)
@@ -33,6 +35,7 @@ Version 12 builds upon the shared code architecture established in version 11, a
   ```
 
 - **MongoDB Database**: Dedicated database for ticket storage
+
   ```yaml
   # in tickets-mongo-depl.yaml
   apiVersion: apps/v1
@@ -45,6 +48,7 @@ Version 12 builds upon the shared code architecture established in version 11, a
 ### Infrastructure Enhancements
 
 - **Updated Ingress Configuration**: Path-based routing for ticket APIs
+
   ```yaml
   # in ingress-srv.yaml
   paths:
@@ -62,6 +66,7 @@ Version 12 builds upon the shared code architecture established in version 11, a
   ```
 
 - **Environment Variables**: Configuration for ticket service
+
   ```typescript
   // in tickets/src/index.ts
   if (!process.env.JWT_KEY) {
@@ -75,6 +80,7 @@ Version 12 builds upon the shared code architecture established in version 11, a
 ### Authentication and Authorization
 
 - **Authentication Requirements**: Creating tickets requires authentication
+
   ```typescript
   // in tickets/src/routes/new.ts
   router.post(
@@ -89,6 +95,7 @@ Version 12 builds upon the shared code architecture established in version 11, a
   ```
 
 - **Authorization Rules**: Only ticket creators can update their tickets
+
   ```typescript
   // in tickets/src/routes/update.ts
   if (ticket.userId !== req.currentUser!.id) {
@@ -638,6 +645,7 @@ build:
 1. **Configure local hosts file**
 
 Add this entry to your hosts file:
+
 ```
 127.0.0.1 ticketing.dev
 ```
@@ -663,7 +671,8 @@ skaffold dev
 ```
 
 Once everything is running, you can access the application at:
-- https://ticketing.dev/
+
+- <https://ticketing.dev/>
 
 ## Future Enhancements
 
