@@ -9,6 +9,7 @@ Version 13 builds upon the CRUD functionality established in version 12, adding 
 ### Event Bus Integration
 
 - **NATS Streaming Server**: Added as a central message broker for event-based communication
+
   ```yaml
   # in nats-depl.yaml
   containers:
@@ -27,6 +28,7 @@ Version 13 builds upon the CRUD functionality established in version 12, adding 
   ```
 
 - **Test Implementation**: Created `nats-test` directory with publisher and listener examples
+
   ```typescript
   // Publisher example
   const stan = nats.connect('ticketing', 'abc', {
@@ -51,6 +53,7 @@ Version 13 builds upon the CRUD functionality established in version 12, adding 
 ### Reliability Features
 
 - **Durable Subscriptions**: Remembers subscriber position even after disconnection
+
   ```typescript
   const options = stan
     .subscriptionOptions()
@@ -60,6 +63,7 @@ Version 13 builds upon the CRUD functionality established in version 12, adding 
   ```
 
 - **Manual Acknowledgment**: Ensures message processing before completion
+
   ```typescript
   subscription.on('message', (msg: Message) => {
     const data = msg.getData();
@@ -69,6 +73,7 @@ Version 13 builds upon the CRUD functionality established in version 12, adding 
   ```
 
 - **Queue Groups**: Distributes messages among service instances
+
   ```typescript
   const subscription = stan.subscribe(
     'ticket:created',
@@ -78,6 +83,7 @@ Version 13 builds upon the CRUD functionality established in version 12, adding 
   ```
 
 - **Graceful Shutdown**: Proper connection cleanup on process termination
+
   ```typescript
   stan.on('close', () => {
     console.log('NATS connection closed!');
@@ -213,6 +219,7 @@ spec:
 ```
 
 Key configuration parameters:
+
 - Client port 4222 for NATS client connections
 - Monitoring port 8222 for HTTP monitoring
 - Heartbeat settings for detecting client disconnections
@@ -252,6 +259,7 @@ stan.on('connect', () => {
 ```
 
 Key aspects:
+
 - Connect with client ID and cluster ID
 - Serialize data as JSON string
 - Publish to named channels (e.g., 'ticket:created')
@@ -315,6 +323,7 @@ process.on('SIGTERM', () => stan.close());
 ```
 
 Key aspects:
+
 - Random client ID generation for unique identification
 - Manual acknowledgment mode for reliable processing
 - Durable subscriptions to resume from last position
@@ -350,6 +359,7 @@ sequenceDiagram
 ```
 
 This pattern provides several advantages:
+
 - Client gets immediate response after initial processing
 - Cross-service communication happens asynchronously
 - Services can process events at their own pace
@@ -445,10 +455,13 @@ These scripts are defined in package.json:
 ```
 
 To test with the Kubernetes deployment:
+
 1. Forward the NATS ports to your local machine:
+
    ```bash
    kubectl port-forward nats-depl-[pod-id] 4222:4222 8222:8222
    ```
+
 2. Run the publisher and listener scripts
 3. Observe events flowing through the system
 
@@ -496,16 +509,19 @@ The NATS Streaming Server integration enables several advanced patterns:
 ### Environment Setup
 
 1. **Configure local hosts file**
+
    ```
    127.0.0.1 ticketing.dev
    ```
 
 2. **Install NGINX Ingress Controller** (if not already installed)
+
    ```bash
    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
    ```
 
 3. **Create JWT Secret**
+
    ```bash
    kubectl create secret generic jwt-secret --from-literal=JWT_KEY=your_jwt_secret_key
    ```
@@ -525,11 +541,13 @@ This will start all services, including the NATS Streaming Server.
 NATS Streaming Server provides a monitoring endpoint on port 8222:
 
 1. Forward the monitoring port:
+
    ```bash
    kubectl port-forward nats-depl-[pod-id] 8222:8222
    ```
 
 2. Access the monitoring interface:
+
    ```
    http://localhost:8222/streaming
    ```
