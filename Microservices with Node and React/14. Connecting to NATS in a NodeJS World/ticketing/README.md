@@ -230,21 +230,21 @@ classDiagram
         <<abstract>>
         +abstract subject: T['subject']
         +abstract queueGroupName: string
-        +abstract onMessage(data: T['data'], msg: Message): void
+        +abstract onMessage(data, msg): void
         -client: Stan
         #ackWait: number
-        +constructor(client: Stan)
+        +constructor(client)
         +subscriptionOptions()
         +listen()
-        +parseMessage(msg: Message)
+        +parseMessage(msg)
     }
     
     class Publisher~T extends Event~ {
         <<abstract>>
         +abstract subject: T['subject']
         -client: Stan
-        +constructor(client: Stan)
-        +publish(data: T['data']): Promise~void~
+        +constructor(client)
+        +publish(data): Promise
     }
     
     class Subjects {
@@ -256,19 +256,27 @@ classDiagram
     class TicketCreatedEvent {
         <<interface>>
         +subject: Subjects.TicketCreated
-        +data: {id: string, title: string, price: number, userId: string}
+        +data: TicketData
     }
     
     class TicketUpdatedEvent {
         <<interface>>
         +subject: Subjects.TicketUpdated
-        +data: {id: string, title: string, price: number, userId: string}
+        +data: TicketData
+    }
+    
+    class TicketData {
+        <<interface>>
+        +id: string
+        +title: string
+        +price: number
+        +userId: string
     }
     
     class TicketCreatedListener {
         +subject: Subjects.TicketCreated
         +queueGroupName: string
-        +onMessage(data: TicketCreatedEvent['data'], msg: Message): void
+        +onMessage(data, msg): void
     }
     
     class TicketCreatedPublisher {
@@ -281,6 +289,8 @@ classDiagram
     Publisher <|-- TicketCreatedPublisher
     TicketCreatedEvent -- Subjects
     TicketUpdatedEvent -- Subjects
+    TicketCreatedEvent -- TicketData
+    TicketUpdatedEvent -- TicketData
 ```
 
 ### Key Components
