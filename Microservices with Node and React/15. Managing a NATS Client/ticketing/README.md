@@ -459,47 +459,6 @@ env:
     value: 'ticketing'
 ```
 
-## Future Considerations
-
-As the application evolves, several enhancements could be considered:
-
-### Data Consistency
-
-The current implementation saves to the database before publishing events, but doesn't handle failures in the publishing step. Possible improvements:
-
-- **Transactional Outbox Pattern**: Store events in the database alongside data changes
-- **Event Publication Retry**: Implement retry logic for failed publications
-- **Compensating Transactions**: Roll back database changes if event publishing fails
-
-### Event Versioning
-
-As events evolve, a versioning strategy will be needed:
-
-```typescript
-// Example: Adding version to events
-interface TicketUpdatedEvent {
-  subject: Subjects.TicketUpdated;
-  data: {
-    id: string;
-    title: string;
-    price: number;
-    userId: string;
-    version: number;  // Schema version
-  };
-}
-```
-
-### NATS Clustering
-
-For production environments, a clustered NATS setup would provide better reliability:
-
-```yaml
-# Conceptual clustered configuration
-spec:
-  replicas: 3  # Multiple NATS instances
-  # Additional clustering configuration
-```
-
 ## Running the Application
 
 ### Prerequisites
