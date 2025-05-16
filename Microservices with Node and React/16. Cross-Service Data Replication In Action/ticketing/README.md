@@ -217,71 +217,62 @@ Version 16 builds upon the robust NATS client management established in version 
 The application has evolved with a new Orders service implementing cross-service data replication for ticket data:
 
 ```mermaid
-graph TD
-    subgraph "Client Application"
-        ClientApp["Next.js Frontend"]
+flowchart TD
+    %% Client Application
+    subgraph ClientSide["Client Application"]
+        Client["Next.js Frontend"]
     end
-    
-    subgraph "API Gateway"
+
+    %% API Gateway
+    subgraph Gateway["API Gateway Layer"]
         Ingress["Ingress Controller"]
     end
-    
-    subgraph "Auth Service"
-        AuthAPI["Auth API"]
-        AuthDB[(Auth MongoDB)]
-        
-        AuthAPI --- AuthDB
+
+    %% Microservices
+    subgraph Microservices["Core Microservices"]
+        %% Auth Service
+        subgraph AuthService["Authentication Service"]
+            AuthAPI["Auth API"]
+            AuthDB[(Auth MongoDB)]
+            AuthAPI --- AuthDB
+        end
+
+        %% Tickets Service
+        subgraph TicketService["Ticket Management Service"]
+            TicketsAPI["Tickets API"]
+            TicketsDB[(Tickets MongoDB)]
+            TicketsPub["Ticket Publishers"]
+            TicketsAPI --- TicketsDB
+            TicketsAPI --- TicketsPub
+        end
+
+        %% Orders Service  
+        subgraph OrderService["Order Processing Service"]
+            OrdersAPI["Orders API"]
+            OrdersDB[(Orders MongoDB)]
+            ReplicatedTickets["Replicated Tickets"]
+            OrdersPub["Order Publishers"]
+            OrdersAPI --- OrdersDB
+            OrdersAPI --- ReplicatedTickets
+            OrdersAPI --- OrdersPub
+            ReplicatedTickets -..- OrdersDB
+        end
     end
-    
-    subgraph "Tickets Service"
-        TicketsAPI["Tickets API"]
-        TicketsDB[(Tickets MongoDB)]
-        TicketsPub["Ticket Publishers"]
-        
-        TicketsAPI --- TicketsDB
-        TicketsAPI --- TicketsPub
-    end
-    
-    subgraph "Orders Service"
-        OrdersAPI["Orders API"]
-        OrdersDB[(Orders MongoDB)]
-        ReplicatedTickets["Replicated Tickets"]
-        OrdersPub["Order Publishers"]
-        
-        OrdersAPI --- OrdersDB
-        OrdersAPI --- ReplicatedTickets
-        OrdersAPI --- OrdersPub
-        ReplicatedTickets -.- OrdersDB
-    end
-    
-    subgraph "Message Broker"
+
+    %% Event Bus
+    subgraph EventBus["Event Bus"]
         NATS["NATS Streaming"]
     end
-    
-    ClientApp -- "HTTP Requests" --> Ingress
-    
+
+    %% Connections
+    Client -- "HTTP Requests" --> Ingress
     Ingress -- "/api/users/*" --> AuthAPI
     Ingress -- "/api/tickets/*" --> TicketsAPI
     Ingress -- "/api/orders/*" --> OrdersAPI
     
     TicketsPub -- "Publish Events" --> NATS
     OrdersPub -- "Publish Events" --> NATS
-    
-    NATS -- "Future: Events" -.-> ReplicatedTickets
-    
-    classDef service fill:#1e88e5,stroke:#fff,stroke-width:1px,color:#fff;
-    classDef database fill:#e53935,stroke:#fff,stroke-width:1px,color:#fff;
-    classDef nats fill:#43a047,stroke:#fff,stroke-width:1px,color:#fff;
-    classDef frontend fill:#8e24aa,stroke:#fff,stroke-width:1px,color:#fff;
-    classDef ingress fill:#fb8c00,stroke:#fff,stroke-width:1px,color:#fff;
-    classDef replicated fill:#00acc1,stroke:#fff,stroke-width:1px,color:#fff;
-    
-    class AuthAPI,TicketsAPI,OrdersAPI service;
-    class AuthDB,TicketsDB,OrdersDB database;
-    class NATS nats;
-    class ClientApp frontend;
-    class Ingress ingress;
-    class ReplicatedTickets,TicketsPub,OrdersPub replicated;
+    NATS -. "Future: Events" .-> ReplicatedTickets
 ```
 
 ### Components Explained
@@ -358,14 +349,6 @@ sequenceDiagram
         end
     end
 ```
-
-### Data Consistency Considerations
-
-In the current implementation, ticket data is not automatically synchronized between services. Future versions will likely implement:
-
-1. **Event-Based Updates**: When a ticket is created or updated, events will update the replicated data
-2. **Eventual Consistency**: The replicated data might be temporarily out of sync
-3. **Version/Concurrency Control**: To handle out-of-order events
 
 ## Order Creation Flow
 
@@ -501,18 +484,6 @@ graph TB
     Ingress --- ClientSrv
     
     External --- Ingress
-    
-    classDef deployment fill:#1e88e5,stroke:#fff,stroke-width:1px,color:#fff;
-    classDef database fill:#e53935,stroke:#fff,stroke-width:1px,color:#fff;
-    classDef service fill:#43a047,stroke:#fff,stroke-width:1px,color:#fff;
-    classDef ingress fill:#fb8c00,stroke:#fff,stroke-width:1px,color:#fff;
-    classDef external fill:#8e24aa,stroke:#fff,stroke-width:1px,color:#fff;
-    
-    class AuthDepl,TicketsDepl,OrdersDepl,ClientDepl,NatsDepl deployment;
-    class AuthMongo,TicketsMongo,OrdersMongo database;
-    class AuthSrv,TicketsSrv,OrdersSrv,ClientSrv,NatsSrv service;
-    class Ingress ingress;
-    class External external;
 ```
 
 ### Environment Configuration
@@ -639,27 +610,7 @@ The Orders API implements standard RESTful endpoints:
      // Implementation details...
    });
    ```
-
-## Future Considerations
-
-Several aspects are noted for future implementation:
-
-1. **Event Publishing**:
-   - In routes/new.ts: `// Publish an event saying that an order was created`
-   - In routes/delete.ts: `// publishing an event saying this was cancelled!`
-
-2. **Event-Driven Data Replication**:
-   - Synchronizing ticket data between services
-   - Handling concurrent updates
-
-3. **Frontend Development**:
-   - Client pages for tickets and orders
-   - Full user interface for the ticketing application
-
-4. **Payment Processing**:
-   - Implementing the payment flow for orders
-   - Handling order completion after payment
-
+   
 ## Running the Application
 
 ### Prerequisites
