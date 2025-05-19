@@ -9,6 +9,7 @@ Version 19 builds upon the bi-directional event flow architecture established in
 ### New Expiration Service
 
 - **Worker Service Pattern**: Added a dedicated service that exclusively processes background tasks
+
   ```typescript
   // in expiration/src/index.ts
   const start = async () => {
@@ -23,6 +24,7 @@ Version 19 builds upon the bi-directional event flow architecture established in
   ```
 
 - **Bull.js Job Queue with Redis**: Implemented delayed job processing using Bull.js and Redis
+
   ```typescript
   // in expiration/src/queues/expiration-queue.ts
   import Queue from 'bull';
@@ -51,6 +53,7 @@ Version 19 builds upon the bi-directional event flow architecture established in
 ### Order Expiration Workflow
 
 - **Expiration Scheduling**: Automatic scheduling of order expiration based on creation time
+
   ```typescript
   // in expiration/src/events/listeners/order-created-listener.ts
   async onMessage(data: OrderCreatedEvent['data'], msg: Message) {
@@ -71,6 +74,7 @@ Version 19 builds upon the bi-directional event flow architecture established in
   ```
 
 - **Automatic Order Cancellation**: Handling expiration events to cancel orders
+
   ```typescript
   // in orders/src/events/listeners/expiration-complete-listener.ts
   async onMessage(data: ExpirationCompleteEvent['data'], msg: Message) {
@@ -99,6 +103,7 @@ Version 19 builds upon the bi-directional event flow architecture established in
 ### New Event Types
 
 - **Expiration Complete Event**: Added new event for order expiration notifications
+
   ```typescript
   // in common/src/events/expiration-complete-event.ts
   export interface ExpirationCompleteEvent {
@@ -622,11 +627,13 @@ flowchart TD
 ### Environment Setup
 
 1. **Configure local hosts file**
+
    ```
    127.0.0.1 ticketing.dev
    ```
 
 2. **Create JWT Secret**
+
    ```bash
    kubectl create secret generic jwt-secret --from-literal=JWT_KEY=your_jwt_secret_key
    ```
@@ -640,6 +647,7 @@ skaffold dev
 ```
 
 This will:
+
 1. Start all services (Auth, Tickets, Orders, Expiration, Client, NATS, Redis)
 2. Configure all required connections
 3. Set up the ingress controller for routing
