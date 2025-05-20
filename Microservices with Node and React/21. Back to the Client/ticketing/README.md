@@ -9,6 +9,7 @@ Version 21 builds upon the payment processing system established in version 20, 
 ### Complete Client Application
 
 - **Next.js-based Frontend**: Implemented server-side rendered React application with proper routing
+
   ```jsx
   // in client/pages/index.js
   const LandingPage = ({ currentUser, tickets }) => {
@@ -45,6 +46,7 @@ Version 21 builds upon the payment processing system established in version 20, 
   ```
 
 - **Authentication UI**: Sign-in and sign-up forms with client-side validation
+
   ```jsx
   // in client/pages/auth/signin.js
   export default () => {
@@ -67,6 +69,7 @@ Version 21 builds upon the payment processing system established in version 20, 
 ### Ticket Management Interface
 
 - **Ticket Creation**: Form for creating new tickets with input validation
+
   ```jsx
   // in client/pages/tickets/new.js
   const NewTicket = () => {
@@ -87,6 +90,7 @@ Version 21 builds upon the payment processing system established in version 20, 
   ```
 
 - **Ticket Display**: List view and detail view for available tickets
+
   ```jsx
   // in client/pages/tickets/[ticketId].js
   const TicketShow = ({ ticket }) => {
@@ -117,6 +121,7 @@ Version 21 builds upon the payment processing system established in version 20, 
 ### Order & Payment Flow
 
 - **Order Display**: List view and detail view for user's orders
+
   ```jsx
   // in client/pages/orders/index.js
   const OrderIndex = ({ orders }) => {
@@ -135,6 +140,7 @@ Version 21 builds upon the payment processing system established in version 20, 
   ```
 
 - **Payment Integration**: Stripe checkout component with expiration timer
+
   ```jsx
   // in client/pages/orders/[orderId].js
   const OrderShow = ({ order, currentUser }) => {
@@ -177,6 +183,7 @@ Version 21 builds upon the payment processing system established in version 20, 
 ### API Client Architecture
 
 - **Request Management Hook**: Custom hook for handling API requests
+
   ```jsx
   // in client/hooks/use-request.js
   export default ({ url, method, body, onSuccess }) => {
@@ -202,6 +209,7 @@ Version 21 builds upon the payment processing system established in version 20, 
   ```
 
 - **Server-side and Client-side Data Fetching**: Next.js getInitialProps for SSR
+
   ```jsx
   // Example from client/pages/index.js
   LandingPage.getInitialProps = async (context, client, currentUser) => {
@@ -635,11 +643,13 @@ const { doRequest, errors } = useRequest({
 ### Environment Setup
 
 1. **Configure local hosts file**
+
    ```
    127.0.0.1 ticketing.dev
    ```
 
 2. **Create Secrets**
+
    ```bash
    kubectl create secret generic jwt-secret --from-literal=JWT_KEY=your_jwt_secret_key
    kubectl create secret generic stripe-secret --from-literal=STRIPE_KEY=your_stripe_secret_key
@@ -654,6 +664,7 @@ skaffold dev
 ```
 
 This will:
+
 1. Start all services (Auth, Tickets, Orders, Expiration, Payments, Client, NATS, Redis)
 2. Configure all required connections
 3. Set up the ingress controller for routing
@@ -663,6 +674,7 @@ This will:
 ### Accessing the Application
 
 Access the application at:
+
 ```
 https://ticketing.dev
 ```
