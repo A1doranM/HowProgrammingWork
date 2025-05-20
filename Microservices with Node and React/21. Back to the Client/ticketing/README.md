@@ -522,7 +522,7 @@ The application uses Next.js data fetching for server-side rendering:
 ```mermaid
 flowchart TD
     A[Browser Request] --> B[Next.js Server]
-    B --> C{Component has\ngetInitialProps?}
+    B --> C{Component getInitialProps}
     
     C -->|Yes| D[Execute getInitialProps]
     C -->|No| E[Skip data fetching]
