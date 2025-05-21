@@ -349,7 +349,7 @@ graph TB
     
     subgraph "Production Environment"
         DOCluster["DigitalOcean Kubernetes Cluster"]
-        ProdIngress["Ingress (www.YOURDOMAIN.com)"]
+        ProdIngress["Ingress (YOURDOMAIN.com)"]
         ProdLB["LoadBalancer Service"]
         DockerHub["Docker Hub"]
         GitHubActions["GitHub Actions"]
