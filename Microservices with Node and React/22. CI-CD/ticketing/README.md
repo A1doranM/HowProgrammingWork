@@ -9,6 +9,7 @@ Version 22 builds upon the full-stack application established in version 21, add
 ### CI/CD Pipeline with GitHub Actions
 
 - **Testing Workflows**: Added automated testing for each service triggered on pull requests
+
   ```yaml
   # in .github/workflows/tests-auth.yml
   name: tests-auth
@@ -27,6 +28,7 @@ Version 22 builds upon the full-stack application established in version 21, add
   ```
 
 - **Deployment Workflows**: Added automated deployment to DigitalOcean Kubernetes
+
   ```yaml
   # in .github/workflows/deploy-auth.yaml
   name: deploy-auth
@@ -59,6 +61,7 @@ Version 22 builds upon the full-stack application established in version 21, add
 ### Production Environment Configuration
 
 - **Production Kubernetes Manifests**: Added separate deployment configuration for production
+
   ```yaml
   # in infra/k8s-prod/ingress-srv.yaml
   apiVersion: networking.k8s.io/v1
@@ -77,6 +80,7 @@ Version 22 builds upon the full-stack application established in version 21, add
   ```
 
 - **Production-specific LoadBalancer**: Configured for cloud deployment
+
   ```yaml
   # in infra/k8s-prod/ingress-srv.yaml (continued)
   apiVersion: v1
@@ -95,6 +99,7 @@ Version 22 builds upon the full-stack application established in version 21, add
 ### Infrastructure as Code
 
 - **Manifest Deployment Workflow**: Added automated Kubernetes manifest deployment
+
   ```yaml
   # in .github/workflows/deploy-manifests.yaml
   name: deploy-manifests
@@ -506,6 +511,7 @@ Setup the following repository secrets in GitHub:
 ### Production Deployment Steps
 
 1. **Initial Cluster Setup**:
+
    ```bash
    # Install doctl
    brew install doctl  # For Mac, use appropriate command for your OS
@@ -521,6 +527,7 @@ Setup the following repository secrets in GitHub:
    ```
 
 2. **Deploy Kubernetes Resources**:
+
    ```bash
    # Create secrets in production
    kubectl create secret generic jwt-secret --from-literal=JWT_KEY=your_jwt_secret_key
@@ -541,6 +548,7 @@ Setup the following repository secrets in GitHub:
 ### Development Workflow
 
 1. **Local Development**:
+
    ```bash
    # Start local development environment
    skaffold dev
@@ -643,7 +651,7 @@ jobs:
 | Feature | Development | Production |
 |---------|-------------|------------|
 | **Environment** | Local Kubernetes | DigitalOcean Kubernetes |
-| **Domain** | ticketing.dev | www.YOURDOMAIN.com |
+| **Domain** | ticketing.dev | <www.YOURDOMAIN.com> |
 | **Deployment** | Skaffold | GitHub Actions |
 | **Docker Images** | Built locally | Pushed to Docker Hub |
 | **Ingress** | Local NGINX | LoadBalancer service |
