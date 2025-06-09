@@ -6,7 +6,7 @@ import asyncio
 from typing import Optional, Dict, Any, List, AsyncIterator
 from datetime import datetime, timedelta
 
-import aioredis
+import redis.asyncio as redis
 import structlog
 
 from app.core.config import settings
@@ -19,13 +19,13 @@ class RedisService:
     """Redis service providing caching, pub/sub, and session management"""
     
     def __init__(self):
-        self.redis: Optional[aioredis.Redis] = None
-        self.pubsub: Optional[aioredis.client.PubSub] = None
+        self.redis: Optional[redis.Redis] = None
+        self.pubsub: Optional[redis.client.PubSub] = None
         
     async def connect(self):
         """Initialize Redis connection"""
         try:
-            self.redis = aioredis.from_url(
+            self.redis = redis.from_url(
                 settings.redis_url,
                 encoding="utf-8",
                 decode_responses=True,
@@ -147,7 +147,7 @@ class RedisService:
         await self.redis.publish("machine_status:all", message.json())
         logger.debug("Published machine status", machine_id=status.machine_id)
     
-    async def subscribe_to_updates(self, channels: List[str]) -> aioredis.client.PubSub:
+    async def subscribe_to_updates(self, channels: List[str]) -> redis.client.PubSub:
         """Subscribe to update channels"""
         self.pubsub = self.redis.pubsub()
         await self.pubsub.subscribe(*channels)
