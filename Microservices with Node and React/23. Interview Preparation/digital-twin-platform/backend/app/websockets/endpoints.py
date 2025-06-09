@@ -5,12 +5,12 @@ import json
 import asyncio
 from typing import Optional
 
-from fastapi import WebSocket, WebSocketDisconnect, Depends, HTTPException
+from fastapi import WebSocket, WebSocketDisconnect
 import structlog
 
 from app.models.sensor import WebSocketMessage
 from app.websockets.connection_manager import ConnectionManager
-from app.services.redis_service import RedisService, get_redis_service
+from app.services.redis_service import RedisService
 
 logger = structlog.get_logger(__name__)
 

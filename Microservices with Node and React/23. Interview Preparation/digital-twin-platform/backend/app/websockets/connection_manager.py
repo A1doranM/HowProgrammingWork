@@ -1,12 +1,11 @@
 """
 WebSocket connection manager for real-time communication
 """
-import json
 import asyncio
-from typing import Dict, List, Set, Optional
+from typing import Dict, Set, Optional
 from datetime import datetime
 
-from fastapi import WebSocket, WebSocketDisconnect
+from fastapi import WebSocket
 import structlog
 
 from app.models.sensor import WebSocketMessage, SensorReading

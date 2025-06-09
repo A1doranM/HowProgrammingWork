@@ -2,9 +2,8 @@
 Redis service for caching, session management, and pub/sub
 """
 import json
-import asyncio
 from typing import Optional, Dict, Any, List, AsyncIterator
-from datetime import datetime, timedelta
+from datetime import datetime
 
 import redis.asyncio as redis
 import structlog

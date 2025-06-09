@@ -1,12 +1,10 @@
 """
 API endpoints for sensor data management
 """
-import asyncio
 from datetime import datetime
 from typing import List, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks, status
-from fastapi.responses import JSONResponse
 import structlog
 
 from app.models.sensor import (
