@@ -273,10 +273,16 @@ class EventStoreSettings(Settings):
     snapshot_frequency: int = 100  # Create snapshot every N events
     event_retention_days: int = 365
     snapshot_retention_days: int = 30
+    snapshot_management_interval_seconds: int = 300  # 5 minutes
     
     # Performance tuning
     event_batch_size: int = 50
     event_commit_interval_seconds: int = 5
+    
+    # Event processing
+    enable_event_replay: bool = True
+    max_events_per_query: int = 1000
+    event_processing_timeout_seconds: int = 30
 
 
 @lru_cache()
