@@ -58,25 +58,6 @@ docker-compose ps
 docker-compose logs -f api
 ```
 
-### Running Locally
-```bash
-# Navigate to backend
-cd backend
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Start Redis (using Docker)
-docker run -d -p 6379:6379 redis:7-alpine
-
-# Start the application
-uvicorn app.main:app --reload
-```
-
 ## 📚 API Documentation
 
 Once running, visit:

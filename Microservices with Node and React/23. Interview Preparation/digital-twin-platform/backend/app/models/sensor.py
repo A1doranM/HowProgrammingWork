@@ -27,7 +27,7 @@ class DataQuality(str, Enum):
 
 class SensorReading(BaseModel):
     """Model for individual sensor readings"""
-    machine_id: str = Field(..., regex=r'^[A-Z]{3}-\d{3}$', description="Machine identifier (e.g., CNC-001)")
+    machine_id: str = Field(..., pattern=r'^[A-Z]{3}-\d{3}$', description="Machine identifier (e.g., CNC-001)")
     sensor_type: SensorType = Field(..., description="Type of sensor measurement")
     value: float = Field(..., ge=-1000, le=1000, description="Sensor reading value")
     unit: str = Field(..., max_length=20, description="Measurement unit")
@@ -79,7 +79,7 @@ class SensorReading(BaseModel):
         return sanitized
     
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "machine_id": "CNC-001",
                 "sensor_type": "temperature",
@@ -100,7 +100,7 @@ class SensorReadingResponse(SensorReading):
 
 class BatchSensorReading(BaseModel):
     """Model for batch sensor reading submissions"""
-    machine_id: str = Field(..., regex=r'^[A-Z]{3}-\d{3}$')
+    machine_id: str = Field(..., pattern=r'^[A-Z]{3}-\d{3}$')
     readings: list[SensorReading] = Field(..., min_items=1, max_items=1000)
     
     @validator('readings')
@@ -115,14 +115,14 @@ class BatchSensorReading(BaseModel):
 
 class MachineStatus(BaseModel):
     """Model for machine status information"""
-    machine_id: str = Field(..., regex=r'^[A-Z]{3}-\d{3}$')
+    machine_id: str = Field(..., pattern=r'^[A-Z]{3}-\d{3}$')
     status: str = Field(..., description="Current machine status")
     last_seen: datetime = Field(..., description="Last communication timestamp")
     active_sensors: list[SensorType] = Field(default_factory=list)
     location: Optional[str] = Field(None, description="Physical location")
     
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "machine_id": "CNC-001",
                 "status": "running",
@@ -141,7 +141,7 @@ class WebSocketMessage(BaseModel):
     machine_id: Optional[str] = Field(None, description="Related machine ID")
     
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "type": "sensor_update",
                 "data": {
@@ -163,7 +163,7 @@ class HealthCheckResponse(BaseModel):
     uptime: Optional[float] = Field(None, description="Uptime in seconds")
     
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "status": "healthy",
                 "timestamp": "2024-01-15T10:30:00Z",

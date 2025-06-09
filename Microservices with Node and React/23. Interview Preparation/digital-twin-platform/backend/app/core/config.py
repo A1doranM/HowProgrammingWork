@@ -4,7 +4,7 @@ Core configuration for the Digital Twin Manufacturing Platform
 from functools import lru_cache
 from typing import Optional
 
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
