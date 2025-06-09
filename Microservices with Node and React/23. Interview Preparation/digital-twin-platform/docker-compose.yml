@@ -1,6 +1,10 @@
 version: '3.8'
 
 services:
+  # ============================================================================
+  # DAY 1 SERVICES (Real-time API Layer)
+  # ============================================================================
+  
   # Redis for caching and pub/sub
   redis:
     image: redis:8-alpine
@@ -8,12 +12,16 @@ services:
     restart: unless-stopped
     ports:
       - "6379:6379"
+    volumes:
+      - redis_data:/data
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
       timeout: 5s
       retries: 3
       start_period: 10s
+    networks:
+      - digital-twin-network
 
   # FastAPI backend service
   api:
@@ -27,9 +35,17 @@ services:
     environment:
       - DEBUG=true
       - REDIS_URL=redis://redis:6379/0
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@postgres:5432/digital_twin
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+      - MQTT_BROKER_HOST=mqtt
+      - MQTT_BROKER_PORT=1883
       - LOG_LEVEL=DEBUG
     depends_on:
       redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      kafka:
         condition: service_healthy
     volumes:
       - ./backend:/app
@@ -39,18 +55,222 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
+    networks:
+      - digital-twin-network
 
-  # Sensor simulator for testing
-  simulator:
+  # ============================================================================
+  # DAY 2 SERVICES (Data Pipeline & Storage)
+  # ============================================================================
+
+  # PostgreSQL for time-series data storage
+  postgres:
+    image: postgres:16-alpine
+    container_name: digital-twin-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=digital_twin
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_INITDB_ARGS=--auth-host=scram-sha-256
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./data-pipeline/sql/init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d digital_twin"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - digital-twin-network
+
+  # Zookeeper for Kafka
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: digital-twin-zookeeper
+    restart: unless-stopped
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+      ZOOKEEPER_SYNC_LIMIT: 2
+    volumes:
+      - zookeeper_data:/var/lib/zookeeper/data
+      - zookeeper_logs:/var/lib/zookeeper/log
+    healthcheck:
+      test: ["CMD", "bash", "-c", "echo 'ruok' | nc localhost 2181"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - digital-twin-network
+
+  # Kafka for event streaming
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: digital-twin-kafka
+    restart: unless-stopped
+    ports:
+      - "9092:9092"
+      - "9093:9093"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:9093
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+      KAFKA_DELETE_TOPIC_ENABLE: 'true'
+      KAFKA_LOG_RETENTION_HOURS: 168
+      KAFKA_LOG_SEGMENT_BYTES: 1073741824
+      KAFKA_LOG_RETENTION_CHECK_INTERVAL_MS: 300000
+    volumes:
+      - kafka_data:/var/lib/kafka/data
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "kafka-broker-api-versions", "--bootstrap-server", "localhost:9092"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+    networks:
+      - digital-twin-network
+
+  # MQTT Broker for IoT device communication
+  mqtt:
+    image: eclipse-mosquitto:2.0
+    container_name: digital-twin-mqtt
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./data-pipeline/mqtt/config:/mosquitto/config
+      - mqtt_data:/mosquitto/data
+      - mqtt_logs:/mosquitto/log
+    healthcheck:
+      test: ["CMD", "mosquitto_pub", "-h", "localhost", "-t", "test", "-m", "health_check"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    networks:
+      - digital-twin-network
+
+  # MQTT to Kafka bridge
+  mqtt-kafka-bridge:
+    build:
+      context: ./data-pipeline
+      dockerfile: Dockerfile.bridge
+    container_name: digital-twin-mqtt-bridge
+    restart: unless-stopped
+    environment:
+      - MQTT_BROKER_HOST=mqtt
+      - MQTT_BROKER_PORT=1883
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+      - LOG_LEVEL=INFO
+    depends_on:
+      mqtt:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    volumes:
+      - ./data-pipeline:/app
+    networks:
+      - digital-twin-network
+
+  # Kafka stream processor for data aggregation
+  stream-processor:
+    build:
+      context: ./data-pipeline
+      dockerfile: Dockerfile.processor
+    container_name: digital-twin-stream-processor
+    restart: unless-stopped
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@postgres:5432/digital_twin
+      - REDIS_URL=redis://redis:6379/0
+      - LOG_LEVEL=INFO
+    depends_on:
+      kafka:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./data-pipeline:/app
+    networks:
+      - digital-twin-network
+
+  # Event store service for event sourcing
+  event-store:
+    build:
+      context: ./data-pipeline
+      dockerfile: Dockerfile.eventstore
+    container_name: digital-twin-event-store
+    restart: unless-stopped
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@postgres:5432/digital_twin
+      - LOG_LEVEL=INFO
+    depends_on:
+      kafka:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./data-pipeline:/app
+    networks:
+      - digital-twin-network
+
+  # ============================================================================
+  # SIMULATION & TESTING SERVICES
+  # ============================================================================
+
+  # Enhanced IoT sensor simulator with MQTT
+  mqtt-simulator:
+    build:
+      context: ./data-pipeline
+      dockerfile: Dockerfile.simulator
+    container_name: digital-twin-mqtt-simulator
+    restart: unless-stopped
+    environment:
+      - MQTT_BROKER_HOST=mqtt
+      - MQTT_BROKER_PORT=1883
+      - MACHINES=CNC-001,CNC-002,CNC-003,CNC-004,CNC-005
+      - SENSORS_PER_MACHINE=5
+      - PUBLISH_INTERVAL=2
+      - LOG_LEVEL=INFO
+    depends_on:
+      mqtt:
+        condition: service_healthy
+    volumes:
+      - ./data-pipeline:/app
+    profiles:
+      - simulator
+    networks:
+      - digital-twin-network
+
+  # HTTP API simulator (Day 1 simulator)
+  api-simulator:
     build:
       context: ./backend
       target: development
-    container_name: digital-twin-simulator
+    container_name: digital-twin-api-simulator
     restart: unless-stopped
     environment:
       - API_URL=http://api:8000
       - MACHINES=CNC-001,CNC-002,CNC-003
       - INTERVAL=5
+      - LOG_LEVEL=INFO
     depends_on:
       api:
         condition: service_healthy
@@ -59,11 +279,73 @@ services:
     command: python -m scripts.sensor_simulator
     profiles:
       - simulator
+    networks:
+      - digital-twin-network
+
+  # ============================================================================
+  # MONITORING & OBSERVABILITY
+  # ============================================================================
+
+  # Kafka UI for monitoring
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: digital-twin-kafka-ui
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: digital-twin-cluster
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+    depends_on:
+      kafka:
+        condition: service_healthy
+    profiles:
+      - monitoring
+    networks:
+      - digital-twin-network
+
+  # pgAdmin for PostgreSQL management
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: digital-twin-pgadmin
+    restart: unless-stopped
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@digitaltwin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      postgres:
+        condition: service_healthy
+    profiles:
+      - monitoring
+    networks:
+      - digital-twin-network
 
 volumes:
   redis_data:
     driver: local
+  postgres_data:
+    driver: local
+  kafka_data:
+    driver: local
+  zookeeper_data:
+    driver: local
+  zookeeper_logs:
+    driver: local
+  mqtt_data:
+    driver: local
+  mqtt_logs:
+    driver: local
+  pgadmin_data:
+    driver: local
 
 networks:
-  default:
-    name: digital-twin-network
+  digital-twin-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
