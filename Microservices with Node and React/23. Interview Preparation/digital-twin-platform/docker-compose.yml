@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  # Redis for caching and pub/sub
+  redis:
+    image: redis:7-alpine
+    container_name: digital-twin-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # FastAPI backend service
+  api:
+    build:
+      context: ./backend
+      target: development
+    container_name: digital-twin-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=true
+      - REDIS_URL=redis://redis:6379/0
+      - LOG_LEVEL=DEBUG
+    depends_on:
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Sensor simulator for testing
+  simulator:
+    build:
+      context: ./backend
+      target: development
+    container_name: digital-twin-simulator
+    restart: unless-stopped
+    environment:
+      - API_URL=http://api:8000
+      - MACHINES=CNC-001,CNC-002,CNC-003
+      - INTERVAL=5
+    depends_on:
+      api:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+    command: python -m scripts.sensor_simulator
+    profiles:
+      - simulator
+
+volumes:
+  redis_data:
+    driver: local
+
+networks:
+  default:
+    name: digital-twin-network
