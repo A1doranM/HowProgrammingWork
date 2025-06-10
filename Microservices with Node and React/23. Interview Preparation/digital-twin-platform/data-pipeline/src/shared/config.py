@@ -78,7 +78,7 @@ class Settings(BaseSettings):
     # =========================================================================
     # PostgreSQL Configuration
     # =========================================================================
-    database_url: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/digital_twin"
+    database_url: str = "postgresql://postgres:postgres@localhost:5432/digital_twin"
     database_pool_size: int = 20
     database_max_overflow: int = 0
     database_pool_timeout: int = 30
@@ -205,7 +205,6 @@ class Settings(BaseSettings):
             'bootstrap_servers': self.kafka_bootstrap_servers,
             'client_id': f"{self.kafka_client_id}-producer",
             'acks': self.kafka_producer_acks,
-            'retries': self.kafka_producer_retries,
             'retry_backoff_ms': self.kafka_producer_retry_backoff_ms,
             'batch_size': self.kafka_producer_batch_size,
             'linger_ms': self.kafka_producer_linger_ms,
