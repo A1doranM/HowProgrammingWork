@@ -205,10 +205,6 @@ class Settings(BaseSettings):
             'bootstrap_servers': self.kafka_bootstrap_servers,
             'client_id': f"{self.kafka_client_id}-producer",
             'acks': self.kafka_producer_acks,
-            'retry_backoff_ms': self.kafka_producer_retry_backoff_ms,
-            'batch_size': self.kafka_producer_batch_size,
-            'linger_ms': self.kafka_producer_linger_ms,
-            'buffer_memory': self.kafka_producer_buffer_memory,
             'compression_type': self.kafka_compression_type,
         }
         
