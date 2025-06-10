@@ -147,8 +147,7 @@ class EventStore:
         self.consumer = AIOKafkaConsumer(
             *event_topics,
             **consumer_config,
-            value_deserializer=lambda m: json.loads(m.decode('utf-8')),
-            enable_auto_commit=False  # Manual commit for exactly-once processing
+            value_deserializer=lambda m: json.loads(m.decode('utf-8'))
         )
         
         await self.consumer.start()

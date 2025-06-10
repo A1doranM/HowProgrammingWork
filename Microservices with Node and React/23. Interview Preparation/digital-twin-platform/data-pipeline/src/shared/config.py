@@ -39,7 +39,7 @@ class Settings(BaseSettings):
     # =========================================================================
     # Kafka Configuration
     # =========================================================================
-    kafka_bootstrap_servers: str = "localhost:9092"
+    kafka_bootstrap_servers: str = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
     kafka_client_id: str = "digital-twin-client"
     kafka_group_id: str = "digital-twin-group"
     kafka_auto_offset_reset: str = "latest"
@@ -78,7 +78,7 @@ class Settings(BaseSettings):
     # =========================================================================
     # PostgreSQL Configuration
     # =========================================================================
-    database_url: str = "postgresql://postgres:postgres@localhost:5432/digital_twin"
+    database_url: str = os.getenv("DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/digital_twin")
     database_pool_size: int = 20
     database_max_overflow: int = 0
     database_pool_timeout: int = 30
