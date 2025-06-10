@@ -1,3 +1,0 @@
-"""
-API endpoints package
-"""

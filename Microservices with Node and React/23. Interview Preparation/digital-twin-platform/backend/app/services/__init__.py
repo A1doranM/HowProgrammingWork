@@ -1,3 +1,0 @@
-"""
-Business logic services
-"""
