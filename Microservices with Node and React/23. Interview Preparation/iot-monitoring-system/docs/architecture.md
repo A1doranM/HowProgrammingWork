@@ -7,7 +7,7 @@ This document describes the architecture of the IoT Monitoring System, including
 ```mermaid
 graph TD
     subgraph "Infrastructure"
-        Kafka[Kafka Message Broker]
+        Kafka[Kafka Message Broker<br/>KRaft Mode]
         PostgreSQL[PostgreSQL Database]
         Redis[Redis Cache/Pub-Sub]
     end
@@ -92,7 +92,7 @@ graph TD
 - **Node.js**: Runtime for all microservices
 - **PostgreSQL**: Persistent storage for IoT data
 - **Redis**: Caching and pub/sub communication
-- **Kafka**: Message queue for handling high-volume sensor data
+- **Kafka (KRaft Mode)**: Message queue for handling high-volume sensor data without Zookeeper dependency
 - **Docker & Docker Compose**: Containerization and orchestration
 - **Express.js**: Web framework for API services
 - **Socket.IO**: WebSocket implementation for real-time communication

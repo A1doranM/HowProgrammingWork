@@ -21,7 +21,7 @@ The system consists of the following microservices:
 - **Node.js**: Runtime for all microservices
 - **PostgreSQL**: Persistent storage for IoT data
 - **Redis**: Caching and pub/sub communication
-- **Kafka**: Message queue for handling high-volume sensor data
+- **Kafka (KRaft Mode)**: Message queue for handling high-volume sensor data without Zookeeper dependency
 - **Docker & Docker Compose**: Containerization and orchestration
 - **Express.js**: Web framework for API services
 - **Socket.IO**: WebSocket implementation for real-time communication
@@ -56,6 +56,23 @@ The system consists of the following microservices:
 - View logs: `./test-system.sh logs [service-name]`
 - Test API endpoints: `./test-system.sh test`
 - View resource usage: `./test-system.sh resources`
+
+### Testing KRaft Migration
+
+To verify that the Kafka KRaft migration was successful:
+
+```bash
+./test-kraft-migration.sh
+```
+
+This script validates:
+- Kafka is running in KRaft mode (without Zookeeper)
+- All topics are functional
+- Producer/Consumer operations work correctly
+- All microservices are healthy
+- Real-time data flow is active
+
+For detailed information about the KRaft migration, see [KRaft Migration Documentation](./docs/kraft-migration.md).
 
 ## Microservices Details
 
