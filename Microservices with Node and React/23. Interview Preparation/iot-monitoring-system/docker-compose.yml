@@ -167,6 +167,118 @@ services:
       start_period: 10s
     restart: unless-stopped
 
+  # Data Ingestion Service - Consumes and stores sensor data
+  data-ingestion:
+    build:
+      context: ./services/data-ingestion
+      dockerfile: Dockerfile
+    container_name: iot-data-ingestion
+    depends_on:
+      kafka:
+        condition: service_healthy
+      postgresql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+    environment:
+      - NODE_ENV=development
+      - DATA_INGESTION_PORT=3002
+      - KAFKA_BROKERS=kafka:29092
+      - KAFKA_CLIENT_ID=data-ingestion
+      - KAFKA_TOPIC_SENSORS=sensors-data
+      - KAFKA_GROUP_ID=data-ingestion-group
+      - POSTGRES_HOST=postgresql
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=iot_monitoring
+      - POSTGRES_USER=iot_user
+      - POSTGRES_PASSWORD=iot_password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - LOG_LEVEL=info
+      - VALIDATE_SCHEMA=true
+    ports:
+      - "3002:3002"
+    networks:
+      - iot-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3002/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    
+  # API Gateway Service - Routes client requests to appropriate microservices
+  api-gateway:
+    build:
+      context: ./services/api-gateway
+      dockerfile: Dockerfile
+    container_name: iot-api-gateway
+    depends_on:
+      data-ingestion:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      - NODE_ENV=development
+      - API_GATEWAY_PORT=3000
+      - DATA_INGESTION_HOST=data-ingestion
+      - DATA_INGESTION_PORT=3002
+      - WEBSOCKET_HOST=websocket-service
+      - WEBSOCKET_PORT=3003
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - CORS_ORIGIN=*
+      - LOG_LEVEL=info
+    ports:
+      - "3000:3000"
+    networks:
+      - iot-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    
+  # WebSocket Service - Provides real-time updates to clients
+  websocket-service:
+    build:
+      context: ./services/websocket-service
+      dockerfile: Dockerfile
+    container_name: iot-websocket-service
+    depends_on:
+      kafka:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+    environment:
+      - NODE_ENV=development
+      - WEBSOCKET_PORT=3003
+      - KAFKA_BROKERS=kafka:29092
+      - KAFKA_CLIENT_ID=websocket-service
+      - KAFKA_GROUP_ID=websocket-consumer-group
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - CORS_ORIGIN=*
+      - LOG_LEVEL=info
+    ports:
+      - "3003:3003"
+    networks:
+      - iot-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3003/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
 volumes:
   postgres_data:
     driver: local

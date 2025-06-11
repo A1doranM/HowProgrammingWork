@@ -1,148 +1,132 @@
-# IoT Manufacturing Monitoring System
+# IoT Monitoring System
 
-A real-time monitoring system for simulated IoT devices in a manufacturing environment. This system demonstrates advanced data collection, processing, and visualization capabilities using modern technologies.
+A microservice-based application for collecting, processing, and visualizing data from IoT devices in real-time. This project demonstrates the use of modern technologies for building a scalable IoT monitoring solution.
 
-## Tech Stack
+## System Architecture
 
-- **Backend**: Node.js (Microservices Architecture)
-- **Database**: PostgreSQL (Time-series Data)
-- **Caching**: Redis (Real-time State Management)
-- **Messaging**: Apache Kafka (Event Streaming)
-- **Real-time Communication**: WebSockets
-- **Frontend**: React with Plotly (Data Visualization)
-- **Containerization**: Docker & Docker Compose
-- **Orchestration**: Kubernetes (planned)
+For a detailed architecture diagram and explanation, see [Architecture Documentation](./docs/architecture.md).
 
-## Project Overview
+A text description of the architecture is available in the [Architecture Diagram Text](./docs/architecture-diagram.txt) file.
 
-This project simulates a digital twin ecosystem for advanced manufacturing operations, collecting and processing data from 5 IoT devices:
+The system consists of the following microservices:
 
-1. **Temperature Sensor** - Assembly line temperature monitoring
-2. **Pressure Sensor** - Hydraulic system pressure monitoring
-3. **Vibration Sensor** - Motor unit vibration detection
-4. **Production Counter** - Output conveyor production rate
-5. **Quality Sensor** - Quality control measurement
+- **IoT Simulator**: Generates simulated IoT device data and publishes it to Kafka
+- **Data Ingestion Service**: Consumes IoT data from Kafka and stores it in PostgreSQL and Redis
+- **API Gateway**: Acts as a central entry point for client applications, routing requests to appropriate services
+- **WebSocket Service**: Provides real-time updates to clients using Socket.IO
+- **Dashboard UI**: Web interface for visualizing device data and metrics (test version provided)
 
-The system employs a microservices architecture with the following components:
+## Technologies Used
 
-- **IoT Simulator Service** - Generates realistic sensor data
-- **Data Ingestion Service** - Consumes and stores sensor readings
-- **Data Processing Service** - Calculates metrics and detects anomalies
-- **Alert Service** - Manages alert lifecycle and notifications
-- **API Gateway** - Provides REST APIs for data access
-- **WebSocket Service** - Delivers real-time updates to clients
-- **React Dashboard** - Visualizes data with interactive charts
+- **Node.js**: Runtime for all microservices
+- **PostgreSQL**: Persistent storage for IoT data
+- **Redis**: Caching and pub/sub communication
+- **Kafka**: Message queue for handling high-volume sensor data
+- **Docker & Docker Compose**: Containerization and orchestration
+- **Express.js**: Web framework for API services
+- **Socket.IO**: WebSocket implementation for real-time communication
+- **HTML/CSS/JavaScript**: Frontend dashboard
 
-## Phase 1: Foundation Layer
-
-This phase sets up the infrastructure components required by the system:
-
-- PostgreSQL database with schema and indexes
-- Redis cache with appropriate configuration
-- Kafka message broker with required topics
-- Docker Compose for orchestration
+## Getting Started
 
 ### Prerequisites
 
 - Docker and Docker Compose
-- Node.js 18+ (for future phases)
+- Node.js (for local development)
 - Git
 
-### Installation & Setup
+### Running the System
 
-1. Clone the repository (if applicable)
-
-2. Navigate to the project directory:
+1. Clone the repository
+2. Navigate to the project directory
+3. Make the test script executable:
    ```
-   cd iot-monitoring-system
+   chmod +x test-system.sh
    ```
-
-3. Make the setup scripts executable:
+4. Start the system:
    ```
-   chmod +x scripts/setup.sh scripts/health-check.sh
+   ./test-system.sh start
    ```
+5. Open your browser and navigate to `http://localhost:3000` to access the dashboard
 
-4. Run the setup script:
-   ```
-   ./scripts/setup.sh
-   ```
+### Other Commands
 
-This will:
-- Start PostgreSQL, Redis, Kafka, and Zookeeper containers
-- Create the required Kafka topics
-- Initialize the database schema and seed data
-- Run health checks to verify everything is working
+- Stop the system: `./test-system.sh stop`
+- Restart the system: `./test-system.sh restart`
+- View logs: `./test-system.sh logs [service-name]`
+- Test API endpoints: `./test-system.sh test`
+- View resource usage: `./test-system.sh resources`
 
-### Verifying Installation
+## Microservices Details
 
-After running the setup script, the health check should report all systems operational. You can also verify manually:
+### IoT Simulator
 
-1. Check container status:
-   ```
-   docker-compose ps
-   ```
+Simulates IoT devices sending sensor data including temperature, humidity, pressure, and vibration readings. Publishes data to a Kafka topic for consumption by other services.
 
-2. Connect to PostgreSQL:
-   ```
-   psql -h localhost -U iot_user -d iot_monitoring
-   ```
-   Password: `iot_password`
+- **Port**: 3001
+- **Endpoints**:
+  - `GET /health`: Health check endpoint
+  - `GET /devices`: List of simulated devices
+  - `GET /device/:id`: Get specific device information
 
-3. Check Redis:
-   ```
-   redis-cli ping
-   ```
+### Data Ingestion Service
 
-4. Check Kafka topics:
-   ```
-   docker exec -it iot-kafka kafka-topics --list --bootstrap-server localhost:9092
-   ```
+Consumes sensor data from Kafka, processes it, and stores it in PostgreSQL for persistent storage and Redis for real-time access.
 
-### Development Tools
+- **Port**: 3002
+- **Endpoints**:
+  - `GET /health`: Health check endpoint
+  - `GET /devices`: List devices
+  - `GET /sensor-readings`: Get sensor readings
+  - `GET /sensor-readings/:deviceId`: Get readings for a specific device
 
-The setup includes web-based tools for monitoring:
+### API Gateway
 
-- **Kafka UI**: http://localhost:8080 - Web interface for Kafka topics and messages
-- **Redis Commander**: http://localhost:8081 - Redis data browser and editor
+Acts as a unified entry point for client applications, routing requests to the appropriate microservices.
 
-### Troubleshooting
+- **Port**: 3000
+- **Endpoints**:
+  - `GET /health`: Health check endpoint
+  - `GET /api/devices`: List all devices (proxied to Data Ingestion Service)
+  - `GET /api/sensor-readings`: Get sensor readings (proxied to Data Ingestion Service)
+  - `GET /`: Test dashboard
 
-Common issues and solutions:
+### WebSocket Service
 
-1. **Network conflicts**: If you see errors about network overlaps, you may have existing Docker networks using the same subnet range. Run `docker network prune` to remove unused networks.
+Provides real-time updates to connected clients when new sensor data arrives.
 
-2. **Port conflicts**: If services fail to start due to port conflicts, check if any other applications are using the required ports (5432, 6379, 9092, 8080, 8081).
+- **Port**: 3003
+- **Endpoints**:
+  - `GET /health`: Health check endpoint
+  - Socket.IO connection at `ws://localhost:3003`
 
-3. **Resource limitations**: Docker may need more memory. Check your Docker Desktop settings if you're on Windows/Mac.
+## Testing the System
 
-4. **Container health**: Use `docker logs [container-name]` to see specific error messages for each service.
+1. Start the system using `./test-system.sh start`
+2. Open the test dashboard at `http://localhost:3000`
+3. Click "Connect to WebSocket" to start receiving real-time updates
+4. Use the "Fetch Devices" and "Fetch Recent Readings" buttons to test the API endpoints
+5. Observe the real-time data updates in the "Live Sensor Readings" section
 
-## Database Schema
+## Development
 
-The PostgreSQL database includes the following tables:
+### Local Development
 
-- `devices` - Device configuration and metadata
-- `sensor_readings` - Time-series data from sensors
-- `alerts` - Alert history and status
-- `device_stats_hourly` - Aggregated statistics
-- `system_events` - System operation logs
-- `user_sessions` - (Future) User authentication data
+To run a specific service locally for development:
 
-## Next Steps
+1. Navigate to the service directory
+2. Install dependencies: `npm install`
+3. Start in development mode: `npm run dev`
 
-After successfully completing Phase 1, you can proceed to:
+### Adding New Services
 
-- **Phase 2**: Implement IoT Simulator and Data Ingestion services
-- **Phase 3**: Implement Data Processing service with Redis integration
-- **Phase 4**: Implement Alert Service for threshold monitoring
-- **Phase 5**: Implement API Gateway for data access
-- **Phase 6**: Implement WebSocket Service for real-time updates
-- **Phase 7**: Implement React Dashboard with Plotly visualizations
+To add a new service:
 
-## Documentation
+1. Create a new directory under `services/`
+2. Implement the service following the existing patterns
+3. Add a Dockerfile for containerization
+4. Update the `docker-compose.yml` file to include the new service
 
-Additional documentation for each service can be found in their respective directories.
+## License
 
-## Monitoring & Management
-
-Basic monitoring is provided via health checks and service logs. Future phases will integrate Prometheus and Grafana for comprehensive monitoring.
+This project is licensed under the MIT License - see the LICENSE file for details.
