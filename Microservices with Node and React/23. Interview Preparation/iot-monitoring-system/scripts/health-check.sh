@@ -99,7 +99,7 @@ echo "----------------------------------------"
 if [ "$POSTGRES_CONNECTED" = true ]; then
     # Check if tables exist
     echo -n "Checking database tables... "
-    TABLES=$(docker exec iot-postgresql psql -U $POSTGRES_USER -d $POSTGRES_DB -t -c "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'public';")
+    TABLES=$(docker exec iot-postgresql psql -U iot_user -d iot_monitoring -t -c "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'public';" | xargs)
     if [ "$TABLES" -ge 6 ]; then
         echo -e "${GREEN}✓ $TABLES TABLES FOUND${NC}"
     else
@@ -108,7 +108,7 @@ if [ "$POSTGRES_CONNECTED" = true ]; then
     
     # Check device data
     echo -n "Checking device configurations... "
-    DEVICES=$(docker exec iot-postgresql psql -U $POSTGRES_USER -d $POSTGRES_DB -t -c "SELECT COUNT(*) FROM devices;")
+    DEVICES=$(docker exec iot-postgresql psql -U iot_user -d iot_monitoring -t -c "SELECT COUNT(*) FROM devices;" | xargs)
     if [ "$DEVICES" -eq 5 ]; then
         echo -e "${GREEN}✓ 5 DEVICES CONFIGURED${NC}"
     else
@@ -117,7 +117,7 @@ if [ "$POSTGRES_CONNECTED" = true ]; then
     
     # Check indexes
     echo -n "Checking database indexes... "
-    INDEXES=$(docker exec iot-postgresql psql -U $POSTGRES_USER -d $POSTGRES_DB -t -c "SELECT COUNT(*) FROM pg_indexes WHERE schemaname = 'public';")
+    INDEXES=$(docker exec iot-postgresql psql -U iot_user -d iot_monitoring -t -c "SELECT COUNT(*) FROM pg_indexes WHERE schemaname = 'public';" | xargs)
     if [ "$INDEXES" -ge 10 ]; then
         echo -e "${GREEN}✓ $INDEXES INDEXES CREATED${NC}"
     else
@@ -186,13 +186,13 @@ if [ "$POSTGRES_CONNECTED" = true ]; then
     echo -n "Testing database insert performance... "
     START_TIME=$(date +%s%N)
     for i in {1..100}; do
-        docker exec iot-postgresql psql -U $POSTGRES_USER -d $POSTGRES_DB -c "INSERT INTO sensor_readings (device_id, timestamp, sensor_type, value, unit, location) VALUES ('test-device', NOW(), 'test', $i, 'unit', 'test-location');" > /dev/null 2>&1
+        docker exec iot-postgresql psql -U iot_user -d iot_monitoring -c "INSERT INTO sensor_readings (device_id, timestamp, sensor_type, value, unit, location) VALUES ('test-device', NOW(), 'test', $i, 'unit', 'test-location');" > /dev/null 2>&1
     done
     END_TIME=$(date +%s%N)
     DURATION=$(( (END_TIME - START_TIME) / 1000000 )) # Convert to milliseconds
     
     # Cleanup test data
-    docker exec iot-postgresql psql -U $POSTGRES_USER -d $POSTGRES_DB -c "DELETE FROM sensor_readings WHERE device_id = 'test-device';" > /dev/null 2>&1
+    docker exec iot-postgresql psql -U iot_user -d iot_monitoring -c "DELETE FROM sensor_readings WHERE device_id = 'test-device';" > /dev/null 2>&1
     
     if [ $DURATION -lt 5000 ]; then # Less than 5 seconds for 100 inserts
         echo -e "${GREEN}✓ GOOD PERFORMANCE (${DURATION}ms for 100 inserts)${NC}"

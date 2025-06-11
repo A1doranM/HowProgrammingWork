@@ -137,6 +137,36 @@ services:
     networks:
       - iot-network
 
+  # IoT Simulator Service - Generates simulated sensor data
+  iot-simulator:
+    build:
+      context: ./services/iot-simulator
+      dockerfile: Dockerfile
+    container_name: iot-simulator
+    depends_on:
+      kafka-init:
+        condition: service_completed_successfully
+      kafka:
+        condition: service_healthy
+    environment:
+      - NODE_ENV=development
+      - KAFKA_BROKERS=kafka:29092
+      - KAFKA_CLIENT_ID=iot-simulator
+      - KAFKA_TOPIC_SENSORS=sensors-data
+      - IOT_SIMULATOR_PORT=3001
+      - LOG_LEVEL=info
+    ports:
+      - "3001:3001"
+    networks:
+      - iot-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3001/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
 volumes:
   postgres_data:
     driver: local
