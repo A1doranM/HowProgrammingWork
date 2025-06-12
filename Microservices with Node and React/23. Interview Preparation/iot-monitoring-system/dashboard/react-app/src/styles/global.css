@@ -170,12 +170,20 @@ img {
   display: block;
 }
 
+/* Root Container - Centers the entire app */
+#root {
+  max-width: 1210px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 /* App Layout */
 .app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: var(--color-bg-secondary);
+  width: 100%;
 }
 
 /* Loading Spinner */
