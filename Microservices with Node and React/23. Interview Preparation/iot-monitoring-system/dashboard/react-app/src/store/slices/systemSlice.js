@@ -70,6 +70,21 @@ const systemSlice = createSlice({
         lastCheck: new Date().toISOString(),
       };
     },
+    incrementDataPoints: (state) => {
+      // Track data points for calculating per hour metrics
+      if (!state.dataPointsLastHour) {
+        state.dataPointsLastHour = 0;
+      }
+      state.dataPointsLastHour += 1;
+      
+      // Reset counter every hour (simplified approach)
+      const now = new Date();
+      if (!state.lastDataPointReset || 
+          now - new Date(state.lastDataPointReset) > 3600000) { // 1 hour
+        state.dataPointsLastHour = 1;
+        state.lastDataPointReset = now.toISOString();
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -124,16 +139,47 @@ export const {
   setSystemError,
   clearSystemError,
   updateServiceHealth,
+  incrementDataPoints,
 } = systemSlice.actions;
 
 // Selectors
 export const selectSystemHealth = (state) => state.system.health;
-export const selectSystemMetrics = (state) => state.system.metrics;
 export const selectSystemStatus = (state) => state.system.health.status;
 export const selectSystemLoading = (state) => state.system.loading;
 export const selectSystemError = (state) => state.system.error;
 export const selectLastHealthCheck = (state) => state.system.lastHealthCheck;
 export const selectServiceHealth = (serviceName) => (state) => 
   state.system.health.services[serviceName];
+
+// Computed system metrics from device data
+export const selectSystemMetrics = (state) => {
+  const devices = state.devices?.devices || {};
+  const currentReadings = state.devices?.currentReadings || {};
+  
+  // Calculate active devices (those with 'active' status)
+  const activeDevices = Object.values(devices).filter(
+    device => device.status === 'active'
+  ).length;
+  
+  // Calculate total devices
+  const totalDevices = Object.keys(devices).length;
+  
+  // Calculate alerts (devices with warning or critical status from current readings)
+  const activeAlertsCount = Object.values(currentReadings).filter(reading => {
+    return reading?.status && !['normal', 'active'].includes(reading.status);
+  }).length;
+  
+  // Calculate data points received in last hour (from WebSocket updates)
+  const dataPointsLastHour = state.system.dataPointsLastHour || 0;
+  
+  return {
+    ...state.system.metrics,
+    totalDevices,
+    activeDevices,
+    activeAlertsCount,
+    dataPointsLastHour,
+    systemHealth: state.system.health.status || 'unknown'
+  };
+};
 
 export default systemSlice.reducer;

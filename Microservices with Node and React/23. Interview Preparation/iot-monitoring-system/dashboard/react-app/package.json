@@ -13,9 +13,11 @@
     "@reduxjs/toolkit": "^2.8.2",
     "axios": "^1.9.0",
     "date-fns": "^4.1.0",
+    "plotly.js": "^3.0.1",
     "plotly.js-dist-min": "^3.0.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-plotly.js": "^2.6.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.6.2",
     "socket.io-client": "^4.8.1"

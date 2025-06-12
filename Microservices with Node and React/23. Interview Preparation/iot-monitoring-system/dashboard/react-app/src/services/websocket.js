@@ -8,7 +8,8 @@ import {
 import { 
   updateSystemStatus, 
   updateSystemMetrics,
-  updateServiceHealth 
+  updateServiceHealth,
+  incrementDataPoints 
 } from '../store/slices/systemSlice';
 import { 
   addNotification, 
@@ -135,6 +136,9 @@ class WebSocketService {
           location: data.location
         }
       }));
+      
+      // Track data points for metrics calculation
+      store.dispatch(incrementDataPoints());
       
       store.dispatch(updateLastDataUpdate());
     });

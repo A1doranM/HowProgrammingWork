@@ -18,6 +18,8 @@ import {
   DEFAULT_THRESHOLDS,
   DEVICE_LOCATIONS 
 } from '../../utils/constants';
+// Charts will be integrated later
+// import { GaugeChart, RealTimeChart } from '../Charts';
 
 const DeviceCard = ({ deviceId }) => {
   const device = useSelector(selectDeviceById(deviceId));
