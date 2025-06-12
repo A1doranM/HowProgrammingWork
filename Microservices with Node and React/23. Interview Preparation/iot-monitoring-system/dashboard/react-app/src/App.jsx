@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect } from 'react';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import DashboardOverview from './components/Dashboard/DashboardOverview';
+import { useWebSocket } from './hooks/useWebSocket';
+import { fetchDevices } from './store/slices/devicesSlice';
+import { fetchSystemHealth } from './store/slices/systemSlice';
+import ErrorBoundary from './components/Common/ErrorBoundary';
+import './styles/global.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+function AppContent() {
+  // Initialize WebSocket connection
+  useWebSocket();
+
+  useEffect(() => {
+    // Fetch initial data
+    store.dispatch(fetchDevices());
+    store.dispatch(fetchSystemHealth());
+    
+    // Set up periodic health checks
+    const healthCheckInterval = setInterval(() => {
+      store.dispatch(fetchSystemHealth());
+    }, 60000); // Every minute
+
+    return () => {
+      clearInterval(healthCheckInterval);
+    };
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      <ErrorBoundary>
+        <DashboardOverview />
+      </ErrorBoundary>
+    </div>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <Provider store={store}>
+      <AppContent />
+    </Provider>
+  );
+}
+
+export default App;
