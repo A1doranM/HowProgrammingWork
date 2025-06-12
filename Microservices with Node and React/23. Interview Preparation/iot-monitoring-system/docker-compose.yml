@@ -279,6 +279,40 @@ services:
       start_period: 10s
     restart: unless-stopped
 
+  # Alert Processing Service - Monitors sensor data and manages alerts
+  alert-processing:
+    build:
+      context: ./services/alert-processing
+      dockerfile: Dockerfile
+    container_name: iot-alert-processing
+    depends_on:
+      kafka:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+    environment:
+      - NODE_ENV=development
+      - PORT=3004
+      - KAFKA_BROKER=kafka:29092
+      - KAFKA_CLIENT_ID=alert-processing
+      - KAFKA_GROUP_ID=alert-processing-group
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - LOG_LEVEL=info
+    ports:
+      - "3004:3004"
+    networks:
+      - iot-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3004/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
 volumes:
   postgres_data:
     driver: local
