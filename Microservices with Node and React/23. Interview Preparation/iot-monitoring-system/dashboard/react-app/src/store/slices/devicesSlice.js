@@ -14,6 +14,25 @@ export const fetchDevices = createAsyncThunk(
   }
 );
 
+// Async thunk for fetching current readings for all devices
+export const fetchCurrentReadings = createAsyncThunk(
+  'devices/fetchCurrentReadings',
+  async (deviceIds, { rejectWithValue }) => {
+    try {
+      const promises = deviceIds.map(deviceId => 
+        apiService.getDeviceCurrent(deviceId)
+          .then(response => ({ deviceId, data: response.data }))
+          .catch(error => ({ deviceId, error: error.message }))
+      );
+      
+      const results = await Promise.all(promises);
+      return results;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 // Async thunk for fetching device history
 export const fetchDeviceHistory = createAsyncThunk(
   'devices/fetchDeviceHistory',
@@ -96,17 +115,74 @@ const devicesSlice = createSlice({
         // Convert array to object keyed by deviceId
         if (Array.isArray(action.payload)) {
           action.payload.forEach(device => {
-            state.devices[device.deviceId] = device;
+            // Transform backend format to frontend format
+            const deviceData = {
+              deviceId: device.device_id,
+              deviceType: device.device_type,
+              location: device.location,
+              unit: device.unit,
+              status: device.status,
+              description: device.description,
+              thresholds: {
+                normalMin: parseFloat(device.normal_min),
+                normalMax: parseFloat(device.normal_max),
+                alertMin: device.alert_min ? parseFloat(device.alert_min) : null,
+                alertMax: device.alert_max ? parseFloat(device.alert_max) : null,
+              },
+              updateFrequency: device.update_frequency_seconds,
+              createdAt: device.created_at,
+              updatedAt: device.updated_at
+            };
+            state.devices[deviceData.deviceId] = deviceData;
           });
         } else if (action.payload.devices) {
           action.payload.devices.forEach(device => {
-            state.devices[device.deviceId] = device;
+            const deviceData = {
+              deviceId: device.device_id,
+              deviceType: device.device_type,
+              location: device.location,
+              unit: device.unit,
+              status: device.status,
+              description: device.description,
+              thresholds: {
+                normalMin: parseFloat(device.normal_min),
+                normalMax: parseFloat(device.normal_max),
+                alertMin: device.alert_min ? parseFloat(device.alert_min) : null,
+                alertMax: device.alert_max ? parseFloat(device.alert_max) : null,
+              },
+              updateFrequency: device.update_frequency_seconds,
+              createdAt: device.created_at,
+              updatedAt: device.updated_at
+            };
+            state.devices[deviceData.deviceId] = deviceData;
           });
         }
       })
       .addCase(fetchDevices.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || 'Failed to fetch devices';
+      })
+      // Fetch current readings
+      .addCase(fetchCurrentReadings.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchCurrentReadings.fulfilled, (state, action) => {
+        state.loading = false;
+        action.payload.forEach(result => {
+          if (result.data && !result.error) {
+            state.currentReadings[result.deviceId] = {
+              value: result.data.currentReading?.value,
+              unit: result.data.currentReading?.unit,
+              timestamp: result.data.currentReading?.timestamp || result.data.lastUpdate,
+              status: result.data.status
+            };
+          }
+        });
+        state.lastUpdate = new Date().toISOString();
+      })
+      .addCase(fetchCurrentReadings.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || 'Failed to fetch current readings';
       })
       // Fetch device history
       .addCase(fetchDeviceHistory.pending, (state) => {

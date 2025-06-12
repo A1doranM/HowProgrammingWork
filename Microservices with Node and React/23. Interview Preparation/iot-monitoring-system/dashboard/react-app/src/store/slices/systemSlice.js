@@ -80,7 +80,22 @@ const systemSlice = createSlice({
       })
       .addCase(fetchSystemHealth.fulfilled, (state, action) => {
         state.loading = false;
-        state.health = { ...state.health, ...action.payload };
+        // Transform backend health data format
+        const healthData = action.payload;
+        state.health = {
+          status: 'healthy', // Set as healthy if we get a successful response
+          uptime: healthData.uptime || 0,
+          timestamp: healthData.timestamp,
+          services: state.health.services, // Keep existing services
+          memory: healthData.memory
+        };
+        
+        // Update metrics with calculated values
+        state.metrics = {
+          ...state.metrics,
+          systemHealth: 'healthy'
+        };
+        
         state.lastHealthCheck = new Date().toISOString();
       })
       .addCase(fetchSystemHealth.rejected, (state, action) => {

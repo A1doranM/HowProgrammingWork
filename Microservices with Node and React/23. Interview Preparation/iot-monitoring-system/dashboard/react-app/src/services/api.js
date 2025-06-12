@@ -89,7 +89,7 @@ export const apiService = {
 
   // System endpoints
   getSystemHealth: () => {
-    return apiClient.get('/api/health');
+    return apiClient.get('/health');
   },
   
   getSystemStatus: () => {
@@ -138,7 +138,7 @@ export const apiService = {
 
   // Utility methods
   ping: () => {
-    return apiClient.get('/api/health');
+    return apiClient.get('/health');
   },
   
   // Batch operations for performance
