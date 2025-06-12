@@ -189,7 +189,7 @@ class BaseSimulator {
       value: parseFloat(value.toFixed(2)), // 2 decimal places
       unit: this.unit,
       location: this.location,
-      status: isAnomaly ? 'anomaly' : 'active'
+      status: isAnomaly ? 'error' : 'active'
     };
   }
 

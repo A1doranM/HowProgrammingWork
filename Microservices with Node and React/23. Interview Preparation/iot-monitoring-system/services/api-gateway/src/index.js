@@ -14,6 +14,7 @@ const config = require('./config');
 const logger = require('./utils/logger');
 const deviceRoutes = require('./routes/devices');
 const sensorReadingsRoutes = require('./routes/sensor-readings');
+const analyticsRoutes = require('./routes/analytics');
 
 // Create Express app
 const app = express();
@@ -68,7 +69,8 @@ app.get('/health', (req, res) => {
   });
 });
 
-// Mount route handlers
+// Mount route handlers - Order matters! More specific routes first
+app.use(analyticsRoutes);
 app.use(deviceRoutes);
 app.use(sensorReadingsRoutes);
 

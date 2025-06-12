@@ -10,6 +10,8 @@ const kafkaConsumer = require('./kafka/consumer');
 const { closeDatabase } = require('./db/database');
 const deviceRoutes = require('./routes/devices');
 const sensorReadingRoutes = require('./routes/sensor-readings');
+const deviceCurrentRoutes = require('./routes/device-current');
+const metricsRoutes = require('./routes/metrics');
 
 // Require reflect-metadata for TypeORM decorators
 require('reflect-metadata');
@@ -40,9 +42,11 @@ app.get('/metrics', (req, res) => {
   });
 });
 
-// Mount API routes
-app.use(deviceRoutes);
+// Mount API routes - Order matters! More specific routes must come first
+app.use(deviceCurrentRoutes);  // More specific: /devices/:id/current
+app.use(deviceRoutes);         // More general: /devices/:id
 app.use(sensorReadingRoutes);
+app.use(metricsRoutes);
 
 // Initialize the service
 async function initialize() {
