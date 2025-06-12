@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { 
   selectDeviceById, 
@@ -18,12 +18,16 @@ import {
   DEFAULT_THRESHOLDS,
   DEVICE_LOCATIONS 
 } from '../../utils/constants';
-// Charts will be integrated later
-// import { GaugeChart, RealTimeChart } from '../Charts';
+import { GaugeChart } from '../Charts';
+import DeviceHistoryModal from '../Modals/DeviceHistoryModal';
 
 const DeviceCard = ({ deviceId }) => {
   const device = useSelector(selectDeviceById(deviceId));
   const currentReading = useSelector(selectCurrentReadingById(deviceId));
+  
+  // State for chart mode and modal
+  const [chartMode, setChartMode] = useState('simple');
+  const [showHistoryModal, setShowHistoryModal] = useState(false);
 
   const deviceInfo = useMemo(() => {
     return {
@@ -56,91 +60,133 @@ const DeviceCard = ({ deviceId }) => {
   }
 
   return (
-    <div className={`device-card device-card--${deviceStatus}`}>
-      <div className="device-card__header">
-        <div className="device-card__info">
-          <h3 className="device-card__title">{deviceInfo.name}</h3>
-          <span className="device-card__id">{deviceId}</span>
-          <span className="device-card__location">{deviceInfo.location}</span>
-        </div>
-        <div className={`device-card__status device-card__status--${deviceStatus}`}>
-          <div className="device-card__status-indicator"></div>
-          <span className="device-card__status-text">
-            {getStatusText(deviceStatus)}
-          </span>
-        </div>
-      </div>
-
-      <div className="device-card__content">
-        <div className="device-card__value-section">
-          <div className="device-card__current-value">
-            <span className="device-card__value">
-              {formatValue(currentReading?.value || 0)}
-            </span>
-            <span className="device-card__unit">{deviceInfo.unit}</span>
+    <>
+      <div className={`device-card device-card--${deviceStatus}`}>
+        <div className="device-card__header">
+          <div className="device-card__info">
+            <h3 className="device-card__title">{deviceInfo.name}</h3>
+            <span className="device-card__id">{deviceId}</span>
+            <span className="device-card__location">{deviceInfo.location}</span>
           </div>
-          
-          <div className="device-card__gauge">
-            <div className="gauge">
-              <div className="gauge__track">
-                <div 
-                  className="gauge__fill" 
-                  style={{
-                    '--gauge-percentage': `${getGaugePercentage(currentReading?.value, deviceInfo.thresholds)}%`,
-                    '--gauge-color': statusColor
-                  }}
-                ></div>
-              </div>
-              <div className="gauge__labels">
-                <span className="gauge__min">
-                  {formatValue(deviceInfo.thresholds.normalMin || 0)}
-                </span>
-                <span className="gauge__max">
-                  {formatValue(deviceInfo.thresholds.normalMax || 100)}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="device-card__details">
-          <div className="device-card__thresholds">
-            <div className="threshold">
-              <span className="threshold__label">Normal Range:</span>
-              <span className="threshold__value">
-                {formatThresholdRange(
-                  deviceInfo.thresholds.normalMin, 
-                  deviceInfo.thresholds.normalMax, 
-                  deviceInfo.unit
-                )}
+          <div className="device-card__header-controls">
+            <button
+              className={`chart-toggle ${chartMode === 'advanced' ? 'chart-toggle--active' : ''}`}
+              onClick={() => setChartMode(chartMode === 'simple' ? 'advanced' : 'simple')}
+              title={`Switch to ${chartMode === 'simple' ? 'advanced' : 'simple'} view`}
+            >
+              {chartMode === 'simple' ? '📊' : '📈'}
+            </button>
+            <div className={`device-card__status device-card__status--${deviceStatus}`}>
+              <div className="device-card__status-indicator"></div>
+              <span className="device-card__status-text">
+                {getStatusText(deviceStatus)}
               </span>
             </div>
-            
-            {(deviceInfo.thresholds.alertMin || deviceInfo.thresholds.alertMax) && (
-              <div className="threshold threshold--alert">
-                <span className="threshold__label">Alert Limits:</span>
-                <span className="threshold__value">
-                  {deviceInfo.thresholds.alertMin && `< ${formatValue(deviceInfo.thresholds.alertMin)}`}
-                  {deviceInfo.thresholds.alertMin && deviceInfo.thresholds.alertMax && ' | '}
-                  {deviceInfo.thresholds.alertMax && `> ${formatValue(deviceInfo.thresholds.alertMax)}`}
-                  {' ' + deviceInfo.unit}
-                </span>
-              </div>
-            )}
-          </div>
-
-          <div className="device-card__timestamp">
-            <span className="timestamp__label">Last update:</span>
-            <span className="timestamp__value">
-              {currentReading?.timestamp ? 
-                formatRelativeTime(currentReading.timestamp) : 'Never'}
-            </span>
           </div>
         </div>
+
+        <div className="device-card__content">
+          <div className="device-card__value-section">
+            <div className="device-card__current-value">
+              <span className="device-card__value">
+                {formatValue(currentReading?.value || 0)}
+              </span>
+              <span className="device-card__unit">{deviceInfo.unit}</span>
+            </div>
+            
+            <div className="device-card__gauge">
+              {chartMode === 'simple' ? (
+                <div className="gauge">
+                  <div className="gauge__track">
+                    <div 
+                      className="gauge__fill" 
+                      style={{
+                        '--gauge-percentage': `${getGaugePercentage(currentReading?.value, deviceInfo.thresholds)}%`,
+                        '--gauge-color': statusColor
+                      }}
+                    ></div>
+                  </div>
+                  <div className="gauge__labels">
+                    <span className="gauge__min">
+                      {formatValue(deviceInfo.thresholds.normalMin || 0)}
+                    </span>
+                    <span className="gauge__max">
+                      {formatValue(deviceInfo.thresholds.normalMax || 100)}
+                    </span>
+                  </div>
+                </div>
+              ) : (
+                <div className="plotly-gauge">
+                  <GaugeChart
+                    value={currentReading?.value || 0}
+                    min={deviceInfo.thresholds.normalMin || 0}
+                    max={deviceInfo.thresholds.normalMax || 100}
+                    unit={deviceInfo.unit}
+                    title=""
+                    thresholds={deviceInfo.thresholds}
+                    height={180}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="device-card__details">
+            <div className="device-card__thresholds">
+              <div className="threshold">
+                <span className="threshold__label">Normal Range:</span>
+                <span className="threshold__value">
+                  {formatThresholdRange(
+                    deviceInfo.thresholds.normalMin, 
+                    deviceInfo.thresholds.normalMax, 
+                    deviceInfo.unit
+                  )}
+                </span>
+              </div>
+              
+              {(deviceInfo.thresholds.alertMin || deviceInfo.thresholds.alertMax) && (
+                <div className="threshold threshold--alert">
+                  <span className="threshold__label">Alert Limits:</span>
+                  <span className="threshold__value">
+                    {deviceInfo.thresholds.alertMin && `< ${formatValue(deviceInfo.thresholds.alertMin)}`}
+                    {deviceInfo.thresholds.alertMin && deviceInfo.thresholds.alertMax && ' | '}
+                    {deviceInfo.thresholds.alertMax && `> ${formatValue(deviceInfo.thresholds.alertMax)}`}
+                    {' ' + deviceInfo.unit}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            <div className="device-card__timestamp">
+              <span className="timestamp__label">Last update:</span>
+              <span className="timestamp__value">
+                {currentReading?.timestamp ? 
+                  formatRelativeTime(currentReading.timestamp) : 'Never'}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="device-card__footer">
+          <button
+            className="history-button"
+            onClick={() => setShowHistoryModal(true)}
+            title="View historical data and trends"
+          >
+            📈 View History
+          </button>
+        </div>
+
+        <style jsx>{getStyles()}</style>
       </div>
 
-      <style jsx>{getStyles()}</style>
-    </div>
+      {/* Professional Historical Data Modal */}
+      <DeviceHistoryModal
+        deviceId={deviceId}
+        isOpen={showHistoryModal}
+        onClose={() => setShowHistoryModal(false)}
+      />
+    </>
   );
 };
 
@@ -206,6 +252,33 @@ const getStyles = () => `
     align-items: flex-start;
     justify-content: space-between;
     gap: var(--spacing-3);
+  }
+
+  .device-card__header-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+  }
+
+  .chart-toggle {
+    padding: var(--spacing-1) var(--spacing-2);
+    background: var(--color-bg-primary);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-normal);
+  }
+
+  .chart-toggle:hover {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-primary);
+  }
+
+  .chart-toggle--active {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
   }
 
   .device-card__info {
@@ -325,6 +398,14 @@ const getStyles = () => `
     max-width: 120px;
   }
 
+  .plotly-gauge {
+    max-width: 200px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .gauge {
     display: flex;
     flex-direction: column;
@@ -413,6 +494,53 @@ const getStyles = () => `
     color: var(--color-text-primary);
   }
 
+  .device-card__footer {
+    padding: var(--spacing-3) var(--spacing-5);
+    border-top: 1px solid var(--color-border-light);
+    background: var(--color-bg-tertiary);
+    display: flex;
+    justify-content: center;
+  }
+
+  .history-button {
+    padding: var(--spacing-2) var(--spacing-4);
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+
+  .history-button:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-1px);
+  }
+
+  .modal-placeholder {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .modal-content {
+    background: white;
+    padding: var(--spacing-5);
+    border-radius: var(--radius-lg);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+  }
+
   .device-card__loading-text {
     font-size: var(--font-size-sm);
     color: var(--color-text-secondary);
@@ -434,6 +562,11 @@ const getStyles = () => `
       gap: var(--spacing-3);
     }
 
+    .device-card__header-controls {
+      width: 100%;
+      justify-content: space-between;
+    }
+
     .device-card__value-section {
       flex-direction: column;
       align-items: flex-start;
@@ -443,6 +576,10 @@ const getStyles = () => `
     .device-card__gauge {
       width: 100%;
       max-width: none;
+    }
+
+    .plotly-gauge {
+      max-width: 100%;
     }
 
     .device-card__value {
