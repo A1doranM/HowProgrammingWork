@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { store } from '../store';
+import { incrementDataPoints } from '../store/slices/systemSlice';
 
 // Get API base URL from environment or use default
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
@@ -33,10 +35,17 @@ apiClient.interceptors.request.use(
   }
 );
 
-// Response interceptor for error handling
+// Response interceptor for error handling and data point tracking
 apiClient.interceptors.response.use(
   (response) => {
     console.log(`✅ API Response: ${response.status} ${response.config.url}`);
+    
+    // Track data points for device current readings
+    if (response.config.url?.includes('/current') && response.status === 200) {
+      console.log('📊 Tracking data point from API call:', response.config.url);
+      store.dispatch(incrementDataPoints());
+    }
+    
     return response;
   },
   (error) => {

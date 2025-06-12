@@ -122,9 +122,9 @@ class WebSocketService {
       }));
     });
 
-    // Data events
-    this.socket.on('sensor-data', (data) => {
-      console.log('📊 Received sensor data:', data);
+    // Data events - Updated to match backend event names
+    this.socket.on('sensor:all', (data) => {
+      console.log('📊 Received sensor data (sensor:all):', data);
       
       store.dispatch(updateRealTimeData({
         deviceId: data.deviceId,
@@ -143,8 +143,49 @@ class WebSocketService {
       store.dispatch(updateLastDataUpdate());
     });
 
-    this.socket.on('device-status', (data) => {
-      console.log('🔧 Device status update:', data);
+    // Also listen for device-specific sensor readings
+    this.socket.on('sensor:reading', (data) => {
+      console.log('📊 Received sensor reading (sensor:reading):', data);
+      
+      store.dispatch(updateRealTimeData({
+        deviceId: data.deviceId,
+        data: {
+          value: data.value,
+          unit: data.unit,
+          status: data.status || 'normal',
+          timestamp: data.timestamp,
+          location: data.location
+        }
+      }));
+      
+      // Track data points for metrics calculation
+      store.dispatch(incrementDataPoints());
+      
+      store.dispatch(updateLastDataUpdate());
+    });
+
+    this.socket.on('device:status', (data) => {
+      console.log('🔧 Device status update (device:status):', data);
+      
+      store.dispatch(updateDeviceStatus({
+        deviceId: data.deviceId,
+        status: data.status,
+      }));
+      
+      // Add notification for offline devices
+      if (data.status === 'offline') {
+        store.dispatch(addNotification({
+          type: 'warning',
+          title: 'Device Offline',
+          message: `Device ${data.deviceId} has gone offline`,
+          autoClose: 5000
+        }));
+      }
+    });
+
+    // Also listen for device:all for broader device status updates
+    this.socket.on('device:all', (data) => {
+      console.log('🔧 Device status update (device:all):', data);
       
       store.dispatch(updateDeviceStatus({
         deviceId: data.deviceId,
