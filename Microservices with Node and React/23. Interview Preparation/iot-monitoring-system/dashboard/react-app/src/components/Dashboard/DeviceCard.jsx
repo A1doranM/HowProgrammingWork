@@ -86,37 +86,45 @@ const DeviceCard = ({ deviceId }) => {
         </div>
 
         <div className="device-card__content">
-          <div className="device-card__value-section">
-            <div className="device-card__current-value">
-              <span className="device-card__value">
-                {formatValue(currentReading?.value || 0)}
-              </span>
-              <span className="device-card__unit">{deviceInfo.unit}</span>
-            </div>
-            
-            <div className="device-card__gauge">
-              {chartMode === 'simple' ? (
-                <div className="gauge">
-                  <div className="gauge__track">
-                    <div 
-                      className="gauge__fill" 
-                      style={{
-                        '--gauge-percentage': `${getGaugePercentage(currentReading?.value, deviceInfo.thresholds)}%`,
-                        '--gauge-color': statusColor
-                      }}
-                    ></div>
-                  </div>
-                  <div className="gauge__labels">
-                    <span className="gauge__min">
-                      {formatValue(deviceInfo.thresholds.normalMin || 0)}
-                    </span>
-                    <span className="gauge__max">
-                      {formatValue(deviceInfo.thresholds.normalMax || 100)}
-                    </span>
+          {chartMode === 'simple' ? (
+            // Simple Mode Layout - Side by side
+            <>
+              <div className="device-card__value-section">
+                <div className="device-card__current-value">
+                  <span className="device-card__value">
+                    {formatValue(currentReading?.value || 0)}
+                  </span>
+                  <span className="device-card__unit">{deviceInfo.unit}</span>
+                </div>
+                
+                <div className="device-card__gauge">
+                  <div className="gauge">
+                    <div className="gauge__track">
+                      <div 
+                        className="gauge__fill" 
+                        style={{
+                          '--gauge-percentage': `${getGaugePercentage(currentReading?.value, deviceInfo.thresholds)}%`,
+                          '--gauge-color': statusColor
+                        }}
+                      ></div>
+                    </div>
+                    <div className="gauge__labels">
+                      <span className="gauge__min">
+                        {formatValue(deviceInfo.thresholds.normalMin || 0)}
+                      </span>
+                      <span className="gauge__max">
+                        {formatValue(deviceInfo.thresholds.normalMax || 100)}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              ) : (
-                <div className="plotly-gauge">
+              </div>
+            </>
+          ) : (
+            // Advanced Mode Layout - Chart takes full width, value below
+            <>
+              <div className="device-card__chart-section">
+                <div className="plotly-gauge-advanced">
                   <GaugeChart
                     value={currentReading?.value || 0}
                     min={deviceInfo.thresholds.normalMin || 0}
@@ -124,12 +132,21 @@ const DeviceCard = ({ deviceId }) => {
                     unit={deviceInfo.unit}
                     title=""
                     thresholds={deviceInfo.thresholds}
-                    height={180}
+                    height={220}
                   />
                 </div>
-              )}
-            </div>
-          </div>
+              </div>
+              
+              <div className="device-card__value-section--advanced">
+                <div className="device-card__current-value">
+                  <span className="device-card__value">
+                    {formatValue(currentReading?.value || 0)}
+                  </span>
+                  <span className="device-card__unit">{deviceInfo.unit}</span>
+                </div>
+              </div>
+            </>
+          )}
 
           <div className="device-card__details">
             <div className="device-card__thresholds">
@@ -403,6 +420,38 @@ const getStyles = () => `
     height: 180px;
     display: flex;
     align-items: center;
+    justify-content: center;
+  }
+
+  /* Advanced Chart Layout Styles */
+  .device-card__chart-section {
+    width: 100%;
+    margin-bottom: var(--spacing-3);
+  }
+
+  .plotly-gauge-advanced {
+    width: 100%;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border-light);
+  }
+
+  .device-card__value-section--advanced {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-3);
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border-light);
+    margin-bottom: var(--spacing-2);
+  }
+
+  .device-card__value-section--advanced .device-card__current-value {
     justify-content: center;
   }
 

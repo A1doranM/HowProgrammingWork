@@ -71,19 +71,26 @@ const systemSlice = createSlice({
       };
     },
     incrementDataPoints: (state) => {
-      // Track data points for calculating per hour metrics
-      if (!state.dataPointsLastHour) {
-        state.dataPointsLastHour = 0;
+      // Initialize if needed
+      if (!state.metrics.dataPointsLastHour) {
+        state.metrics.dataPointsLastHour = 0;
       }
-      state.dataPointsLastHour += 1;
       
-      // Reset counter every hour (simplified approach)
+      // Increment the counter
+      state.metrics.dataPointsLastHour += 1;
+      
+      // Simple hourly reset - track when we last reset
       const now = new Date();
-      if (!state.lastDataPointReset || 
-          now - new Date(state.lastDataPointReset) > 3600000) { // 1 hour
-        state.dataPointsLastHour = 1;
-        state.lastDataPointReset = now.toISOString();
+      const currentHour = now.getHours();
+      
+      // If we don't have a last reset hour or it's a different hour, reset the counter
+      if (!state.lastResetHour || state.lastResetHour !== currentHour) {
+        state.metrics.dataPointsLastHour = 1; // Start with 1 since we just got a data point
+        state.lastResetHour = currentHour;
       }
+      
+      // Also track the last update time
+      state.lastDataPointUpdate = now.toISOString();
     },
   },
   extraReducers: (builder) => {
@@ -170,7 +177,7 @@ export const selectSystemMetrics = (state) => {
   }).length;
   
   // Calculate data points received in last hour (from WebSocket updates)
-  const dataPointsLastHour = state.system.dataPointsLastHour || 0;
+  const dataPointsLastHour = state.system.metrics.dataPointsLastHour || 0;
   
   return {
     ...state.system.metrics,

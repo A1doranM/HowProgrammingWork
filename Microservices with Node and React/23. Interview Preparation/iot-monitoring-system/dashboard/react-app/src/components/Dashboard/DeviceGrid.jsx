@@ -85,8 +85,9 @@ const DeviceGrid = () => {
         .device-grid__container {
           padding: var(--spacing-6);
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
           gap: var(--spacing-6);
+          max-width: 100%;
         }
 
         /* Responsive Design */
@@ -102,7 +103,7 @@ const DeviceGrid = () => {
           }
 
           .device-grid__container {
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: var(--spacing-4);
             padding: var(--spacing-4);
           }
@@ -126,16 +127,26 @@ const DeviceGrid = () => {
           }
         }
 
-        /* Grid layout optimization for exactly 5 devices */
-        @media (min-width: 1200px) {
+        /* Grid layout optimization - Maximum 3 cards per row */
+        @media (min-width: 769px) {
           .device-grid__container {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            max-width: 100%;
           }
         }
 
-        @media (min-width: 1600px) {
+        @media (min-width: 1200px) {
           .device-grid__container {
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+          }
+        }
+
+        /* Prevent more than 3 columns on very wide screens */
+        @media (min-width: 1400px) {
+          .device-grid__container {
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 1200px;
+            margin: 0 auto;
           }
         }
       `}</style>
