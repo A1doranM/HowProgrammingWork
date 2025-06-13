@@ -30,7 +30,7 @@ services:
     container_name: iot-redis
     command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru
     ports:
-      - "6379:6379"
+      - "6380:6379"
     volumes:
       - redis_data:/data
       - ./infrastructure/redis/redis.conf:/usr/local/etc/redis/redis.conf
@@ -311,6 +311,34 @@ services:
       timeout: 5s
       retries: 3
       start_period: 10s
+    restart: unless-stopped
+
+  # Frontend Dashboard Service - React application with real-time IoT monitoring
+  dashboard:
+    build:
+      context: ./dashboard/react-app
+      dockerfile: Dockerfile
+    container_name: iot-dashboard
+    depends_on:
+      api-gateway:
+        condition: service_healthy
+      websocket-service:
+        condition: service_healthy
+    environment:
+      # Frontend environment variables for API and WebSocket connections
+      - VITE_API_URL=http://localhost:3000/api
+      - VITE_WS_URL=/socket.io/
+      - NODE_ENV=production
+    ports:
+      - "5173:80"  # Nginx serves on port 80, expose as 5173 for easy access
+    networks:
+      - iot-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
     restart: unless-stopped
 
 volumes:

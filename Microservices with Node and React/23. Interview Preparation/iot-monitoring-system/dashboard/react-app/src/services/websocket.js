@@ -27,7 +27,8 @@ class WebSocketService {
     this.heartbeatInterval = null;
     
     // Get WebSocket URL from environment or use default
-    this.wsUrl = import.meta.env.VITE_WS_URL || 'ws://localhost:3003';
+    // Connect to root namespace, nginx will proxy to websocket service
+    this.wsUrl = '/';
     
     console.log('🔌 WebSocket Service initialized with URL:', this.wsUrl);
   }
