@@ -68,16 +68,90 @@ graph TB
 ```yaml
 # docker-compose.yml
 redis:
+  # Use Redis 7 with Alpine Linux for smaller image size and better security
+  # Alpine variant reduces attack surface and container startup time
   image: redis:7-alpine
+  
+  # Expose Redis port to host for development access and debugging
+  # Production deployments should avoid exposing internal ports directly
   ports:
     - "6379:6379"
-  command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru
+  
+  # Custom Redis server configuration with persistence and memory management
+  command: >
+    redis-server
+    --appendonly yes                    # Enable AOF persistence for data durability
+    --appendfsync everysec             # Sync AOF to disk every second (balance of safety/performance)
+    --maxmemory 512mb                  # Limit memory usage to prevent OOM kills
+    --maxmemory-policy allkeys-lru     # Evict least recently used keys when memory limit reached
+    --save 900 1                       # Create RDB snapshot if 1+ keys changed in 900 seconds
+    --save 300 10                      # Create RDB snapshot if 10+ keys changed in 300 seconds
+    --save 60 10000                    # Create RDB snapshot if 10000+ keys changed in 60 seconds
+    --tcp-keepalive 300                # Send TCP keepalives every 300 seconds to detect dead connections
+    --timeout 0                        # Never timeout idle clients (keeps pub/sub connections alive)
+    --tcp-backlog 511                  # TCP connection backlog size for high connection loads
+    --databases 16                     # Number of Redis databases (0-15 available)
+    --maxclients 10000                 # Maximum number of concurrent client connections
+    --requirepass your_redis_password  # Authentication password for security
+  
+  # Persist Redis data and configuration to survive container restarts
   volumes:
+    # Mount data directory for RDB snapshots and AOF logs
     - redis_data:/data
+    # Optional: mount custom Redis configuration file
+    # - ./redis.conf:/usr/local/etc/redis/redis.conf
+  
+  # Environment variables for Redis configuration
   environment:
+    # Password for Redis AUTH command - should match --requirepass in command
     - REDIS_PASSWORD=your_redis_password
+    # Disable Redis protected mode since we're using password authentication
+    - REDIS_PROTECTED_MODE=no
+  
+  # Connect to isolated network for inter-service communication
   networks:
     - iot_network
+  
+  # Resource constraints to prevent Redis from consuming excessive system resources
+  deploy:
+    resources:
+      limits:
+        # Memory limit should match --maxmemory setting plus overhead for Redis internals
+        memory: 768M
+        # CPU limit ensures fair resource sharing in multi-service environment
+        cpus: '0.3'
+      reservations:
+        # Guaranteed minimum resources for consistent performance
+        memory: 256M
+        cpus: '0.1'
+  
+  # Health check to ensure Redis is accepting connections and responding
+  healthcheck:
+    # Use redis-cli ping to verify server responsiveness
+    test: ["CMD-SHELL", "redis-cli --no-auth-warning -a $$REDIS_PASSWORD ping | grep PONG"]
+    # Check every 30 seconds with 10 second timeout
+    interval: 30s
+    timeout: 10s
+    retries: 3
+    # Allow 30 seconds for Redis to start before first health check
+    start_period: 30s
+  
+  # Restart policy for automatic recovery from failures
+  restart: unless-stopped
+  
+  # Security options for container hardening
+  security_opt:
+    - no-new-privileges:true
+  
+  # Run as non-root user for better security (if supported by image)
+  user: "999:999"
+  
+  # Logging configuration for monitoring and debugging
+  logging:
+    driver: "json-file"
+    options:
+      max-size: "10m"
+      max-file: "3"
 ```
 
 ### Application Configuration

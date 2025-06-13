@@ -56,6 +56,243 @@ graph TB
 - **Session Management**: Tracks connected clients and subscriptions
 - **Room Management**: Groups clients by device/topic subscriptions
 
+## WebSocket Service Docker Configuration
+
+### Service Container Setup
+
+```yaml
+# docker-compose.yml
+websocket-service:
+  # Use Node.js 18 with Alpine Linux for smaller image size and better security
+  # Alpine variant provides minimal attack surface while maintaining compatibility
+  build:
+    context: ./services/websocket-service
+    dockerfile: Dockerfile
+    args:
+      - NODE_VERSION=18-alpine
+  
+  # Container name for easy identification and service discovery
+  container_name: iot_websocket_service
+  
+  # Environment variables for service configuration
+  environment:
+    # Service identification and runtime settings
+    NODE_ENV: production
+    SERVICE_NAME: websocket-service
+    
+    # Server configuration
+    PORT: 3003
+    HOST: 0.0.0.0
+    
+    # Frontend CORS settings - allow dashboard to connect
+    FRONTEND_URL: http://localhost:5173
+    CORS_ORIGINS: "http://localhost:5173,https://dashboard.iot-monitoring.com"
+    
+    # Redis connection for pub/sub messaging
+    REDIS_HOST: redis
+    REDIS_PORT: 6379
+    REDIS_PASSWORD: your_redis_password
+    
+    # Optional: Kafka connection for direct message consumption
+    KAFKA_BROKERS: kafka:9092
+    KAFKA_CLIENT_ID: websocket-service
+    
+    # Socket.IO specific configuration
+    SOCKET_IO_PATH: /socket.io
+    SOCKET_IO_PING_INTERVAL: 25000
+    SOCKET_IO_PING_TIMEOUT: 20000
+    SOCKET_IO_MAX_CLIENTS: 10000
+    
+    # Authentication and security settings
+    JWT_SECRET: your_jwt_secret_key
+    RATE_LIMIT_WINDOW: 900000      # 15 minutes
+    RATE_LIMIT_MAX_REQUESTS: 100   # Max requests per window
+    
+    # Logging and monitoring
+    LOG_LEVEL: info
+    METRICS_ENABLED: true
+    HEALTH_CHECK_INTERVAL: 30000
+    
+    # Performance tuning
+    NODE_OPTIONS: "--max-old-space-size=512"
+    UV_THREADPOOL_SIZE: 4
+  
+  # Expose WebSocket service port for client connections
+  ports:
+    - "3003:3003"
+  
+  # Persistent volumes for logs and temporary data
+  volumes:
+    # Application logs for debugging and monitoring
+    - ./logs/websocket:/app/logs
+    # Optional: custom configuration file
+    - ./config/websocket.json:/app/config/production.json
+    # Node.js modules cache for faster container startup
+    - websocket_node_modules:/app/node_modules
+  
+  # Connect to dedicated network for inter-service communication
+  networks:
+    - iot_network
+  
+  # Service dependencies - ensure required services are healthy before starting
+  depends_on:
+    redis:
+      condition: service_healthy
+    kafka:
+      condition: service_healthy
+  
+  # Resource constraints to prevent service from consuming excessive resources
+  deploy:
+    resources:
+      limits:
+        # Memory limit accounts for Socket.IO connections and message buffering
+        memory: 1G
+        # CPU limit ensures fair resource sharing while allowing burst capacity
+        cpus: '0.5'
+      reservations:
+        # Guaranteed minimum resources for consistent performance
+        memory: 256M
+        cpus: '0.2'
+    
+    # Restart policy for high availability
+    restart_policy:
+      condition: unless-stopped
+      delay: 5s
+      max_attempts: 3
+      window: 120s
+  
+  # Health check to ensure service is ready to accept WebSocket connections
+  healthcheck:
+    # Check if service responds to HTTP health endpoint
+    test: ["CMD-SHELL", "curl -f http://localhost:3003/health || exit 1"]
+    # Check every 30 seconds with 10 second timeout
+    interval: 30s
+    timeout: 10s
+    retries: 3
+    # Allow 45 seconds for service to start before first health check
+    start_period: 45s
+  
+  # Security options for container hardening
+  security_opt:
+    - no-new-privileges:true
+  
+  # Run as non-root user for better security
+  user: "node:node"
+  
+  # Logging configuration for centralized log management
+  logging:
+    driver: "json-file"
+    options:
+      max-size: "10m"
+      max-file: "5"
+      labels: "service=websocket"
+  
+  # Labels for service discovery and monitoring
+  labels:
+    - "traefik.enable=true"
+    - "traefik.http.routers.websocket.rule=Host(`ws.iot-monitoring.com`)"
+    - "traefik.http.services.websocket.loadbalancer.server.port=3003"
+    - "prometheus.io/scrape=true"
+    - "prometheus.io/port=3003"
+    - "prometheus.io/path=/metrics"
+
+# Load balancer configuration for WebSocket service scaling
+websocket-lb:
+  # Use HAProxy for WebSocket load balancing with sticky sessions
+  image: haproxy:2.8-alpine
+  container_name: iot_websocket_lb
+  
+  # HAProxy configuration for WebSocket load balancing
+  volumes:
+    - ./config/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+  
+  # Load balancer port - routes traffic to WebSocket service instances
+  ports:
+    - "8080:8080"
+  
+  # Connect to same network as WebSocket services
+  networks:
+    - iot_network
+  
+  # Depend on WebSocket service instances
+  depends_on:
+    - websocket-service
+  
+  # Health check for load balancer
+  healthcheck:
+    test: ["CMD-SHELL", "wget -q --spider http://localhost:8080/stats || exit 1"]
+    interval: 30s
+    timeout: 10s
+    retries: 3
+
+# Optional: WebSocket service replica for high availability
+websocket-service-replica:
+  # Same configuration as primary service
+  build:
+    context: ./services/websocket-service
+    dockerfile: Dockerfile
+    args:
+      - NODE_VERSION=18-alpine
+  
+  container_name: iot_websocket_service_replica
+  
+  # Same environment variables as primary service
+  environment:
+    NODE_ENV: production
+    SERVICE_NAME: websocket-service-replica
+    PORT: 3003
+    HOST: 0.0.0.0
+    
+    # Use same Redis and Kafka connections
+    REDIS_HOST: redis
+    REDIS_PORT: 6379
+    REDIS_PASSWORD: your_redis_password
+    KAFKA_BROKERS: kafka:9092
+    KAFKA_CLIENT_ID: websocket-service-replica
+    
+    # Frontend CORS settings
+    FRONTEND_URL: http://localhost:5173
+    CORS_ORIGINS: "http://localhost:5173,https://dashboard.iot-monitoring.com"
+    
+    # Performance and logging settings
+    LOG_LEVEL: info
+    NODE_OPTIONS: "--max-old-space-size=512"
+  
+  # Different port to avoid conflicts
+  ports:
+    - "3004:3003"
+  
+  # Same network and dependencies
+  networks:
+    - iot_network
+  
+  depends_on:
+    redis:
+      condition: service_healthy
+    kafka:
+      condition: service_healthy
+    websocket-service:
+      condition: service_healthy
+  
+  # Resource limits for replica
+  deploy:
+    resources:
+      limits:
+        memory: 1G
+        cpus: '0.5'
+      reservations:
+        memory: 256M
+        cpus: '0.2'
+  
+  # Health check for replica service
+  healthcheck:
+    test: ["CMD-SHELL", "curl -f http://localhost:3003/health || exit 1"]
+    interval: 30s
+    timeout: 10s
+    retries: 3
+    start_period: 45s
+```
+
 ## Socket.IO Configuration
 
 ### Backend WebSocket Service Configuration

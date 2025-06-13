@@ -54,19 +54,91 @@ graph LR
 ```yaml
 # docker-compose.yml
 kafka:
+  # Use Confluent's official Kafka image with KRaft mode support
+  # 'latest' tag ensures newest features but consider specific versions for production
   image: confluentinc/cp-kafka:latest
+  
   environment:
+    # Enable KRaft mode - eliminates ZooKeeper dependency for cluster coordination
+    # KRaft provides better performance, simplified ops, and reduced infrastructure complexity
     KAFKA_KRAFT_MODE: "true"
+    
+    # Unique node identifier within the KRaft cluster (must be positive integer)
+    # Each Kafka broker/controller in cluster needs distinct ID for coordination
     KAFKA_NODE_ID: 1
+    
+    # Define roles this node plays in cluster: 'broker' handles client requests, 'controller' manages metadata
+    # Combined role is suitable for development; production often separates these for better scaling
     KAFKA_PROCESS_ROLES: broker,controller
+    
+    # Listener name used for controller communication within KRaft cluster
+    # Controllers use this dedicated channel for metadata replication and leader election
     KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+    
+    # Define all listeners this broker will bind to for different types of connections
+    # PLAINTEXT://0.0.0.0:9092 - client connections (producers/consumers) on all interfaces
+    # CONTROLLER://0.0.0.0:9093 - KRaft controller communication on dedicated port
     KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+    
+    # Address clients use to connect - 'kafka' is Docker service name for container networking
+    # This is what clients (other containers) use to reach this Kafka instance
     KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+    
+    # List of controller nodes that participate in metadata quorum for cluster coordination
+    # Format: nodeId@host:port - defines voting members for leader election and consensus
     KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+    
+    # Unique identifier for this Kafka cluster - prevents accidental cross-cluster communication
+    # All nodes in same cluster must share identical cluster ID for proper operation
     KAFKA_CLUSTER_ID: "your-cluster-id"
+    
+    # Allow automatic topic creation when producers/consumers reference non-existent topics
+    # Convenient for development but consider disabling in production for better control
     KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+    
+    # Default number of partitions for auto-created topics
+    # More partitions = better parallelism but higher overhead; 3 is good balance for IoT workloads
     KAFKA_NUM_PARTITIONS: 3
+    
+    # Default replication factor for auto-created topics
+    # 1 = no replication (single node failure loses data); increase for production high availability
     KAFKA_DEFAULT_REPLICATION_FACTOR: 1
+  
+  # Expose Kafka port to host for external client connections (development only)
+  ports:
+    - "9092:9092"
+  
+  # Persist Kafka data and logs to avoid data loss on container restart
+  volumes:
+    - kafka_data:/var/lib/kafka/data
+    - kafka_logs:/var/lib/kafka/logs
+  
+  # Connect to dedicated network for service isolation and security
+  networks:
+    - iot_network
+  
+  # Resource limits to prevent Kafka from consuming all system resources
+  deploy:
+    resources:
+      limits:
+        # Memory limit prevents OOM kills; Kafka can be memory-intensive with large message buffers
+        memory: 1G
+        # CPU limit ensures fair resource sharing with other services
+        cpus: '0.5'
+      reservations:
+        # Reserved resources guarantee minimum performance under load
+        memory: 512M
+        cpus: '0.25'
+  
+  # Health check to ensure Kafka is ready to accept connections
+  healthcheck:
+    # Use kafka-topics command to verify broker is responsive
+    test: ["CMD-SHELL", "kafka-topics --bootstrap-server localhost:9092 --list"]
+    # Check every 30 seconds after 60 second startup grace period
+    interval: 30s
+    timeout: 10s
+    retries: 3
+    start_period: 60s
 ```
 
 ### Application Configuration

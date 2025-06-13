@@ -60,6 +60,165 @@ graph TB
 - **ACID Compliance**: Ensures data consistency for critical device information
 - **Relational Structure**: Maintains relationships between devices, readings, and alerts
 
+## PostgreSQL Docker Configuration
+
+### Database Container Setup
+
+```yaml
+# docker-compose.yml
+postgres:
+  # Use PostgreSQL 15 with Alpine Linux for smaller footprint and better security
+  # Alpine variant reduces container size and includes fewer potential vulnerabilities
+  image: postgres:15-alpine
+  
+  # Container name for easy identification and inter-service communication
+  container_name: iot_postgres
+  
+  # Essential environment variables for PostgreSQL initialization
+  environment:
+    # Database name - automatically created on first startup
+    POSTGRES_DB: iot_monitoring
+    
+    # Root database user with full privileges
+    POSTGRES_USER: iot_user
+    
+    # Strong password for database authentication - should use secrets in production
+    POSTGRES_PASSWORD: secure_password_123
+    
+    # Additional user for application connections with limited privileges
+    POSTGRES_APP_USER: app_user
+    POSTGRES_APP_PASSWORD: app_password_456
+    
+    # Timezone setting for consistent timestamp handling across services
+    TZ: UTC
+    
+    # Locale settings for character encoding and collation
+    POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --locale=C"
+  
+  # Expose PostgreSQL port for development access and debugging
+  # Production deployments should use internal networking only
+  ports:
+    - "5432:5432"
+  
+  # Persistent volume mount to preserve data across container restarts
+  volumes:
+    # Main data directory containing database files and WAL logs
+    - postgres_data:/var/lib/postgresql/data
+    
+    # Custom initialization scripts run on first startup
+    - ./init-scripts:/docker-entrypoint-initdb.d
+    
+    # Custom PostgreSQL configuration file for performance tuning
+    - ./postgresql.conf:/etc/postgresql/postgresql.conf
+    
+    # Optional: backup directory for database dumps
+    - ./backups:/backups
+  
+  # Custom command to use our performance-tuned configuration
+  command: >
+    postgres
+    -c config_file=/etc/postgresql/postgresql.conf
+    -c shared_preload_libraries=pg_stat_statements
+    -c log_statement=all
+    -c log_min_duration_statement=100
+    -c max_connections=200
+    -c shared_buffers=256MB
+    -c effective_cache_size=1GB
+    -c maintenance_work_mem=64MB
+    -c checkpoint_completion_target=0.9
+    -c wal_buffers=16MB
+    -c default_statistics_target=100
+  
+  # Connect to dedicated network for service isolation
+  networks:
+    - iot_network
+  
+  # Resource limits to prevent database from consuming all system resources
+  deploy:
+    resources:
+      limits:
+        # Memory limit should accommodate shared_buffers + work_mem * max_connections
+        memory: 2G
+        # CPU limit ensures fair resource sharing while allowing burst capacity
+        cpus: '1.0'
+      reservations:
+        # Guaranteed minimum resources for consistent performance
+        memory: 512M
+        cpus: '0.5'
+  
+  # Health check to ensure PostgreSQL is ready to accept connections
+  healthcheck:
+    # Use pg_isready to check if server is accepting connections
+    test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+    # Check every 30 seconds with 10 second timeout
+    interval: 30s
+    timeout: 10s
+    retries: 3
+    # Allow 60 seconds for PostgreSQL to start before first health check
+    start_period: 60s
+  
+  # Restart policy for automatic recovery from failures
+  restart: unless-stopped
+  
+  # Security options for container hardening
+  security_opt:
+    - no-new-privileges:true
+  
+  # Run as postgres user (uid 999) for better security
+  user: "999:999"
+  
+  # Shared memory size for PostgreSQL operations
+  shm_size: 256m
+  
+  # Logging configuration for monitoring and debugging
+  logging:
+    driver: "json-file"
+    options:
+      max-size: "50m"
+      max-file: "5"
+      labels: "service=postgres"
+
+# Additional PostgreSQL configuration for production
+postgres_replica:
+  # Read replica for load balancing and high availability
+  image: postgres:15-alpine
+  container_name: iot_postgres_replica
+  
+  environment:
+    # Replica-specific configuration
+    POSTGRES_DB: iot_monitoring
+    POSTGRES_USER: replica_user
+    POSTGRES_PASSWORD: replica_password_789
+    
+    # Replication settings
+    POSTGRES_MASTER_USER: replication_user
+    POSTGRES_MASTER_PASSWORD: replication_password
+    POSTGRES_MASTER_HOST: postgres
+    POSTGRES_MASTER_PORT: 5432
+  
+  # Read-only port to prevent accidental writes
+  ports:
+    - "5433:5432"
+  
+  volumes:
+    - postgres_replica_data:/var/lib/postgresql/data
+  
+  # Replication-specific command
+  command: >
+    postgres
+    -c hot_standby=on
+    -c wal_level=replica
+    -c max_wal_senders=3
+    -c wal_keep_segments=64
+  
+  networks:
+    - iot_network
+  
+  depends_on:
+    postgres:
+      condition: service_healthy
+```
+
 ## Database Schema
 
 ### Core Tables
