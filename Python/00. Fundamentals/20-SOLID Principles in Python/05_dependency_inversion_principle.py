@@ -41,8 +41,6 @@ Common violations:
 
 from abc import ABC, abstractmethod
 from typing import List, Dict, Optional, Protocol
-from enum import Enum
-import json
 from datetime import datetime
 
 
