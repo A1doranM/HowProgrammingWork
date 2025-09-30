@@ -85,3 +85,7 @@
 ## Grokking Deep Learning
 
 <https://www.amazon.com/Grokking-Deep-Learning-Andrew-Trask/dp/1617293709>
+
+## Google Data Analytics Professional Certificate
+
+<https://www.coursera.org/professional-certificates/google-data-analytics>
