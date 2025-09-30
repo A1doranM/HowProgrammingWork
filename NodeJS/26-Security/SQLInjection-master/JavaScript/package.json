@@ -1,0 +1,11 @@
+{
+  "name": "sql-injection",
+  "version": "1.0.0",
+  "description": "SQL Injection Application Example",
+  "author": "Timur Shemsedinov <timur.shemsedinov@gmail.com>",
+  "license": "MIT",
+  "main": "server.js",
+  "dependencies": {
+    "pg": "^8.5.1"
+  }
+}

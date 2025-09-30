@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="Enumerations" Database="" Version="10000" SWTLW="Yes">
+  <WorkspaceParserMacros/>
+  <WorkspaceParserPaths/>
+  <Project Name="UnscopedEnums" Path="UnscopedEnums/UnscopedEnums.project" Active="No"/>
+  <Project Name="ScopedEnums" Path="ScopedEnums/ScopedEnums.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="yes">
+      <Environment/>
+      <Project Name="UnscopedEnums" ConfigName="Debug"/>
+      <Project Name="ScopedEnums" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Environment/>
+      <Project Name="UnscopedEnums" ConfigName="Release"/>
+      <Project Name="ScopedEnums" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

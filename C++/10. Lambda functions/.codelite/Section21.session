@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Session Name="C:\Users\frank\Documents\CPPGitHub\UdemyBeginningCPP\Section21\Section21.workspace">
+  <int Value="1" Name="m_selectedTab"/>
+  <wxString Value="C:\Users\frank\Documents\CPPGitHub\UdemyBeginningCPP\Section21\Section21.workspace" Name="m_workspaceName"/>
+  <TabInfoArray Name="TabInfoArray">
+    <TabInfo>
+      <wxString Value="C:\Users\frank\Documents\CPPGitHub\UdemyBeginningCPP\Section21\StatefulLambdas\main.cpp" Name="FileName"/>
+      <int Value="152" Name="FirstVisibleLine"/>
+      <int Value="153" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\frank\Documents\CPPGitHub\UdemyBeginningCPP\Section21\STL_Lambdas\main.cpp" Name="FileName"/>
+      <int Value="254" Name="FirstVisibleLine"/>
+      <int Value="91" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Program Files\mingw64\lib\gcc\x86_64-w64-mingw32\8.1.0\include\c++\bits\predefined_ops.h" Name="FileName"/>
+      <int Value="350" Name="FirstVisibleLine"/>
+      <int Value="350" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Program Files\mingw64\lib\gcc\x86_64-w64-mingw32\8.1.0\include\c++\bits\stl_algo.h" Name="FileName"/>
+      <int Value="118" Name="FirstVisibleLine"/>
+      <int Value="119" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+  </TabInfoArray>
+  <SerializedObject Name="m_breakpoints">
+    <long Value="1" Name="Count"/>
+    <SerializedObject Name="Breakpoint0">
+      <wxString Value="C:\Users\frank\Desktop\CPPExamples\Section21\SimpleLambdas\main.cpp" Name="file"/>
+      <int Value="44" Name="lineno"/>
+      <wxString Value="" Name="function_name"/>
+      <wxString Value="" Name="memory_address"/>
+      <int Value="1" Name="bp_type"/>
+      <int Value="0" Name="watchpoint_type"/>
+      <wxString Value="" Name="watchpt_data"/>
+      <CData Name="commandlist"/>
+      <bool Value="0" Name="regex"/>
+      <bool Value="0" Name="is_temp"/>
+      <bool Value="1" Name="is_enabled"/>
+      <long Value="0" Name="ignore_number"/>
+      <wxString Value="" Name="conditions"/>
+      <int Value="0" Name="origin"/>
+    </SerializedObject>
+  </SerializedObject>
+  <wxString Value="*.c;*.cpp;*.cxx;*.cc;*.h;*.hpp;*.inc;*.mm;*.m;*.xrc;*.plist;*.txt" Name="m_findInFilesMask"/>
+</Session>

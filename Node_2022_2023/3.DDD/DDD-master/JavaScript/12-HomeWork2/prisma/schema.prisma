@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// -------------------------- DATABASE SCHEMA ------------------------------------
+
+model Role {
+    id        Int      @id @default(autoincrement())
+    name      String
+    Account   Account? @relation(fields: [accountId], references: [id])
+    accountId Int?
+}
+
+model Account {
+    id       Int       @id @default(autoincrement())
+    login    String    @unique @db.VarChar(255)
+    password String
+    roles    Role[]
+    areas    AreaAccount[]
+    Message  Message[]
+    Session  Session[]
+}
+
+model Area {
+    id        Int      @id @default(autoincrement())
+    name      String   @unique
+    owners    AreaAccount[]
+    Message   Message?
+}
+
+model AreaAccount {
+    id          Int      @id @default(autoincrement())
+    owner       Account     @relation(fields: [ownerId], references: [id])
+    ownerId     Int // relation scalar field (used in the `@relation` attribute above)
+    area        Area @relation(fields: [areaId], references: [id])
+    areaId      Int //
+}
+
+model Message {
+    id        Int      @id @default(autoincrement())
+    area      Area    @relation(fields: [areaId], references: [id])
+    areaId    Int  @unique
+    from      Account @relation(fields: [fromId], references: [id])
+    fromId    Int
+    text      String
+}
+
+model Session {
+    id        Int      @id @default(autoincrement())
+    account   Account @relation(fields: [accountId], references: [id])
+    accountId Int
+    token     String  @unique
+    ip        Int
+    data      String
+}

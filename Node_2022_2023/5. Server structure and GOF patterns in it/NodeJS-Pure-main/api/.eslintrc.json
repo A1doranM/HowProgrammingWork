@@ -1,0 +1,15 @@
+{
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "strict": [
+      "error",
+      "never"
+    ]
+  },
+  "globals": {
+    "db": "readonly",
+    "common": "readonly"
+  }
+}

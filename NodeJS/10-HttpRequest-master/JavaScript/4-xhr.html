@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="message"></div>
+<script>
+
+const message = document.getElementById("message");
+
+// Создаем XHR
+const xhr = new XMLHttpRequest();
+xhr.onreadystatechange = () => { // Вешаемся на событие.
+  if (xhr.readyState === XMLHttpRequest.DONE) { // Проверяем статус выполнения запроса, затем
+    message.innerHTML = xhr.status === 200 ? // проверяем код ответа
+      xhr.responseText : `Error code: ${xhr.status}`;
+  }
+};
+xhr.open("GET", "/person", true);
+xhr.send();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "chatExample",
+  "version": "0.1.4",
+  "author": "Timur Shemsedinov <timur.shemsedinov@gmail.com>",
+  "description": "Websocket Chat Example",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.4.0"
+  },
+  "readmeFilename": "README.md"
+}

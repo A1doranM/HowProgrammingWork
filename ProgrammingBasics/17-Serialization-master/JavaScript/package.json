@@ -1,0 +1,9 @@
+{
+  "name": "serialization",
+  "version": "1.0.1",
+  "license": "MIT",
+  "dependencies": {
+    "bson": "^4.0.1",
+    "metarhia-jstp": "^1.1.1"
+  }
+}
