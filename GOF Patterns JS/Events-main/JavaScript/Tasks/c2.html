@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Node.js and Async 2024 Training Course</title>
+<style>
+  body { font-family: 'Courier New', Courier, monospace; background: #121212; color: #ccc; }
+  header, section { padding: 20px; border-bottom: 1px solid #333; }
+  h1, h2, h3 { color: #8ab4f8; }
+  p, li { line-height: 1.6; }
+  .button { background: linear-gradient(to right, #0d47a1, #1976d2); border: none; padding: 10px 20px; color: white; border-radius: 5px; cursor: pointer; }
+  .register { background: #202124; padding: 20px; }
+  input, textarea { width: 100%; padding: 10px; margin-top: 5px; background: #333; border: 1px solid #555; color: white; border-radius: 5px; }
+  form { max-width: 400px; margin: auto; }
+  .case-study { background: #333; padding: 20px; margin: 15px 0; }
+  .testimonial { font-style: italic; background: #252526; padding: 10px; margin-bottom: 10px; }
+  .accordion { background: #252526; padding: 10px; margin-bottom: 10px; cursor: pointer; }
+  .panel { padding: 0 18px; background: #333; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🚀 Node.js and Async 2024 Training Course</h1>
+  <p>Master asynchronous programming in Node.js. Sign up today to advance your skills!</p>
+</header>
+
+<section>
+  <h2>How to take the course</h2>
+  <p>Progress through the contents, watch videos, read code examples, complete tasks. Attend live calls for discussions and code reviews.</p>
+  <p>This course outline will expand throughout 2024. Updates on new videos and tasks will be posted in our Telegram group.</p>
+</section>
+
+<section class="accordion">Course Contents</section>
+<div class="panel">
+  <ul>
+    <li>Introduction to technology 🚀 - Understand the basics of Node.js and async programming.</li>
+    <li>Application structure - Learn about modularity, packages, and dependencies in Node.js applications.</li>
+    <li>Application architecture - Explore layers and dependency injection for scalable design.</li>
+    <li>Database handling, .d.ts headers, and linting tools.</li>
+    <li>Cryptography - Techniques for secure coding in Node.js.</li>
+    <li>Handling asynchronous patterns with Node.js.</li>
+  </ul>
+</div>
+
+<section class="register">
+  <h2>Sign Up</h2>
+  <form action="https://yourbackend.com/register" method="POST">
+    <input type="text" placeholder="Name" required>
+    <input type="email" placeholder="Email" required>
+    <textarea placeholder="Why do you want to join this course?" required></textarea>
+    <button type="submit" class="button">Register Now</button>
+  </form>
+</section>
+
+<section>
+  <h2>About the Author</h2>
+  <p>John Doe is a seasoned Node.js developer with over a decade of experience building scalable applications.</p>
+</section>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+</body>
+</html>

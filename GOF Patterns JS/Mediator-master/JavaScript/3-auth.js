@@ -1,0 +1,90 @@
+'use strict';
+
+class Auth {
+  #users = new Map();
+
+  createUser(login, password, group) {
+    this.#users.set(login, { login, password, group });
+  }
+
+  checkUserPassword(login, password) {
+    const account = this.#users.get(login);
+    if (!account) return false;
+    return account.password === password;
+  }
+
+  getUserGroup(login) {
+    const account = this.#users.get(login);
+    if (!account) return null;
+    return account.group;
+  }
+}
+
+class Logger {
+  static #COLORS = {
+    warn: '\x1b[1;33m',
+    error: '\x1b[0;31m',
+    info: '\x1b[1;37m',
+  };
+
+  static color(level) {
+    return Logger.#COLORS[level] || Logger.#COLORS.info;
+  }
+
+  constructor() {
+    this.log = (level, s) => {
+      const date = new Date().toISOString();
+      const color = Logger.color(level);
+      console.log(color + date + '\t' + s + '\x1b[0m');
+    };
+  }
+
+  warn(s) {
+    this.log('warn', s);
+  }
+
+  error(s) {
+    this.log('error', s);
+  }
+
+  info(s) {
+    this.log('info', s);
+  }
+}
+
+// Mediator
+
+class Security {
+  constructor(auth, logger) {
+    this.auth = auth;
+    this.logger = logger;
+  }
+
+  check(login, password) {
+    if (!login || !password) {
+      this.logger.error('No login or password passed to auth');
+      return false;
+    }
+    const valid = this.auth.checkUserPassword(login, password);
+    if (!valid) {
+      this.logger.warn(`Password is not valid for ${login}`);
+      return false;
+    }
+    this.logger.info(`User ${login} logged in`);
+    return true;
+  }
+}
+
+// Usage
+
+const auth = new Auth();
+auth.createUser('marcus', '12345', 'emperors');
+
+const logger = new Logger();
+
+const sec = new Security(auth, logger);
+console.dir(sec);
+
+sec.check('marcus');
+sec.check('marcus', 'qwerty');
+sec.check('marcus', '12345');

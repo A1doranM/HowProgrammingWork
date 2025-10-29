@@ -1,0 +1,2 @@
+# Decorator
+GoF: Decorator pattern

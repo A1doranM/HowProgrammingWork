@@ -1,0 +1,1 @@
+# Pattern: Chain of responsibility

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@angular/core": "^17.2.3",
+    "@preact/signals-core": "^1.5.1"
+  }
+}
