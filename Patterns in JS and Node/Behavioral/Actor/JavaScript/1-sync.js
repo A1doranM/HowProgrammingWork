@@ -1,5 +1,24 @@
 'use strict';
 
+/**
+ * FILE PURPOSE: Baseline synchronous implementation (NO ACTOR PATTERN)
+ *
+ * This file demonstrates a simple, synchronous e-commerce order processing system
+ * without any concurrency concerns. It works correctly because:
+ * 1. All operations are synchronous
+ * 2. JavaScript single-threaded execution ensures sequential processing
+ * 3. No async operations means no interleaving of execution
+ *
+ * This is the starting point to understand the problem that Actor pattern solves.
+ * The code is safe here ONLY because it's synchronous.
+ */
+
+/**
+ * Check if requested items are available in inventory
+ * @param {Array} items - Array of items to check [{id, quantity}]
+ * @param {Object} state - Current inventory state {[itemId]: availableCount}
+ * @returns {boolean} - true if all items available, false otherwise
+ */
 const checkAvailability = (items, state) => {
   console.log({ checkStart: items });
   for (const item of items) {
