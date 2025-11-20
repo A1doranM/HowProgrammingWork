@@ -4,6 +4,10 @@
 
 <https://github.com/HowProgrammingWorks>
 
+<https://github.com/tshemsedinov/Patterns-JavaScript>
+
+<https://github.com/HowProgrammingWorks/Index/blob/master/Courses/Paradigms.md>
+
 ## Redis
 
 <https://www.udemy.com/course-dashboard-redirect/?course_id=4152302>
@@ -93,6 +97,10 @@
 ## Grokking Deep Learning
 
 <https://www.amazon.com/Grokking-Deep-Learning-Andrew-Trask/dp/1617293709>
+
+## Machine Learning A-Z
+
+<https://udemy.com/course/machinelearning>
 
 ## Deep Learning Specialization
 
