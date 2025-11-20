@@ -76,11 +76,19 @@
 
 <https://www.udemy.com/course/algorithmic-trading-with-python-and-machine-learning>
 
-## Khan Academy
+## Khan Academy: Math and Statistics
 
 <https://www.khanacademy.org/math/linear-algebra>
 
 <https://www.khanacademy.org/math/calculus-1>
+
+<https://www.khanacademy.org/math/ap-calculus-ab/ab-applications-of-integration-new>
+
+<https://www.khanacademy.org/math/multivariable-calculus>
+
+<https://www.khanacademy.org/math/differential-calculus/dc-diff-intro>
+
+<https://www.khanacademy.org/math/ap-statistics/analyzing-categorical-ap>
 
 ## Grokking Deep Learning
 
