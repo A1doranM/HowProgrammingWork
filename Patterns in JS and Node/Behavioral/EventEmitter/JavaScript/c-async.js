@@ -471,13 +471,35 @@ class AsyncEmitter {
   }
 }
 
-// Usage
+// ===========================
+// Usage Example: Async Event Handling
+// ===========================
 
+/**
+ * Async main function
+ *
+ * All examples must be in async context to use await.
+ *
+ * DEMONSTRATES:
+ * - Multiple async listeners per event
+ * - await ee.emit() to wait for all listeners
+ * - Parallel listener execution with coordinated completion
+ */
 const main = async () => {
+  /**
+   * Create AsyncEmitter instance
+   */
   const ee = new AsyncEmitter();
 
+  /**
+   * Register 3 async listeners for 'e1'
+   *
+   * Each listener is async (can use await inside).
+   * All will execute in parallel when event emitted.
+   */
   ee.on('e1', async () => {
     console.log('e1 listener 1');
+    // Could await async operations here
   });
 
   ee.on('e1', async () => {
@@ -488,6 +510,9 @@ const main = async () => {
     console.log('e1 listener 3');
   });
 
+  /**
+   * Register 2 async listeners for 'e2'
+   */
   ee.on('e2', async () => {
     console.log('e2 listener 1');
   });
@@ -496,12 +521,58 @@ const main = async () => {
     console.log('e2 listener 2');
   });
 
+  /**
+   * Emit events with await
+   *
+   * EXECUTION FLOW:
+   *
+   * console.log('begin')
+   *   ↓
+   * await ee.emit('e1')
+   *   ↓ Calls 3 listeners in parallel
+   *   → e1 listener 1 (async)
+   *   → e1 listener 2 (async)
+   *   → e1 listener 3 (async)
+   *   ↓ Promise.all waits for all 3
+   *   ↓ All complete
+   *   ↓ await returns
+   *   ↓
+   * await ee.emit('e2')
+   *   ↓ Calls 2 listeners in parallel
+   *   → e2 listener 1 (async)
+   *   → e2 listener 2 (async)
+   *   ↓ Promise.all waits for both
+   *   ↓ Both complete
+   *   ↓ await returns
+   *   ↓
+   * console.log('end')
+   *
+   * OUTPUT:
+   * begin
+   * e1 listener 1
+   * e1 listener 2
+   * e1 listener 3
+   * e2 listener 1
+   * e2 listener 2
+   * end
+   *
+   * KEY OBSERVATIONS:
+   * - All e1 listeners complete before e2 starts (await)
+   * - Within each event, listeners run in parallel
+   * - 'end' only prints after ALL listeners complete
+   */
   console.log('begin');
-  await ee.emit('e1');
-  await ee.emit('e2');
+  await ee.emit('e1');  // Wait for all e1 listeners
+  await ee.emit('e2');  // Wait for all e2 listeners
   console.log('end');
 };
 
+/**
+ * Execute main function
+ *
+ * Starts the async workflow.
+ * Any uncaught errors will crash the process.
+ */
 main();
 
 
