@@ -284,15 +284,6 @@ class AsyncEmitter {
    * EXAMPLE:
    *
    * ee.on('save', async (data) => {
-// ===========================
-// Usage Example: Async Event Handling
-// ===========================
-
-/**
- * Async main function
- * 
- * All examples must be in async context to use await.
- */
    *   await database.save(data);
    *   return 'saved';
    * });
