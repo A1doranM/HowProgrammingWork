@@ -553,6 +553,58 @@ For each filter element `K[m,n]`:
 
 This is equivalent to convolving the gradient with a **180° rotated filter**.
 
+#### Why Rotate the Filter?
+
+**Mathematical Intuition:**
+
+During forward propagation, when computing output position `(i,j)`, we multiply:
+```
+Output[i,j] = Σ Σ I[i+m, j+n] · K[m,n]
+```
+
+This means input pixel `I[i+m, j+n]` was multiplied by filter element `K[m,n]`.
+
+During backward propagation, the chain rule tells us:
+```
+∂L/∂I[i,j] = Σ (∂L/∂Output[p,q]) · (∂Output[p,q]/∂I[i,j])
+```
+
+**Key Question**: Which output positions `(p,q)` did input `I[i,j]` contribute to?
+
+**Answer**: Input `I[i,j]` contributed to output `Output[p,q]` when:
+- The filter was positioned such that `I[i,j]` fell within the filter's receptive field
+- This happens when: `i = p + m` and `j = q + n` for some filter position `(m,n)`
+- Rearranging: `p = i - m` and `q = j - n`
+
+**Therefore:**
+```
+∂L/∂I[i,j] = Σ Σ (∂L/∂Output)[i-m, j-n] · K[m,n]
+```
+
+**The Rotation**: When we change the indexing from `[i-m, j-n]` to standard convolution form `[i+m', j+n']`, we need to substitute:
+- `m' = -m` (ranges from `-(f-1)` to `0` instead of `0` to `f-1`)
+- `n' = -n`
+
+This substitution is mathematically equivalent to rotating the filter by 180° and performing standard convolution.
+
+**Practical Example:**
+
+Original filter:
+```
+K = [ 1   0  -1 ]     Position (0,0) is top-left
+    [ 1   0  -1 ]     Position (2,2) is bottom-right
+    [ 1   0  -1 ]
+```
+
+After 180° rotation:
+```
+K_rotated = [ -1   0   1 ]     What was (2,2) is now (0,0)
+            [ -1   0   1 ]     What was (0,0) is now (2,2)
+            [ -1   0   1 ]
+```
+
+**Why This Matters**: The rotation ensures that when we convolve the output gradient with the filter, each weight reaches the correct input positions that it originally influenced during the forward pass, properly distributing gradients according to the chain rule.
+
 ---
 
 ## Detailed Backward Propagation Example
@@ -695,24 +747,16 @@ For valid convolution backward pass, we need to:
 1. Pad `∂L/∂Output` to restore input dimensions
 2. Convolve with rotated kernel
 
-**Padding the gradient:**
+**Padding the gradient for backward convolution:**
 
-From 4×4 to 6×6, we need to add `f-1 = 2` pixels of padding:
+To compute the input gradient (6×6) from the output gradient (4×4), we need to:
+1. Add `f-1 = 3-1 = 2` pixels of padding around all sides of the 4×4 gradient
+2. This expands it from 4×4 to (4 + 2×2) = 8×8
+3. Then convolve with the 3×3 rotated filter to get 6×6 output
 
+**Padded gradient (8×8):**
 ```
-∂L/∂Output_padded (6×6) = 
-[ 0.0  0.0  0.0  0.0  0.0  0.0 ]
-[ 0.0  0.0  0.5  0.5  0.0  0.0 ]
-[ 0.0  0.0  0.5  0.5  0.0  0.0 ]
-[ 0.0  0.0  0.5  0.5  0.0  0.0 ]
-[ 0.0  0.0  0.5  0.5  0.0  0.0 ]
-[ 0.0  0.0  0.0  0.0  0.0  0.0 ]
-```
-
-Wait, that's not quite right. For backward convolution, we need to add `f-1 = 2` pixels around the gradient:
-
-```
-∂L/∂Output_padded (8×8) = 
+∂L/∂Output_padded =
 [ 0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0 ]
 [ 0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0 ]
 [ 0.0  0.0  0.0  0.5  0.5  0.0  0.0  0.0 ]
@@ -723,7 +767,7 @@ Wait, that's not quite right. For backward convolution, we need to add `f-1 = 2`
 [ 0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0 ]
 ```
 
-Now convolve with rotated filter.
+Now we convolve this 8×8 padded gradient with the 3×3 rotated filter to obtain a 6×6 input gradient.
 
 #### Computing ∂L/∂I[0,0]:
 
