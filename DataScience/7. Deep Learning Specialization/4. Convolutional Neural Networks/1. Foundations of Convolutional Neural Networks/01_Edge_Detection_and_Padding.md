@@ -504,6 +504,8 @@ Output_padded = [ -20  -10  20  10   0   0 ]
 
 ## Backward Propagation: Gradient Flow
 
+(https://www.youtube.com/watch?v=z9hJzduHToc)
+
 ### Overview
 
 In backward propagation, we compute gradients with respect to:
@@ -553,13 +555,15 @@ For each filter element `K[m,n]`:
 
 This is equivalent to convolving the gradient with a **180° rotated filter**.
 
-#### Why Rotate the Filter?
+#### Why Rotate the Filter? - Detailed Step-by-Step Explanation
 
-**Mathematical Intuition:**
+**Mathematical Intuition - The Core Problem:**
 
-During forward propagation, when computing output position `(i,j)`, we multiply:
+During forward propagation, when computing output position `(i,j)`, we use:
 ```
 Output[i,j] = Σ Σ I[i+m, j+n] · K[m,n]
+             m=0 n=0
+             f-1 f-1
 ```
 
 This means input pixel `I[i+m, j+n]` was multiplied by filter element `K[m,n]`.
@@ -567,43 +571,329 @@ This means input pixel `I[i+m, j+n]` was multiplied by filter element `K[m,n]`.
 During backward propagation, the chain rule tells us:
 ```
 ∂L/∂I[i,j] = Σ (∂L/∂Output[p,q]) · (∂Output[p,q]/∂I[i,j])
+            all p,q
 ```
 
-**Key Question**: Which output positions `(p,q)` did input `I[i,j]` contribute to?
+**Key Question**: Which output positions `(p,q)` did input `I[i,j]` contribute to, and which filter weights were used?
 
-**Answer**: Input `I[i,j]` contributed to output `Output[p,q]` when:
-- The filter was positioned such that `I[i,j]` fell within the filter's receptive field
-- This happens when: `i = p + m` and `j = q + n` for some filter position `(m,n)`
-- Rearranging: `p = i - m` and `q = j - n`
+---
 
-**Therefore:**
+#### Step 1: Understanding Forward Propagation Contributions
+
+**Concrete Example - Tracking One Input Pixel:**
+
+Let's track input pixel `I[2,3]` with a 3×3 filter.
+
+**Forward pass contributions of I[2,3]:**
+
+Output position (0,1):
+- Filter at position (0,1): patch starts at I[0,1]
+- To reach I[2,3]: need m=2, n=2
+- So I[2,3] multiplies with K[2,2]
+- Contribution: I[2,3] · K[2,2] → Output[0,1]
+
+Output position (1,2):
+- Filter at position (1,2): patch starts at I[1,2]
+- To reach I[2,3]: need m=1, n=1
+- So I[2,3] multiplies with K[1,1]
+- Contribution: I[2,3] · K[1,1] → Output[1,2]
+
+Output position (2,3):
+- Filter at position (2,3): patch starts at I[2,3]
+- To reach I[2,3]: need m=0, n=0
+- So I[2,3] multiplies with K[0,0]
+- Contribution: I[2,3] · K[0,0] → Output[2,3]
+
+**Pattern**: Input `I[i,j]` contributes to output `Output[p,q]` when:
 ```
-∂L/∂I[i,j] = Σ Σ (∂L/∂Output)[i-m, j-n] · K[m,n]
+i = p + m  and  j = q + n  (for some m, n in filter)
+
+Rearranging:
+p = i - m  and  q = j - n
 ```
 
-**The Rotation**: When we change the indexing from `[i-m, j-n]` to standard convolution form `[i+m', j+n']`, we need to substitute:
-- `m' = -m` (ranges from `-(f-1)` to `0` instead of `0` to `f-1`)
-- `n' = -n`
+---
 
-This substitution is mathematically equivalent to rotating the filter by 180° and performing standard convolution.
+#### Step 2: Deriving the Backward Pass Formula
 
-**Practical Example:**
+**For input pixel I[i,j], accumulate all its contributions:**
 
-Original filter:
 ```
-K = [ 1   0  -1 ]     Position (0,0) is top-left
-    [ 1   0  -1 ]     Position (2,2) is bottom-right
-    [ 1   0  -1 ]
+∂L/∂I[i,j] = Σ (∂L/∂Output[p,q]) · (∂Output[p,q]/∂I[i,j])
+            all p,q where I[i,j] contributed to Output[p,q]
 ```
 
-After 180° rotation:
+From forward pass, we know:
 ```
-K_rotated = [ -1   0   1 ]     What was (2,2) is now (0,0)
-            [ -1   0   1 ]     What was (0,0) is now (2,2)
-            [ -1   0   1 ]
+∂Output[p,q]/∂I[i,j] = K[m,n]  where p = i - m and q = j - n
 ```
 
-**Why This Matters**: The rotation ensures that when we convolve the output gradient with the filter, each weight reaches the correct input positions that it originally influenced during the forward pass, properly distributing gradients according to the chain rule.
+Substituting:
+```
+∂L/∂I[i,j] = Σ Σ (∂L/∂Output[i-m, j-n]) · K[m,n]
+            m=0 n=0
+            f-1 f-1
+```
+
+This is the **key formula** for backward propagation!
+
+---
+
+#### Step 3: Why We Need Rotation - Index Transformation
+
+**Problem**: The formula `∂L/∂Output[i-m, j-n]` uses **negative offsets** (i-m, j-n).
+
+Standard convolution uses **positive offsets**: `∂L/∂Output[i+m', j+n']`
+
+**Solution**: Transform the indices by substituting:
+```
+m' = -m
+n' = -n
+```
+
+**Detailed index transformation:**
+
+When `m` ranges from 0 to f-1:
+- m=0 → m'=0 (but we want this at position 2 for 3×3)
+- m=1 → m'=-1 (invalid for array indexing)
+- m=2 → m'=-2 (invalid for array indexing)
+
+**The Fix**: Instead of changing signs, we **flip the filter** so that:
+- What was at position (0,0) moves to position (f-1, f-1)
+- What was at position (f-1, f-1) moves to position (0,0)
+- This is a 180° rotation!
+
+---
+
+#### Step 4: Concrete Example - 3×3 Filter Rotation
+
+**Original Filter K with labeled positions:**
+
+```
+      j=0   j=1   j=2
+i=0:  K[0,0]  K[0,1]  K[0,2]  ← Top row
+i=1:  K[1,0]  K[1,1]  K[1,2]  ← Middle row
+i=2:  K[2,0]  K[2,1]  K[2,2]  ← Bottom row
+      ↑       ↑       ↑
+    Left   Center  Right
+```
+
+With values:
+```
+K = [ 1    0   -1 ]  ← Row 0
+    [ 1    0   -1 ]  ← Row 1
+    [ 1    0   -1 ]  ← Row 2
+```
+
+**180° Rotation Process:**
+
+Step A: Flip vertically (top ↔ bottom):
+```
+[ 1    0   -1 ]  ← Was row 2, now row 0
+[ 1    0   -1 ]  ← Was row 1, stays row 1
+[ 1    0   -1 ]  ← Was row 0, now row 2
+```
+
+Step B: Flip horizontally (left ↔ right):
+```
+[ -1   0    1 ]  ← Final row 0
+[ -1   0    1 ]  ← Final row 1
+[ -1   0    1 ]  ← Final row 2
+```
+
+**Result - K_rotated:**
+```
+K_rotated = [ -1   0    1 ]  = [ K[2,2]  K[2,1]  K[2,0] ]
+            [ -1   0    1 ]    [ K[1,2]  K[1,1]  K[1,0] ]
+            [ -1   0    1 ]    [ K[0,2]  K[0,1]  K[0,0] ]
+```
+
+**Position mapping:**
+```
+Original K[i,j]  →  Rotated position [f-1-i, f-1-j]
+
+K[0,0]=1   → K_rotated[2,2]=-1  ❌ No! → K_rotated[2,2]=1
+K[0,1]=0   → K_rotated[2,1]=0   ✓
+K[0,2]=-1  → K_rotated[2,0]=-1  ❌ No! → K_rotated[2,0]=1
+K[2,0]=1   → K_rotated[0,2]=1   ❌ No! → K_rotated[0,2]=-1
+K[2,2]=-1  → K_rotated[0,0]=-1  ✓
+```
+
+Wait, let me recalculate correctly:
+
+**Original:**
+```
+Position (0,0): value = 1
+Position (0,1): value = 0
+Position (0,2): value = -1
+Position (1,0): value = 1
+Position (1,1): value = 0
+Position (1,2): value = -1
+Position (2,0): value = 1
+Position (2,1): value = 0
+Position (2,2): value = -1
+```
+
+**After 180° rotation (flip both axes):**
+```
+New position (0,0) gets old (2,2): value = -1
+New position (0,1) gets old (2,1): value = 0
+New position (0,2) gets old (2,0): value = 1
+New position (1,0) gets old (1,2): value = -1
+New position (1,1) gets old (1,1): value = 0
+New position (1,2) gets old (1,0): value = 1
+New position (2,0) gets old (0,2): value = -1
+New position (2,1) gets old (0,1): value = 0
+New position (2,2) gets old (0,0): value = 1
+```
+
+**K_rotated:**
+```
+K_rotated = [ -1   0    1 ]
+            [ -1   0    1 ]
+            [ -1   0    1 ]
+```
+
+---
+
+#### Step 5: Verifying the Rotation with a Concrete Backward Pass
+
+**Example**: Computing ∂L/∂I[2,3] using the rotated filter.
+
+**Without rotation (original formula):**
+```
+∂L/∂I[2,3] = Σ Σ (∂L/∂Output[2-m, 3-n]) · K[m,n]
+            m=0 n=0
+
+= (∂L/∂Output[2,3]) · K[0,0] +
+  (∂L/∂Output[2,2]) · K[0,1] +
+  (∂L/∂Output[2,1]) · K[0,2] +
+  (∂L/∂Output[1,3]) · K[1,0] +
+  (∂L/∂Output[1,2]) · K[1,1] +
+  (∂L/∂Output[1,1]) · K[1,2] +
+  (∂L/∂Output[0,3]) · K[2,0] +
+  (∂L/∂Output[0,2]) · K[2,1] +
+  (∂L/∂Output[0,1]) · K[2,2]
+```
+
+**With rotation (standard convolution form):**
+
+Pad ∂L/∂Output from 4×4 to 8×8, then convolve with K_rotated at position (2,3):
+
+```
+Extract 3×3 patch starting at (2,3):
+Patch = [ (∂L/∂Output_padded[2,3])  (∂L/∂Output_padded[2,4])  (∂L/∂Output_padded[2,5]) ]
+        [ (∂L/∂Output_padded[3,3])  (∂L/∂Output_padded[3,4])  (∂L/∂Output_padded[3,5]) ]
+        [ (∂L/∂Output_padded[4,3])  (∂L/∂Output_padded[4,4])  (∂L/∂Output_padded[4,5]) ]
+
+With padding=2, the original 4×4 starts at position (2,2) in the 8×8:
+= [ (∂L/∂Output[0,1])  (∂L/∂Output[0,2])  (∂L/∂Output[0,3]) ]
+  [ (∂L/∂Output[1,1])  (∂L/∂Output[1,2])  (∂L/∂Output[1,3]) ]
+  [ (∂L/∂Output[2,1])  (∂L/∂Output[2,2])  (∂L/∂Output[2,3]) ]
+
+Convolve with K_rotated:
+= (∂L/∂Output[0,1]) · K_rotated[0,0] +
+  (∂L/∂Output[0,2]) · K_rotated[0,1] +
+  (∂L/∂Output[0,3]) · K_rotated[0,2] +
+  (∂L/∂Output[1,1]) · K_rotated[1,0] +
+  (∂L/∂Output[1,2]) · K_rotated[1,1] +
+  (∂L/∂Output[1,3]) · K_rotated[1,2] +
+  (∂L/∂Output[2,1]) · K_rotated[2,0] +
+  (∂L/∂Output[2,2]) · K_rotated[2,1] +
+  (∂L/∂Output[2,3]) · K_rotated[2,2]
+
+Substituting K_rotated values (K_rotated[i,j] = K[2-i, 2-j]):
+= (∂L/∂Output[0,1]) · K[2,2] +
+  (∂L/∂Output[0,2]) · K[2,1] +
+  (∂L/∂Output[0,3]) · K[2,0] +
+  (∂L/∂Output[1,1]) · K[1,2] +
+  (∂L/∂Output[1,2]) · K[1,1] +
+  (∂L/∂Output[1,3]) · K[1,0] +
+  (∂L/∂Output[2,1]) · K[0,2] +
+  (∂L/∂Output[2,2]) · K[0,1] +
+  (∂L/∂Output[2,3]) · K[0,0]
+```
+
+**Verification**: Both methods produce identical results! ✓
+
+The terms match exactly between the two formulations.
+
+---
+
+#### Step 6: Visual Index Mapping Table
+
+**For a 3×3 filter (f=3), index mapping during rotation:**
+
+| Original Position (m,n) | Original Value | Rotated Position (2-m, 2-n) | Maps to Original |
+|------------------------|----------------|----------------------------|------------------|
+| (0,0) | K[0,0]=1 | (2,2) | K[2,2]=-1 in rotated |
+| (0,1) | K[0,1]=0 | (2,1) | K[2,1]=0 in rotated |
+| (0,2) | K[0,2]=-1 | (2,0) | K[2,0]=1 in rotated |
+| (1,0) | K[1,0]=1 | (1,2) | K[1,2]=-1 in rotated |
+| (1,1) | K[1,1]=0 | (1,1) | K[1,1]=0 in rotated |
+| (1,2) | K[1,2]=-1 | (1,0) | K[1,0]=1 in rotated |
+| (2,0) | K[2,0]=1 | (0,2) | K[0,2]=1 in rotated |
+| (2,1) | K[2,1]=0 | (0,1) | K[0,1]=0 in rotated |
+| (2,2) | K[2,2]=-1 | (0,0) | K[0,0]=-1 in rotated |
+
+**Formula for 180° rotation:**
+```
+K_rotated[i,j] = K[f-1-i, f-1-j]
+
+For f=3:
+K_rotated[i,j] = K[2-i, 2-j]
+```
+
+---
+
+#### Step 7: Why This Mathematically Works
+
+**The Core Insight:**
+
+When we write:
+```
+∂L/∂I[i,j] = Σ Σ (∂L/∂Output[i-m, j-n]) · K[m,n]
+```
+
+And pad ∂L/∂Output, then convolve with rotated filter:
+```
+∂L/∂I[i,j] = Σ Σ (∂L/∂Output_padded[i+m, j+n]) · K_rotated[m,n]
+```
+
+The rotation ensures:
+```
+K_rotated[m,n] = K[f-1-m, f-1-n]
+```
+
+So when we compute:
+```
+(∂L/∂Output_padded[i+m, j+n]) · K_rotated[m,n]
+= (∂L/∂Output_padded[i+m, j+n]) · K[f-1-m, f-1-n]
+```
+
+With proper padding offset accounting, this equals:
+```
+(∂L/∂Output[i-(f-1-m), j-(f-1-n)]) · K[f-1-m, f-1-n]
+```
+
+Let `m' = f-1-m`, then `m = f-1-m'`:
+```
+= (∂L/∂Output[i-m', j-n']) · K[m', n']
+```
+
+Which is exactly our original formula! The rotation combined with padding produces the correct index relationships.
+
+---
+
+#### Summary: Why Rotation is Necessary
+
+1. **Forward pass** uses positive offsets: `I[i+m, j+n] · K[m,n]`
+2. **Backward pass** mathematically requires negative offsets: `∂L/∂Output[i-m, j-n] · K[m,n]`
+3. **Standard convolution** only supports positive offsets
+4. **Solution**: Rotate filter 180° to transform the formula into standard convolution form
+5. **Result**: `∂L/∂Output_padded[i+m, j+n] · K_rotated[m,n]` produces correct gradients
+
+The rotation ensures each filter weight reaches the exact input positions it influenced during forward propagation, maintaining the mathematical correctness of the chain rule while allowing us to use efficient standard convolution operations.
 
 ---
 
