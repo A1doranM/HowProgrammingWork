@@ -15,9 +15,6 @@
  * 3. Complex queries with multiple DSL options
  * 4. Data validation and integrity
  *
- * This pragmatic test suite provides confidence without excessive complexity.
- * It's comprehensive yet maintainable - covering real-world scenarios
- * without testing implementation details.
  */
 
 import test from 'node:test';
