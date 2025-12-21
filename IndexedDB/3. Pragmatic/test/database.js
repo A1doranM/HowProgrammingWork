@@ -132,9 +132,6 @@ test('Pragmatic: Database CRUD + DSL', async () => {
  * 3. offset skips results
  * 4. limit caps results
  * 5. sort and order are applied to final results
- *
- * This is a pragmatic test - it validates real-world usage where
- * multiple options are combined for complex queries.
  */
 test('Pragmatic: Complex DSL', async () => {
   // Create a separate database for this test (isolation)
